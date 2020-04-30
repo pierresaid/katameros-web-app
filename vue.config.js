@@ -1,6 +1,10 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
   pwa: {
-    themeColor: "#FFC107"
+    name: "Katameros",
+    msTileColor: "#FFC107",
+    themeColor: "#FFC107",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "black"
   }
 };
