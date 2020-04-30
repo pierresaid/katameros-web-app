@@ -20,7 +20,7 @@ export default {
   },
   actions: {
     async getReadings({ commit }, date) {
-      const formatedDate = formatDate(new Date());
+      const formatedDate = formatDate(date);
       const res = await http
         .get(`/readings/gregorian/${formatedDate}`)
         .catch(error => {
