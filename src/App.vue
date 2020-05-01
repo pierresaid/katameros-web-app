@@ -1,5 +1,13 @@
 <template>
   <v-app dark>
+    <v-snackbar v-model="error" color="error" bottom :timeout="0">
+      <v-icon>signal_wifi_off</v-icon>
+      Connection error
+      <v-btn color="light-blue darken-4" @click="loadReadings">
+        Refresh
+      </v-btn>
+    </v-snackbar>
+
     <v-app-bar app color="primary" dark>
       <v-btn color="transparent" to="/" fab text>
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
@@ -30,16 +38,23 @@ export default {
   name: "App",
   data() {
     return {
-      loading: false
+      loading: false,
+      error: false
     };
   },
   async mounted() {
-    this.loading = true;
-    await this.getReadings(new Date());
-    this.loading = false;
+    this.loadReadings();
   },
   methods: {
-    ...mapActions("readings", ["getReadings"])
+    ...mapActions("readings", ["getReadings"]),
+    async loadReadings() {
+      this.error = false;
+      this.loading = true;
+      await this.getReadings(new Date()).catch(() => {
+        this.error = true;
+      });
+      this.loading = false;
+    }
   }
 };
 </script>
