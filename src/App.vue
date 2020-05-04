@@ -1,15 +1,15 @@
 <template>
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="0">
-      <v-icon>signal_wifi_off</v-icon>
+      <v-icon color="white">signal_wifi_off</v-icon>
       Connection error
-      <v-btn color="light-blue darken-4" @click="loadReadings">
+      <v-btn color="light-blue darken-1" dark @click="loadReadings">
         Refresh
       </v-btn>
     </v-snackbar>
 
     <v-app-bar app color="primary" dark>
-      <v-btn color="transparent" to="/" fab text>
+      <v-btn color="transparent" to="/" fab text aria-label="home">
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
       </v-btn>
       <v-spacer />
