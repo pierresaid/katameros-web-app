@@ -1,46 +1,65 @@
 <template>
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="0">
-      <v-icon color="white">signal_wifi_off</v-icon>
-      Connection error
-      <v-btn color="light-blue darken-1" dark @click="loadReadings">
-        Refresh
-      </v-btn>
+      <v-icon color="white">signal_wifi_off</v-icon>Connection error
+      <v-btn color="light-blue darken-1" dark @click="loadReadings"
+        >Refresh</v-btn
+      >
     </v-snackbar>
 
-    <v-app-bar app color="primary" dark>
+    <v-system-bar color="primary"></v-system-bar>
+
+    <v-app-bar app color="primary">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <h1 class="heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
+      <v-spacer />
       <v-btn color="transparent" to="/" fab text aria-label="home">
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
       </v-btn>
-      <v-spacer />
-      <h1 class="black--text heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
     </v-app-bar>
 
+    <navigation v-model="drawer" :sections="sections" />
+
     <v-content>
-      <span
-        v-if="loading"
-        style="width:100%; height:100%; display:flex; justify-content:center; align-items: center"
-      >
-        <v-progress-circular
-          color="amber"
-          style="width:40%; height:10%"
-          indeterminate
-        ></v-progress-circular>
-      </span>
-      <router-view v-else />
+      <v-container>
+        <h1 class="display-1 text-center mt-10">
+          Lectures du {{ date.toLocaleDateString() }}
+        </h1>
+        <v-fade-transition mode="out-in">
+          <v-progress-circular
+            v-if="loading"
+            indeterminate
+            color="primary"
+            class="d-flex justify-center mt-10"
+            style="width:100%;"
+          />
+          <router-view v-else />
+        </v-fade-transition>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import Navigation from "@/components/drawer/Drawer.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "App",
+  components: { Navigation },
   data() {
     return {
       loading: false,
-      error: false
+      error: false,
+      drawer: false
     };
+  },
+  computed: {
+    ...mapState("readings", ["sections", "date"])
+  },
+  watch: {
+    date() {
+      this.loadReadings(this.date);
+    }
   },
   async mounted() {
     this.loadReadings();
@@ -50,7 +69,7 @@ export default {
     async loadReadings() {
       this.error = false;
       this.loading = true;
-      await this.getReadings(new Date()).catch(() => {
+      await this.getReadings(this.date).catch(() => {
         this.error = true;
       });
       this.loading = false;
