@@ -22,9 +22,15 @@
 
     <v-content>
       <v-container>
-        <h1 class="display-1 text-center mt-10">
-          Lectures du {{ date.toLocaleDateString() }}
+        <h1 class="display-1 text-center mt-10 text-capitalize">
+          <div>
+            {{ formattedDate }}
+          </div>
+          <div>
+            {{ formattedCopticDate }}
+          </div>
         </h1>
+
         <v-fade-transition mode="out-in">
           <v-progress-circular
             v-if="loading"
@@ -43,6 +49,9 @@
 <script>
 import Navigation from "@/components/drawer/Drawer.vue";
 import { mapActions, mapState } from "vuex";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
+
 export default {
   name: "App",
   components: { Navigation },
@@ -54,7 +63,16 @@ export default {
     };
   },
   computed: {
-    ...mapState("readings", ["sections", "date"])
+    ...mapState("readings", ["sections", "date"]),
+    formattedDate() {
+      return format(this.date, "EEEE d LLLL", { locale: fr });
+    },
+    formattedCopticDate() {
+      return this.date.toLocaleDateString("fr-FR-u-ca-coptic", {
+        month: "long",
+        day: "numeric"
+      });
+    }
   },
   watch: {
     date() {

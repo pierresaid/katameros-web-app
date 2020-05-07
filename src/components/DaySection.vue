@@ -1,6 +1,6 @@
 <template>
   <div class="my-10">
-    <h2 class="display-2 text-center font-weight-bold mb-10">
+    <h2 class="mb-2 section-title">
       {{ section.title }}
     </h2>
     <span v-for="(subSection, index) in section.subSections" :key="index">
@@ -22,4 +22,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 450;
+  font-size: 2em;
+}
+</style>

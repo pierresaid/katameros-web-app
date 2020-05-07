@@ -1,17 +1,16 @@
 <template>
   <div class="subSection mb-10">
-    <h2
-      v-if="subSection.title"
-      class="my-2 headline font-weight-medium text-center"
-    >
+    <h2 v-if="subSection.title" class="subSection-title">
       {{ subSection.title }}
     </h2>
+
     <div v-if="subSection.introduction" class="subSection-introduction">
       {{ subSection.introduction }}
     </div>
     <span v-for="(reading, index) in subSection.readings" :key="index">
       <reading :reading="reading" class="reading" />
     </span>
+    <v-divider />
   </div>
 </template>
 
@@ -32,9 +31,17 @@ export default {
 <style>
 .subSection-introduction {
   color: #d71b1b;
+  margin-top: 10px;
+}
+
+.subSection-title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.6em;
+  color: rgba(0, 0, 0, 0.6);
 }
 .reading {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 60px;
 }
 </style>

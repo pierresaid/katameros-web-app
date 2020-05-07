@@ -4,11 +4,15 @@
     <div v-if="reading.introduction" class="reading-introduction mb-5">
       {{ reading.introduction }}
     </div>
-    <h3 class="headline font-weight-medium mb-2">{{ Ref }}</h3>
+    <h3 class="mb-2 ref">{{ Ref }}</h3>
     <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
-      <p v-for="(verse, verseIdx) in passage.verses" :key="verseIdx">
+      <div
+        v-for="(verse, verseIdx) in passage.verses"
+        :key="verseIdx"
+        class="verse-text"
+      >
         <span class="overline">{{ verse.number }}</span> {{ verse.text }}
-      </p>
+      </div>
     </div>
     <div v-if="reading.conclusion" class="reading-conclusion">
       {{ reading.conclusion }}
@@ -50,5 +54,14 @@ export default {
 .reading-conclusion {
   text-align: right;
   color: #d71b1b;
+}
+.verse-text {
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.ref {
+  font-weight: 500;
+  font-size: 1.2em;
+  text-transform: uppercase;
 }
 </style>
