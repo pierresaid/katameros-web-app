@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-expansion-panels v-model="panel" flat focusable multiple>
+  <div class="mt-10">
+    <v-expansion-panels v-model="panel" focusable multiple accordion>
       <v-expansion-panel
         v-for="(section, index) in sections"
         :key="index"
@@ -50,4 +50,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.v-expansion-panel:first-child div:first-child,
+.v-expansion-panels {
+  border-radius: 20px;
+}
+
+.v-expansion-panel:last-child .v-expansion-panel-header,
+.v-expansion-panels {
+  transition: border-bottom-left-radius 0.3s ease;
+}
+
+.v-expansion-panel:last-child:not(.v-item--active) .v-expansion-panel-header,
+.v-expansion-panels {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+</style>

@@ -2,7 +2,11 @@
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="0">
       <v-icon color="white">signal_wifi_off</v-icon>Connection error
-      <v-btn color="light-blue darken-1" dark @click="loadReadings"
+      <v-btn
+        aria-label="Refresh"
+        color="light-blue darken-1"
+        dark
+        @click="loadReadings"
         >Refresh</v-btn
       >
     </v-snackbar>

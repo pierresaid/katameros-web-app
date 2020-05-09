@@ -1,5 +1,5 @@
 <template>
-  <div class="my-10">
+  <div>
     <v-expansion-panel-header ref="section" color="primary" ripple>
       <h2 class="section-title">
         {{ section.title }}

@@ -4,6 +4,7 @@
       <div class="pa-3 d-flex align-items-center">
         <v-app-bar-nav-icon
           icon
+          aria-label="Menu"
           @click.stop="drawer = false"
         ></v-app-bar-nav-icon>
         <h1 class="heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
