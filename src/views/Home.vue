@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-8">
     <v-expansion-panels v-model="panel" focusable multiple accordion flat>
       <v-expansion-panel
         v-for="(section, index) in sections"
