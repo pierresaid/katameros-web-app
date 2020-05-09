@@ -18,7 +18,7 @@
       </v-btn>
     </v-app-bar>
 
-    <navigation v-model="drawer" :sections="sections" />
+    <navigation :sections="sections" />
 
     <v-content>
       <v-container>
@@ -58,12 +58,19 @@ export default {
   data() {
     return {
       loading: false,
-      error: false,
-      drawer: false
+      error: false
     };
   },
   computed: {
     ...mapState("readings", ["sections", "date"]),
+    drawer: {
+      get() {
+        return this.$store.state.navigation.drawer;
+      },
+      set(value) {
+        this.$store.commit("navigation/SET_DRAWER", value);
+      }
+    },
     formattedDate() {
       return format(this.date, "EEEE d LLLL", { locale: fr });
     },

@@ -1,11 +1,15 @@
 <template>
   <div class="my-10">
-    <h2 class="mb-2 section-title">
-      {{ section.title }}
-    </h2>
-    <span v-for="(subSection, index) in section.subSections" :key="index">
-      <subSection :sub-section="subSection" />
-    </span>
+    <v-expansion-panel-header ref="section" color="primary" ripple>
+      <h2 class="section-title">
+        {{ section.title }}
+      </h2>
+    </v-expansion-panel-header>
+    <v-expansion-panel-content>
+      <span v-for="(subSection, index) in section.subSections" :key="index">
+        <subSection :sub-section="subSection" />
+      </span>
+    </v-expansion-panel-content>
   </div>
 </template>
 
@@ -17,7 +21,17 @@ export default {
     section: {
       type: Object,
       required: true
+    },
+    idx: {
+      type: Number,
+      required: true
     }
+  },
+  mounted() {
+    this.$store.commit("navigation/ADD_SECTION", {
+      index: this.idx,
+      ref: this.$refs.section
+    });
   }
 };
 </script>

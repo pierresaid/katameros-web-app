@@ -1,10 +1,10 @@
 <template>
-  <v-navigation-drawer :value="drawer" app @input="$emit('toggle', $event)">
+  <v-navigation-drawer v-model="drawer" app>
     <template v-slot:prepend>
       <div class="pa-3 d-flex align-items-center">
         <v-app-bar-nav-icon
           icon
-          @click.stop="$emit('toggle', false)"
+          @click.stop="drawer = false"
         ></v-app-bar-nav-icon>
         <h1 class="heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
       </div>
@@ -79,19 +79,11 @@ import { mapActions } from "vuex";
 import { format } from "date-fns";
 
 export default {
-  model: {
-    prop: "drawer",
-    event: "toggle"
-  },
   props: {
     sections: {
       type: Array,
       required: false,
       default: () => []
-    },
-    drawer: {
-      type: Boolean,
-      required: true
     }
   },
   data() {
@@ -103,28 +95,45 @@ export default {
   computed: {
     formattedDate() {
       return format(new Date(this.date), "dd/MM/yyyy");
+    },
+    drawer: {
+      get() {
+        return this.$store.state.navigation.drawer;
+      },
+      set(value) {
+        this.$store.commit("navigation/SET_DRAWER", value);
+      }
     }
   },
   methods: {
     ...mapActions("readings", ["setDate"]),
-    menuItemClick(index) {
-      this.$vuetify.goTo(`#section-${index}`, {
-        duration: 300,
-        easing: "easeInOutCubic",
-        offset: 10
-      });
-      this.$emit("toggle", false);
+    async menuItemClick(index) {
+      this.drawer = false;
+      if (
+        this.$store.state.navigation.panel.find(i => {
+          return i === index;
+        }) === undefined
+      ) {
+        this.$store.state.navigation.sections[index].ref.$el.click();
+      } else {
+        window.scrollTo(scrollX, scrollY - 0.1);
+        this.$vuetify.goTo(`#section-${index}`, {
+          duration: 300,
+          easing: "easeInOutCubic",
+          offset: 10
+        });
+      }
     },
     okClicked(date) {
       this.$refs.menu.save(date);
       this.setDate(new Date(date));
-      this.$emit("toggle", false);
+      this.drawer = false;
     },
     todayClicked() {
       const date = new Date().toISOString().substr(0, 10);
       this.$refs.menu.save(date);
       this.setDate(new Date(date));
-      this.$emit("toggle", false);
+      this.drawer = false;
     }
   }
 };

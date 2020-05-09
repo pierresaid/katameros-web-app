@@ -10,7 +10,6 @@
     <span v-for="(reading, index) in subSection.readings" :key="index">
       <reading :reading="reading" class="reading" />
     </span>
-    <v-divider />
   </div>
 </template>
 
