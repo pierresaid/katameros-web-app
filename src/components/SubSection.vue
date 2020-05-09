@@ -39,6 +39,11 @@ export default {
   font-size: 1.6em;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.theme--dark .subSection-title {
+  color: #cacaca;
+}
+
 .reading {
   margin-top: 10px;
   margin-bottom: 60px;

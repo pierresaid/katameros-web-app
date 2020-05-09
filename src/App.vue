@@ -13,9 +13,12 @@
 
     <v-system-bar color="primary"></v-system-bar>
 
-    <v-app-bar app color="primary">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <h1 class="heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
+    <v-app-bar app color="primary" class="black--text">
+      <v-app-bar-nav-icon
+        class="black--text"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+      <h1 class="heading coptic">Katameroc</h1>
       <v-spacer />
       <v-btn color="transparent" to="/" fab text aria-label="home">
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
@@ -26,7 +29,7 @@
 
     <v-content>
       <v-container>
-        <h1 class="display-1 text-center mt-10 text-capitalize">
+        <h1 class="display-1 text-center mt-10 text-capitalize main-title">
           <svg
             width="100"
             :fill="$vuetify.theme.dark ? 'white' : 'black'"
@@ -43,10 +46,10 @@
               />
             </g>
           </svg>
-          <div>
+          <div class="main-title">
             {{ formattedDate }}
           </div>
-          <div>
+          <div class="main-title">
             {{ formattedCopticDate }}
           </div>
         </h1>
@@ -122,3 +125,17 @@ export default {
   }
 };
 </script>
+
+<style>
+@font-face {
+  font-family: "Avva Shenouda";
+  src: url("/fonts/Avva_Shenouda.ttf");
+}
+
+.coptic {
+  font-family: "Avva Shenouda";
+}
+.main-title {
+  font-family: "Suez One";
+}
+</style>

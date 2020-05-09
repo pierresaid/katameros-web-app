@@ -7,7 +7,7 @@
           aria-label="Menu"
           @click.stop="drawer = false"
         ></v-app-bar-nav-icon>
-        <h1 class="heading">ⲕⲁⲧⲁⲙⲉⲣⲟⲥ</h1>
+        <h1 class="heading coptic">Katameroc</h1>
       </div>
       <v-divider />
 

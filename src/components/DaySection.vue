@@ -38,9 +38,11 @@ export default {
 
 <style>
 .section-title {
+  font-family: "Suez One";
   text-align: center;
   text-transform: uppercase;
-  font-weight: 450;
+  font-weight: 300;
   font-size: 2em;
+  color: black;
 }
 </style>
