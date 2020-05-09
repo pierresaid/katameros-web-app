@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app>
+  <v-navigation-drawer v-model="drawer" app hide-overlay>
     <template v-slot:prepend>
       <div class="pa-3 d-flex align-items-center">
         <v-app-bar-nav-icon
