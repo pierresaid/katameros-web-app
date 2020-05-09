@@ -32,11 +32,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Request caching
 
-Home button
-
-Accordéon
-rounded borders
+rounded borders Fix
 
 Image de fond
-
-Font

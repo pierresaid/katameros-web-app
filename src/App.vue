@@ -20,7 +20,14 @@
       ></v-app-bar-nav-icon>
       <h1 class="heading coptic">Katameroc</h1>
       <v-spacer />
-      <v-btn color="transparent" to="/" fab text aria-label="home">
+      <v-btn
+        color="transparent"
+        to="/"
+        fab
+        text
+        aria-label="home"
+        @click="homeClicked"
+      >
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
       </v-btn>
     </v-app-bar>
@@ -114,6 +121,13 @@ export default {
   },
   methods: {
     ...mapActions("readings", ["getReadings"]),
+    homeClicked() {
+      this.$store.commit("navigation/SET_PANEL", []);
+      this.$vuetify.goTo(0, {
+        duration: 300,
+        easing: "easeInOutCubic"
+      });
+    },
     async loadReadings() {
       this.error = false;
       this.loading = true;
