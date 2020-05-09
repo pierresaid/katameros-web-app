@@ -16,6 +16,7 @@
     <v-app-bar app color="primary" class="black--text">
       <v-app-bar-nav-icon
         class="black--text"
+        aria-label="Menu"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <h1 class="heading coptic">Katameroc</h1>
