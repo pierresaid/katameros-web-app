@@ -35,3 +35,5 @@ Request caching
 rounded borders Fix
 
 Image de fond
+
+migrate to quasar

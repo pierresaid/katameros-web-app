@@ -60,6 +60,9 @@
           <div class="main-title">
             {{ formattedCopticDate }}
           </div>
+          <div class="main-title">
+            {{ title }}
+          </div>
         </h1>
 
         <v-fade-transition mode="out-in">
@@ -93,7 +96,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("readings", ["sections", "date"]),
+    ...mapState("readings", ["title", "sections", "date"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
