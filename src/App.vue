@@ -85,6 +85,7 @@ import Navigation from "@/components/drawer/Drawer.vue";
 import { mapActions, mapState } from "vuex";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import getCopticMonth from "@/helpers/getCopticMonth";
 
 export default {
   name: "App",
@@ -109,10 +110,13 @@ export default {
       return format(this.date, "EEEE d LLLL", { locale: fr });
     },
     formattedCopticDate() {
-      return this.date.toLocaleDateString("fr-FR-u-ca-coptic", {
-        month: "long",
-        day: "numeric"
-      });
+      const [day, month] = this.date
+        .toLocaleDateString("fr-FR-u-ca-coptic", {
+          month: "numeric",
+          day: "numeric"
+        })
+        .split("/");
+      return `${day} ${getCopticMonth(month)}`;
     }
   },
   watch: {
