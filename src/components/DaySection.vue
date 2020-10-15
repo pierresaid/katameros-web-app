@@ -20,19 +20,19 @@ export default {
   props: {
     section: {
       type: Object,
-      required: true
+      required: true,
     },
     idx: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   mounted() {
     this.$store.commit("navigation/ADD_SECTION", {
       index: this.idx,
-      ref: this.$refs.section
+      ref: this.$refs.section,
     });
-  }
+  },
 };
 </script>
 

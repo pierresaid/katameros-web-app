@@ -3,12 +3,12 @@ export default {
   state: {
     drawer: false,
     panel: [],
-    sections: []
+    sections: [],
   },
   getters: {
     name(state) {
       return state.name;
-    }
+    },
   },
   mutations: {
     SET_DRAWER(state, drawer) {
@@ -19,7 +19,7 @@ export default {
     },
     OPEN_PANEL(state, panelIdx) {
       if (
-        state.panel.find(i => {
+        state.panel.find((i) => {
           return i === panelIdx;
         }) === undefined
       ) {
@@ -27,14 +27,14 @@ export default {
       }
     },
     ADD_SECTION(state, { ref, index }) {
-      const sectionIdx = state.sections.findIndex(s => {
+      const sectionIdx = state.sections.findIndex((s) => {
         return s.index === index;
       });
       if (sectionIdx !== -1) {
         state.sections.splice(sectionIdx, 1);
       }
       state.sections.push({ ref, index });
-    }
+    },
   },
-  actions: {}
+  actions: {},
 };

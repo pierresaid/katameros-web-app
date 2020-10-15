@@ -27,26 +27,26 @@ export default {
       },
       set(value) {
         this.$store.commit("navigation/SET_PANEL", value);
-      }
-    }
+      },
+    },
   },
   methods: {
     async onClick(index) {
       if (
-        this.$store.state.navigation.panel.find(i => {
+        this.$store.state.navigation.panel.find((i) => {
           return i === index;
         }) === undefined
       ) {
         window.scrollTo(scrollX, scrollY - 1);
-        await new Promise(r => setTimeout(r, 50));
+        await new Promise((r) => setTimeout(r, 50));
         this.$vuetify.goTo(`#section-${index}`, {
           duration: 300,
           easing: "easeInOutCubic",
-          offset: 10
+          offset: 10,
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -2,11 +2,7 @@
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="0">
       <v-icon color="white">signal_wifi_off</v-icon>Connection error
-      <v-btn
-        aria-label="Refresh"
-        color="light-blue darken-1"
-        dark
-        @click="loadReadings"
+      <v-btn aria-label="Refresh" color="light-blue darken-1" dark @click="loadReadings"
         >Refresh</v-btn
       >
     </v-snackbar>
@@ -21,14 +17,7 @@
       ></v-app-bar-nav-icon>
       <h1 class="heading coptic">Katameroc</h1>
       <v-spacer />
-      <v-btn
-        color="transparent"
-        to="/"
-        fab
-        text
-        aria-label="home"
-        @click="homeClicked"
-      >
+      <v-btn color="transparent" to="/" fab text aria-label="home" @click="homeClicked">
         <v-img contain src="@/assets/coptic_cross_full.png" width="50" />
       </v-btn>
     </v-app-bar>
@@ -66,13 +55,9 @@
         </h1>
 
         <v-fade-transition mode="out-in">
-          <v-progress-circular
-            v-if="loading"
-            indeterminate
-            color="primary"
-            class="d-flex justify-center mt-10"
-            style="width:100%;"
-          />
+          <div v-if="loading" class="d-flex justify-center mt-10" style="width: 100%">
+            <v-progress-circular indeterminate color="primary" />
+          </div>
           <router-view v-else />
         </v-fade-transition>
       </v-container>
@@ -93,7 +78,7 @@ export default {
   data() {
     return {
       loading: false,
-      error: false
+      error: false,
     };
   },
   computed: {
@@ -104,7 +89,7 @@ export default {
       },
       set(value) {
         this.$store.commit("navigation/SET_DRAWER", value);
-      }
+      },
     },
     formattedDate() {
       return format(this.date, "EEEE d LLLL", { locale: fr });
@@ -113,16 +98,16 @@ export default {
       const [day, month] = this.date
         .toLocaleDateString("fr-FR-u-ca-coptic", {
           month: "numeric",
-          day: "numeric"
+          day: "numeric",
         })
         .split("/");
       return `${day} ${getCopticMonth(month)}`;
-    }
+    },
   },
   watch: {
     date() {
       this.loadReadings(this.date);
-    }
+    },
   },
   async mounted() {
     this.loadReadings();
@@ -133,7 +118,7 @@ export default {
       this.$store.commit("navigation/SET_PANEL", []);
       this.$vuetify.goTo(0, {
         duration: 300,
-        easing: "easeInOutCubic"
+        easing: "easeInOutCubic",
       });
     },
     async loadReadings() {
@@ -143,8 +128,8 @@ export default {
         this.error = true;
       });
       this.loading = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

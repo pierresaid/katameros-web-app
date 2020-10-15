@@ -10,11 +10,11 @@ export default new Vuetify({
     dark: false,
     themes: {
       light: {
-        primary: colors.amber
+        primary: colors.amber,
       },
       dark: {
-        primary: colors.amber
-      }
-    }
-  }
+        primary: colors.amber,
+      },
+    },
+  },
 });

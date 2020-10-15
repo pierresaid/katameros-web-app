@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer v-model="drawer" app hide-overlay>
-    <template v-slot:prepend>
+    <template #prepend>
       <div class="pa-3 d-flex align-items-center">
         <v-app-bar-nav-icon
           icon
@@ -21,7 +21,7 @@
           offset-y
           min-width="290px"
         >
-          <template v-slot:activator="{ on }">
+          <template #activator="{ on }">
             <v-text-field
               :value="formattedDate"
               label="Date"
@@ -60,14 +60,12 @@
       </v-list-item-group>
     </v-list>
 
-    <template v-slot:append>
+    <template #append>
       <v-divider></v-divider>
       <div class="pa-2">
         <span class="d-flex justify-center">
           <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-            <v-icon>{{
-              $vuetify.theme.dark ? "brightness_4" : "brightness_7"
-            }}</v-icon>
+            <v-icon>{{ $vuetify.theme.dark ? "brightness_4" : "brightness_7" }}</v-icon>
           </v-btn>
         </span>
       </div>
@@ -84,13 +82,13 @@ export default {
     sections: {
       type: Array,
       required: false,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data() {
     return {
       menu: false,
-      date: new Date().toISOString().substr(0, 10)
+      date: new Date().toISOString().substr(0, 10),
     };
   },
   computed: {
@@ -103,15 +101,15 @@ export default {
       },
       set(value) {
         this.$store.commit("navigation/SET_DRAWER", value);
-      }
-    }
+      },
+    },
   },
   methods: {
     ...mapActions("readings", ["setDate"]),
     async menuItemClick(index) {
       this.drawer = false;
       if (
-        this.$store.state.navigation.panel.find(i => {
+        this.$store.state.navigation.panel.find((i) => {
           return i === index;
         }) === undefined
       ) {
@@ -121,7 +119,7 @@ export default {
         this.$vuetify.goTo(`#section-${index}`, {
           duration: 300,
           easing: "easeInOutCubic",
-          offset: 10
+          offset: 10,
         });
       }
     },
@@ -135,8 +133,8 @@ export default {
       this.$refs.menu.save(date);
       this.setDate(new Date(date));
       this.drawer = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

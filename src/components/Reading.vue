@@ -6,11 +6,7 @@
     </div>
     <h3 class="mb-2 ref">{{ Ref }}</h3>
     <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
-      <div
-        v-for="(verse, verseIdx) in passage.verses"
-        :key="verseIdx"
-        class="verse-text"
-      >
+      <div v-for="(verse, verseIdx) in passage.verses" :key="verseIdx" class="verse-text">
         <span class="overline">{{ verse.number }}</span> {{ verse.text }}
       </div>
     </div>
@@ -25,8 +21,8 @@ export default {
   props: {
     reading: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     Ref() {
@@ -37,13 +33,11 @@ export default {
           i === 0 || this.reading.passages[i - 1].bookId !== passage.bookId
             ? passage.bookTranslation
             : ""
-        } ${passage.ref} ${
-          i === this.reading.passages.length - 1 ? "" : " & "
-        }`;
+        } ${passage.ref} ${i === this.reading.passages.length - 1 ? "" : " & "}`;
       }
       return ref;
-    }
-  }
+    },
+  },
 };
 </script>
 

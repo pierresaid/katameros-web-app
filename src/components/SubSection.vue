@@ -21,9 +21,9 @@ export default {
   props: {
     subSection: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

@@ -4,7 +4,7 @@ import http from "../utils/http";
 const state = {
   date: new Date(),
   sections: null,
-  title: null
+  title: null,
 };
 
 export default {
@@ -13,7 +13,7 @@ export default {
   getters: {
     name(state) {
       return state.name;
-    }
+    },
   },
   mutations: {
     RESET_READINGS(state) {
@@ -26,7 +26,7 @@ export default {
     },
     SET_DATE(state, date) {
       state.date = date;
-    }
+    },
   },
   actions: {
     setDate({ commit }, date) {
@@ -35,13 +35,11 @@ export default {
     async getReadings({ commit }, date) {
       commit("RESET_READINGS");
       const formatedDate = formatDate(date);
-      const res = await http
-        .get(`/readings/gregorian/${formatedDate}`)
-        .catch(error => {
-          throw { status: error.response.status, message: error.response.data };
-        });
+      const res = await http.get(`/readings/gregorian/${formatedDate}`).catch((error) => {
+        throw { status: error.response.status, message: error.response.data };
+      });
       commit("SET_READINGS", res.data);
       return res;
-    }
-  }
+    },
+  },
 };
