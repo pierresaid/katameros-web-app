@@ -173,7 +173,7 @@ export default {
 
 .bookmark-button {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 20vh;
   cursor: pointer !important;
