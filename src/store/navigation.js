@@ -19,7 +19,7 @@ export default {
     },
     OPEN_PANEL(state, panelIdx) {
       if (
-        state.panel.find((i) => {
+        state.panel.find(i => {
           return i === panelIdx;
         }) === undefined
       ) {
@@ -27,7 +27,7 @@ export default {
       }
     },
     ADD_SECTION(state, { ref, index }) {
-      const sectionIdx = state.sections.findIndex((s) => {
+      const sectionIdx = state.sections.findIndex(s => {
         return s.index === index;
       });
       if (sectionIdx !== -1) {

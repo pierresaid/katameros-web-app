@@ -6,7 +6,12 @@
     </div>
     <h3 class="mb-2 ref">{{ Ref }}</h3>
     <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
-      <div v-for="(verse, verseIdx) in passage.verses" :key="verseIdx" class="verse-text">
+      <div
+        :is="lineMode === 0 ? 'div' : 'span'"
+        v-for="(verse, verseIdx) in passage.verses"
+        :key="verseIdx"
+        class="verse-text"
+      >
         <span class="overline">{{ verse.number }}</span> {{ verse.text }}
       </div>
     </div>
@@ -29,13 +34,14 @@ export default {
       let ref = "";
       for (let i = 0; i < this.reading.passages.length; i++) {
         const passage = this.reading.passages[i];
-        ref += `${
-          i === 0 || this.reading.passages[i - 1].bookId !== passage.bookId
-            ? passage.bookTranslation
-            : ""
-        } ${passage.ref} ${i === this.reading.passages.length - 1 ? "" : " & "}`;
+        ref += `${i === 0 || this.reading.passages[i - 1].bookId !== passage.bookId ? passage.bookTranslation : ""} ${
+          passage.ref
+        } ${i === this.reading.passages.length - 1 ? "" : " & "}`;
       }
       return ref;
+    },
+    lineMode() {
+      return this.$store.state.lineMode;
     },
   },
 };

@@ -1,11 +1,7 @@
 <template>
   <div class="mt-8">
     <v-expansion-panels v-model="panel" focusable multiple accordion flat>
-      <v-expansion-panel
-        v-for="(section, index) in sections"
-        :key="index"
-        @click="onClick(index)"
-      >
+      <v-expansion-panel v-for="(section, index) in sections" :key="index" @click="onClick(index)">
         <day-section :id="`section-${index}`" :section="section" :idx="index" />
       </v-expansion-panel>
     </v-expansion-panels>
@@ -33,12 +29,12 @@ export default {
   methods: {
     async onClick(index) {
       if (
-        this.$store.state.navigation.panel.find((i) => {
+        this.$store.state.navigation.panel.find(i => {
           return i === index;
         }) === undefined
       ) {
         window.scrollTo(scrollX, scrollY - 1);
-        await new Promise((r) => setTimeout(r, 50));
+        await new Promise(r => setTimeout(r, 50));
         this.$vuetify.goTo(`#section-${index}`, {
           duration: 300,
           easing: "easeInOutCubic",
@@ -63,6 +59,14 @@ export default {
   transition: border-bottom-left-radius 0.3s ease;
   border-right: solid 1px map-get($amber, lighten-4);
   border-left: solid 1px map-get($amber, lighten-4);
+}
+
+#app.theme--dark {
+  .v-expansion-panel:last-child .v-expansion-panel-header,
+  .v-expansion-panels {
+    border-right: solid 1px #a08123;
+    border-left: solid 1px #a08123;
+  }
 }
 
 .v-expansion-panel:last-child:not(.v-item--active) .v-expansion-panel-header,

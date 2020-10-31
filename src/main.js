@@ -11,5 +11,13 @@ new Vue({
   router,
   store,
   vuetify,
-  render: (h) => h(App),
+  render: h => h(App),
 }).$mount("#app");
+
+if (process.env.NODE_ENV !== "development") {
+  var head = document.getElementsByTagName("head")[0];
+  var js = document.createElement("script");
+  js.type = "text/javascript";
+  js.src = "https://unpkg.com/thesemetrics@latest";
+  head.appendChild(js);
+}
