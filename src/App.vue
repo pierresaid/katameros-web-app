@@ -172,6 +172,7 @@ export default {
 }
 
 .bookmark-button {
+  background-color: white;
   position: fixed;
   z-index: 1;
   left: 0;
