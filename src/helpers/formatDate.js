@@ -1,4 +1,4 @@
-const formatDate = d => {
+const formatDate = (d) => {
   let dtf = new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "2-digit",

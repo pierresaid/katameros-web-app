@@ -24,16 +24,16 @@ function useSetting(settingName, defaultValue, parser = null) {
 const modules = {};
 
 const req = require.context("@/store/", true, /^((?!index.).)*\.js$/);
-req.keys().forEach(fileName => {
+req.keys().forEach((fileName) => {
   const moduleDefinition = req(fileName).default;
   modules[fileName.match(/\w+/)[0]] = moduleDefinition;
 });
 
 const store = new Vuex.Store({
   state: {
-    lineMode: useSetting(LINEMODE_LOCAL_STORAGE, 0, li => parseInt(li)),
+    lineMode: useSetting(LINEMODE_LOCAL_STORAGE, 0, (li) => parseInt(li)),
     theme: useSetting(THEME_LOCAL_STORAGE, "light"),
-    navbar: useSetting(NAVBAR_LOCAL_STORAGE, true, val => (val === "true" ? true : false)),
+    navbar: useSetting(NAVBAR_LOCAL_STORAGE, true, (val) => (val === "true" ? true : false)),
   },
   mutations: {
     setLineMode(state, lineMode) {

@@ -14,7 +14,7 @@ const coptic_months = [
   "Nasie",
 ];
 
-const getCopticMonth = monthNumber => {
+const getCopticMonth = (monthNumber) => {
   return `${coptic_months[monthNumber - 1]}`;
 };
 

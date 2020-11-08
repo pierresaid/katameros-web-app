@@ -35,7 +35,7 @@ export default {
     async getReadings({ commit }, date) {
       commit("RESET_READINGS");
       const formatedDate = formatDate(date);
-      const res = await http.get(`/readings/gregorian/${formatedDate}`).catch(error => {
+      const res = await http.get(`/readings/gregorian/${formatedDate}`).catch((error) => {
         throw { status: error.response.status, message: error.response.data };
       });
       commit("SET_READINGS", res.data);

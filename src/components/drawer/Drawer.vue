@@ -147,7 +147,7 @@ export default {
     async menuItemClick(index) {
       this.drawer = false;
       if (
-        this.$store.state.navigation.panel.find(i => {
+        this.$store.state.navigation.panel.find((i) => {
           return i === index;
         }) === undefined
       ) {

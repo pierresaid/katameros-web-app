@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-snackbar v-model="error" color="error" bottom :timeout="0">
+    <v-snackbar v-model="error" color="error" bottom :timeout="-1">
       <v-icon color="white">signal_wifi_off</v-icon>Connection error
       <v-btn aria-label="Refresh" color="light-blue darken-1" dark @click="loadReadings">Refresh</v-btn>
     </v-snackbar>
@@ -15,9 +15,9 @@
     </v-app-bar>
 
     <button v-else class="bookmark-button" @click="drawer = !drawer">
-      <div class="d-flex justify-center align-items-center" style="cursor:pointer;">
+      <div class="d-flex justify-center align-items-center" style="cursor: pointer">
         <svg
-          style="cursor:pointer;"
+          style="cursor: pointer"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -27,7 +27,6 @@
           stroke-linejoin="round"
           stroke-width="2"
           viewBox="0 0 24 24"
-          class="block text-nuxt-gray dark:text-dark-onSurfaceSecondary stroke-current transition-colors duration-300 ease-linear"
         >
           <line x1="8" x2="21" y1="6" y2="6"></line>
           <line x1="8" x2="21" y1="12" y2="12"></line>
@@ -41,7 +40,7 @@
 
     <navigation :sections="sections" />
 
-    <v-content>
+    <v-main>
       <v-container>
         <h1 class="display-1 text-center mt-10 text-capitalize main-title">
           <svg
@@ -75,7 +74,7 @@
           <router-view v-else />
         </v-fade-transition>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
