@@ -13,7 +13,6 @@ function useSetting(settingName, defaultValue, parser = null) {
     return defaultValue;
   } else {
     if (parser !== null) {
-      console.log(parser(settingLocalStorage));
       return parser(settingLocalStorage);
     } else {
       return settingLocalStorage;
