@@ -5,7 +5,7 @@
       <v-btn aria-label="Refresh" color="light-blue darken-1" dark @click="loadReadings">Refresh</v-btn>
     </v-snackbar>
 
-    <v-app-bar v-if="navbarEnabled" app color="primary" class="black--text">
+    <v-app-bar v-if="navbarEnabled && !isEmbedded" app color="primary" class="black--text">
       <v-app-bar-nav-icon class="black--text" aria-label="Menu" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <h1 class="heading coptic">Katameroc</h1>
       <v-spacer />
@@ -95,6 +95,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(["isEmbedded"]),
     ...mapState("readings", ["title", "sections", "date"]),
     drawer: {
       get() {

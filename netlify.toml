@@ -1,0 +1,2 @@
+[context.embedded.environment]
+  VUE_APP_EMBEDDED=true

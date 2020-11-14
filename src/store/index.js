@@ -34,6 +34,7 @@ const store = new Vuex.Store({
     lineMode: useSetting(LINEMODE_LOCAL_STORAGE, 0, (li) => parseInt(li)),
     theme: useSetting(THEME_LOCAL_STORAGE, "light"),
     navbar: useSetting(NAVBAR_LOCAL_STORAGE, true, (val) => (val === "true" ? true : false)),
+    isEmbedded: process.env.VUE_APP_EMBEDDED === "true",
   },
   mutations: {
     setLineMode(state, lineMode) {

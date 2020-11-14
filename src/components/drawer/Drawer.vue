@@ -53,7 +53,7 @@
 
     <template #append>
       <v-divider></v-divider>
-      <div class="pa-2">
+      <div v-if="!isEmbedded" class="pa-2">
         <span class="d-flex justify-center">
           <v-btn icon @click="navbarEnabled = !navbarEnabled">
             <v-icon v-if="navbarEnabled">fullscreen</v-icon>
@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { format } from "date-fns";
 
 export default {
@@ -114,6 +114,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(["isEmbedded"]),
     formattedDate() {
       return format(new Date(this.date), "dd/MM/yyyy");
     },
