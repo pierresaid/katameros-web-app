@@ -59,10 +59,7 @@
         prepend-icon="translate"
         item-text="name"
         item-value="id"
-        :items="[
-          { id: 1, name: 'French' },
-          { id: 2, name: 'English' },
-        ]"
+        :items="languages"
         label="Translation"
         outlined
         filled
