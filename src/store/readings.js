@@ -1,10 +1,15 @@
 import formatDate from "../helpers/formatDate";
 import http from "../utils/http";
+import { useSetting } from "@/helpers/useSetting.js";
+
+const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
 const state = {
   date: new Date(),
   sections: null,
   title: null,
+  loading: false,
+  language: useSetting(LANGUAGE_LOCAL_STORAGE, 1, (la) => parseInt(la)),
 };
 
 export default {
@@ -27,17 +32,32 @@ export default {
     SET_DATE(state, date) {
       state.date = date;
     },
+    SET_LANGUAGE(state, language) {
+      localStorage.setItem(LANGUAGE_LOCAL_STORAGE, language);
+      state.language = language;
+    },
+    SET_LOADING(state, loading) {
+      state.loading = loading;
+    },
   },
   actions: {
     setDate({ commit }, date) {
       commit("SET_DATE", date);
     },
-    async getReadings({ commit }, date) {
+    async setLanguage({ state, commit, dispatch }, language) {
+      commit("SET_LANGUAGE", language);
+      dispatch("getReadings", state.date);
+    },
+    async getReadings({ state, commit }) {
       commit("RESET_READINGS");
-      const formatedDate = formatDate(date);
-      const res = await http.get(`/readings/gregorian/${formatedDate}`).catch((error) => {
-        throw { status: error.response.status, message: error.response.data };
-      });
+      const formatedDate = formatDate(state.date);
+      commit("SET_LOADING", true);
+      const res = await http
+        .get(`/readings/gregorian/${formatedDate}`, { params: { languageId: state.language } })
+        .catch((error) => {
+          throw { status: error.response.status, message: error.response.data };
+        });
+      commit("SET_LOADING", false);
       commit("SET_READINGS", res.data);
       return res;
     },

@@ -53,6 +53,22 @@
 
     <template #append>
       <v-divider></v-divider>
+      <v-select
+        v-model="language"
+        class="text--secondary px-0 pt-7 px-md-2"
+        prepend-icon="translate"
+        item-text="name"
+        item-value="id"
+        :items="[
+          { id: 1, name: 'French' },
+          { id: 2, name: 'English' },
+        ]"
+        label="Translation"
+        outlined
+        filled
+        dense
+      ></v-select>
+      <v-divider></v-divider>
       <div v-if="!isEmbedded" class="pa-2">
         <span class="d-flex justify-center">
           <v-btn icon @click="navbarEnabled = !navbarEnabled">
@@ -98,6 +114,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { format } from "date-fns";
+import LANGUAGES from "../../consts/languages";
 
 export default {
   props: {
@@ -115,6 +132,17 @@ export default {
   },
   computed: {
     ...mapState(["isEmbedded"]),
+    languages: () => Object.values(LANGUAGES),
+    language: {
+      get() {
+        return this.$store.state.readings.language;
+      },
+      set(language) {
+        if (this.language !== language) {
+          this.$store.dispatch("readings/setLanguage", language);
+        }
+      },
+    },
     formattedDate() {
       return format(new Date(this.date), "dd/MM/yyyy");
     },

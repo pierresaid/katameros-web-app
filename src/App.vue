@@ -90,13 +90,12 @@ export default {
   components: { Navigation },
   data() {
     return {
-      loading: false,
       error: false,
     };
   },
   computed: {
     ...mapState(["isEmbedded"]),
-    ...mapState("readings", ["title", "sections", "date"]),
+    ...mapState("readings", ["title", "sections", "date", "loading"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
@@ -148,11 +147,9 @@ export default {
     },
     async loadReadings() {
       this.error = false;
-      this.loading = true;
       await this.getReadings(this.date).catch(() => {
         this.error = true;
       });
-      this.loading = false;
     },
   },
 };

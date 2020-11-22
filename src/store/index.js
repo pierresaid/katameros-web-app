@@ -1,24 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import { useSetting } from "@/helpers/useSetting.js";
+
 Vue.use(Vuex);
 
 const LINEMODE_LOCAL_STORAGE = "LINEMODE_LOCAL_STORAGE";
 const THEME_LOCAL_STORAGE = "THEME_LOCAL_STORAGE";
 const NAVBAR_LOCAL_STORAGE = "NAVBAR_LOCAL_STORAGE";
-
-function useSetting(settingName, defaultValue, parser = null) {
-  const settingLocalStorage = localStorage.getItem(settingName);
-  if (settingLocalStorage === null) {
-    return defaultValue;
-  } else {
-    if (parser !== null) {
-      return parser(settingLocalStorage);
-    } else {
-      return settingLocalStorage;
-    }
-  }
-}
 
 const modules = {};
 
