@@ -55,7 +55,7 @@
       <v-divider></v-divider>
       <v-select
         v-model="language"
-        class="text--secondary px-0 pt-7 px-md-2"
+        class="text--secondary pt-7 px-2"
         prepend-icon="translate"
         item-text="name"
         item-value="id"
@@ -66,11 +66,22 @@
         dense
       ></v-select>
       <v-divider></v-divider>
-      <div v-if="!isEmbedded" class="pa-2">
-        <span class="d-flex justify-center">
-          <v-btn icon @click="navbarEnabled = !navbarEnabled">
-            <v-icon v-if="navbarEnabled">fullscreen</v-icon>
+      <div class="d-flex">
+        <div class="d-flex justify-center align-center" style="width: 50%">
+          <v-btn-toggle v-model="lineMode" mandatory>
+            <v-btn>
+              <v-icon>mdi-format-line-spacing</v-icon>
+            </v-btn>
 
+            <v-btn>
+              <v-icon>mdi-view-headline</v-icon>
+            </v-btn>
+          </v-btn-toggle>
+        </div>
+        <v-divider vertical></v-divider>
+        <div class="d-flex justify-space-around py-2" style="width: 50%">
+          <v-btn v-if="!isEmbedded" fab small class="align-self-center" @click="navbarEnabled = !navbarEnabled">
+            <v-icon v-if="navbarEnabled">fullscreen</v-icon>
             <svg
               v-else
               xmlns="http://www.w3.org/2000/svg"
@@ -84,25 +95,10 @@
               <path d="M14,14H19V16H16V19H14V14M5,14H10V19H8V16H5V14M8,5H10V10H5V8H8V5M19,8V10H14V5H16V8H19Z" />
             </svg>
           </v-btn>
-        </span>
-      </div>
-      <v-divider></v-divider>
-      <v-btn-toggle v-model="lineMode" mandatory class="d-flex justify-center">
-        <v-btn>
-          <v-icon>mdi-format-line-spacing</v-icon>
-        </v-btn>
-
-        <v-btn>
-          <v-icon>mdi-view-headline</v-icon>
-        </v-btn>
-      </v-btn-toggle>
-      <v-divider></v-divider>
-      <div class="pa-2">
-        <span class="d-flex justify-center">
-          <v-btn icon @click="setTheme">
+          <v-btn fab small class="align-self-center" @click="setTheme">
             <v-icon>{{ $vuetify.theme.dark ? "brightness_4" : "brightness_7" }}</v-icon>
           </v-btn>
-        </span>
+        </div>
       </div>
     </template>
   </v-navigation-drawer>

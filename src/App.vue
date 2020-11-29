@@ -1,8 +1,21 @@
 <template>
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="-1">
-      <v-icon color="white">signal_wifi_off</v-icon>Connection error
-      <v-btn aria-label="Refresh" color="light-blue darken-1" dark @click="loadReadings">Refresh</v-btn>
+      <div class="d-flex align-center pl-4">
+        <v-icon color="white" class="pr-2">signal_wifi_off</v-icon>Connection error
+      </div>
+      <template #action>
+        <v-btn
+          aria-label="Refresh"
+          color="info"
+          tile
+          style="width: 90px; margin-right: -8px"
+          depressed
+          fab
+          @click="loadReadings"
+          >Refresh</v-btn
+        >
+      </template>
     </v-snackbar>
 
     <v-app-bar v-if="navbarEnabled && !isEmbedded" app color="primary" class="black--text">
