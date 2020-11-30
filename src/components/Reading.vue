@@ -2,7 +2,9 @@
   <div>
     <h3 v-if="reading.title">{{ reading.title }}</h3>
     <div v-if="reading.introduction" class="reading-introduction mb-5">
-      {{ reading.introduction }}
+      <div v-for="(introduction, index) in reading.introduction.split('\n')" :key="index" class="introduction">
+        {{ introduction }}
+      </div>
     </div>
     <h3 class="mb-2 ref">{{ Ref }}</h3>
     <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
@@ -50,6 +52,9 @@ export default {
 <style>
 .reading-introduction {
   color: #d71b1b;
+}
+.introduction ~ .introduction {
+  margin-top: 8px;
 }
 .reading-conclusion {
   text-align: right;
