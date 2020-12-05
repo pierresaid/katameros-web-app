@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app hide-overlay>
+  <v-navigation-drawer v-model="drawer" app hide-overlay :right="$vuetify.rtl">
     <template #prepend>
       <div class="pa-3 d-flex align-items-center">
         <v-app-bar-nav-icon icon aria-label="Menu" @click.stop="drawer = false"></v-app-bar-nav-icon>
@@ -125,6 +125,9 @@ export default {
   },
   computed: {
     ...mapState(["isEmbedded"]),
+    actualDate() {
+      return this.$store.state.readings.date;
+    },
     languages: () => Object.values(LANGUAGES),
     language: {
       get() {
@@ -188,14 +191,18 @@ export default {
       this.$store.commit("setDarkTheme", this.$vuetify.theme.dark ? "dark" : "light");
     },
     okClicked(date) {
-      this.$refs.menu.save(date);
-      this.setDate(new Date(date));
+      if (new Date(this.actualDate).toISOString().substr(0, 10) != this.date) {
+        this.$refs.menu.save(date);
+        this.setDate(new Date(date));
+      }
       this.drawer = false;
     },
     todayClicked() {
       const date = new Date().toISOString().substr(0, 10);
-      this.$refs.menu.save(date);
-      this.setDate(new Date(date));
+      if (date != this.date) {
+        this.$refs.menu.save(date);
+        this.setDate(new Date(date));
+      }
       this.drawer = false;
     },
   },

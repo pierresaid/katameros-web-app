@@ -97,6 +97,7 @@ import { mapActions, mapState } from "vuex";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
+import LANGUAGES from "./consts/languages";
 
 export default {
   name: "App",
@@ -108,7 +109,7 @@ export default {
   },
   computed: {
     ...mapState(["isEmbedded"]),
-    ...mapState("readings", ["title", "sections", "date", "loading"]),
+    ...mapState("readings", ["title", "sections", "date", "loading", "language"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
@@ -141,6 +142,16 @@ export default {
   watch: {
     date() {
       this.loadReadings(this.date);
+    },
+    language: {
+      immediate: true,
+      handler(language) {
+        if (Object.values(LANGUAGES).find((l) => l.id === language)?.rtl) {
+          this.$vuetify.rtl = true;
+        } else {
+          this.$vuetify.rtl = false;
+        }
+      },
     },
   },
   async mounted() {
@@ -197,6 +208,12 @@ export default {
   border-radius: 0 9999px 9999px 0;
   border: 1px solid #e2e8f0;
   box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.101562);
+}
+
+.v-application--is-rtl .bookmark-button {
+  left: inherit;
+  right: 0;
+  border-radius: 9999px 0 0 9999px;
 }
 
 #app.theme--dark .bookmark-button {
