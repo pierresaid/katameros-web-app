@@ -83,4 +83,8 @@ export default {
   border-radius: 0 0 4px 4px;
   border-bottom-width: 1px;
 }
+
+.v-expansion-panels .v-expansion-panel-header .v-expansion-panel-header__icon .v-icon {
+  color: black !important;
+}
 </style>
