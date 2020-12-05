@@ -53,6 +53,10 @@ export default {
 .reading-introduction {
   color: #d71b1b;
 }
+#app.theme--dark .reading-introduction {
+  color: #ff3c3c;
+}
+
 .introduction ~ .introduction {
   margin-top: 8px;
 }
@@ -60,6 +64,11 @@ export default {
   text-align: right;
   color: #d71b1b;
 }
+
+#app.theme--dark .reading-conclusion {
+  color: #ff3c3c;
+}
+
 .verse-text {
   line-height: 1.3;
   margin-bottom: 10px;
