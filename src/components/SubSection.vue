@@ -33,16 +33,14 @@ export default {
   margin-top: 10px;
 }
 
+#app.theme--dark .subSection-introduction {
+  color: #ff3c3c;
+}
 .subSection-title {
   font-family: "Suez one";
   text-align: center;
   font-weight: 400;
   font-size: 1.6em;
-  /* color: rgba(0, 0, 0, 0.6); */
-}
-
-.theme--dark .subSection-title {
-  /* color: #cacaca; */
 }
 
 .reading {

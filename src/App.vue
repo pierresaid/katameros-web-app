@@ -1,8 +1,21 @@
 <template>
   <v-app dark>
     <v-snackbar v-model="error" color="error" bottom :timeout="-1">
-      <v-icon color="white">signal_wifi_off</v-icon>Connection error
-      <v-btn aria-label="Refresh" color="light-blue darken-1" dark @click="loadReadings">Refresh</v-btn>
+      <div class="d-flex align-center pl-4">
+        <v-icon color="white" class="pr-2">signal_wifi_off</v-icon>Connection error
+      </div>
+      <template #action>
+        <v-btn
+          aria-label="Refresh"
+          color="info"
+          tile
+          style="width: 90px; margin-right: -8px"
+          depressed
+          fab
+          @click="loadReadings"
+          >Refresh</v-btn
+        >
+      </template>
     </v-snackbar>
 
     <v-app-bar v-if="navbarEnabled && !isEmbedded" app color="primary" class="black--text">
@@ -84,19 +97,19 @@ import { mapActions, mapState } from "vuex";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
+import LANGUAGES from "./consts/languages";
 
 export default {
   name: "App",
   components: { Navigation },
   data() {
     return {
-      loading: false,
       error: false,
     };
   },
   computed: {
     ...mapState(["isEmbedded"]),
-    ...mapState("readings", ["title", "sections", "date"]),
+    ...mapState("readings", ["title", "sections", "date", "loading", "language"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
@@ -130,6 +143,16 @@ export default {
     date() {
       this.loadReadings(this.date);
     },
+    language: {
+      immediate: true,
+      handler(language) {
+        if (Object.values(LANGUAGES).find((l) => l.id === language)?.rtl) {
+          this.$vuetify.rtl = true;
+        } else {
+          this.$vuetify.rtl = false;
+        }
+      },
+    },
   },
   async mounted() {
     if (this.$store.state.theme == "dark") {
@@ -148,11 +171,9 @@ export default {
     },
     async loadReadings() {
       this.error = false;
-      this.loading = true;
       await this.getReadings(this.date).catch(() => {
         this.error = true;
       });
-      this.loading = false;
     },
   },
 };
@@ -187,6 +208,12 @@ export default {
   border-radius: 0 9999px 9999px 0;
   border: 1px solid #e2e8f0;
   box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.101562);
+}
+
+.v-application--is-rtl .bookmark-button {
+  left: inherit;
+  right: 0;
+  border-radius: 9999px 0 0 9999px;
 }
 
 #app.theme--dark .bookmark-button {
