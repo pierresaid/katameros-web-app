@@ -1,22 +1,56 @@
 <template>
-  <div class="mt-8">
-    <v-expansion-panels v-model="panel" focusable multiple accordion flat>
-      <v-expansion-panel v-for="(section, index) in sections" :key="index" @click="onClick(index)">
-        <day-section :id="`section-${index}`" :section="section" :idx="index" />
-      </v-expansion-panel>
-    </v-expansion-panels>
+  <div>
+    <h1 class="display-1 text-center mt-10 text-capitalize main-title">
+      <svg
+        width="100"
+        :fill="$vuetify.theme.dark ? 'white' : 'black'"
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 541.000000 561.000000"
+      >
+        <g transform="translate(0.000000,561.000000) scale(0.100000,-0.100000)" stroke="none">
+          <path
+            d="M2300 5205 l0 -405 -380 0 -380 0 0 -405 0 -405 -370 0 -370 0 0 -385 0 -385 -400 0 -400 0 0 -410 0 -410 400 0 400 0 0 -390 0 -390 370 0 370 0 0 -400 0 -400 380 0 380 0 0 -405 0 -405 400 0 400 0 0 405 0 405 375 0 375 0 0 405 0 405 375 0 375 0 0 385 0 385 400 0 400 0 0 430 0 430 -400 0 -400 0 0 385 0 385 -375 0 -375 0 0 385 0 385 -375 0 -375 0 0 405 0 405 -400 0 -400 0 0 -405z m0 -1605 l0 -380 -355 0 -355 0 0 380 0 380 355 0 355 0 0 -380z m1510 20 l0 -360 -355 0 -355 0 0 360 0 360 355 0 355 0 0 -360z m-1510 -1605 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z m1510 0 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z"
+          />
+        </g>
+      </svg>
+      <div class="main-title">
+        {{ formattedDate }}
+      </div>
+      <div class="main-title">
+        {{ formattedCopticDate }}
+      </div>
+      <div class="main-title">
+        {{ title }}
+      </div>
+    </h1>
+    <v-fade-transition mode="out-in">
+      <div v-if="loading" key="loading" class="d-flex justify-center mt-10" style="width: 100%">
+        <v-progress-circular indeterminate color="primary" />
+      </div>
+      <div v-else key="readings" class="mt-8">
+        <v-expansion-panels v-model="panel" focusable multiple accordion flat>
+          <v-expansion-panel v-for="(section, index) in sections" :key="index" @click="onClick(index)">
+            <day-section :id="`section-${index}`" :section="section" :idx="index" />
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </div>
+    </v-fade-transition>
   </div>
 </template>
 
 <script>
 import DaySection from "../components/DaySection.vue";
 import { mapState } from "vuex";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
+import getCopticMonth from "@/helpers/getCopticMonth";
 
 export default {
   name: "Home",
   components: { DaySection },
   computed: {
-    ...mapState("readings", ["sections"]),
+    ...mapState("readings", ["sections", "date", "title", "loading"]),
     panel: {
       get() {
         return this.$store.state.navigation.panel;
@@ -24,6 +58,18 @@ export default {
       set(value) {
         this.$store.commit("navigation/SET_PANEL", value);
       },
+    },
+    formattedDate() {
+      return format(this.date, "EEEE d LLLL", { locale: fr });
+    },
+    formattedCopticDate() {
+      const [day, month] = this.date
+        .toLocaleDateString("fr-FR-u-ca-coptic", {
+          month: "numeric",
+          day: "numeric",
+        })
+        .split("/");
+      return `${day} ${getCopticMonth(month)}`;
     },
   },
   methods: {
@@ -48,6 +94,9 @@ export default {
 
 <style lang="scss">
 @import "~vuetify/src/styles/styles.sass";
+.main-title {
+  font-family: "Suez One";
+}
 
 .v-expansion-panel:first-child div:first-child,
 .v-expansion-panels {
