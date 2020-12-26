@@ -100,6 +100,11 @@
           </v-btn>
         </div>
       </div>
+      <!-- <v-divider></v-divider>
+      <div class="px-2 py-2 d-flex justify-center">
+        <v-icon>chat_bubble</v-icon>
+        <v-btn to="/contact" class="ml-2"> Contact </v-btn>
+      </div> -->
     </template>
   </v-navigation-drawer>
 </template>
