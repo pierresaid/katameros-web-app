@@ -1,7 +1,40 @@
 {
   "name": "katameros-web-app",
+  "description": "The Coptic lectionary. Church readings for all Week Days and Feasts.",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "katameros",
+    "coptic",
+    "lectionnary",
+    "readings"
+  ],
+  "maintainers": [
+    {
+      "name": "Pierre SAID",
+      "email": "said.pierre.emler@gmail.com",
+      "web": "https://said.tech"
+    }
+  ],
+  "demos": [
+    "https://katameros.app"
+  ],
+  "bugs": {
+    "web": "https://github.com/pierresaid/katameros-web-app/issues"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:pierresaid/katameros-web-app.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "https://raw.githubusercontent.com/pierresaid/katameros-web-app/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/pierresaid/katameros-web-app",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
