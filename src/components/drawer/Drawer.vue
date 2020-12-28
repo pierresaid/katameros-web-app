@@ -8,6 +8,7 @@
       <v-divider />
 
       <div class="pa-2">
+        <span class="font-weight-bold">Date</span>
         <v-menu
           ref="menu"
           v-model="menu"
@@ -20,92 +21,78 @@
           <template #activator="{ on }">
             <v-text-field
               :value="formattedDate"
-              label="Date"
+              class="pt-1"
               dense
               hide-details
-              outlined
+              solo-inverted
               prepend-icon="event"
               readonly
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title scrollable>
+          <v-date-picker v-model="date" no-title scrollable locale="fr-fr">
             <v-spacer></v-spacer>
-            <v-btn text color="secondary" @click="menu = false">Cancel</v-btn>
-            <v-btn text color="primary" @click="todayClicked">Today</v-btn>
+            <v-btn text color="secondary" @click="menu = false">Retour</v-btn>
+            <v-btn text color="primary" @click="todayClicked">Aujourd'hui</v-btn>
             <v-btn text color="primary" @click="okClicked(date)">OK</v-btn>
           </v-date-picker>
         </v-menu>
       </div>
     </template>
-
-    <v-divider />
-
-    <v-list nav>
-      <v-list-item-group :value="0" color="primary">
-        <v-list-item v-for="(section, index) in sections" :key="index" link @click="menuItemClick(index)">
-          <v-list-item-content>
-            <v-list-item-title>{{ section.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-
-    <template #append>
-      <v-divider></v-divider>
+    <v-divider></v-divider>
+    <div class="pa-2">
+      <span class="font-weight-bold">Langue</span>
       <v-select
         v-model="language"
-        class="text--secondary pt-7 px-2"
+        class="text--secondary pt-1"
         prepend-icon="translate"
         item-text="name"
         item-value="id"
+        hide-details
         :items="languages"
-        label="Translation"
-        outlined
-        filled
+        label="Langage"
+        solo-inverted
         dense
       ></v-select>
-      <v-divider></v-divider>
+    </div>
+    <v-divider></v-divider>
+    <div class="px-2 py-2">
+      <span class="font-weight-bold">Espacement</span>
       <div class="d-flex">
-        <div class="d-flex justify-center align-center" style="width: 50%">
-          <v-btn-toggle v-model="lineMode" mandatory>
-            <v-btn>
-              <v-icon>mdi-format-line-spacing</v-icon>
-            </v-btn>
-
-            <v-btn>
-              <v-icon>mdi-view-headline</v-icon>
-            </v-btn>
-          </v-btn-toggle>
-        </div>
-        <v-divider vertical></v-divider>
-        <div class="d-flex justify-space-around py-2" style="width: 50%">
-          <v-btn v-if="!isEmbedded" fab small class="align-self-center" @click="navbarEnabled = !navbarEnabled">
-            <v-icon v-if="navbarEnabled">fullscreen</v-icon>
-            <svg
-              v-else
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              width="24"
-              height="24"
-              :fill="$vuetify.theme.dark ? 'white' : 'black'"
-              viewBox="0 0 24 24"
-            >
-              <path d="M14,14H19V16H16V19H14V14M5,14H10V19H8V16H5V14M8,5H10V10H5V8H8V5M19,8V10H14V5H16V8H19Z" />
-            </svg>
+        <v-btn-toggle v-model="lineMode" active-class="primary black--text" dense mandatory>
+          <v-btn>
+            <v-icon :color="lineMode == 0 ? 'black' : ''" class="mr-1">mdi-format-line-spacing</v-icon>
+            Ligne
           </v-btn>
-          <v-btn fab small class="align-self-center" @click="setTheme">
-            <v-icon>{{ $vuetify.theme.dark ? "brightness_4" : "brightness_7" }}</v-icon>
+          <v-btn>
+            <v-icon :color="lineMode == 1 ? 'black' : ''" class="mr-1">mdi-view-headline</v-icon>
+            Paragraphe
           </v-btn>
-        </div>
+        </v-btn-toggle>
       </div>
-      <!-- <v-divider></v-divider>
+    </div>
+    <v-divider></v-divider>
+    <div class="px-2 py-2">
+      <span class="font-weight-bold">Theme</span>
+      <div class="d-flex">
+        <v-btn-toggle :value="$vuetify.theme.dark ? 1 : 0" active-class="primary black--text" dense mandatory>
+          <v-btn @click="setTheme">
+            <v-icon :color="!$vuetify.theme.dark ? 'black' : ''" class="mr-1">brightness_7</v-icon>
+            Clair
+          </v-btn>
+          <v-btn @click="setTheme">
+            <v-icon :color="$vuetify.theme.dark ? 'black' : ''" class="mr-1">brightness_4</v-icon>
+            Sombre
+          </v-btn>
+        </v-btn-toggle>
+      </div>
+    </div>
+    <!-- <v-divider></v-divider>
       <div class="px-2 py-2 d-flex justify-center">
         <v-icon>chat_bubble</v-icon>
         <v-btn to="/contact" class="ml-2"> Contact </v-btn>
       </div> -->
-    </template>
+    <template #append> </template>
   </v-navigation-drawer>
 </template>
 
