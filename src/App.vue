@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     ...mapState(["isEmbedded"]),
-    ...mapState("readings", ["sections"]),
+    ...mapState("readings", ["sections", "date"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
