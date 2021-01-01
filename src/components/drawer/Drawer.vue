@@ -1,44 +1,20 @@
 <template>
   <v-navigation-drawer v-model="drawer" app hide-overlay :right="$vuetify.rtl">
-    <template #prepend>
-      <div class="pa-3 d-flex align-items-center">
-        <v-app-bar-nav-icon icon aria-label="Menu" @click.stop="drawer = false"></v-app-bar-nav-icon>
-        <h1 class="heading coptic">Katameroc</h1>
-      </div>
-      <v-divider />
+    <div class="pa-3 d-flex align-items-center">
+      <v-app-bar-nav-icon icon aria-label="Menu" @click.stop="drawer = false"></v-app-bar-nav-icon>
+      <h1 class="heading coptic">Katameroc</h1>
+    </div>
+    <v-divider />
 
-      <div class="pa-2">
-        <span class="font-weight-bold">Date</span>
-        <v-menu
-          ref="menu"
-          v-model="menu"
-          :close-on-content-click="false"
-          :return-value.sync="date"
-          transition="scale-transition"
-          offset-y
-          min-width="290px"
-        >
-          <template #activator="{ on }">
-            <v-text-field
-              :value="formattedDate"
-              class="pt-1"
-              dense
-              hide-details
-              solo-inverted
-              prepend-icon="event"
-              readonly
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="date" no-title scrollable locale="fr-fr">
-            <v-spacer></v-spacer>
-            <v-btn text color="secondary" @click="menu = false">Retour</v-btn>
-            <v-btn text color="primary" @click="todayClicked">Aujourd'hui</v-btn>
-            <v-btn text color="primary" @click="okClicked(date)">OK</v-btn>
-          </v-date-picker>
-        </v-menu>
-      </div>
-    </template>
+    <div class="pa-2">
+      <span class="font-weight-bold">Date</span>
+      <date-picker v-model="date" locale="fr-FR" @submit="drawer = false" />
+    </div>
+    <div class="pa-2">
+      <span class="font-weight-bold">Date copte</span>
+      <date-picker v-model="date" locale="fr-FR-u-ca-coptic" @submit="drawer = false" />
+    </div>
+
     <v-divider></v-divider>
     <div class="pa-2">
       <span class="font-weight-bold">Langue</span>
@@ -98,10 +74,11 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import { format } from "date-fns";
 import LANGUAGES from "../../consts/languages";
+import DatePicker from "./DatePicker.vue";
 
 export default {
+  components: { DatePicker },
   props: {
     sections: {
       type: Array,
@@ -109,17 +86,8 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      menu: false,
-      date: new Date().toISOString().substr(0, 10),
-    };
-  },
   computed: {
     ...mapState(["isEmbedded"]),
-    actualDate() {
-      return this.$store.state.readings.date;
-    },
     languages: () => Object.values(LANGUAGES),
     language: {
       get() {
@@ -130,9 +98,6 @@ export default {
           this.$store.dispatch("readings/setLanguage", language);
         }
       },
-    },
-    formattedDate() {
-      return format(new Date(this.date), "dd/MM/yyyy");
     },
     drawer: {
       get() {
@@ -155,47 +120,23 @@ export default {
         return this.$store.state.navbar;
       },
       set(value) {
-        this.$store.commit("setNavbar", value);
+        this.$store.commit("setNavbar", new Date(value));
+      },
+    },
+    date: {
+      get() {
+        return this.$store.state.readings.date.toISOString().substr(0, 10);
+      },
+      set(dateStr) {
+        this.setDate(new Date(dateStr));
       },
     },
   },
   methods: {
     ...mapActions("readings", ["setDate"]),
-    async menuItemClick(index) {
-      this.drawer = false;
-      if (
-        this.$store.state.navigation.panel.find((i) => {
-          return i === index;
-        }) === undefined
-      ) {
-        this.$store.state.navigation.sections[index].ref.$el.click();
-      } else {
-        window.scrollTo(scrollX, scrollY - 0.1);
-        this.$vuetify.goTo(`#section-${index}`, {
-          duration: 300,
-          easing: "easeInOutCubic",
-          offset: 10,
-        });
-      }
-    },
     setTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       this.$store.commit("setDarkTheme", this.$vuetify.theme.dark ? "dark" : "light");
-    },
-    okClicked(date) {
-      if (new Date(this.actualDate).toISOString().substr(0, 10) != this.date) {
-        this.$refs.menu.save(date);
-        this.setDate(new Date(date));
-      }
-      this.drawer = false;
-    },
-    todayClicked() {
-      const date = new Date().toISOString().substr(0, 10);
-      if (date != this.date) {
-        this.$refs.menu.save(date);
-        this.setDate(new Date(date));
-      }
-      this.drawer = false;
     },
   },
 };
