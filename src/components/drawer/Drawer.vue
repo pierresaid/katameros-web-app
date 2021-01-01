@@ -10,7 +10,7 @@
       <span class="font-weight-bold">Date</span>
       <date-picker v-model="date" locale="fr-FR" @submit="drawer = false" />
     </div>
-    <div class="pa-2">
+    <div v-if="!isAndroid" class="pa-2">
       <span class="font-weight-bold">Date copte</span>
       <date-picker v-model="date" locale="fr-FR-u-ca-coptic" @submit="drawer = false" />
     </div>
@@ -98,6 +98,9 @@ export default {
           this.$store.dispatch("readings/setLanguage", language);
         }
       },
+    },
+    isAndroid() {
+      return /(android)/i.test(navigator.userAgent);
     },
     drawer: {
       get() {
