@@ -25,7 +25,10 @@ export default {
           throw { status: error.response.status, message: error.response.data };
         });
       commit("SET_LOADING", false);
-      commit("SET_FEASTS", res.data);
+      commit(
+        "SET_FEASTS",
+        res.data.sort((a, b) => new Date(a.date) - new Date(b.date))
+      );
       return res;
     },
   },
