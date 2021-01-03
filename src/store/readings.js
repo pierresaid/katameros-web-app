@@ -49,6 +49,7 @@ export default {
     async setLanguage({ state, commit, dispatch }, language) {
       commit("SET_LANGUAGE", language);
       dispatch("getReadings", state.date);
+      dispatch("feasts/getFeasts", null, { root: true });
     },
     async getReadings({ state, commit }) {
       commit("RESET_READINGS");
