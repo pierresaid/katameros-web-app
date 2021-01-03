@@ -43,7 +43,7 @@ export default {
   computed: {
     formattedDate() {
       return this.$props.locale.includes("coptic")
-        ? new Date(this.value)
+        ? this.value
             .toLocaleDateString("fr-FR-u-ca-coptic", {
               year: "numeric",
               month: "2-digit",
@@ -51,20 +51,17 @@ export default {
               era: "short",
             })
             .split(" ")[0]
-        : format(new Date(this.value), "dd/MM/yyyy");
+        : format(this.value, "dd/MM/yyyy");
     },
   },
   watch: {
     value(newValue) {
-      this.date = new Date(newValue).toISOString().substr(0, 10);
+      this.date = newValue.toISOString().substr(0, 10);
     },
-  },
-  created() {
-    this.date = this.$props.value;
   },
   methods: {
     okClicked(date) {
-      if (new Date(this.value).toISOString().substr(0, 10) != this.date) {
+      if (this.value.toISOString().substr(0, 10) != this.date) {
         this.$refs.menu.save(date);
         this.$emit("input", date);
       }

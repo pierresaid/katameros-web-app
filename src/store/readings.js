@@ -4,8 +4,10 @@ import { useSetting } from "@/helpers/useSetting.js";
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
+const today = new Date();
+
 const state = {
-  date: new Date(),
+  date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
   sections: null,
   title: null,
   loading: false,
@@ -42,7 +44,7 @@ export default {
   },
   actions: {
     setDate({ commit }, date) {
-      commit("SET_DATE", date);
+      commit("SET_DATE", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
     },
     async setLanguage({ state, commit, dispatch }, language) {
       commit("SET_LANGUAGE", language);
