@@ -8,7 +8,8 @@
       {{ subSection.introduction }}
     </div>
     <span v-for="(reading, index) in subSection.readings" :key="index">
-      <reading :reading="reading" class="reading" />
+      <eklisia-synax v-if="reading.id === 6" :reading="reading" class="reading" />
+      <reading v-else :reading="reading" class="reading" />
     </span>
   </div>
 </template>
@@ -16,7 +17,7 @@
 <script>
 import Reading from "./Reading.vue";
 export default {
-  components: { Reading },
+  components: { Reading, EklisiaSynax: () => import("@/embedded/EklisiaSynax.vue") },
 
   props: {
     subSection: {
