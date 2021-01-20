@@ -91,7 +91,7 @@ export default {
         const actsIdx = liturgy.subSections.findIndex((x) => x.id === 5);
         liturgy.subSections.splice(actsIdx, 0, {
           id: 5,
-          title: "Synaxaire",
+          title: this.$vuetify.rtl ? "السنكسار" : "Synaxaire",
           introduction: null,
           readings: [
             {
