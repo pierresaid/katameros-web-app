@@ -15,7 +15,6 @@
         <span class="font-weight-bold">Date copte</span>
         <date-picker v-model="date" locale="fr-FR-u-ca-coptic" @submit="drawer = false" />
       </div>
-
       <v-divider></v-divider>
       <div class="pa-2">
         <span class="font-weight-bold">Langue</span>
@@ -33,9 +32,9 @@
         ></v-select>
       </div>
       <v-divider class="pb-2"></v-divider>
-      <span class="px-2 font-weight-bold">Fêtes</span>
+      <span v-if="feasts && feasts[0].name !== null" class="px-2 font-weight-bold">Fêtes</span>
     </template>
-    <v-list>
+    <v-list v-if="feasts && feasts[0].name !== null">
       <v-list-item-group color="primary">
         <v-list-item
           v-for="(feast, idx) in feasts"
