@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     ...mapState(["isEmbedded"]),
-    ...mapState("readings", ["sections", "date"]),
+    ...mapState("readings", ["sections", "date", "language"]),
     drawer: {
       get() {
         return this.$store.state.navigation.drawer;
@@ -139,7 +139,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @font-face {
   font-family: "Avva Shenouda";
   src: url("/fonts/Avva_Shenouda.ttf");
@@ -147,6 +147,17 @@ export default {
 
 .coptic {
   font-family: "Avva Shenouda";
+}
+.v-application--is-rtl {
+  .subSection-introduction,
+  .ref,
+  .verse-text,
+  .section-title,
+  .introduction,
+  .sub-section-link,
+  .reading-conclusion {
+    font-family: "Almarai", "Roboto" !important;
+  }
 }
 
 .bookmark-button {
