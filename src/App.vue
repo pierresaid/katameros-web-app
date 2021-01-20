@@ -114,9 +114,11 @@ export default {
       this.$vuetify.theme.dark = true;
     }
     this.loadReadings();
+    this.loadFeasts();
   },
   methods: {
     ...mapActions("readings", ["getReadings"]),
+    ...mapActions("feasts", ["getFeasts"]),
     homeClicked() {
       this.$store.commit("navigation/SET_PANEL", []);
       this.$vuetify.goTo(0, {
@@ -129,6 +131,9 @@ export default {
       await this.getReadings(this.date).catch(() => {
         this.error = true;
       });
+    },
+    async loadFeasts() {
+      await this.getFeasts(this.date);
     },
   },
 };
