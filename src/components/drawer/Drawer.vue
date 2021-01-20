@@ -76,7 +76,7 @@
       </div>
       <v-divider></v-divider>
 
-      <div class="px-2 py-2">
+      <div class="px-2 py-2 mb-10">
         <span class="font-weight-bold">Theme</span>
         <div class="d-flex">
           <v-btn-toggle :value="$vuetify.theme.dark ? 1 : 0" active-class="primary black--text" dense mandatory>
