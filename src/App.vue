@@ -154,6 +154,7 @@ export default {
   .verse-text,
   .section-title,
   .introduction,
+  .subSection-title,
   .sub-section-link,
   .reading-conclusion {
     font-family: "Almarai", "Roboto" !important;
