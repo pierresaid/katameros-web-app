@@ -45,12 +45,14 @@ import { mapState } from "vuex";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
+import getEklisiaSynax from "@/embedded/getEklisiaSynax";
 
 export default {
   name: "Home",
   components: { DaySection },
   computed: {
     ...mapState("readings", ["sections", "date", "title", "loading"]),
+    ...mapState(["isEmbedded"]),
     panel: {
       get() {
         return this.$store.state.navigation.panel;
@@ -72,6 +74,41 @@ export default {
       return `${day} ${getCopticMonth(month)}`;
     },
   },
+  watch: {
+    sections() {
+      //#region Embedded
+      if (this.isEmbedded && this.sections) {
+        const [day, month] = this.date
+          .toLocaleDateString("fr-FR-u-ca-coptic", {
+            month: "numeric",
+            day: "numeric",
+          })
+          .split("/");
+        const copticDay = parseInt(day);
+        const copticMonth = parseInt(month);
+        const synaxLink = getEklisiaSynax(copticDay, copticMonth);
+        const liturgy = this.sections.find((x) => x.id === 3);
+        const actsIdx = liturgy.subSections.findIndex((x) => x.id === 5);
+        liturgy.subSections.splice(actsIdx, 0, {
+          id: 5,
+          title: "Synaxaire",
+          introduction: null,
+          readings: [
+            {
+              id: 6, // Synaxaire
+              title: null,
+              introduction: null,
+              conclusion: null,
+              passages: [],
+              synaxLink: synaxLink,
+            },
+          ],
+        });
+      }
+      //#endregion
+    },
+  },
+
   methods: {
     async onClick(index) {
       if (
