@@ -46,6 +46,7 @@ import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
 import getEklisiaSynax from "@/embedded/getEklisiaSynax";
+import { stndrdth } from "@/embedded/stndrth";
 
 export default {
   name: "Home",
@@ -89,7 +90,14 @@ export default {
         const synaxLink = getEklisiaSynax(copticDay, copticMonth);
         const liturgy = this.sections.find((x) => x.id === 3);
         const actsIdx = liturgy.subSections.findIndex((x) => x.id === 5);
-        liturgy.subSections.splice(actsIdx, 0, {
+
+        const intro = `Au nom du Père, du Fils et du Saint-Esprit, un seul Dieu Amen.
+Le ${stndrdth(copticDay)} jour du mois copte béni de ${getCopticMonth(copticMonth)}.
+Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
+          copticDay <= 15 ? "l'accueillir" : "le quitter"
+        } et qu'Il nous accorde de le retrouver dans le calme et la quiétude, après que nos péchés auront été remis grâce à la miséricorde de notre Seigneur, mes pères et mes frères et soeurs. Amen !`;
+
+        liturgy.subSections.splice(actsIdx + 1, 0, {
           id: 5,
           title: this.$vuetify.rtl ? "السنكسار" : "Synaxaire",
           introduction: null,
@@ -97,7 +105,7 @@ export default {
             {
               id: 6, // Synaxaire
               title: null,
-              introduction: null,
+              introduction: intro,
               conclusion: null,
               passages: [],
               synaxLink: synaxLink,
