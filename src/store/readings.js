@@ -1,7 +1,7 @@
 import formatDate from "../helpers/formatDate";
 import http from "../utils/http";
 import { useSetting } from "@/helpers/useSetting.js";
-
+import json from "./db.json";
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
 const today = new Date();
@@ -54,6 +54,11 @@ export default {
     async getReadings({ state, commit }) {
       commit("RESET_READINGS");
       const formatedDate = formatDate(state.date);
+      const formatWithLang = `${formatedDate}-${state.language}`;
+      if (json[formatWithLang]) {
+        commit("SET_READINGS", json[formatWithLang]);
+        return { data: json[formatWithLang] };
+      }
       commit("SET_LOADING", true);
       const res = await http
         .get(`/readings/gregorian/${formatedDate}`, { params: { languageId: state.language } })
