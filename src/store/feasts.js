@@ -1,4 +1,5 @@
 import http from "../utils/http";
+import json from "./db-feasts.json";
 
 const state = {
   feasts: null,
@@ -18,18 +19,22 @@ export default {
   },
   actions: {
     async getFeasts({ commit, rootState }) {
-      commit("SET_LOADING", true);
-      const res = await http
-        .get(`/feasts/${rootState.readings.date.getFullYear()}/${rootState.readings.language}`)
-        .catch((error) => {
-          throw { status: error.response.status, message: error.response.data };
-        });
-      commit("SET_LOADING", false);
       commit(
         "SET_FEASTS",
-        res.data.sort((a, b) => new Date(a.date) - new Date(b.date))
+        json.sort((a, b) => new Date(a.date) - new Date(b.date))
       );
-      return res;
+      // commit("SET_LOADING", true);
+      // const res = await http
+      //   .get(`/feasts/${rootState.readings.date.getFullYear()}/${rootState.readings.language}`)
+      //   .catch((error) => {
+      //     throw { status: error.response.status, message: error.response.data };
+      //   });
+      // commit("SET_LOADING", false);
+      // commit(
+      //   "SET_FEASTS",
+      //   res.data.sort((a, b) => new Date(a.date) - new Date(b.date))
+      // );
+      // return res;
     },
   },
 };
