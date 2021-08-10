@@ -22,13 +22,13 @@ module.exports = {
         },
         {
           purpose: "maskable",
-          src: "img/icons/logo-192.png",
+          src: "img/icons/logo-mask-192.png",
           sizes: "192x192",
           type: "image/png",
         },
         {
           purpose: "maskable",
-          src: "img/icons/logo-512.png",
+          src: "img/icons/logo-mask-512.png",
           sizes: "512x512",
           type: "image/png",
         },
