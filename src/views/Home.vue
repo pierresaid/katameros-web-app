@@ -14,11 +14,23 @@
           />
         </g>
       </svg>
-      <div class="main-title">
-        {{ formattedDate }}
-      </div>
-      <div class="main-title">
-        {{ formattedCopticDate }}
+      <div class="d-flex" style="justify-content: center">
+        <div class="main-title" style="">
+          <div>
+            {{ formattedDate }}
+          </div>
+          <div class="d-flex" style="justify-content: center">
+            <button style="margin-right: 5px; margin-left: 15px" @click="onChangeDate(-1)">
+              <arrow-left width="48" height="48" />
+            </button>
+            <div>
+              {{ formattedCopticDate }}
+            </div>
+            <button style="margin-left: 5px; margin-right: 15px" @click="onChangeDate(1)">
+              <arrow-right width="48" height="48" />
+            </button>
+          </div>
+        </div>
       </div>
       <div class="main-title">
         {{ title }}
@@ -47,10 +59,12 @@ import { fr } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
 import getEklisiaSynax from "@/embedded/getEklisiaSynax";
 import { stndrdth } from "@/embedded/stndrth";
+import ArrowLeft from "../components/arrow-left.vue";
+import ArrowRight from "../components/arrow-right.vue";
 
 export default {
   name: "Home",
-  components: { DaySection },
+  components: { DaySection, ArrowLeft, ArrowRight },
   computed: {
     ...mapState("readings", ["sections", "date", "title", "loading"]),
     ...mapState(["isEmbedded"]),
@@ -118,6 +132,10 @@ Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
   },
 
   methods: {
+    onChangeDate(inc) {
+      const date = this.date.setDate(this.date.getDate() + inc);
+      this.$store.dispatch("readings/setDate", new Date(date));
+    },
     async onClick(index) {
       if (
         this.$store.state.navigation.panel.find((i) => {
