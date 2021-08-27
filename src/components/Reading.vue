@@ -14,7 +14,7 @@
         :key="verseIdx"
         class="verse-text"
       >
-        <span class="overline">{{ verse.number }}</span> {{ verse.text }}
+        <span style="font-size: 0.8rem">{{ verse.number }}</span> {{ verse.text }}
       </div>
     </div>
     <div v-if="reading.conclusion" class="reading-conclusion">
@@ -51,10 +51,10 @@ export default {
 
 <style>
 .reading-introduction {
-  color: #d71b1b;
+  color: #850e0e;
 }
 #app.theme--dark .reading-introduction {
-  color: #ff3c3c;
+  color: #ff5353;
 }
 
 .introduction ~ .introduction {
@@ -62,11 +62,11 @@ export default {
 }
 .reading-conclusion {
   text-align: right;
-  color: #d71b1b;
+  color: #850e0e;
 }
 
 #app.theme--dark .reading-conclusion {
-  color: #ff3c3c;
+  color: #ff5353;
 }
 
 .verse-text {

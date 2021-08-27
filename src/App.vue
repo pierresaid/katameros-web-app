@@ -145,6 +145,11 @@ export default {
   src: url("/fonts/Avva_Shenouda.ttf");
 }
 
+.v-application {
+  font-family: "Open Sans", sans-serif;
+  // font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+}
 .coptic {
   font-family: "Avva Shenouda";
 }
@@ -157,7 +162,7 @@ export default {
   .subSection-title,
   .sub-section-link,
   .reading-conclusion {
-    font-family: "Almarai", "Roboto" !important;
+    font-family: "Almarai", "Raleway" !important;
   }
 }
 

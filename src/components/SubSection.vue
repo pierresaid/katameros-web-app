@@ -35,7 +35,7 @@ export default {
 }
 
 #app.theme--dark .subSection-introduction {
-  color: #ff3c3c;
+  color: #ff5353;
 }
 .subSection-title {
   font-family: "Suez one";
