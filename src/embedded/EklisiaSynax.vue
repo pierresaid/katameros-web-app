@@ -35,10 +35,10 @@ export default {
 
 <style>
 .reading-introduction {
-  color: #d71b1b;
+  color: #850e0e;
 }
 #app.theme--dark .reading-introduction {
-  color: #ff3c3c;
+  color: #ff5353;
 }
 
 .introduction ~ .introduction {
@@ -46,11 +46,11 @@ export default {
 }
 .reading-conclusion {
   text-align: right;
-  color: #d71b1b;
+  color: #850e0e;
 }
 
 #app.theme--dark .reading-conclusion {
-  color: #ff3c3c;
+  color: #ff5353;
 }
 
 .verse-text {

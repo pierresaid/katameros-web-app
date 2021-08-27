@@ -5,7 +5,7 @@
         {{ section.title }}
       </h2>
     </v-expansion-panel-header>
-    <v-expansion-panel-content>
+    <v-expansion-panel-content class="azdazd">
       <div v-if="section.subSections.length > 1" class="d-flex justify-center my-4 mt-4 mx-4 flex-column">
         <v-btn
           v-for="(subSection, index) in section.subSections"
@@ -86,5 +86,8 @@ export default {
 
 .v-expansion-panels .v-expansion-panel-header .v-expansion-panel-header__icon .v-icon {
   color: black !important;
+}
+.v-expansion-panel-content__wrap {
+  padding: 12px !important;
 }
 </style>
