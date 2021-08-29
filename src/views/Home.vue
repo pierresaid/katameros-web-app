@@ -33,6 +33,9 @@
         </div>
       </div>
       <div class="main-title">
+        {{ periodInfo }}
+      </div>
+      <div class="main-title">
         {{ title }}
       </div>
     </h1>
@@ -66,7 +69,7 @@ export default {
   name: "Home",
   components: { DaySection, ArrowLeft, ArrowRight },
   computed: {
-    ...mapState("readings", ["sections", "date", "title", "loading"]),
+    ...mapState("readings", ["sections", "date", "title", "loading", "periodInfo"]),
     ...mapState(["isEmbedded"]),
     panel: {
       get() {
