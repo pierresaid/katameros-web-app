@@ -10,6 +10,7 @@ const state = {
   date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
   sections: null,
   title: null,
+  periodInfo: null,
   loading: false,
   language: useSetting(LANGUAGE_LOCAL_STORAGE, 1, (la) => parseInt(la)),
 };
@@ -26,10 +27,12 @@ export default {
     RESET_READINGS(state) {
       state.sections = null;
       state.title = null;
+      state.periodInfo = null;
     },
-    SET_READINGS(state, { title, sections }) {
+    SET_READINGS(state, { title, sections, periodInfo }) {
       state.sections = sections;
       state.title = title;
+      state.periodInfo = periodInfo;
     },
     SET_DATE(state, date) {
       state.date = date;
@@ -55,6 +58,7 @@ export default {
       commit("RESET_READINGS");
       const formatedDate = formatDate(state.date);
       const formatWithLang = `${formatedDate}-${state.language}`;
+      console.log(formatWithLang);
       if (json[formatWithLang]) {
         commit("SET_READINGS", json[formatWithLang]);
         return { data: json[formatWithLang] };
