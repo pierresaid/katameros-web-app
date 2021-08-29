@@ -58,7 +58,6 @@ export default {
       commit("RESET_READINGS");
       const formatedDate = formatDate(state.date);
       const formatWithLang = `${formatedDate}-${state.language}`;
-      console.log(formatWithLang);
       if (json[formatWithLang]) {
         commit("SET_READINGS", json[formatWithLang]);
         return { data: json[formatWithLang] };
