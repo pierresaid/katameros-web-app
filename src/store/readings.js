@@ -17,6 +17,9 @@ const state = {
 
 if (today.getHours() > 17)
   state.date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
+
+if (today.getHours() > 17)
+  state.date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
 export default {
   namespaced: true,
   state,
