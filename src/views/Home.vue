@@ -58,18 +58,19 @@
 import DaySection from "../components/DaySection.vue";
 import { mapState } from "vuex";
 import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { fr, en } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
 import getEklisiaSynax from "@/embedded/getEklisiaSynax";
 import { stndrdth } from "@/embedded/stndrth";
 import ArrowLeft from "../components/arrow-left.vue";
 import ArrowRight from "../components/arrow-right.vue";
+import LANGUAGES from '../consts/languages';
 
 export default {
   name: "Home",
   components: { DaySection, ArrowLeft, ArrowRight },
   computed: {
-    ...mapState("readings", ["sections", "date", "title", "loading", "periodInfo"]),
+    ...mapState("readings", ["sections", "date", "title", "loading", "periodInfo", "language"]),
     ...mapState(["isEmbedded"]),
     panel: {
       get() {
@@ -80,7 +81,9 @@ export default {
       },
     },
     formattedDate() {
-      return format(this.date, "EEEE d LLLL", { locale: fr });
+      const langCode = Object.values(LANGUAGES).find((l) => l.id === this.language).code;
+      const locale = langCode === "fr" ? fr : en;
+      return format(this.date, "EEEE d LLLL", { locale: locale });
     },
     formattedCopticDate() {
       const [day, month] = this.date
