@@ -113,6 +113,13 @@ export default {
     if (this.$store.state.theme == "dark") {
       this.$vuetify.theme.dark = true;
     }
+    const query = this.$route.query;
+    if (query.lang) {
+      const langId = Object.values(LANGUAGES).find((l) => l.code === query.lang)?.id;
+      if (langId) {
+        this.$store.commit("readings/SET_LANGUAGE", langId);
+      }
+    }
     this.loadReadings();
     this.loadFeasts();
   },
