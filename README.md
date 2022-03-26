@@ -1,33 +1,23 @@
-# katameros-web-app
+# Ⲕⲁⲧⲁⲙⲉⲣⲟⲥ - katameros-web-app
+
+Front-end for the daily readings in the Coptic Orthodox Church. Supports multiple langages.
+
+See Readme at [katameros-api](https://github.com/pierresaid/katameros-api/tree/master#readme)
 
 ## Project setup
 
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build
+npm run build
 ```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-# todo
-
-Request caching
