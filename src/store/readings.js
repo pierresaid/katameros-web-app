@@ -2,6 +2,7 @@ import formatDate from "../helpers/formatDate";
 import http from "../utils/http";
 import { useSetting } from "@/helpers/useSetting.js";
 import json from "./db.json";
+import router from "../router";
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
 const today = new Date();
@@ -38,6 +39,14 @@ export default {
       state.periodInfo = periodInfo;
     },
     SET_DATE(state, date) {
+      state.date = date;
+      router.push({
+        query: {
+          date: formatDate(date),
+        },
+      });
+    },
+    SET_DATE_PARAM(state, date) {
       state.date = date;
     },
     SET_LANGUAGE(state, language) {
