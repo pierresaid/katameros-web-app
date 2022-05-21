@@ -1,7 +1,7 @@
 import formatDate from "../helpers/formatDate";
 import http from "../utils/http";
 import { useSetting } from "@/helpers/useSetting.js";
-import json from "./db2.json";
+import json from "./db.json";
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
 const today = new Date();
