@@ -14,7 +14,7 @@
           />
         </g>
       </svg>
-      <div class="d-flex" style="justify-content: center">
+      <div class="d-flex" style="justify-content: center; direction: ltr;">
         <div class="main-title" style="">
           <div>
             {{ formattedDate }}
