@@ -14,7 +14,7 @@
           />
         </g>
       </svg>
-      <div class="d-flex" style="justify-content: center">
+      <div class="d-flex" style="justify-content: center; direction: ltr">
         <div class="main-title" style="">
           <div>
             {{ formattedDate }}
@@ -58,13 +58,13 @@
 import DaySection from "../components/DaySection.vue";
 import { mapState } from "vuex";
 import { format } from "date-fns";
-import { fr, en } from "date-fns/locale";
+import { fr, en, it } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
 import getEklisiaSynax from "@/embedded/getEklisiaSynax";
 import { stndrdth } from "@/embedded/stndrth";
 import ArrowLeft from "../components/arrow-left.vue";
 import ArrowRight from "../components/arrow-right.vue";
-import LANGUAGES from '../consts/languages';
+import LANGUAGES from "../consts/languages";
 
 export default {
   name: "Home",
@@ -82,7 +82,7 @@ export default {
     },
     formattedDate() {
       const langCode = Object.values(LANGUAGES).find((l) => l.id === this.language).code;
-      const locale = langCode === "fr" ? fr : en;
+      const locale = langCode === "fr" ? fr : langCode === "it" ? it : en;
       return format(this.date, "EEEE d LLLL", { locale: locale });
     },
     formattedCopticDate() {

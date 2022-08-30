@@ -89,6 +89,16 @@
             </v-btn>
           </v-btn-toggle>
         </div>
+        <v-divider class="mt-2"></v-divider>
+        <a
+          href="https://github.com/pierresaid/katameros-web-app"
+          class="px-2 py-2"
+          target="_blank"
+          style="display: flex; justify-content: center; align-items: center; color: unset; text-decoration: none"
+        >
+          <span class="font-weight-bold">Github</span>
+          <Github />
+        </a>
       </div>
     </template>
   </v-navigation-drawer>
@@ -98,9 +108,10 @@
 import { mapActions, mapState } from "vuex";
 import LANGUAGES from "../../consts/languages";
 import DatePicker from "./DatePicker.vue";
+import Github from "../github.vue";
 
 export default {
-  components: { DatePicker },
+  components: { DatePicker, Github },
   props: {
     sections: {
       type: Array,
