@@ -117,8 +117,13 @@ Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
           copticDay <= 15 ? "l'accueillir" : "le quitter"
         } et qu'Il nous accorde de le retrouver dans le calme et la quiétude, après que nos péchés auront été remis grâce à la miséricorde de notre Seigneur, mes pères et mes frères et soeurs. Amen !`;
 
+        const s_idx = liturgy.subSections.findIndex((x) => x.id === 16);
+        if (s_idx > -1) {
+          liturgy.subSections.splice(s_idx, 1);
+        }
+
         liturgy.subSections.splice(actsIdx + 1, 0, {
-          id: 5,
+          id: 16,
           title: this.$vuetify.rtl ? "السنكسار" : "Synaxaire",
           introduction: null,
           readings: [
