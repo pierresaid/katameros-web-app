@@ -8,22 +8,28 @@
       {{ subSection.introduction }}
     </div>
     <span v-for="(reading, index) in subSection.readings" :key="index">
-      <eklisia-synax v-if="reading.id === 6" :reading="reading" class="reading" />
+      <div v-if="reading.id === 6">
+        <eklisia-synax v-if="isEmbedded" :reading="reading" class="reading" />
+        <div v-else v-html="reading.html" style="margin-top: 33px;"></div>
+      </div>
       <reading v-else :reading="reading" class="reading" />
     </span>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Reading from "./Reading.vue";
 export default {
   components: { Reading, EklisiaSynax: () => import("@/embedded/EklisiaSynax.vue") },
-
   props: {
     subSection: {
       type: Object,
       required: true,
     },
+  },
+  computed: {
+    ...mapState(["isEmbedded"]),
   },
 };
 </script>
