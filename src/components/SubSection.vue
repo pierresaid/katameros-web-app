@@ -9,8 +9,12 @@
     </div>
     <span v-for="(reading, index) in subSection.readings" :key="index">
       <div v-if="reading.id === 6">
+
         <eklisia-synax v-if="isEmbedded" :reading="reading" class="reading" />
-        <div v-else v-html="reading.html" style="margin-top: 33px;"></div>
+        <div v-else style="margin-top: 33px">
+          <b>{{ reading.title }}</b>
+          <div v-html="reading.html" style="margin-top: 11px"></div>
+        </div>
       </div>
       <reading v-else :reading="reading" class="reading" />
     </span>
@@ -43,6 +47,7 @@ export default {
 #app.theme--dark .subSection-introduction {
   color: #ff5353;
 }
+
 .subSection-title {
   font-family: "Suez one";
   text-align: center;
