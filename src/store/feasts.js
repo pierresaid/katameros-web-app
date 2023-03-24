@@ -21,7 +21,7 @@ export default {
     async getFeasts({ commit, rootState }) {
       commit(
         "SET_FEASTS",
-        json.sort((a, b) => new Date(a.date) - new Date(b.date))
+        json.sort((a, b) => new Date(a.date) - new Date(b.date)).filter(x => !!x.name)
       );
       // commit("SET_LOADING", true);
       // const res = await http
