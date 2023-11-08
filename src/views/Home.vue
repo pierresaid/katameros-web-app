@@ -1,17 +1,11 @@
 <template>
   <div>
     <h1 class="display-1 text-center mt-10 text-capitalize main-title">
-      <svg
-        width="100"
-        :fill="$vuetify.theme.dark ? 'white' : 'black'"
-        version="1.0"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 541.000000 561.000000"
-      >
+      <svg width="100" :fill="$vuetify.theme.dark ? 'white' : 'black'" version="1.0" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 541.000000 561.000000">
         <g transform="translate(0.000000,561.000000) scale(0.100000,-0.100000)" stroke="none">
           <path
-            d="M2300 5205 l0 -405 -380 0 -380 0 0 -405 0 -405 -370 0 -370 0 0 -385 0 -385 -400 0 -400 0 0 -410 0 -410 400 0 400 0 0 -390 0 -390 370 0 370 0 0 -400 0 -400 380 0 380 0 0 -405 0 -405 400 0 400 0 0 405 0 405 375 0 375 0 0 405 0 405 375 0 375 0 0 385 0 385 400 0 400 0 0 430 0 430 -400 0 -400 0 0 385 0 385 -375 0 -375 0 0 385 0 385 -375 0 -375 0 0 405 0 405 -400 0 -400 0 0 -405z m0 -1605 l0 -380 -355 0 -355 0 0 380 0 380 355 0 355 0 0 -380z m1510 20 l0 -360 -355 0 -355 0 0 360 0 360 355 0 355 0 0 -360z m-1510 -1605 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z m1510 0 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z"
-          />
+            d="M2300 5205 l0 -405 -380 0 -380 0 0 -405 0 -405 -370 0 -370 0 0 -385 0 -385 -400 0 -400 0 0 -410 0 -410 400 0 400 0 0 -390 0 -390 370 0 370 0 0 -400 0 -400 380 0 380 0 0 -405 0 -405 400 0 400 0 0 405 0 405 375 0 375 0 0 405 0 405 375 0 375 0 0 385 0 385 400 0 400 0 0 430 0 430 -400 0 -400 0 0 385 0 385 -375 0 -375 0 0 385 0 385 -375 0 -375 0 0 405 0 405 -400 0 -400 0 0 -405z m0 -1605 l0 -380 -355 0 -355 0 0 380 0 380 355 0 355 0 0 -380z m1510 20 l0 -360 -355 0 -355 0 0 360 0 360 355 0 355 0 0 -360z m-1510 -1605 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z m1510 0 l0 -385 -355 0 -355 0 0 385 0 385 355 0 355 0 0 -385z" />
         </g>
       </svg>
       <div class="d-flex" style="justify-content: center; direction: ltr">
@@ -58,7 +52,7 @@
 import DaySection from "../components/DaySection.vue";
 import { mapState } from "vuex";
 import { format } from "date-fns";
-import { fr, en, it } from "date-fns/locale";
+import { fr, en, it, de } from "date-fns/locale";
 import getCopticMonth from "@/helpers/getCopticMonth";
 import getEklisiaSynax from "@/embedded/getEklisiaSynax";
 import { stndrdth } from "@/embedded/stndrth";
@@ -82,7 +76,7 @@ export default {
     },
     formattedDate() {
       const langCode = Object.values(LANGUAGES).find((l) => l.id === this.language).code;
-      const locale = langCode === "fr" ? fr : langCode === "it" ? it : en;
+      const locale = langCode === "fr" ? fr : langCode === "it" ? it : langCode === "de" ? de : en;
       return format(this.date, "EEEE d LLLL", { locale: locale });
     },
     formattedCopticDate() {
@@ -113,9 +107,8 @@ export default {
 
         const intro = `Au nom du Père, du Fils et du Saint-Esprit, un seul Dieu Amen.
 Le ${stndrdth(copticDay)} jour du mois copte béni de ${getCopticMonth(copticMonth)}.
-Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
-          copticDay <= 15 ? "l'accueillir" : "le quitter"
-        } et qu'Il nous accorde de le retrouver dans le calme et la quiétude, après que nos péchés auront été remis grâce à la miséricorde de notre Seigneur, mes pères et mes frères et soeurs. Amen !`;
+Que Dieu bénisse ce mois, qu'Il nous aide à bien ${copticDay <= 15 ? "l'accueillir" : "le quitter"
+          } et qu'Il nous accorde de le retrouver dans le calme et la quiétude, après que nos péchés auront été remis grâce à la miséricorde de notre Seigneur, mes pères et mes frères et soeurs. Amen !`;
 
         liturgy.subSections.splice(actsIdx + 1, 0, {
           id: 5,
@@ -163,6 +156,7 @@ Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
 
 <style lang="scss">
 @import "~vuetify/src/styles/styles.sass";
+
 .main-title {
   font-family: "Suez One";
 }
@@ -180,6 +174,7 @@ Que Dieu bénisse ce mois, qu'Il nous aide à bien ${
 }
 
 #app.theme--dark {
+
   .v-expansion-panel:last-child .v-expansion-panel-header,
   .v-expansion-panels {
     border-right: solid 1px #a08123;
