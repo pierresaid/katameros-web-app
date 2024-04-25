@@ -33,7 +33,15 @@
         {{ title }}
       </div>
     </h1>
-    <v-fade-transition mode="out-in">
+    <div v-if="isHolyWeek && language == 1">
+      <a href="https://biblio.copte.fr/view_document.php?id=269" style="display: flex; justify-content: center; text-decoration: none;">
+        <v-btn color="primary" style="color:black;" class="mt-5" x-large>
+          Livre semaine sainte
+          <v-icon>mdi-open-in-new</v-icon>
+        </v-btn>
+      </a>
+    </div>
+    <v-fade-transition v-else mode="out-in">
       <div v-if="loading" key="loading" class="d-flex justify-center mt-10" style="width: 100%">
         <v-progress-circular indeterminate color="primary" />
       </div>
@@ -66,6 +74,10 @@ export default {
   computed: {
     ...mapState("readings", ["sections", "date", "title", "loading", "periodInfo", "language"]),
     ...mapState(["isEmbedded"]),
+    isHolyWeek() {
+      // if today is between 27/04/2024 and 04/05/2024
+      return this.date >= new Date(2024, 3, 27) && this.date <= new Date(2024, 4, 4);
+    },
     panel: {
       get() {
         return this.$store.state.navigation.panel;
