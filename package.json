@@ -1,75 +1,35 @@
 {
   "name": "katameros-web-app",
-  "description": "The Coptic lectionary. Church readings for all Week Days and Feasts.",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
-  "keywords": [
-    "katameros",
-    "coptic",
-    "lectionnary",
-    "readings"
-  ],
-  "maintainers": [
-    {
-      "name": "Pierre SAID",
-      "email": "said.pierre.emler@gmail.com",
-      "web": "https://said.tech"
-    }
-  ],
-  "demos": [
-    "https://katameros.app"
-  ],
-  "bugs": {
-    "web": "https://github.com/pierresaid/katameros-web-app/issues"
-  },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:pierresaid/katameros-web-app.git"
-    }
-  ],
-  "licenses": [
-    {
-      "name": "MIT",
-      "url": "https://raw.githubusercontent.com/pierresaid/katameros-web-app/master/LICENSE"
-    }
-  ],
-  "homepage": "https://github.com/pierresaid/katameros-web-app",
+  "type": "module",
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "date-fns": "^2.16.1",
-    "material-design-icons-iconfont": "^6.1.0",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.12",
-    "vue-router": "^3.4.6",
-    "vuetify": "^2.3.14",
-    "vuex": "^3.5.1"
+    "@vee-validate/i18n": "^4.13.1",
+    "@vuepic/vue-datepicker": "^8.8.0",
+    "@vueuse/core": "^10.11.0",
+    "axios": "^1.7.2",
+    "pinia": "^2.1.7",
+    "vee-validate": "^4.13.1",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
+    "vuetify": "^3.6.10"
   },
   "devDependencies": {
-    "@mdi/font": "^5.7.55",
-    "@vue/cli-plugin-babel": "~4.5.7",
-    "@vue/cli-plugin-eslint": "~4.5.7",
-    "@vue/cli-plugin-pwa": "~4.5.7",
-    "@vue/cli-plugin-router": "~4.5.7",
-    "@vue/cli-plugin-vuex": "~4.5.7",
-    "@vue/cli-service": "~4.5.7",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^7.0.1",
-    "prettier": "^2.1.2",
-    "sass": "^1.27.0",
-    "sass-loader": "^10.0.3",
-    "vue-cli-plugin-vuetify": "~2.0.7",
-    "vue-template-compiler": "^2.6.12",
-    "vuetify-loader": "^1.6.0"
+    "@mdi/font": "^7.4.47",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/tsconfig": "^0.5.1",
+    "npm-run-all2": "^6.2.0",
+    "typescript": "~5.4.0",
+    "vite": "^5.3.1",
+    "vue-tsc": "^2.0.21"
   }
 }

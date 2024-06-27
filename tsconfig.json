@@ -1,12 +1,11 @@
 {
-    "include": [
-      "./src/**/*"
-    ],
-    "compilerOptions": {
-      "module": "es2015",
-      "moduleResolution": "node",
-      "target": "es5",
-      "sourceMap": true,
-      "allowJs": true
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
     }
-  }
+  ]
+}
