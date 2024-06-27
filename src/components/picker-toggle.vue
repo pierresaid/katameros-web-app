@@ -18,7 +18,7 @@ const modelValue = computed(() => props.items.findIndex(x => x.value === props.m
         <v-btn-toggle color="primary" block :model-value="modelValue" border class="picker-toggle">
             <v-btn v-for="item in props.items" @click="$emit('update:model-value', item.value)" size="small"
                 :prepend-icon="item.icon">
-                {{ item.name }}</v-btn>
+                {{ $t(item.name) }}</v-btn>
         </v-btn-toggle>
     </div>
 </template>

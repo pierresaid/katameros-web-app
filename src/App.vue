@@ -10,6 +10,7 @@ import { useReadings } from './store/readings';
 import { setLocale } from '@vee-validate/i18n';
 import LANGUAGES from './consts/languages';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 function getUserLanguage() {
   return navigator.language.slice(0, 2);}
@@ -30,11 +31,15 @@ onMounted(async () => {
   }
 
   const { current } = useLocale()
+  const i18n = useI18n()
+  
   setLocale(readings.languageCode);
   current.value = readings.languageCode
+  i18n.locale.value = readings.languageCode
   watch(() => readings.languageCode, () => {
     setLocale(readings.languageCode);
     current.value = readings.languageCode
+    i18n.locale.value = readings.languageCode
   });
   readings.getReadings();
   theme.global.name.value = menu.theme;

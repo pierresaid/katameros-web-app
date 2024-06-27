@@ -6,7 +6,7 @@ const readings = useReadings()
 
 const value = ref(0);
 
-watchEffect(() =>  {
+watchEffect(() => {
     value.value = readings.bible?.id ?? 0;
 })
 
@@ -19,10 +19,9 @@ function onInput(id: number) {
 
 <template>
     <div :title="readings.bibleOriginalName">
-        <div class="font-weight-bold my-2">Bible</div>
+        <div class="font-weight-bold my-2">{{ $t('bible') }}</div>
         <v-select v-if="readings.bibles && readings.bibles.length > 1" density="compact" variant="underlined"
-        :disabled="readings.loading"
-            style="height:46px;" @update:model-value="onInput" v-model="value"
+            :disabled="readings.loading" style="height:46px;" @update:model-value="onInput" v-model="value"
             @input="(onInput as any)"
             :items="readings.bibles?.map(x => ({ ...x, name: x.name.length > 15 ? x.name.slice(0, 12) + '...' : x.name }))"
             item-title="name" item-value="id">

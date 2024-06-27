@@ -17,7 +17,8 @@ const theme = useTheme()
         </g>
     </svg> -->
 
-<img class="cross-main" :src="theme.current.value.dark ? '/cross_dark_theme.png' : '/cross.png'" alt="cross" :class="theme.current.value.dark ? 'cross-dark' : 'cross-light'" />
+    <img class="cross-main" :src="theme.current.value.dark ? '/cross_dark_theme.png' : '/cross.png'" alt="cross"
+        :class="theme.current.value.dark ? 'cross-dark' : 'cross-light'" />
 
 </template>
 
@@ -31,12 +32,11 @@ const theme = useTheme()
 }
 
 /* subtle shadow */
-.cross-main{
-    filter: drop-shadow(0 0 2.5rem #bdbdbd);
+.cross-main {
+    filter: drop-shadow(0 0 2.5rem #868686);
 }
 
-.cross-dark{
+.cross-dark {
     filter: drop-shadow(0 0 0.6rem #ffc1078a);
 }
-
 </style>
