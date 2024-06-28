@@ -1,0 +1,24 @@
+{
+    "home": "الصفحة الرئيسية",
+    "contact": "اتصال",
+    "theme": "السمة",
+    "spacing": "تباعد",
+    "language": "اللغة",
+    "bible": "الكتاب المقدس",
+    "light": "فاتح",
+    "dark": "داكن",
+    "line": "خط",
+    "paragraph": "فقرة",
+    "close": "إغلاق",
+    "aria": {
+        "cross": "صليب",
+        "prevDay": "اليوم السابق",
+        "nextDay": "اليوم التالي",
+        "openDatePicker": "فتح محدد التاريخ",
+        "toggleNav": "قائمة",
+        "langPicker": "محدد اللغة",
+        "readingMenu": "قائمة القراءة",
+        "subSectionMenu": "قائمة الأقسام الفرعية",
+        "settings": "الإعدادات"
+    }
+}

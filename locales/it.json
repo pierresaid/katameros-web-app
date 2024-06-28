@@ -1,0 +1,24 @@
+{
+    "home": "Home",
+    "contact": "Contatto",
+    "theme": "Tema",
+    "spacing": "Spaziatura",
+    "language": "Lingua",
+    "bible": "Bibbia",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "line": "Linea",
+    "paragraph": "Paragrafo",
+    "close": "Chiudi",
+    "aria": {
+        "cross": "Croce",
+        "prevDay": "Giorno precedente",
+        "nextDay": "Giorno successivo",
+        "openDatePicker": "Apri il selettore della data",
+        "toggleNav": "Menu",
+        "langPicker": "Selettore della lingua",
+        "readingMenu": "Menu di lettura",
+        "subSectionMenu": "Sottosezioni",
+        "settings": "Impostazioni"
+    }
+}

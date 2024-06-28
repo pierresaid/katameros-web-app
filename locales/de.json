@@ -1,0 +1,24 @@
+{
+    "home": "Startseite",
+    "contact": "Kontakt",
+    "theme": "Thema",
+    "spacing": "Abstand",
+    "language": "Sprache",
+    "bible": "Bibel",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "line": "Linie",
+    "paragraph": "Absatz",
+    "close": "Schließen",
+    "aria": {
+        "cross": "Kreuz",
+        "prevDay": "Vorheriger Tag",
+        "nextDay": "Nächster Tag",
+        "openDatePicker": "Öffnen Sie den Datumsauswahl",
+        "toggleNav": "Menü",
+        "langPicker": "Sprachauswahl",
+        "readingMenu": "Lesemenü",
+        "subSectionMenu": "Unterabschnittsmenü",
+        "settings": "Einstellungen"
+    }
+}

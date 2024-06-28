@@ -4,21 +4,20 @@ Front-end for the daily readings in the Coptic Orthodox Church. Supports multipl
 
 See Readme at [katameros-api](https://github.com/pierresaid/katameros-api/tree/master#readme)
 
-## Project setup
+## Project Setup
 
-```
+```sh
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile and Hot-Reload for Development
 
-```
+```sh
 npm run dev
 ```
 
-### Compiles and minifies for production
+### Type-Check, Compile and Minify for Production
 
-
-```
+```sh
 npm run build
 ```

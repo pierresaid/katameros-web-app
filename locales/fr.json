@@ -1,0 +1,24 @@
+{
+    "home": "Accueil",
+    "contact": "Contact",
+    "theme": "Thème",
+    "spacing": "Espacement",
+    "language": "Langue",
+    "bible": "Bible",
+    "light": "Clair",
+    "dark": "Sombre",
+    "line": "Ligne",
+    "paragraph": "Paragraphe",
+    "close": "Fermer",
+    "aria": {
+        "cross": "Croix",
+        "prevDay": "Jour précédent",
+        "nextDay": "Jour suivant",
+        "openDatePicker": "Ouvrir le sélecteur de date",
+        "toggleNav": "Menu",
+        "langPicker": "Sélecteur de langue",
+        "readingMenu": "Lectures",
+        "subSectionMenu": "Sous-sections",
+        "settings": "Paramètres"
+    }
+}
