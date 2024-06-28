@@ -7,10 +7,12 @@ import CopticCrossOutline from '../components/coptic-cross-outline.vue';
 import { useReadings } from '@/store/readings';
 import { useDisplay } from 'vuetify';
 import { getCopticMonth } from '@/helpers/copticMonth';
+import { useMenu } from '@/store/menu';
 
-const dialogOpen = ref(false);
 const readings = useReadings();
 const { smAndDown } = useDisplay()
+
+const menu = useMenu()
 
 let date = computed(() => new Intl.DateTimeFormat(readings.languageCode, { day: "numeric", month: "long", weekday: 'long' }).format(readings.date).split(' ').map(x => capitalize(x)).join(' '));
 let copticDate = computed(() => {
@@ -39,10 +41,10 @@ function setDate(inc: number) {
                 <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
                     <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
                         :aria-label="$t('aria.prevDay')" />
-                    <v-btn icon="mdi-calendar" @click="dialogOpen = true" :aria-label="$t('aria.openDatePicker')" />
+                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
                     <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text"
                         :aria-label="$t('aria.nextDay')" />
-                    <DatePickerDialog v-model="dialogOpen" />
+                    <DatePickerDialog v-model="menu.dateDialog" />
                 </div>
             </v-locale-provider>
         </div>

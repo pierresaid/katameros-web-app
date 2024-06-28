@@ -4,14 +4,11 @@ import '@vuepic/vue-datepicker/dist/main.css'
 import { useReadings } from '../store/readings';
 import { useMenu } from '../store/menu';
 // import CopticDatePicker from './coptic-date-picker.vue';
-const props = defineProps<{
-    modelValue: boolean;
-}>();
 
-// const tab = ref(0)
 const readings = useReadings();
 
 const menu = useMenu()
+
 
 
 // const copticDate = ref([0, 0, 0])
@@ -27,7 +24,8 @@ function onSave() {
 
 
 <template>
-    <v-dialog :model-value="modelValue" :persistent="false"  width="auto">
+    <v-dialog v-model="menu.dateDialog" :persistent="false"  width="auto"
+    >
         <v-card>
             <!-- <v-tabs v-model="tab" color="primary">
                 <v-tab value="date">Date</v-tab>
