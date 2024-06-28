@@ -25,7 +25,7 @@ function close() {
 <template>
     <v-menu>
         <template v-slot:activator="{ props }">
-            <v-btn variant="tonal" class="current-reading-btn" v-bind="props" :size="smAndUp ? 'default' : 'small'">
+            <v-btn variant="tonal" class="current-reading-btn" v-bind="props" :size="smAndUp ? 'default' : 'small'" :aria-label="$t('aria.readingMenu')">
                 <Transition :name="readings.currentSectionAnimation" mode="out-in">
                     <div :key="readings.currentSection?.id" style="max-width: 25vw; overflow-wrap: break-word;">
                         <span v-if="readings.currentSection"
@@ -36,9 +36,9 @@ function close() {
                 </Transition>
             </v-btn>
         </template>
-        <v-list class="current-reading-list">
+        <v-list class="current-reading-list" role="menu">
             <v-list-item value="close" @click="close" variant="plain">
-                <v-list-item-title>{{$t('close')}}</v-list-item-title>
+                <v-list-item-title role="menuitem">{{$t('close')}}</v-list-item-title>
             </v-list-item>
             <v-list-item v-for="section in readings.sections" :key="section.id" :value="section.id"
                 :active="readings.currentSection?.id === section.id" @click="onInput(section.id - 1)">
@@ -50,12 +50,12 @@ function close() {
                         <v-spacer />
                         <v-menu v-if="section && section.subSections.length > 1">
                             <template v-slot:activator="{ props }">
-                                <v-btn icon="mdi-chevron-down" @click.prevent.stop="" v-bind="props" />
+                                <v-btn icon="mdi-chevron-down" @click.prevent.stop="" v-bind="props" :aria-label="$t('aria.subSectionMenu')" />
                             </template>
-                            <v-list>
+                            <v-list role="menu">
                                 <v-list-item v-for="(subsection, idx) in section.subSections" :value="subsection.id"
                                     :key="subsection.id" @click="onInputSub(section.id - 1, idx)">
-                                    <v-list-item-title>{{ subsection.title }}</v-list-item-title>
+                                    <v-list-item-title role="menuitem">{{ subsection.title }}</v-list-item-title>
                                 </v-list-item>
                             </v-list>
                         </v-menu>

@@ -9,5 +9,16 @@
     "dark": "Dunkel",
     "line": "Linie",
     "paragraph": "Absatz",
-    "close": "Schließen"
+    "close": "Schließen",
+    "aria": {
+        "cross": "Kreuz",
+        "prevDay": "Vorheriger Tag",
+        "nextDay": "Nächster Tag",
+        "openDatePicker": "Öffnen Sie den Datumsauswahl",
+        "toggleNav": "Menü",
+        "langPicker": "Sprachauswahl",
+        "readingMenu": "Lesemenü",
+        "subSectionMenu": "Unterabschnittsmenü",
+        "settings": "Einstellungen"
+    }
 }

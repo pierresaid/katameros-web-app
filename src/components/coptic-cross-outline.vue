@@ -17,7 +17,7 @@ const theme = useTheme()
         </g>
     </svg> -->
 
-    <img class="cross-main" :src="theme.current.value.dark ? '/cross_dark_theme.png' : '/cross.png'" alt="cross"
+    <img class="cross-main" :src="theme.current.value.dark ? '/cross_dark_theme.png' : '/cross.png'" :alt="$t('aria.cross')"
         :class="theme.current.value.dark ? 'cross-dark' : 'cross-light'" />
 
 </template>

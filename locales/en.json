@@ -9,5 +9,16 @@
     "dark": "Dark",
     "line": "Line",
     "paragraph": "Paragraph",
-    "close": "Close"
+    "close": "Close",
+    "aria": {
+        "cross": "Cross",
+        "prevDay": "Previous day",
+        "nextDay": "Next day",
+        "openDatePicker": "Open date picker",
+        "toggleNav": "Toggle navigation",
+        "langPicker": "Language picker",
+        "readingMenu": "Reading menu",
+        "subSectionMenu": "Subsection menu",
+        "settings": "Settings"
+    }
 }

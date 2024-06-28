@@ -27,9 +27,9 @@ function setDate(inc: number) {
             {{ date }}
             <v-locale-provider :rtl="false">
             <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
-                <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text" />
-                <v-btn icon="mdi-calendar" @click="dialogOpen = true"></v-btn>
-                <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text" />
+                <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text" :aria-label="$t('aria.prevDay')" />
+                <v-btn icon="mdi-calendar" @click="dialogOpen = true" :aria-label="$t('aria.openDatePicker')" />
+                <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text" :aria-label="$t('aria.nextDay')" />
                 <DatePickerDialog v-model="dialogOpen" />
             </div>
             </v-locale-provider>

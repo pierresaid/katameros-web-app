@@ -9,5 +9,16 @@
     "dark": "داكن",
     "line": "خط",
     "paragraph": "فقرة",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "aria": {
+        "cross": "صليب",
+        "prevDay": "اليوم السابق",
+        "nextDay": "اليوم التالي",
+        "openDatePicker": "فتح محدد التاريخ",
+        "toggleNav": "قائمة",
+        "langPicker": "محدد اللغة",
+        "readingMenu": "قائمة القراءة",
+        "subSectionMenu": "قائمة الأقسام الفرعية",
+        "settings": "الإعدادات"
+    }
 }

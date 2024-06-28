@@ -19,15 +19,15 @@ const items = [
 
 <template>
     <v-navigation-drawer v-model="menu.navOpen" order="2">
-        <v-list nav>
-            <v-list-item v-for="item in items" :key="item.to" :to="item.to" :title="$t(item.title)"
+        <v-list nav role="navigation">
+            <v-list-item v-for="item in items" :key="item.to" :to="item.to" :title="$t(item.title)" role="link"
                 :prepend-icon="item.icon" />
         </v-list>
 
         <v-divider />
-        <v-list style="">
 
-            <v-list-item style="">
+        <v-list role="group" :aria-label="t('aria.settings')">
+            <v-list-item>
                 <lang-picker />
             </v-list-item>
             <v-divider />

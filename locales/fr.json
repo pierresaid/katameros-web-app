@@ -9,5 +9,16 @@
     "dark": "Sombre",
     "line": "Ligne",
     "paragraph": "Paragraphe",
-    "close": "Fermer"
+    "close": "Fermer",
+    "aria": {
+        "cross": "Croix",
+        "prevDay": "Jour précédent",
+        "nextDay": "Jour suivant",
+        "openDatePicker": "Ouvrir le sélecteur de date",
+        "toggleNav": "Menu",
+        "langPicker": "Sélecteur de langue",
+        "readingMenu": "Lectures",
+        "subSectionMenu": "Sous-sections",
+        "settings": "Paramètres"
+    }
 }

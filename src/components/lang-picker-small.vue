@@ -13,15 +13,14 @@ function onInput(id: number) {
 <template>
     <v-menu>
         <template #activator="{ props }">
-
-            <v-btn color="black" v-bind="props" append-icon="mdi-chevron-down" class="lang-icon-btn">
+            <v-btn color="black" v-bind="props" append-icon="mdi-chevron-down" class="lang-icon-btn" :aria-label="$t('aria.langPicker')">
                 <v-icon>mdi-translate</v-icon>
             </v-btn>
         </template>
-        <v-list>
+        <v-list role="menu">
             <v-list-item v-for="language in LANGUAGES" :key="language.id" :value="language.id"
                 :active="readings.language === language.id" @click="onInput(language.id)">
-                <v-list-item-title>{{ language.name }}</v-list-item-title>
+                <v-list-item-title role="menuitem">{{ language.name }}</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-menu>
