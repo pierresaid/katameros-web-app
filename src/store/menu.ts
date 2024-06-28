@@ -8,7 +8,8 @@ const LINEMODE_LOCAL_STORAGE = "LINEMODE_LOCAL_STORAGE";
 export const useMenu = defineStore('menu', () => {
     const navOpen = ref(false)
     const configOpen = ref(false)
-    const theme = useStorage<'light' | 'dark'>(THEME_LOCAL_STORAGE, 'light')
+    const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    const theme = useStorage<'light' | 'dark'>(THEME_LOCAL_STORAGE, defaultTheme)
     const spacing = useStorage<'line' | 'paragraph'>(LINEMODE_LOCAL_STORAGE, 'line')
 
     return { navOpen, configOpen, theme, spacing };
