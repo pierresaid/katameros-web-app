@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { capitalize, ref } from 'vue';
 import ReadingSections from '../components/readings/reading-sections.vue';
@@ -7,13 +6,24 @@ import { computed } from '@vue/reactivity';
 import CopticCrossOutline from '../components/coptic-cross-outline.vue';
 import { useReadings } from '@/store/readings';
 import { useDisplay } from 'vuetify';
+import { getCopticMonth } from '@/helpers/copticMonth';
 
 const dialogOpen = ref(false);
 const readings = useReadings();
 const { smAndDown } = useDisplay()
 
 let date = computed(() => new Intl.DateTimeFormat(readings.languageCode, { day: "numeric", month: "long", weekday: 'long' }).format(readings.date).split(' ').map(x => capitalize(x)).join(' '));
-let copticDate = computed(() => new Intl.DateTimeFormat("fr", { calendar: "coptic", day: "numeric", month: "long", year: "numeric" }).format(readings.date).split(' ').map(x => capitalize(x)).join(' ').slice(0, -6));
+let copticDate = computed(() => {
+
+
+    const [day, month] = readings.date
+        .toLocaleDateString("fr-FR-u-ca-coptic", {
+            month: "numeric",
+            day: "numeric",
+        })
+        .split("/");
+    return `${day} ${getCopticMonth(Number(month))}`;
+});
 
 function setDate(inc: number) {
     readings.date = new Date(readings.date.setDate(readings.date.getDate() + inc))
@@ -26,12 +36,14 @@ function setDate(inc: number) {
         <div class="g-date" :style="smAndDown ? 'display: block;' : ''">
             {{ date }}
             <v-locale-provider :rtl="false">
-            <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
-                <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text" :aria-label="$t('aria.prevDay')" />
-                <v-btn icon="mdi-calendar" @click="dialogOpen = true" :aria-label="$t('aria.openDatePicker')" />
-                <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text" :aria-label="$t('aria.nextDay')" />
-                <DatePickerDialog v-model="dialogOpen" />
-            </div>
+                <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
+                    <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
+                        :aria-label="$t('aria.prevDay')" />
+                    <v-btn icon="mdi-calendar" @click="dialogOpen = true" :aria-label="$t('aria.openDatePicker')" />
+                    <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text"
+                        :aria-label="$t('aria.nextDay')" />
+                    <DatePickerDialog v-model="dialogOpen" />
+                </div>
             </v-locale-provider>
         </div>
         <div>
@@ -90,39 +102,41 @@ function setDate(inc: number) {
 }
 
 :root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 .justify-center {
-  justify-content: center;
+    justify-content: center;
 }
+
 .items-baseline {
-  align-items: baseline;
+    align-items: baseline;
 }
 
 .items-center {
-  align-items: center;
+    align-items: center;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
-.mx-a, .mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.mx-a,
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .p-u {
-  position: unset !important;
+    position: unset !important;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 </style>

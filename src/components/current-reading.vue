@@ -25,7 +25,7 @@ function close() {
 <template>
     <v-menu>
         <template v-slot:activator="{ props }">
-            <v-btn variant="tonal" class="current-reading-btn" v-bind="props" :size="smAndUp ? 'default' : 'small'" :aria-label="$t('aria.readingMenu')">
+            <v-btn variant="tonal" class="current-reading-btn" v-bind="props" :size="smAndUp ? 'default' : 'small'" :aria-label="$t('aria.readingMenu')" style="margin-right: 5px;">
                 <Transition :name="readings.currentSectionAnimation" mode="out-in">
                     <div :key="readings.currentSection?.id" style="max-width: 25vw; overflow-wrap: break-word;">
                         <span v-if="readings.currentSection"

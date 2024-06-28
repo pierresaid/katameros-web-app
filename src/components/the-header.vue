@@ -19,7 +19,7 @@ const route = useRoute();
         <template v-slot:prepend>
             <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen" :aria-label="$t('aria.toggleNav')" />
         </template>
-        <v-app-bar-title style="display: flex;">
+        <v-app-bar-title style="display: flex; margin-left: 0px;">
             <router-link to="/">
                 <h1 class="coptic kt">Katameroc</h1>
             </router-link>

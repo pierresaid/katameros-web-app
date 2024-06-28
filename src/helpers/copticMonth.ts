@@ -13,3 +13,7 @@ export const coptic_months = [
   "Misra",
   "Nasie",
 ];
+
+export const getCopticMonth = (monthNumber: number) => {
+  return `${coptic_months[monthNumber - 1]}`;
+};
