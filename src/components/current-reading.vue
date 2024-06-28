@@ -38,7 +38,7 @@ function close() {
         </template>
         <v-list class="current-reading-list">
             <v-list-item value="close" @click="close" variant="plain">
-                <v-list-item-title>Close</v-list-item-title>
+                <v-list-item-title>{{$t('close')}}</v-list-item-title>
             </v-list-item>
             <v-list-item v-for="section in readings.sections" :key="section.id" :value="section.id"
                 :active="readings.currentSection?.id === section.id" @click="onInput(section.id - 1)">
