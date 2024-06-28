@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from './router'
 import { vuetifyApp } from './plugins/vuetify'
 import { i18n } from './plugins/i18n'
-
+import './plugins/vee-validate'
 
 const app = createApp(App)
 app.use(vuetifyApp)

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@vee-validate/i18n": "^4.13.1",
+    "@vee-validate/rules": "^4.13.1",
     "@vuepic/vue-datepicker": "^8.8.0",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
