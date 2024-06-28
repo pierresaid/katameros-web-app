@@ -10,6 +10,7 @@
     "line": "Line",
     "paragraph": "Paragraph",
     "close": "Close",
+    "MessageSent": "Message sent",
     "aria": {
         "cross": "Cross",
         "prevDay": "Previous day",
