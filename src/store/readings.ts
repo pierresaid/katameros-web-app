@@ -23,8 +23,8 @@ export const useReadings = defineStore('readings', () => {
     const pickedBibles = useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", [])
     const periodInfo = ref<string | null>(null);
     const loading = ref(false);
-    const language = useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1);
     const langIsDefined = localStorage.getItem(LANGUAGE_LOCAL_STORAGE) !== null;
+    const language = useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1);
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
     const currentReading = ref<DayReading | null>(null);
     const panel = ref<number[]>([])

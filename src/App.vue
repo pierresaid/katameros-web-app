@@ -9,11 +9,15 @@ import { watch } from 'vue';
 import { useReadings } from './store/readings';
 import { setLocale } from '@vee-validate/i18n';
 import LANGUAGES from './consts/languages';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
 function getUserLanguage() {
   return navigator.language.slice(0, 2);}
+
+const router = useRouter()
+const { current } = useLocale()
+const i18n = useI18n()
 
 onMounted(async () => {
   const readings = useReadings()
@@ -22,16 +26,16 @@ onMounted(async () => {
   const menu = useMenu()
   const theme = useTheme();
 
+  await router.isReady()
+
   const langQuery = route.query['lang']
   const lang = langQuery ?? getUserLanguage()
+  
   const langId = Object.values(LANGUAGES).find(l => l.code == lang)?.id
 
   if (langId && (langQuery || !readings.langIsDefined)) {
     readings.language = langId
   }
-
-  const { current } = useLocale()
-  const i18n = useI18n()
   
   setLocale(readings.languageCode);
   current.value = readings.languageCode
