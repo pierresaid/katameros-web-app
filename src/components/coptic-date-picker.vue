@@ -26,7 +26,7 @@ const emit = defineEmits<{
 }>()
 
 watchEffect(() => {
-    if (month.value === 12) {
+    if (month.value === 13) {
         day.value = 1
         days.value = []
         for (let i = 1; i < 6; i++)
