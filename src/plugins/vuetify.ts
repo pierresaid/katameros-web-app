@@ -50,6 +50,9 @@ const defDark = {
   }
 }
 
+import { fr, en, ar, de, it } from 'vuetify/locale'
+
+
 export const vuetifyApp = createVuetify({
   theme: {
     defaultTheme: 'dark',
@@ -57,6 +60,9 @@ export const vuetifyApp = createVuetify({
       light: defLight,
       dark: defDark
     }
+  },
+  locale: {
+    messages: { fr, en, ar, de, it },
   },
   components,
   directives,

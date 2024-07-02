@@ -11,6 +11,10 @@
     "paragraph": "Absatz",
     "close": "Schließen",
     "MessageSent": "Nachricht gesendet",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "date": "Datum",
+    "coptic-date": "Koptisches Datum",
     "aria": {
         "cross": "Kreuz",
         "prevDay": "Vorheriger Tag",

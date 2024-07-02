@@ -11,6 +11,10 @@
     "paragraph": "Paragraphe",
     "close": "Fermer",
     "MessageSent": "Message envoyé",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "date": "Date",
+    "coptic-date": "Date copte",
     "aria": {
         "cross": "Croix",
         "prevDay": "Jour précédent",

@@ -11,6 +11,10 @@
     "paragraph": "فقرة",
     "close": "إغلاق",
     "MessageSent": "تم إرسال الرسالة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "date": "تاريخ",
+    "coptic-date": "التاريخ القبطي",
     "aria": {
         "cross": "صليب",
         "prevDay": "اليوم السابق",
