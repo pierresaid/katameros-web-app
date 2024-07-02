@@ -32,6 +32,11 @@ watchEffect(() => {
         for (let i = 1; i < 6; i++)
             days.value.push(i)
     }
+    else {
+        days.value = []
+        for (let i = 1; i < 31; i++)
+            days.value.push(i)
+    }
 })
 
 watch([day, month, year], () => {
