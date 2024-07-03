@@ -18,7 +18,6 @@ const years: number[] = []
 const year = ref(readings.copticDate[2])
 for (let i = year.value - 50; i < year.value + 50; i++) {
     years.push(i)
-
 }
 
 const emit = defineEmits<{
@@ -43,9 +42,6 @@ watch([day, month, year], () => {
     emit('update', [day.value, month.value, year.value])
 })
 
-const dbg = ref(false)
-const dbg2 = ref(false)
-const dbg3 = ref(false)
 onMounted(() => {
     emit('update', [day.value, month.value, year.value])
 })
@@ -53,10 +49,8 @@ onMounted(() => {
 
 <template>
     <div class="flex">
-        <v-select :items="days" v-model="day" :label="$t('day')" @update:menu="dbg = $event" :menu="dbg" variant="plain" />
-        <v-select :items="months" v-model="month" :label="$t('month')" @update:menu="dbg2 = $event" :menu="dbg2"
-            variant="plain" />
-        <v-select :items="years" v-model="year" :label="$t('year')" @update:menu="dbg3 = $event" :menu="dbg3"
-            variant="plain" />
+        <v-select :items="days" v-model="day" :label="$t('day')" variant="plain" />
+        <v-select :items="months" v-model="month" :label="$t('month')" variant="plain" />
+        <v-select :items="years" v-model="year" :label="$t('year')" variant="plain" />
     </div>
 </template>

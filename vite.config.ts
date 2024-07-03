@@ -19,6 +19,7 @@ export default defineConfig({
         categories: ['books', 'religion'],
         // related_applications
         theme_color: '#ffc107',
+        background_color: '#000000',
         icons: [
           {
             src: 'img/logo-192.png',
