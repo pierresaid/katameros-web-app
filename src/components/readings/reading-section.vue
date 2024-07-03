@@ -41,7 +41,7 @@ function onIntersect(visible: Boolean) {
 
 <template>
     <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)">
-        <h2 class="section-title">
+        <h2 class="section-title" style="word-wrap: break-word;">
                 {{ section.title }}
         </h2>
     </v-expansion-panel-title>
