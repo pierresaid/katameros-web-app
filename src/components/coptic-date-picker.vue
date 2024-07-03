@@ -53,10 +53,10 @@ onMounted(() => {
 
 <template>
     <div class="flex">
-        <v-select :items="days" v-model="day" label="Day" @update:menu="dbg = $event" :menu="dbg" variant="plain" />
-        <v-select :items="months" v-model="month" label="Month" @update:menu="dbg2 = $event" :menu="dbg2"
+        <v-select :items="days" v-model="day" :label="$t('day')" @update:menu="dbg = $event" :menu="dbg" variant="plain" />
+        <v-select :items="months" v-model="month" :label="$t('month')" @update:menu="dbg2 = $event" :menu="dbg2"
             variant="plain" />
-        <v-select :items="years" v-model="year" label="Year" @update:menu="dbg3 = $event" :menu="dbg3"
+        <v-select :items="years" v-model="year" :label="$t('year')" @update:menu="dbg3 = $event" :menu="dbg3"
             variant="plain" />
     </div>
 </template>

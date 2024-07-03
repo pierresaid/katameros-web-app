@@ -15,6 +15,9 @@
     "cancel": "Cancel",
     "date": "Date",
     "coptic-date": "Coptic date",
+    "day": "Day",
+    "month": "Month",
+    "year": "Year",
     "aria": {
         "cross": "Cross",
         "prevDay": "Previous day",

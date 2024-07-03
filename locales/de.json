@@ -15,6 +15,9 @@
     "cancel": "Abbrechen",
     "date": "Datum",
     "coptic-date": "Koptisches Datum",
+    "day": "Tag",
+    "month": "Monat",
+    "year": "Jahr",
     "aria": {
         "cross": "Kreuz",
         "prevDay": "Vorheriger Tag",

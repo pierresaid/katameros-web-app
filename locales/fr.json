@@ -15,6 +15,9 @@
     "cancel": "Annuler",
     "date": "Date",
     "coptic-date": "Date copte",
+    "day": "Jour",
+    "month": "Mois",
+    "year": "Année",
     "aria": {
         "cross": "Croix",
         "prevDay": "Jour précédent",

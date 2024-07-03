@@ -15,6 +15,9 @@
     "cancel": "Annulla",
     "date": "Data",
     "coptic-date": "Data copta",
+    "day": "Giorno",
+    "month": "Mese",
+    "year": "Anno",
     "aria": {
         "cross": "Croce",
         "prevDay": "Giorno precedente",
