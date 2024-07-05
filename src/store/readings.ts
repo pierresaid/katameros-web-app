@@ -5,13 +5,12 @@ import LANGUAGES from '../consts/languages';
 import formatDate from '../helpers/formatDate';
 import { http } from '../services/http';
 import { type Bible, type DayReading, type Section } from '../types/readings';
-// import localForage from "localforage";
 import { useStorage } from '@vueuse/core';
+import localforage from 'localforage';
 
 const today = new Date()
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
-const BIBLES_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 
 export const useReadings = defineStore('readings', () => {
     const date = ref(new Date(today.getFullYear(), today.getMonth(), today.getDate()));
@@ -47,8 +46,6 @@ export const useReadings = defineStore('readings', () => {
         return [copticDay, copticMonth, copticYear];
     })
 
-    deleteExpiredCache()
-
     watch(currentSection, (old: Section | null | undefined, newvalue: Section | null | undefined) => {
         if (old && newvalue && old.id > newvalue.id)
             currentSectionAnimation.value = 'slide-rev'
@@ -81,34 +78,32 @@ export const useReadings = defineStore('readings', () => {
         if (version) {
             params["bibleId"] = version;
         }
-        const key = `${formatedDate}-${language.value}-${version}`;
-        // const cached = await localForage.getItem<DayReading>(key);
-        // if (cached) {
-        //     setReading(cached);
-        // }
-        // else {
+        const key = `${formatedDate}-${language.value}`;
+        const cached = await localforage.getItem<DayReading>(key);
+        if (cached) {
+            setReading(cached);
+        }
+        else {
             loading.value = true;
             const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
-            // localForage.setItem(key, res);
+
+            if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4))
+                loadCacheData()
 
             setReading(res);
-        // }
+        }
         loading.value = false;
     }
 
-    function deleteExpiredCache() {
-        // const expirationDays = 7;
-        // const expirationDate = new Date();
-        // expirationDate.setDate(expirationDate.getDate() - expirationDays);
-        // localForage.iterate((value: DayReading, key: string) => {
-        //     const day = parseInt(key.split("-")[0]);
-        //     const month = parseInt(key.split("-")[1]);
-        //     const year = parseInt(key.split("-")[2]);
-        //     const date = new Date(year, month - 1, day);
-        //     if (date < expirationDate) {
-        //         localForage.removeItem(key);
-        //     }
-        // });
+    async function loadCacheData() {
+        const response = await fetch("/db.json");
+        const data = await response.json();
+        const entries = Object.entries(data);
+        for (const [enkey, value] of entries) {
+            const [day, month, year, lang] = enkey.split("-");
+            const key = `${day}-${month}-${year}-${lang}`;
+            localforage.setItem(key, value);
+        }
 
     }
 
