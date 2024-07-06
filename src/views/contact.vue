@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { Form, Field } from 'vee-validate';
 import { useNotif } from '../store/notif';
 import { useI18n } from 'vue-i18n';
+import { http } from '../services/http';
 
 const name = ref('');
 const email = ref('');
@@ -18,16 +19,11 @@ function encode(data: any) {
 const { t } = useI18n();
 async function onsubmit() {
     loading.value = true;
-    await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-            "form-name": "contact",
-            name: name.value,
-            email: email.value,
-            message: message.value
-        })
-    })
+    await http.post("/contact", {
+        name: name.value,
+        email: email.value,
+        message: message.value
+    });
     name.value = '';
     email.value = '';
     message.value = '';
