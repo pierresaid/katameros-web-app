@@ -11,6 +11,9 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/ios": "^6.1.0",
     "@vee-validate/i18n": "^4.13.1",
     "@vee-validate/rules": "^4.13.1",
     "@vuepic/vue-datepicker": "^8.8.0",
@@ -25,6 +28,8 @@
     "vuetify": "^3.6.10"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.0",
     "@mdi/font": "^7.4.47",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.5",
