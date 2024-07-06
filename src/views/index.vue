@@ -35,7 +35,7 @@ function setDate(inc: number) {
 <template>
     <div class="text-center date">
         <CopticCrossOutline style="width : 120px; height: 120px;" />
-        <div class="g-date" :style="smAndDown ? 'display: block;' : ''">
+        <div class="g-date" :style="smAndDown ? 'display: block;' : ''" style="width: 100%;">
             {{ date }}
             <v-locale-provider :rtl="false">
                 <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
