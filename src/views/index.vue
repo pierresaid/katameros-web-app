@@ -40,10 +40,11 @@ function setDate(inc: number) {
             <v-locale-provider :rtl="false">
                 <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
                     <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
-                        :aria-label="$t('aria.prevDay')" />
-                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
+                        :disabled="readings.preloading" :aria-label="$t('aria.prevDay')" />
+                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')"
+                        :disabled="readings.preloading" />
                     <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text"
-                        :aria-label="$t('aria.nextDay')" />
+                        :disabled="readings.preloading" :aria-label="$t('aria.nextDay')" />
                     <DatePickerDialog v-model="menu.dateDialog" />
                 </div>
             </v-locale-provider>

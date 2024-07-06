@@ -7,6 +7,7 @@ import { http } from '../services/http';
 import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
+// import jsonData from '@/assets/db.json'
 
 const today = new Date()
 
@@ -16,6 +17,7 @@ export const useReadings = defineStore('readings', () => {
     const date = ref(new Date(today.getFullYear(), today.getMonth(), today.getDate()));
     const sections = ref<Section[] | null>(null);
     const title = ref<string | null>(null);
+    const preloading = ref(false);
     const bible = ref<Bible>()
     const bibleOriginalName = ref("")
     const bibles = ref<Bible[]>()
@@ -85,19 +87,33 @@ export const useReadings = defineStore('readings', () => {
         }
         else {
             loading.value = true;
-            const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
 
-            if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4))
-                loadCacheData()
-
-            setReading(res);
+            if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4)) {
+                preloading.value = true;
+                await loadCacheData()
+                const cached = await localforage.getItem<DayReading>(key);
+                if (cached) {
+                    setReading(cached);
+                }
+                else {
+                    // we should not reach this point
+                    const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
+                    setReading(res);
+                }
+                preloading.value = false;
+            }
+            else {
+                const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
+                setReading(res);
+            }
         }
         loading.value = false;
     }
 
     async function loadCacheData() {
-        const response = await fetch("/db.json");
-        const data = await response.json();
+        const module = await import(`@/assets/db.json`)
+        const data = module.default;
+
         const entries = Object.entries(data);
         for (const [enkey, value] of entries) {
             const [day, month, year, lang] = enkey.split("-");
@@ -138,5 +154,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, language, bibleOriginalName, changeBible, getReadings, currentReading, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, langIsDefined, bible, bibles }
+    return { date, copticDate, sections, title, periodInfo, loading, language, bibleOriginalName, changeBible, getReadings, currentReading, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles }
 })
