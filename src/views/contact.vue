@@ -10,12 +10,6 @@ const email = ref('');
 const message = ref('');
 const loading = ref(false);
 
-function encode(data: any) {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&")
-}
-
 const { t } = useI18n();
 async function onsubmit() {
     loading.value = true;
