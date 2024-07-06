@@ -7,7 +7,6 @@ import { http } from '../services/http';
 import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
-// import jsonData from '@/assets/db.json'
 
 const today = new Date()
 
@@ -19,6 +18,7 @@ export const useReadings = defineStore('readings', () => {
     const title = ref<string | null>(null);
     const preloading = ref(false);
     const bible = ref<Bible>()
+    const error = ref(true);
     const bibleOriginalName = ref("")
     const bibles = ref<Bible[]>()
     const pickedBibles = useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", [])
@@ -72,6 +72,7 @@ export const useReadings = defineStore('readings', () => {
         sections.value = null;
         title.value = null;
         periodInfo.value = null;
+        error.value = false;
 
         const formatedDate = formatDate(date.value);
 
@@ -103,8 +104,12 @@ export const useReadings = defineStore('readings', () => {
                 preloading.value = false;
             }
             else {
-                const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
-                setReading(res);
+                try {
+                    const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
+                    setReading(res);
+                } catch (e) {
+                    error.value = true;
+                }
             }
         }
         loading.value = false;
@@ -154,5 +159,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, language, bibleOriginalName, changeBible, getReadings, currentReading, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles }
+    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentReading, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles }
 })

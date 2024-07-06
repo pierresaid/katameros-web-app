@@ -28,5 +28,9 @@
         "readingMenu": "Reading menu",
         "subSectionMenu": "Subsection menu",
         "settings": "Settings"
-    }
+    },
+    "error":{
+        "loadingReadings": "Error loading readings"
+    },
+    "reload": "Reload"
 }

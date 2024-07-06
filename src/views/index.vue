@@ -64,6 +64,15 @@ function setDate(inc: number) {
         </Transition>
     </div>
     <ReadingSections />
+
+    <v-snackbar v-model="readings.error" color="red" :timeout="-1">
+        {{ $t('error.loadingReadings') }}
+        <template v-slot:actions>
+            <v-btn variant="elevated" size="small" @click="readings.getReadings">
+                {{ $t('reload') }}
+            </v-btn>
+        </template>
+    </v-snackbar>
 </template>
 
 <style>

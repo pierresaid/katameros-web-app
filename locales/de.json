@@ -28,5 +28,9 @@
         "readingMenu": "Lesemenü",
         "subSectionMenu": "Unterabschnittsmenü",
         "settings": "Einstellungen"
-    }
+    },
+    "error":{
+        "loadingReadings": "Fehler beim Laden der Lesungen"
+    },
+    "reload": "Neu laden"
 }

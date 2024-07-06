@@ -28,5 +28,9 @@
         "readingMenu": "Menu di lettura",
         "subSectionMenu": "Sottosezioni",
         "settings": "Impostazioni"
-    }
+    },
+    "error":{
+        "loadingReadings": "Errore durante il caricamento delle letture"
+    },
+    "reload": "Ricarica"
 }

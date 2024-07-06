@@ -28,5 +28,9 @@
         "readingMenu": "قائمة القراءة",
         "subSectionMenu": "قائمة الأقسام الفرعية",
         "settings": "الإعدادات"
-    }
+    },
+    "error":{
+        "loadingReadings": "خطأ في تحميل القراءات"
+    },
+    "reload": "إعادة تحميل"
 }
