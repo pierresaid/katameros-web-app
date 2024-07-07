@@ -27,10 +27,13 @@
         "langPicker": "Language picker",
         "readingMenu": "Reading menu",
         "subSectionMenu": "Subsection menu",
-        "settings": "Settings"
+        "settings": "Settings",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out"
     },
     "error":{
         "loadingReadings": "Error loading readings"
     },
-    "reload": "Reload"
+    "reload": "Reload",
+    "zoom": "Zoom"
 }

@@ -7,12 +7,27 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useMenu } from '../../store/menu';
 import { type SubSection } from '../../types/readings.js';
 import Reading from './reading.vue';
 
-const props = defineProps<{
+defineProps<{
     subSection: SubSection
 }>();
+
+const menu = useMenu()
+
+const subSectionTitleBaseSize = 1.6;
+const subSectionTitleSize  = computed(() => {
+    return Number((menu.zoom * subSectionTitleBaseSize).toFixed(2));
+});
+
+const verseBaseSize = 1
+const verseFontSize = computed(() => {
+    return Number((menu.zoom * verseBaseSize).toFixed(2));
+});
+
 </script>
 
 <style>
@@ -20,6 +35,7 @@ const props = defineProps<{
     color: #d04444;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: v-bind('verseFontSize + "rem"');
 }
 
 .v-theme--dark .subSection-introduction {
@@ -30,7 +46,7 @@ const props = defineProps<{
     font-family: "Suez one";
     text-align: center;
     font-weight: 400;
-    font-size: 1.6em;
+    font-size: v-bind('subSectionTitleSize + "rem"');
 }
 
 .reading {

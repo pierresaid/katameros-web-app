@@ -27,10 +27,13 @@
         "langPicker": "محدد اللغة",
         "readingMenu": "قائمة القراءة",
         "subSectionMenu": "قائمة الأقسام الفرعية",
-        "settings": "الإعدادات"
+        "settings": "الإعدادات",
+        "zoomIn": "تكبير",
+        "zoomOut": "تصغير"
     },
     "error":{
         "loadingReadings": "خطأ في تحميل القراءات"
     },
-    "reload": "إعادة تحميل"
+    "reload": "إعادة تحميل",
+    "zoom": "تكبير"
 }

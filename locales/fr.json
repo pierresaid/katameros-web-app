@@ -27,10 +27,13 @@
         "langPicker": "Sélecteur de langue",
         "readingMenu": "Lectures",
         "subSectionMenu": "Sous-sections",
-        "settings": "Paramètres"
+        "settings": "Paramètres",
+        "zoomIn": "Zoomer",
+        "zoomOut": "Dézoomer"
     },
     "error":{
         "loadingReadings": "Erreur lors du chargement des lectures"
     },
-    "reload": "Recharger"
+    "reload": "Recharger",
+    "zoom": "Zoom"
 }

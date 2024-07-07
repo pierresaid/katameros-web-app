@@ -5,6 +5,7 @@ import LangPicker from './lang-picker.vue';
 import ThemePicker from './theme-picker.vue';
 import SpacePicker from './space-picker.vue';
 import BiblePicker from './bible-picker.vue';
+import ZoomPicker from './zoom-picker.vue';
 import { useI18n } from 'vue-i18n';
 const menu = useMenu()
 const { t } = useI18n()
@@ -35,6 +36,9 @@ const items = [
                 <bible-picker />
             </v-list-item>
             <v-divider />
+            <v-list-item>
+                <zoom-picker />
+            </v-list-item>
             <v-list-item>
                 <theme-picker />
             </v-list-item>

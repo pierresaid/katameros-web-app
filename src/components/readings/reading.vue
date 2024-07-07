@@ -1,6 +1,6 @@
 <template>
     <div class="reading">
-        <h3 v-if="reading.title">{{ reading.title }}</h3>
+        <h3 class="reading-title" v-if="reading.title">{{ reading.title }}</h3>
         <div v-if="reading.introduction" class="reading-introduction mb-5">
             <div v-for="(introduction, index) in reading.introduction.split('\n')" :key="index" class="introduction">
                 {{ introduction }}
@@ -10,7 +10,7 @@
         <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
             <component v-for="(verse, verseIdx) in passage.verses" :key="verseIdx" class="verse-text"
                 :is="menu.spacing === 'line' ? 'div' : 'span'">
-                <span style="font-size: 0.8rem">{{ verse.number }}</span> {{ verse.text }}
+                <span class="verse-number">{{ verse.number }}</span> {{ verse.text }}
             </component>
         </div>
         <div v-if="reading.html" class="custom-html">
@@ -32,6 +32,22 @@ const { reading } = defineProps<{
 }>();
 
 const menu = useMenu()
+const zoom = computed(() => menu.zoom)
+
+const verseBaseSize = 1
+const verseFontSize = computed(() => {
+    return Number((zoom.value * verseBaseSize).toFixed(2));
+});
+
+const verseNbrBaseSize = 0.8;
+const verseNbrFontSize = computed(() => {
+    return Number((zoom.value * verseNbrBaseSize).toFixed(2));
+});
+
+const refBaseSize = 1.2;
+const refFontSize = computed(() => {
+    return Number((zoom.value * refBaseSize).toFixed(2));
+});
 
 const Ref = computed(() => {
     let ref = "";
@@ -75,11 +91,32 @@ const Ref = computed(() => {
 
 .ref {
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: v-bind('refFontSize + "rem"');
     text-transform: uppercase;
 }
+
+.custom-html {
+    font-size: v-bind('verseFontSize + "em"');
+}
+
+
 
 .custom-html p {
     margin-bottom: 10px;
 }
+
+.verse-text,
+.reading-conclusion,
+.introduction {
+    font-size: v-bind('verseFontSize + "rem"');
+}
+
+.verse-number {
+    font-size: v-bind('verseNbrFontSize + "rem"');
+}
+
+.reading-title {
+    font-size: v-bind('refFontSize + "rem"');
+}
+
 </style>
