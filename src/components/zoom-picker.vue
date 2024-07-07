@@ -21,8 +21,8 @@ function dec() {
         <div class="font-weight-bold my-2">{{ $t('zoom') }}</div>
         <v-slider v-model="menu.zoom" step="0.1" min="0.5" max="3" thumb-label="always" thumb-size="24" />
         <v-btn-group variant="tonal" class="picker-toggle" style="margin-top: -20px;">
-            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-minus" @click="inc" :aria-label="$t('aria.zoomIn')"/>
-            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-plus" @click="dec" :aria-label="$t('aria.zoomOut')"/>
+            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-minus" @click="dec" :aria-label="$t('aria.zoomIn')"/>
+            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-plus" @click="inc" :aria-label="$t('aria.zoomOut')"/>
         </v-btn-group>
     </div>
 </template>
