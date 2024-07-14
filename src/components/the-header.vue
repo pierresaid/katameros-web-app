@@ -61,7 +61,7 @@ const route = useRoute();
 
 /* fix for ios */
 .header-main {
-    top:  env(safe-area-inset-top) !important;
+    padding-top:  env(safe-area-inset-top) !important;
 }
 
 body {
