@@ -65,11 +65,15 @@ const items = [
 
 <style>
 .v-navigation-drawer--left {
-    padding-left:  env(safe-area-inset-left) !important;
+    /* padding-left:  env(safe-area-inset-left) !important; */
 }
 
 .v-navigation-drawer--right {
-    padding-right:  env(safe-area-inset-right) !important;
+    /* padding-right:  env(safe-area-inset-right) !important; */
+}
+
+.v-navigation-drawer {
+    padding-bottom: env(safe-area-inset-bottom) !important;
 }
 
 </style>
