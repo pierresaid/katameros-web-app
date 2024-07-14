@@ -61,3 +61,15 @@ const items = [
         </template>
     </v-navigation-drawer>
 </template>
+
+
+<style>
+.v-navigation-drawer--left {
+    padding-left:  env(safe-area-inset-left) !important;
+}
+
+.v-navigation-drawer--right {
+    padding-right:  env(safe-area-inset-right) !important;
+}
+
+</style>
