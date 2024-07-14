@@ -15,7 +15,7 @@ const route = useRoute();
 
 
 <template>
-    <v-app-bar color="primary">
+    <v-app-bar color="primary" class="header-main">
         <template v-slot:prepend>
             <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen" :aria-label="$t('aria.toggleNav')" />
         </template>
@@ -57,5 +57,10 @@ const route = useRoute();
         padding-inline-start: 5px;
 
     }
+}
+
+/* fix for ios */
+.header-main {
+    top:  env(safe-area-inset-top) !important;
 }
 </style>
