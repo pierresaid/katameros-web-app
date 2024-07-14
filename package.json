@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@capacitor-community/safe-area": "^6.0.0-alpha.6",
     "@capacitor/android": "^6.1.0",
     "@capacitor/core": "^6.1.0",
     "@capacitor/ios": "^6.1.0",
