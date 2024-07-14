@@ -68,6 +68,10 @@ onMounted(async () => {
   --primary-color: #FFC107;
 }
 
+body {
+  padding-top: env(safe-area-inset-top);
+}
+
 @font-face {
   font-family: "Avva Shenouda";
   src: url("/fonts/Avva_Shenouda.ttf");
