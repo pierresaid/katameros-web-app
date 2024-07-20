@@ -61,10 +61,14 @@ const route = useRoute();
 
 /* fix for ios */
 .header-main {
-    padding-top:  env(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
 }
 
-body {
+nav {
     padding-top: env(safe-area-inset-top) !important;
+}
+
+.cross-main {
+    margin-top: env(safe-area-inset-top) !important;
 }
 </style>
