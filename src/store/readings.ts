@@ -66,6 +66,9 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
+    const latestCacheVersion = 1;
+    const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
+
     async function getReadings() {
         const version = pickedBibles.value.find(b => b.langId === language.value)?.bibleId;
 
@@ -83,7 +86,7 @@ export const useReadings = defineStore('readings', () => {
         }
         const key = `${formatedDate}-${language.value}`;
         const cached = await localforage.getItem<DayReading>(key);
-        if (cached) {
+        if (cached && currentCacheVersion.value === latestCacheVersion) {
             setReading(cached);
         }
         else {
@@ -91,8 +94,11 @@ export const useReadings = defineStore('readings', () => {
 
             if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4)) {
                 preloading.value = true;
+                // bust cache
+                await localforage.clear();
                 await loadCacheData()
                 const cached = await localforage.getItem<DayReading>(key);
+                currentCacheVersion.value = latestCacheVersion;
                 if (cached) {
                     setReading(cached);
                 }
