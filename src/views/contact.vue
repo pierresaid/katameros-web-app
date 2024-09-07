@@ -4,6 +4,7 @@ import { Form, Field } from 'vee-validate';
 import { useNotif } from '../store/notif';
 import { useI18n } from 'vue-i18n';
 import { http } from '../services/http';
+import { track } from '@/helpers/track';
 
 const name = ref('');
 const email = ref('');
@@ -49,6 +50,7 @@ async function onsubmit() {
                     Envoyer
                 </v-btn>
                 <v-btn append-icon="mdi-github" href="https://github.com/pierresaid/katameros-api"
+                    @click="track('contact-github')"
                     style="text-transform: capitalize; margin-left:auto; font-weight: 700;" target="_blank">
                     Github
                 </v-btn>

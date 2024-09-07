@@ -11,6 +11,7 @@ import { setLocale } from '@vee-validate/i18n';
 import LANGUAGES from './consts/languages';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import { track } from './helpers/track';
 
 function getUserLanguage() {
   return navigator.language.slice(0, 2);}
@@ -44,10 +45,12 @@ onMounted(async () => {
     setLocale(readings.languageCode);
     current.value = readings.languageCode
     i18n.locale.value = readings.languageCode
+    track('language-change', readings.languageCode)
   });
   readings.getReadings();
   theme.global.name.value = menu.theme;
   watch(menu, () => theme.global.name.value = menu.theme)
+  track('language', readings.languageCode)
 });
 </script>
 
