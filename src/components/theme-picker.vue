@@ -12,7 +12,7 @@ const items = [
 ]
 
 function onInput(theme: string) {
-    track('theme-change', theme)
+    track('theme-change', { theme })
 }
 
 </script>

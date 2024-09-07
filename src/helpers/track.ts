@@ -1,4 +1,4 @@
-export function track(event: string, data?: any): void {
+export function track(event: string, data?:  Record<string, any>): void {
     if (typeof window !== 'undefined' && window.umami) {
         if (data) {
             window.umami.track(event, data);

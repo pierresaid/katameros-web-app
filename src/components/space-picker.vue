@@ -11,7 +11,7 @@ const items = [
 ]
 
 function onInput(spacing: string) {
-    track('spacing-change', spacing)
+    track('spacing-change', { spacing })
 }
 </script>
 

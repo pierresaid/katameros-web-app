@@ -45,12 +45,12 @@ onMounted(async () => {
     setLocale(readings.languageCode);
     current.value = readings.languageCode
     i18n.locale.value = readings.languageCode
-    track('language-change', readings.languageCode)
+    track('language-change', { lang: readings.languageCode })
   });
   readings.getReadings();
   theme.global.name.value = menu.theme;
   watch(menu, () => theme.global.name.value = menu.theme)
-  track('language', readings.languageCode)
+  track(readings.languageCode)
 });
 </script>
 
