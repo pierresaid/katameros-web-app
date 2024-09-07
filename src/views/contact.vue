@@ -34,19 +34,25 @@ async function onsubmit() {
         <Form v-slot="{ handleSubmit }">
             <Field v-slot="{ field, errorMessage }" name="name" rules="required">
                 <v-text-field v-model="name" :error-messages="errorMessage" autocomplete="name" v-bind="field"
-                    name="name" label="Nom" required />
+                    autcomplete="name" name="name" label="Nom" required />
             </Field>
-            <Field v-slot="{ errorMessage, field }" name="email" rules="required|email">
+            <Field v-slot="{ errorMessage, field }" name="email" rules="required|email" autocomplete="email">
                 <v-text-field v-model="email" v-bind="field" :error-messages="errorMessage" label="E-mail" name="email"
                     required />
             </Field>
             <Field v-slot="{ errorMessage, field }" name="message" rules="required|min:5">
                 <v-textarea v-model="message" v-bind="field" :error-messages="errorMessage" label="Message" />
             </Field>
-            <v-btn @click.prevent="handleSubmit(onsubmit)" type="submit" color="primary" class="mr-4"
-                :loading="loading">
-                Envoyer
-            </v-btn>
+            <div style="display: flex; flex-wrap: wrap">
+                <v-btn @click.prevent="handleSubmit(onsubmit)" type="submit" color="primary" class="mr-4"
+                    :loading="loading">
+                    Envoyer
+                </v-btn>
+                <v-btn append-icon="mdi-github" href="https://github.com/pierresaid/katameros-api"
+                    style="text-transform: capitalize; margin-left:auto; font-weight: 700;" target="_blank">
+                    Github
+                </v-btn>
+            </div>
         </Form>
     </v-container>
 </template>

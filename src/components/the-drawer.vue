@@ -50,15 +50,11 @@ const items = [
 
 
         <v-divider />
-        <template #append>
+        <!-- <template #append> -->
             <!-- <v-btn variant="tonal" block append-icon="mdi-wrench-outline" @click="menu.configOpen = !menu.configOpen">
                 Settings
             </v-btn> -->
-            <v-btn block append-icon="mdi-github" variant="text" href="https://github.com/pierresaid/katameros-web-app"
-                style="text-transform: capitalize; font-weight: 700;" target="_blank">
-                Github
-            </v-btn>
-        </template>
+        <!-- </template> -->
     </v-navigation-drawer>
 </template>
 
