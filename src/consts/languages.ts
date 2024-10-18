@@ -4,6 +4,7 @@ const LANGUAGES = {
     arabic: { id: 3, code: "ar", name: "عربي", rtl: true },
     italian: { id: 4, code: "it", name: "Italiano" },
     german: { id: 6, code: "de", name: "Deutsch" },
+    polish: { id: 7, code: "pl", name: "Polski" },
     // coptic: { id: 5, code: "cop", name: "Coptic" },
 };
 

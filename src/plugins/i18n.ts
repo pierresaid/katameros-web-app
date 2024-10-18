@@ -4,6 +4,7 @@ import fr from '../../locales/fr.json'
 import de from '../../locales/de.json'
 import it from '../../locales/it.json'
 import ar from '../../locales/ar.json'
+import pl from '../../locales/pl.json'
 
 export const i18n = createI18n({
     fallbackLocale: "en",
@@ -14,6 +15,7 @@ export const i18n = createI18n({
         fr,
         de,
         it,
-        ar
+        ar,
+        pl
     }
   })

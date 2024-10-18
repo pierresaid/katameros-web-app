@@ -89,7 +89,7 @@ export const useReadings = defineStore('readings', () => {
         else {
             loading.value = true;
 
-            if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4)) {
+            if (date.value >= new Date(2024, 6, 4) && date.value <= new Date(2025, 6, 4) && language.value !== 7) {
                 preloading.value = true;
                 await loadCacheData()
                 const cached = await localforage.getItem<DayReading>(key);

@@ -1,0 +1,36 @@
+{
+    "MessageSent": "Wiadomość wysłana",
+    "aria": {
+        "cross": "Przechodzić",
+        "langPicker": "Wybór języka",
+        "nextDay": "Następny dzień",
+        "openDatePicker": "Otwórz selektor dat",
+        "prevDay": "Poprzedni dzień",
+        "readingMenu": "Menu czytania",
+        "settings": "Ustawienia",
+        "subSectionMenu": "Menu podsekcji",
+        "toggleNav": "Przełącz nawigację"
+    },
+    "bible": "Biblia",
+    "cancel": "Anuluj",
+    "close": "Zamknij",
+    "contact": "Kontakt",
+    "coptic-date": "Data koptyjska",
+    "dark": "Ciemny",
+    "date": "Data",
+    "day": "Dzień",
+    "error": {
+        "loadingReadings": "Błąd podczas ładowania odczytów"
+    },
+    "home": "Strona główna",
+    "language": "Język",
+    "light": "Światło",
+    "line": "Linia",
+    "month": "Miesiąc",
+    "paragraph": "Ustęp",
+    "reload": "Przeładuj",
+    "save": "Zapisz",
+    "spacing": "Rozstaw",
+    "theme": "Temat",
+    "year": "Rok"
+}

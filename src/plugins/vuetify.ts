@@ -50,7 +50,7 @@ const defDark = {
   }
 }
 
-import { fr, en, ar, de, it } from 'vuetify/locale'
+import { fr, en, ar, de, it, pl } from 'vuetify/locale'
 
 
 export const vuetifyApp = createVuetify({
@@ -62,7 +62,7 @@ export const vuetifyApp = createVuetify({
     }
   },
   locale: {
-    messages: { fr, en, ar, de, it },
+    messages: { fr, en, ar, de, it, pl },
   },
   components,
   directives,
