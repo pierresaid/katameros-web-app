@@ -27,10 +27,13 @@
         "langPicker": "Sprachauswahl",
         "readingMenu": "Lesemenü",
         "subSectionMenu": "Unterabschnittsmenü",
-        "settings": "Einstellungen"
+        "settings": "Einstellungen",
+        "zoomIn": "Vergrößern",
+        "zoomOut": "Verkleinern"
     },
     "error":{
         "loadingReadings": "Fehler beim Laden der Lesungen"
     },
-    "reload": "Neu laden"
+    "reload": "Neu laden",
+    "zoom": "Zoom"
 }

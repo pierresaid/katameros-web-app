@@ -5,6 +5,7 @@ import { useReadings } from '../store/readings';
 import CurrentReading from './current-reading.vue';
 import LangPickerSmall from './lang-picker-small.vue';
 import { useDisplay } from 'vuetify';
+import { track } from '@/helpers/track';
 
 const readings = useReadings()
 const menu = useMenu()
@@ -15,9 +16,10 @@ const route = useRoute();
 
 
 <template>
-    <v-app-bar color="primary">
+    <v-app-bar color="primary" class="header-main">
         <template v-slot:prepend>
-            <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen" :aria-label="$t('aria.toggleNav')" />
+            <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen; track('nav-toggle')"
+                :aria-label="$t('aria.toggleNav')" />
         </template>
         <v-app-bar-title style="display: flex; margin-left: 0px;">
             <router-link to="/">
@@ -57,5 +59,18 @@ const route = useRoute();
         padding-inline-start: 5px;
 
     }
+}
+
+/* fix for ios */
+.header-main {
+    padding-top: env(safe-area-inset-top) !important;
+}
+
+nav {
+    padding-top: env(safe-area-inset-top) !important;
+}
+
+.cross-main {
+    margin-top: env(safe-area-inset-top) !important;
 }
 </style>

@@ -5,6 +5,7 @@ import LangPicker from './lang-picker.vue';
 import ThemePicker from './theme-picker.vue';
 import SpacePicker from './space-picker.vue';
 import BiblePicker from './bible-picker.vue';
+import ZoomPicker from './zoom-picker.vue';
 import { useI18n } from 'vue-i18n';
 const menu = useMenu()
 const { t } = useI18n()
@@ -36,6 +37,9 @@ const items = [
             </v-list-item>
             <v-divider />
             <v-list-item>
+                <zoom-picker />
+            </v-list-item>
+            <v-list-item>
                 <theme-picker />
             </v-list-item>
             <v-divider />
@@ -46,14 +50,26 @@ const items = [
 
 
         <v-divider />
-        <template #append>
+        <!-- <template #append> -->
             <!-- <v-btn variant="tonal" block append-icon="mdi-wrench-outline" @click="menu.configOpen = !menu.configOpen">
                 Settings
             </v-btn> -->
-            <v-btn block append-icon="mdi-github" variant="text" href="https://github.com/pierresaid/katameros-web-app"
-                style="text-transform: capitalize; font-weight: 700;" target="_blank">
-                Github
-            </v-btn>
-        </template>
+        <!-- </template> -->
     </v-navigation-drawer>
 </template>
+
+
+<style>
+.v-navigation-drawer--left {
+    /* padding-left:  env(safe-area-inset-left) !important; */
+}
+
+.v-navigation-drawer--right {
+    /* padding-right:  env(safe-area-inset-right) !important; */
+}
+
+.v-navigation-drawer {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+</style>

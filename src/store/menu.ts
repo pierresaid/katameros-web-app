@@ -11,8 +11,9 @@ export const useMenu = defineStore('menu', () => {
     const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     const theme = useStorage<'light' | 'dark'>(THEME_LOCAL_STORAGE, defaultTheme)
     const spacing = useStorage<'line' | 'paragraph'>(LINEMODE_LOCAL_STORAGE, 'line')
+    const zoom = useStorage<number>("ZOOM_LOCAL_STORAGE", 1);
 
     const dateDialog = ref(false)
 
-    return { navOpen, configOpen, theme, spacing, dateDialog };
+    return { navOpen, configOpen, theme, spacing, dateDialog, zoom }
 })

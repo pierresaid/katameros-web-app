@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Katameros</string>
+    <string name="title_activity_main">Katameros</string>
+    <string name="package_name">com.dcoanbamarc.katamerosmobile</string>
+    <string name="custom_url_scheme">com.dcoanbamarc.katamerosmobile</string>
+</resources>
