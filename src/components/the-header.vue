@@ -18,7 +18,7 @@ const route = useRoute();
 <template>
     <v-app-bar color="primary" class="header-main">
         <template v-slot:prepend>
-            <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen; track('nav-toggle')"
+            <v-app-bar-nav-icon @click="menu.navOpen = !menu.navOpen"
                 :aria-label="$t('aria.toggleNav')" />
         </template>
         <v-app-bar-title style="display: flex; margin-left: 0px;">
