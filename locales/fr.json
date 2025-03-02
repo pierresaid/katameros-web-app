@@ -1,6 +1,5 @@
 {
     "home": "Accueil",
-    "contact": "Contact",
     "theme": "Thème",
     "spacing": "Espacement",
     "language": "Langue",
@@ -31,9 +30,16 @@
         "zoomIn": "Zoomer",
         "zoomOut": "Dézoomer"
     },
-    "error":{
+    "error": {
         "loadingReadings": "Erreur lors du chargement des lectures"
     },
     "reload": "Recharger",
-    "zoom": "Zoom"
+    "zoom": "Zoom",
+    "contact": {
+        "contact": "Contact",
+        "name": "Nom",
+        "email": "Email",
+        "message": "Message",
+        "send": "Envoyer"
+    }
 }

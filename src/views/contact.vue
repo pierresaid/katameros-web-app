@@ -30,24 +30,25 @@ async function onsubmit() {
 <template>
     <v-container>
         <h2>
-            Contact
+            {{ t('contact.contact') }}
         </h2>
         <Form v-slot="{ handleSubmit }">
             <Field v-slot="{ field, errorMessage }" name="name" rules="required">
                 <v-text-field v-model="name" :error-messages="errorMessage" autocomplete="name" v-bind="field"
-                    autcomplete="name" name="name" label="Nom" required />
+                    autcomplete="name" name="name" :label="t('contact.name')" required />
             </Field>
             <Field v-slot="{ errorMessage, field }" name="email" rules="required|email" autocomplete="email">
-                <v-text-field v-model="email" v-bind="field" :error-messages="errorMessage" label="E-mail" name="email"
-                    required />
+                <v-text-field v-model="email" v-bind="field" :error-messages="errorMessage" :label="t('contact.email')"
+                    auto-complete="email" name="email" required />
             </Field>
             <Field v-slot="{ errorMessage, field }" name="message" rules="required|min:5">
-                <v-textarea v-model="message" v-bind="field" :error-messages="errorMessage" label="Message" />
+                <v-textarea v-model="message" v-bind="field" :error-messages="errorMessage"
+                    :label="t('contact.message')" />
             </Field>
             <div style="display: flex; flex-wrap: wrap">
                 <v-btn @click.prevent="handleSubmit(onsubmit)" type="submit" color="primary" class="mr-4"
                     :loading="loading">
-                    Envoyer
+                    {{ t('contact.send') }}
                 </v-btn>
                 <v-btn append-icon="mdi-github" href="https://github.com/pierresaid/katameros-api"
                     @click="track('contact-github')"

@@ -1,6 +1,5 @@
 {
     "home": "الصفحة الرئيسية",
-    "contact": "اتصال",
     "theme": "السمة",
     "spacing": "تباعد",
     "language": "اللغة",
@@ -31,9 +30,16 @@
         "zoomIn": "تكبير",
         "zoomOut": "تصغير"
     },
-    "error":{
+    "error": {
         "loadingReadings": "خطأ في تحميل القراءات"
     },
     "reload": "إعادة تحميل",
-    "zoom": "تكبير"
+    "zoom": "تكبير",
+    "contact": {
+        "contact": "اتصال",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "message": "الرسالة",
+        "send": "إرسال"
+    }
 }

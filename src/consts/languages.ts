@@ -6,6 +6,7 @@ const LANGUAGES = {
     german: { id: 6, code: "de", name: "Deutsch" },
     polish: { id: 7, code: "pl", name: "Polski" },
     // coptic: { id: 5, code: "cop", name: "Coptic" },
+    spanish: { id: 8, code: "es", name: "Español" },
 };
 
 export default LANGUAGES;

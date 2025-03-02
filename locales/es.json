@@ -1,0 +1,45 @@
+{
+    "home": "Inicio",
+    "theme": "Tema",
+    "spacing": "Espaciado",
+    "language": "Idioma",
+    "bible": "Biblia",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "line": "Línea",
+    "paragraph": "Párrafo",
+    "close": "Cerrar",
+    "MessageSent": "Mensaje enviado",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "date": "Fecha",
+    "coptic-date": "Fecha copta",
+    "day": "Día",
+    "month": "Mes",
+    "year": "Año",
+    "aria": {
+        "cross": "Cruz",
+        "prevDay": "Día anterior",
+        "nextDay": "Día siguiente",
+        "openDatePicker": "Abrir selector de fecha",
+        "toggleNav": "Alternar navegación",
+        "langPicker": "Selector de idioma",
+        "readingMenu": "Menú de lecturas",
+        "subSectionMenu": "Menú de subsecciones",
+        "settings": "Configuración",
+        "zoomIn": "Ampliar",
+        "zoomOut": "Reducir"
+    },
+    "error": {
+        "loadingReadings": "Error al cargar las lecturas"
+    },
+    "reload": "Recargar",
+    "zoom": "Zoom",
+    "contact": {
+        "contact": "Contacto",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "message": "Mensaje",
+        "send": "Enviar"
+    }
+}

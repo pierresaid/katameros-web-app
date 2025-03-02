@@ -13,7 +13,7 @@ const { t } = useI18n()
 const items = [
     { title: 'home', to: '/', icon: 'mdi-book-open-page-variant' },
     // { title: 'About', to: 'about', icon: 'mdi-book-cross' },
-    { title: 'contact', to: 'contact', icon: 'mdi-chat' }
+    { title: 'contact.contact', to: 'contact', icon: 'mdi-chat' }
 ]
 </script>
 
@@ -51,7 +51,7 @@ const items = [
 
         <v-divider />
         <!-- <template #append> -->
-            <!-- <v-btn variant="tonal" block append-icon="mdi-wrench-outline" @click="menu.configOpen = !menu.configOpen">
+        <!-- <v-btn variant="tonal" block append-icon="mdi-wrench-outline" @click="menu.configOpen = !menu.configOpen">
                 Settings
             </v-btn> -->
         <!-- </template> -->
@@ -71,5 +71,4 @@ const items = [
 .v-navigation-drawer {
     padding-bottom: env(safe-area-inset-bottom) !important;
 }
-
 </style>
