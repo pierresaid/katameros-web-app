@@ -66,7 +66,7 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
-    const latestCacheVersion = 3;
+    const latestCacheVersion = 4;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
 
     async function getReadings() {
