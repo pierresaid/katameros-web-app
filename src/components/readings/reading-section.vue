@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDisplay } from 'vuetify';
 import { scrollProgressive, scrollToId, scrollToSection } from '../../helpers/scrollTo.js';
 import { useReadings } from '../../store/readings.js';
 import { type Section } from '../../types/readings.js';
@@ -14,8 +15,6 @@ function menuItemClick(index: number) {
 }
 
 function sectionTitleClick(idx: number) {
-    // readings.openSection(idx);
-    // scrollToSection(idx);
     if (readings.panel.includes(idx))
         scrollProgressive(idx);
 
@@ -37,11 +36,14 @@ function onIntersect(visible: Boolean) {
     }
 
 }
+
+const { xs } = useDisplay();
+
 </script>
 
 <template>
-    <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)">
-        <h2 class="section-title" style="word-wrap: break-word;">
+    <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)" min-height="164px">
+        <h2 class="section-title" style="word-wrap: break-word;" :class="{ 'condensed': section.title.length > 20 && xs }">
                 {{ section.title }}
         </h2>
     </v-expansion-panel-title>
@@ -61,6 +63,13 @@ function onIntersect(visible: Boolean) {
 
 
 <style>
+.section-title.condensed {
+    font-size: 1.3em !important;
+}
+
+.v-expansion-panel-title:hover {
+    background-color: #e0e0e0;
+}
 .v-expansion-panel-title .section-title {
     font-family: "Suez One";
     width: 100%;

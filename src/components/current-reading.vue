@@ -40,11 +40,11 @@ function close() {
             <v-list-item value="close" @click="close" variant="plain">
                 <v-list-item-title role="menuitem">{{$t('close')}}</v-list-item-title>
             </v-list-item>
-            <v-list-item v-for="section in readings.sections" :key="section.id" :value="section.id"
-                :active="readings.currentSection?.id === section.id" @click="onInput(section.id - 1)">
+            <v-list-item v-for="(section, idx) in readings.sections" :key="section.id" :value="section.id"
+                :active="readings.currentSection?.id === section.id" @click="onInput(idx)">
                 <v-list-item-title style="width : 100%;">
                     <div class="d-flex justify-center">
-                        <div class="d-flex" style="align-items:center;">
+                        <div class="d-flex" style="align-items:center; text-wrap: auto;">
                             {{ section.title }}
                         </div>
                         <v-spacer />
@@ -53,9 +53,11 @@ function close() {
                                 <v-btn icon="mdi-chevron-down" @click.prevent.stop="" v-bind="props" :aria-label="$t('aria.subSectionMenu')" />
                             </template>
                             <v-list role="menu">
-                                <v-list-item v-for="(subsection, idx) in section.subSections" :value="subsection.id"
-                                    :key="subsection.id" @click="onInputSub(section.id - 1, idx)">
-                                    <v-list-item-title role="menuitem">{{ subsection.title }}</v-list-item-title>
+                                <v-list-item v-for="(subsection, subidx) in section.subSections" :value="subsection.id"
+                                    :key="subsection.id" @click="onInputSub(idx, subidx)">
+                                    <v-list-item-title role="menuitem">
+                                        {{ subsection.title || subsection.readings[0].passages![0].bookTranslation }}
+                                    </v-list-item-title>
                                 </v-list-item>
                             </v-list>
                         </v-menu>
