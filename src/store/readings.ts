@@ -33,6 +33,7 @@ export const useReadings = defineStore('readings', () => {
     const currentSectionIdx = computed(() => visibleSections.value[visibleSections.value.length - 1])
     const currentSectionAnimation = ref<"slide" | "slide-rev">("slide");
 
+
     const currentSection = computed(() => sections.value ? sections.value[currentSectionIdx.value] : null)
     const copticDate = computed(() => {
         const [day, month, year] = date.value
@@ -66,7 +67,8 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
-    const latestCacheVersion = 4;
+    const latestCacheVersion = 5;
+    const disableCache = false;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
 
     async function getReadings() {
@@ -86,14 +88,17 @@ export const useReadings = defineStore('readings', () => {
         }
         const key = `${formatedDate}-${language.value}`;
         const cached = await localforage.getItem<DayReading>(key);
-        if (cached && currentCacheVersion.value === latestCacheVersion) {
+        if (!disableCache && cached && currentCacheVersion.value === latestCacheVersion) {
             setReading(cached);
         }
         else {
             loading.value = true;
 
-            if (date.value >= new Date(2025, 2, 2) && date.value <= new Date(2026, 2, 2)) {
-                preloading.value = true;
+            if (
+                !disableCache &&
+                date.value >= new Date(2025, 3, 17) && // April 17, 2025
+                date.value <= new Date(2025, 6, 26)    // July 26, 2025
+              ) {                preloading.value = true;
                 // bust cache
                 await localforage.clear();
                 await loadCacheData()
