@@ -50,7 +50,7 @@ function close() {
                         <v-spacer />
                         <v-menu v-if="section && section.subSections.length > 1">
                             <template v-slot:activator="{ props }">
-                                <v-btn icon="mdi-chevron-down" @click.prevent.stop="" v-bind="props" :aria-label="$t('aria.subSectionMenu')" />
+                                <v-btn icon="mdi-chevron-down" size="small" class="ml-2 mb-1" @click.prevent.stop="" v-bind="props" :aria-label="$t('aria.subSectionMenu')" />
                             </template>
                             <v-list role="menu">
                                 <v-list-item v-for="(subsection, subidx) in section.subSections" :value="subsection.id"

@@ -12,5 +12,11 @@ export const useNotif = defineStore('notif', () => {
         color.value = 'success'
     }
 
-    return { open, text, color, success };
+    function error(str: string) {
+        open.value = true
+        text.value = str
+        color.value = 'error'
+    }
+
+    return { open, text, color, success, error };
 })

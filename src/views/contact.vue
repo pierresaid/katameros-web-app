@@ -14,16 +14,23 @@ const loading = ref(false);
 const { t } = useI18n();
 async function onsubmit() {
     loading.value = true;
-    await http.post("/contact", {
-        name: name.value,
-        email: email.value,
-        message: message.value
-    });
-    name.value = '';
-    email.value = '';
-    message.value = '';
-    loading.value = false
-    useNotif().success(t('MessageSent'));
+    try {
+        await http.post("/contact", {
+            name: name.value,
+            email: email.value,
+            message: message.value
+        });
+        name.value = '';
+        email.value = '';
+        message.value = '';
+        useNotif().success(t('contact.MessageSent'));
+    } catch (error) {
+        console.log(useNotif());
+
+        useNotif().error(t('contact.MessageFailed'));
+    } finally {
+        loading.value = false;
+    }
 }
 </script>
 

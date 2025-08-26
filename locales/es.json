@@ -9,7 +9,6 @@
     "line": "Línea",
     "paragraph": "Párrafo",
     "close": "Cerrar",
-    "MessageSent": "Mensaje enviado",
     "save": "Guardar",
     "cancel": "Cancelar",
     "date": "Fecha",
@@ -40,6 +39,8 @@
         "name": "Nombre",
         "email": "Correo electrónico",
         "message": "Mensaje",
-        "send": "Enviar"
+        "send": "Enviar",
+        "MessageSent": "Mensaje enviado",
+        "MessageFailed": "Error al enviar el mensaje"
     }
 }

@@ -42,7 +42,7 @@ const { xs } = useDisplay();
 </script>
 
 <template>
-    <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)" min-height="164px">
+    <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)"Subsection menu>
         <h2 class="section-title" style="word-wrap: break-word;" :class="{ 'condensed': section.title?.length > 20 && xs }">
                 {{ section.title }}
         </h2>

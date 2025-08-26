@@ -1,5 +1,4 @@
 {
-    "MessageSent": "Wiadomość wysłana",
     "aria": {
         "cross": "Przechodzić",
         "langPicker": "Wybór języka",
@@ -40,6 +39,8 @@
         "name": "Imię",
         "email": "E-mail",
         "message": "Wiadomość",
-        "send": "Wyślij"
+        "send": "Wyślij",
+        "MessageSent": "Wiadomość wysłana",
+        "MessageFailed": "Błąd podczas wysyłania wiadomości"
     }
 }

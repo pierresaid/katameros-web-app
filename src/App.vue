@@ -48,8 +48,8 @@ onMounted(async () => {
     track('language-change', { lang: readings.languageCode })
   });
   readings.getReadings();
-  theme.global.name.value = menu.theme;
-  watch(menu, () => theme.global.name.value = menu.theme)
+  theme.change(menu.theme);
+  watch(menu, () => theme.change(menu.theme))
   track(readings.languageCode)
 });
 </script>
