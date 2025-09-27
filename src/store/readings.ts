@@ -127,15 +127,15 @@ export const useReadings = defineStore('readings', () => {
     }
 
     async function loadCacheData() {
-        const module = await import(`@/assets/db.json`)
-        const data = module.default;
+        // const module = await import(`@/assets/db.json`)
+        // const data = module.default;
 
-        const entries = Object.entries(data);
-        for (const [enkey, value] of entries) {
-            const [day, month, year, lang] = enkey.split("-");
-            const key = `${day}-${month}-${year}-${lang}`;
-            localforage.setItem(key, value);
-        }
+        // const entries = Object.entries(data);
+        // for (const [enkey, value] of entries) {
+        //     const [day, month, year, lang] = enkey.split("-");
+        //     const key = `${day}-${month}-${year}-${lang}`;
+        //     localforage.setItem(key, value);
+        // }
 
     }
 
