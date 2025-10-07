@@ -56,7 +56,7 @@ function close() {
                                 <v-list-item v-for="(subsection, subidx) in section.subSections" :value="subsection.id"
                                     :key="subsection.id" @click="onInputSub(idx, subidx)">
                                     <v-list-item-title role="menuitem">
-                                        {{ subsection.title || subsection.readings[0].passages![0].bookTranslation }}
+                                        {{ subsection.title || subsection.readings[0]?.passages?.[0]?.bookTranslation }}
                                     </v-list-item-title>
                                 </v-list-item>
                             </v-list>

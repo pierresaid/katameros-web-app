@@ -51,7 +51,7 @@ const { xs } = useDisplay();
         <div v-if="section.subSections.length > 1" class="d-flex justify-center my-4 mt-4 mx-4 flex-column">
             <v-btn v-for="(subSection, index) in section.subSections" :key="index" variant="tonal" size="large"
                 @click="menuItemClick(index)" class="sub-section-link">
-                {{ subSection.title || subSection.readings[0].passages![0].bookTranslation }}
+                {{ subSection.title || subSection.readings[0]?.passages?.[0]?.bookTranslation }}
             </v-btn>
         </div>
         <div v-else class="my-4" />

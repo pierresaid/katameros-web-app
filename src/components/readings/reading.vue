@@ -54,8 +54,9 @@ const Ref = computed(() => {
     if (reading.passages)
         for (let i = 0; i < reading.passages.length; i++) {
             const passage = reading.passages[i];
-            ref += `${i === 0 || reading.passages[i - 1].bookId !== passage.bookId ? passage.bookTranslation : ""} ${passage.ref
-                } ${i === reading.passages.length - 1 ? "" : " & "}`;
+            if (passage) {
+                ref += `${i === 0 || reading.passages[i - 1]?.bookId !== passage.bookId ? passage.bookTranslation : ""} ${passage.ref ?? ""} ${i === reading.passages.length - 1 ? "" : " & "}`;
+            }
         }
     return ref;
 })

@@ -34,7 +34,7 @@ export const useReadings = defineStore('readings', () => {
     const currentSectionAnimation = ref<"slide" | "slide-rev">("slide");
 
 
-    const currentSection = computed(() => sections.value ? sections.value[currentSectionIdx.value] : null)
+    const currentSection = computed(() => sections.value && currentSectionIdx.value !== undefined ? sections.value[currentSectionIdx.value] : null)
     const copticDate = computed(() => {
         const [day, month, year] = date.value
             .toLocaleDateString("fr-FR-u-ca-coptic", {
@@ -43,9 +43,9 @@ export const useReadings = defineStore('readings', () => {
                 year: "numeric",
             })
             .split("/");
-        const copticDay = parseInt(day);
-        const copticMonth = parseInt(month);
-        const copticYear = parseInt(year.slice(0, 4));
+        const copticDay = parseInt(day ?? "0");
+        const copticMonth = parseInt(month ?? "0");
+        const copticYear = parseInt(year?.slice(0, 4) ?? "0");
         return [copticDay, copticMonth, copticYear];
     })
 

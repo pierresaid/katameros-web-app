@@ -7,15 +7,15 @@ import { watchEffect } from 'vue';
 const readings = useReadings();
 
 const days = ref<number[]>([])
-const day = ref(readings.copticDate[0])
+const day = ref(readings.copticDate[0]!)
 for (let i = 1; i < 31; i++)
     days.value.push(i)
 
 const months = coptic_months.map((x, idx) => ({ title: x, value: idx + 1 }))
-const month = ref(readings.copticDate[1])
+const month = ref(readings.copticDate[1]!)
 
 const years: number[] = []
-const year = ref(readings.copticDate[2])
+const year = ref(readings.copticDate[2]!)
 for (let i = year.value - 50; i < year.value + 50; i++) {
     years.push(i)
 }
