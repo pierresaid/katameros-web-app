@@ -28,22 +28,22 @@ const items = [
         <v-divider />
 
         <v-list role="group" :aria-label="t('aria.settings')">
-            <v-list-item>
+            <v-list-item role="none">
                 <lang-picker />
             </v-list-item>
             <v-divider />
-            <v-list-item>
+            <v-list-item role="none">
                 <bible-picker />
             </v-list-item>
             <v-divider />
-            <v-list-item>
+            <v-list-item role="none">
                 <zoom-picker />
             </v-list-item>
-            <v-list-item>
+            <v-list-item role="none">
                 <theme-picker />
             </v-list-item>
             <v-divider />
-            <v-list-item>
+            <v-list-item role="none">
                 <space-picker />
             </v-list-item>
         </v-list>

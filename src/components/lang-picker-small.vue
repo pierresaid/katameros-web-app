@@ -19,8 +19,8 @@ function onInput(id: number) {
         </template>
         <v-list role="menu">
             <v-list-item v-for="language in LANGUAGES" :key="language.id" :value="language.id"
-                :active="readings.language === language.id" @click="onInput(language.id)">
-                <v-list-item-title role="menuitem">{{ language.name }}</v-list-item-title>
+                :active="readings.language === language.id" @click="onInput(language.id)" role="menuitem">
+                <v-list-item-title>{{ language.name }}</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-menu>

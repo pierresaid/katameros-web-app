@@ -37,11 +37,11 @@ function close() {
             </v-btn>
         </template>
         <v-list class="current-reading-list" role="menu">
-            <v-list-item value="close" @click="close" variant="plain">
-                <v-list-item-title role="menuitem">{{$t('close')}}</v-list-item-title>
+            <v-list-item value="close" @click="close" variant="plain" role="menuitem">
+                <v-list-item-title>{{$t('close')}}</v-list-item-title>
             </v-list-item>
             <v-list-item v-for="(section, idx) in readings.sections" :key="section.id" :value="section.id"
-                :active="readings.currentSection?.id === section.id" @click="onInput(idx)">
+                :active="readings.currentSection?.id === section.id" @click="onInput(idx)" role="menuitem">
                 <v-list-item-title style="width : 100%;">
                     <div class="d-flex justify-center">
                         <div class="d-flex" style="align-items:center; text-wrap: auto;">
@@ -54,8 +54,8 @@ function close() {
                             </template>
                             <v-list role="menu">
                                 <v-list-item v-for="(subsection, subidx) in section.subSections" :value="subsection.id"
-                                    :key="subsection.id" @click="onInputSub(idx, subidx)">
-                                    <v-list-item-title role="menuitem">
+                                    :key="subsection.id" @click="onInputSub(idx, subidx)" role="menuitem">
+                                    <v-list-item-title>
                                         {{ subsection.title || subsection.readings[0]?.passages?.[0]?.bookTranslation }}
                                     </v-list-item-title>
                                 </v-list-item>
