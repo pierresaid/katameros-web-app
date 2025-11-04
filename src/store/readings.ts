@@ -67,7 +67,7 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
-    const latestCacheVersion = 5;
+    const latestCacheVersion = 6;
     const disableCache = false;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
 
@@ -96,9 +96,18 @@ export const useReadings = defineStore('readings', () => {
 
             if (
                 !disableCache &&
-                date.value >= new Date(2025, 3, 17) && // April 17, 2025
-                date.value <= new Date(2025, 6, 26)    // July 26, 2025
-              ) {                preloading.value = true;
+                date.value >= new Date(2025, 10, 4) && // November 4, 2025
+                date.value <= new Date(2026, 10, 4)    // November 4, 2026
+            ) {
+                preloading.value = true;
+                fetchFromApi(formatedDate, params)
+                    .then(res => { // We don't await here to parallelize fetching and caching
+                        setReading(res);
+                        loading.value = false;
+                    })
+                    .catch(e => {
+                        error.value = true;
+                    });
                 // bust cache
                 await localforage.clear();
                 await loadCacheData()
@@ -107,16 +116,11 @@ export const useReadings = defineStore('readings', () => {
                 if (cached) {
                     setReading(cached);
                 }
-                else {
-                    // we should not reach this point
-                    const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
-                    setReading(res);
-                }
                 preloading.value = false;
             }
             else {
                 try {
-                    const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
+                    const res = await fetchFromApi(formatedDate, params);
                     setReading(res);
                 } catch (e) {
                     error.value = true;
@@ -126,17 +130,24 @@ export const useReadings = defineStore('readings', () => {
         loading.value = false;
     }
 
+    async function fetchFromApi(formatedDate: string, params: { languageId: number, bibleId?: number }) {
+        const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
+        return res;
+    }
+
     async function loadCacheData() {
-        // const module = await import(`@/assets/db.json`)
-        // const data = module.default;
+        try {
+            const response = await fetch('https://katameros.blob.core.windows.net/cache/current.json');
+            const data = await response.json();
 
-        // const entries = Object.entries(data);
-        // for (const [enkey, value] of entries) {
-        //     const [day, month, year, lang] = enkey.split("-");
-        //     const key = `${day}-${month}-${year}-${lang}`;
-        //     localforage.setItem(key, value);
-        // }
-
+            const entries = Object.entries(data);
+            for (const [enkey, value] of entries) {
+                const [day, month, year, lang] = enkey.split("-");
+                const key = `${day}-${month}-${year}-${lang}`;
+                await localforage.setItem(key, value);
+            }
+        } catch (error) {
+        }
     }
 
     function setReading(reading: DayReading) {
