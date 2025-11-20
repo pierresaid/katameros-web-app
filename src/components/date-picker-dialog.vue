@@ -22,6 +22,7 @@ function onUpdate(date: [number, number, number]) {
 function onSave() {
     const ds = convertCopticToGregorian(`${copticDate.value[1]}/${copticDate.value[0]}/${copticDate.value[2]}`)
     readings.date = new Date(ds as any)
+    readings.getReadings();
 }
 
 </script>
@@ -38,7 +39,7 @@ function onSave() {
             <v-card-text>
                 <v-window v-model="tab">
                     <v-window-item value="date">
-                        <Datepicker v-model="readings.date" @update:modelValue="$emit('update:model-value', false)"
+                        <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
                             inline :locale="readings.languageCode == 'ar' ? 'en' : readings.languageCode" auto-apply
                             :enable-time-picker="false" :dark="menu.theme === 'dark'">
                         </Datepicker>

@@ -29,6 +29,7 @@ let copticDate = computed(() => {
 
 function setDate(inc: number) {
     readings.date = new Date(readings.date.setDate(readings.date.getDate() + inc))
+    readings.getReadings();
 }
 </script>
 

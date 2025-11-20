@@ -58,3 +58,31 @@ export async function scrollToSubSection(sectionId: number, subSectionId: number
     else
         scrollToId(idStr);
 }
+
+export async function scrollToReading(sectionId: number, subSectionId: number, readingIdx: number) {
+    const idStr = `reading-${sectionId}-${subSectionId}-${readingIdx}`;
+    const readings = useReadings();
+
+    // Open the section if not already open
+    if (!readings.panel.includes(sectionId)) {
+        readings.openSection(sectionId);
+        // Wait for the section to expand
+        await new Promise((r) => setTimeout(r, 150));
+    }
+
+    // Wait for the element to be in the DOM
+    let element = document.getElementById(idStr);
+    if (!element) {
+        await new Promise((r) => setTimeout(r, 150));
+        element = document.getElementById(idStr);
+        if (!element) {
+            return;
+        }
+    }
+
+    // Scroll with the small offset trick for better positioning
+    window.scrollTo(scrollX, scrollY - 1);
+    scrollToElement(element);
+    // await new Promise((r) => setTimeout(r, 150));
+    scrollToElement(element);
+}

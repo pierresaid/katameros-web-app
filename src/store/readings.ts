@@ -56,9 +56,6 @@ export const useReadings = defineStore('readings', () => {
             currentSectionAnimation.value = 'slide'
     })
 
-    watch(date, () => {
-        getReadings();
-    })
 
     function openSection(id: number) {
         if (panel.value.includes(id)) {

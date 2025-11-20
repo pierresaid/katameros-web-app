@@ -42,5 +42,12 @@
         "send": "Wyślij",
         "MessageSent": "Wiadomość wysłana",
         "MessageFailed": "Błąd podczas wysyłania wiadomości"
+    },
+    "synaxarium": {
+        "title": "Synaksarion",
+        "search": "Szukaj według tytułu",
+        "day": "Dzień",
+        "of": "z",
+        "noResults": "Nie znaleziono wyników"
     }
 }

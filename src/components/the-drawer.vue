@@ -7,14 +7,23 @@ import SpacePicker from './space-picker.vue';
 import BiblePicker from './bible-picker.vue';
 import ZoomPicker from './zoom-picker.vue';
 import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import { useReadings } from '@/store/readings.js';
 const menu = useMenu()
 const { t } = useI18n()
+const readings = useReadings();
 
-const items = [
-    { title: 'home', to: '/', icon: 'mdi-book-open-page-variant' },
-    // { title: 'About', to: 'about', icon: 'mdi-book-cross' },
-    { title: 'contact.contact', to: 'contact', icon: 'mdi-chat' }
-]
+const items = computed(() => {
+    const m = [
+        { title: 'home', to: '/', icon: 'mdi-book-open-page-variant' },
+        // { title: 'About', to: 'about', icon: 'mdi-book-cross' },
+    ]
+    if (readings.languageCode == 'fr')
+        m.push({ title: 'synaxarium.title', to: 'synaxarium', icon: 'mdi-book-cross' })
+    
+    m.push({ title: 'contact.contact', to: 'contact', icon: 'mdi-chat' })
+    return m;
+})
 </script>
 
 
@@ -60,14 +69,6 @@ const items = [
 
 
 <style>
-.v-navigation-drawer--left {
-    /* padding-left:  env(safe-area-inset-left) !important; */
-}
-
-.v-navigation-drawer--right {
-    /* padding-right:  env(safe-area-inset-right) !important; */
-}
-
 .v-navigation-drawer {
     padding-bottom: env(safe-area-inset-bottom) !important;
 }

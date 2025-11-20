@@ -42,5 +42,12 @@
         "send": "Senden",
         "MessageSent": "Nachricht gesendet",
         "MessageFailed": "Fehler beim Senden der Nachricht"
+    },
+    "synaxarium": {
+        "title": "Synaxarium",
+        "search": "Suche nach Titel",
+        "day": "Tag",
+        "of": "von",
+        "noResults": "Keine Ergebnisse gefunden"
     }
 }

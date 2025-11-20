@@ -42,5 +42,12 @@
         "send": "Invia",
         "MessageSent": "Messaggio inviato",
         "MessageFailed": "Errore durante l'invio del messaggio"
+    },
+    "synaxarium": {
+        "title": "Sinassario",
+        "search": "Cerca per titolo",
+        "day": "Giorno",
+        "of": "di",
+        "noResults": "Nessun risultato trovato"
     }
 }

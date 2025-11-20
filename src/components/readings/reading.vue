@@ -1,5 +1,5 @@
 <template>
-    <div class="reading">
+    <div class="reading" :id="readingId">
         <h3 class="reading-title" v-if="reading.title">{{ reading.title }}</h3>
         <div v-if="reading.introduction" class="reading-introduction mb-5">
             <div v-for="(introduction, index) in reading.introduction.split('\n')" :key="index" class="introduction">
@@ -27,9 +27,21 @@ import { computed } from '@vue/reactivity';
 import { useMenu } from '../../store/menu';
 import { type Reading } from '../../types/readings.js';
 
-const { reading } = defineProps<{
-    reading: Reading
+const props = defineProps<{
+    reading: Reading,
+    sectionIdx?: number,
+    subSectionIdx?: number,
+    readingIdx?: number
 }>();
+
+const { reading } = props;
+
+const readingId = computed(() => {
+    if (props.sectionIdx !== undefined && props.subSectionIdx !== undefined && props.readingIdx !== undefined) {
+        return `reading-${props.sectionIdx}-${props.subSectionIdx}-${props.readingIdx}`;
+    }
+    return undefined;
+});
 
 const menu = useMenu()
 const zoom = computed(() => menu.zoom)

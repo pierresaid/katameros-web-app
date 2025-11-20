@@ -42,5 +42,12 @@
         "send": "Send",
         "MessageSent": "Message sent",
         "MessageFailed": "Message failed"
+    },
+    "synaxarium": {
+        "title": "Synaxarium",
+        "search": "Search by title",
+        "day": "Day",
+        "of": "of",
+        "noResults": "No results found"
     }
 }

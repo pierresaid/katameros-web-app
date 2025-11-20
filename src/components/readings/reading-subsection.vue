@@ -2,7 +2,8 @@
     <div class="subSection mb-10">
         <h2 v-if="subSection.title" class="subSection-title">{{ subSection.title }}</h2>
         <div v-if="subSection.introduction" class="subSection-introduction" v-html="subSection.introduction.replace(/\n/g, '<br>')"></div>
-        <Reading v-for="reading in subSection.readings" :reading="reading" />
+        <Reading v-for="(reading, readingIdx) in subSection.readings"
+            :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
     </div>
 </template>
 
@@ -13,7 +14,9 @@ import { type SubSection } from '../../types/readings.js';
 import Reading from './reading.vue';
 
 defineProps<{
-    subSection: SubSection
+    subSection: SubSection,
+    sectionIdx: number,
+    subSectionIdx: number
 }>();
 
 const menu = useMenu()

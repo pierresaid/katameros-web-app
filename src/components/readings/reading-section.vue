@@ -57,7 +57,7 @@ const { xs } = useDisplay();
         <div v-else class="my-4" />
 
         <ReadingSubsection v-for="(item, index) in section.subSections" :id="`sub-section-${idx}-${index}`"
-            :sub-section="item" />
+            :sub-section="item" :section-idx="idx" :sub-section-idx="index" />
     </v-expansion-panel-text>
 </template>
 
