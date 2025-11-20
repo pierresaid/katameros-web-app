@@ -18,7 +18,7 @@ const items = computed(() => {
         { title: 'home', to: '/', icon: 'mdi-book-open-page-variant' },
         // { title: 'About', to: 'about', icon: 'mdi-book-cross' },
     ]
-    if (readings.languageCode == 'fr')
+    if (readings.languageCode == 'fr' || readings.languageCode == 'en' || readings.languageCode == 'ar' || readings.languageCode == 'it')
         m.push({ title: 'synaxarium.title', to: 'synaxarium', icon: 'mdi-book-cross' })
     
     m.push({ title: 'contact.contact', to: 'contact', icon: 'mdi-chat' })

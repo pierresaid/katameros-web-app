@@ -97,8 +97,7 @@ const handleEntryClick = async (entry: SynaxEntry) => {
           if (section) {
             // Find the Synaxarium subsection
             const subSectionIdx = section.subSections.findIndex(
-              ss => ss.title?.toLowerCase().includes('synax') ||
-                    ss.title?.toLowerCase().includes('سنكسار')
+              ss => ss.id == 10
             );
 
             if (subSectionIdx !== -1) {

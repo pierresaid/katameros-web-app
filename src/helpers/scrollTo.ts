@@ -83,6 +83,6 @@ export async function scrollToReading(sectionId: number, subSectionId: number, r
     // Scroll with the small offset trick for better positioning
     window.scrollTo(scrollX, scrollY - 1);
     scrollToElement(element);
-    // await new Promise((r) => setTimeout(r, 150));
+    await new Promise((r) => setTimeout(r, 150));
     scrollToElement(element);
 }
