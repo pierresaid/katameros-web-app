@@ -11,9 +11,11 @@
           clearable
           variant="outlined"
           class="mb-4"
+          :disabled="isLoadingReadings"
         />
 
         <v-virtual-scroll
+          v-if="!isLoadingReadings"
           :items="synaxStore.filteredEntries"
           height="calc(100vh - 250px)"
           item-height="80"
@@ -36,7 +38,15 @@
           </template>
         </v-virtual-scroll>
 
-        <div v-if="synaxStore.filteredEntries.length === 0" class="text-center text-grey mt-8">
+        <div v-if="isLoadingReadings" class="d-flex align-center justify-center" style="height: calc(100vh - 250px);">
+          <v-progress-circular
+            indeterminate
+            color="primary"
+            size="64"
+          />
+        </div>
+
+        <div v-else-if="synaxStore.filteredEntries.length === 0" class="text-center text-grey mt-8">
           {{ $t('synaxarium.noResults') }}
         </div>
       </v-col>
@@ -52,11 +62,12 @@ import { useReadings } from '@/store/readings';
 import { useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 
 const synaxStore = useSynaxarium();
 const readings = useReadings();
 const router = useRouter();
+const isLoadingReadings = ref(false);
 
 const handleEntryClick = async (entry: SynaxEntry) => {
   // Get current coptic year from the readings store
@@ -74,6 +85,9 @@ const handleEntryClick = async (entry: SynaxEntry) => {
     const year = parts[2];
 
     if (month && day && year) {
+      // Set loading state
+      isLoadingReadings.value = true;
+
       // Set the date in the readings store (JavaScript Date uses 0-indexed months)
       readings.date = new Date(year, month - 1, day);
       await readings.getReadings();
@@ -122,6 +136,9 @@ const handleEntryClick = async (entry: SynaxEntry) => {
         }
       }
       // },300);
+
+      // Reset loading state
+      isLoadingReadings.value = false;
     }
   }
 };
