@@ -66,10 +66,3 @@ const items = computed(() => {
         <!-- </template> -->
     </v-navigation-drawer>
 </template>
-
-
-<style>
-.v-navigation-drawer {
-    padding-bottom: env(safe-area-inset-bottom) !important;
-}
-</style>

@@ -10,6 +10,7 @@
           prepend-icon="mdi-magnify"
           clearable
           variant="outlined"
+          @click:clear="synaxStore.searchQuery = ''"
           class="mb-4"
           :disabled="isLoadingReadings"
         />
