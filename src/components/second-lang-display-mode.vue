@@ -6,7 +6,7 @@ const readings = useReadings();
 
 const items = [
     { name: 'lineByLine', value: 'line-by-line', icon: 'mdi-format-line-spacing' },
-    { name: 'sideBySide', value: 'side-by-side', icon: 'mdi-table-column' }
+    { name: 'sideBySide', value: 'side-by-side', icon: 'mdi-table-split-cell' }
 ];
 
 </script>

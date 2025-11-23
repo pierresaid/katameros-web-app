@@ -37,8 +37,8 @@ function getDisplayName(item: any) {
 <template>
     <div>
         <div class="font-weight-bold my-2">{{ $t('secondLanguage') }}</div>
-        <v-select density="compact" variant="underlined" style="height:46px;" :disabled="readings.loading"
-            @update:model-value="onInput" :model-value="readings.secondLanguage" prepend-icon="mdi-translate-variant"
+        <v-select density="compact" variant="underlined" style="height:46px;" :disabled="readings.loading" persistent-clear
+            @update:model-value="onInput" :model-value="readings.secondLanguage"
             :items="availableLanguages" item-title="name" item-value="id" clearable :placeholder="$t('none')">
             <template #selection="{ item }">
                 {{ getDisplayName(item) }}

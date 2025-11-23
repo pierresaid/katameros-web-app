@@ -26,3 +26,13 @@ function dec() {
         </v-btn-group>
     </div>
 </template>
+
+<style scoped>
+.picker-toggle.v-btn-group {
+    width: 100%;
+}
+
+.picker-toggle.v-btn-group .v-btn {
+    flex: 1;
+}
+</style>

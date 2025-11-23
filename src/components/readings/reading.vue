@@ -187,12 +187,7 @@ const Ref = computed(() => {
 
 /* Secondary language styling */
 .secondary-text {
-    opacity: 0.75;
+    opacity: 0.85;
     font-style: italic;
 }
-
-.v-theme--dark .secondary-text {
-    opacity: 0.7;
-}
-
 </style>

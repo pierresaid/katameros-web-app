@@ -42,29 +42,38 @@ const readings = useReadings();
 
 // Get matching second language reading
 const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined => {
-    if (!readings.secondSections || !readings.secondLanguage) {
+    if (!readings.secondSections || !readings.secondLanguage || !readings.sections) {
         return undefined;
     }
 
-    const secondSection = readings.secondSections[props.sectionIdx];
+    const currentSection = readings.sections[props.sectionIdx];
+    if (!currentSection) return undefined;
+
+    const secondSection = readings.secondSections.find(s => s.id === currentSection.id);
     if (!secondSection) return undefined;
 
-    const secondSubSection = secondSection.subSections[props.subSectionIdx];
+    const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
     if (!secondSubSection) return undefined;
 
-    return secondSubSection.readings[readingIdx];
+    const currentReading = props.subSection.readings[readingIdx];
+    if (!currentReading) return undefined;
+
+    return secondSubSection.readings.find(r => r.id === currentReading.id);
 };
 
 // Computed property for secondary readings to ensure reactivity
 const secondaryReadings = computed(() => {
-    if (!readings.secondSections || !readings.secondLanguage) {
+    if (!readings.secondSections || !readings.secondLanguage || !readings.sections) {
         return props.subSection.readings;
     }
 
-    const secondSection = readings.secondSections[props.sectionIdx];
+    const currentSection = readings.sections[props.sectionIdx];
+    if (!currentSection) return props.subSection.readings;
+
+    const secondSection = readings.secondSections.find(s => s.id === currentSection.id);
     if (!secondSection) return props.subSection.readings;
 
-    const secondSubSection = secondSection.subSections[props.subSectionIdx];
+    const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
     if (!secondSubSection) return props.subSection.readings;
 
     return secondSubSection.readings;
