@@ -49,5 +49,10 @@
         "day": "Day",
         "of": "of",
         "noResults": "No results found"
-    }
+    },
+    "secondLanguage": "Second Language",
+    "displayMode": "Display Mode",
+    "lineByLine": "Line by Line",
+    "sideBySide": "Side by Side",
+    "none": "None"
 }

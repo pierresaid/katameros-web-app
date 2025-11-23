@@ -5,7 +5,6 @@ import { useReadings } from '../store/readings';
 import CurrentReading from './current-reading.vue';
 import LangPickerSmall from './lang-picker-small.vue';
 import { useDisplay } from 'vuetify';
-import { track } from '@/helpers/track';
 
 const readings = useReadings()
 const menu = useMenu()

@@ -6,6 +6,8 @@ import ThemePicker from './theme-picker.vue';
 import SpacePicker from './space-picker.vue';
 import BiblePicker from './bible-picker.vue';
 import ZoomPicker from './zoom-picker.vue';
+import SecondLangPicker from './second-lang-picker.vue';
+import SecondLangDisplayMode from './second-lang-display-mode.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { useReadings } from '@/store/readings.js';
@@ -43,6 +45,13 @@ const items = computed(() => {
             <v-divider />
             <v-list-item role="none">
                 <bible-picker />
+            </v-list-item>
+            <v-divider />
+            <v-list-item role="none">
+                <second-lang-picker />
+            </v-list-item>
+            <v-list-item v-if="readings.secondLanguage !== null" role="none">
+                <second-lang-display-mode />
             </v-list-item>
             <v-divider />
             <v-list-item role="none">

@@ -11,6 +11,7 @@ import localforage from 'localforage';
 const today = new Date()
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
+const SECOND_LANGUAGE_LOCAL_STORAGE = "SECOND_LANGUAGE_LOCAL_STORAGE";
 
 export const useReadings = defineStore('readings', () => {
     const date = ref(new Date(today.getFullYear(), today.getMonth(), today.getDate()));
@@ -27,7 +28,6 @@ export const useReadings = defineStore('readings', () => {
     const langIsDefined = localStorage.getItem(LANGUAGE_LOCAL_STORAGE) !== null;
     const language = useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1);
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
-    const currentReading = ref<DayReading | null>(null);
     const panel = ref<number[]>([])
     const visibleSections = ref<number[]>([])
     const currentSectionIdx = computed(() => visibleSections.value[visibleSections.value.length - 1])
@@ -69,6 +69,8 @@ export const useReadings = defineStore('readings', () => {
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
 
     async function getReadings() {
+        fetchSecondLanguageReadings()
+        
         const version = pickedBibles.value.find(b => b.langId === language.value)?.bibleId;
 
         sections.value = null;
@@ -127,6 +129,42 @@ export const useReadings = defineStore('readings', () => {
         loading.value = false;
     }
 
+    const secondSections = ref<Section[] | null>(null);
+    const secondBible = ref<Bible | null>(null);
+    const secondBibles = ref<Bible[] | null>(null);
+    const secondLanguage = useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null);
+    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SECOND_LANGUAGE_DISPLAY_SETTING", "line-by-line");
+
+    async function fetchSecondLanguageReadings() {
+        if (!secondLanguage.value) {
+            secondSections.value = null;
+            secondBible.value = null;
+            secondBibles.value = null;
+            return;
+        }
+        const key = `${formatDate(date.value)}-${secondLanguage.value}`;
+        const cached = await localforage.getItem<DayReading>(key);
+        if (cached) {
+            secondSections.value = cached.sections;
+            secondBible.value = cached.bible;
+            secondBibles.value = cached.bibles;
+        }
+        else {
+            try {
+                const params: { languageId: number } = { languageId: secondLanguage.value };
+                const res = await fetchFromApi(formatDate(date.value), params);
+                secondSections.value = res.sections;
+                secondBible.value = res.bible;
+                secondBibles.value = res.bibles;
+            } catch (e) {
+                secondSections.value = null;
+                secondBible.value = null;
+                secondBibles.value = null;
+            }
+        }
+    }
+
+
     async function fetchFromApi(formatedDate: string, params: { languageId: number, bibleId?: number }) {
         const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
         return res;
@@ -178,5 +216,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentReading, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles }
+    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
 })

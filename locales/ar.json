@@ -49,5 +49,10 @@
         "day": "يوم",
         "of": "من",
         "noResults": "لا توجد نتائج"
-    }
+    },
+    "secondLanguage": "اللغة الثانية",
+    "displayMode": "وضع العرض",
+    "lineByLine": "سطرًا بسطر",
+    "sideBySide": "جنبًا إلى جنب",
+    "none": "لا شيء"
 }

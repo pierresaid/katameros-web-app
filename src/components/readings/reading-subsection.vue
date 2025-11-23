@@ -2,24 +2,73 @@
     <div class="subSection mb-10">
         <h2 v-if="subSection.title" class="subSection-title">{{ subSection.title }}</h2>
         <div v-if="subSection.introduction" class="subSection-introduction" v-html="subSection.introduction.replace(/\n/g, '<br>')"></div>
-        <Reading v-for="(reading, readingIdx) in subSection.readings"
-            :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+
+        <!-- Side-by-side mode -->
+        <div v-if="readings.secondLanguage && readings.secondLanguageDisplaySetting === 'side-by-side'" class="bilingual-grid">
+            <div class="primary-column">
+                <Reading v-for="(reading, readingIdx) in subSection.readings" :key="reading.id || readingIdx"
+                    :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+            </div>
+            <div class="secondary-column">
+                <Reading v-for="(reading, readingIdx) in secondaryReadings" 
+                    :reading="reading"
+                    :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+            </div>
+        </div>
+
+        <!-- Line-by-line mode or no second language -->
+        <Reading v-else v-for="(reading, readingIdx) in subSection.readings" :key="reading.id || readingIdx"
+            :reading="reading"
+            :second-language-reading="readings.secondLanguage && readings.secondLanguageDisplaySetting === 'line-by-line' ? getSecondLanguageReading(readingIdx) : undefined"
+            :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useMenu } from '../../store/menu';
-import { type SubSection } from '../../types/readings.js';
+import { useReadings } from '../../store/readings';
+import { type SubSection, type Reading as ReadingType } from '../../types/readings.js';
 import Reading from './reading.vue';
 
-defineProps<{
+const props = defineProps<{
     subSection: SubSection,
     sectionIdx: number,
     subSectionIdx: number
 }>();
 
-const menu = useMenu()
+const menu = useMenu();
+const readings = useReadings();
+
+// Get matching second language reading
+const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined => {
+    if (!readings.secondSections || !readings.secondLanguage) {
+        return undefined;
+    }
+
+    const secondSection = readings.secondSections[props.sectionIdx];
+    if (!secondSection) return undefined;
+
+    const secondSubSection = secondSection.subSections[props.subSectionIdx];
+    if (!secondSubSection) return undefined;
+
+    return secondSubSection.readings[readingIdx];
+};
+
+// Computed property for secondary readings to ensure reactivity
+const secondaryReadings = computed(() => {
+    if (!readings.secondSections || !readings.secondLanguage) {
+        return props.subSection.readings;
+    }
+
+    const secondSection = readings.secondSections[props.sectionIdx];
+    if (!secondSection) return props.subSection.readings;
+
+    const secondSubSection = secondSection.subSections[props.subSectionIdx];
+    if (!secondSubSection) return props.subSection.readings;
+
+    return secondSubSection.readings;
+});
 
 const subSectionTitleBaseSize = 1.6;
 const subSectionTitleSize  = computed(() => {
@@ -55,5 +104,17 @@ const verseFontSize = computed(() => {
 .reading {
     margin-top: 10px;
     margin-bottom: 60px;
+}
+
+/* Bilingual side-by-side layout */
+.bilingual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.primary-column,
+.secondary-column {
+    min-width: 0; /* Prevent grid overflow */
 }
 </style>

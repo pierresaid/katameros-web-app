@@ -1,23 +1,58 @@
 <template>
     <div class="reading" :id="readingId">
         <h3 class="reading-title" v-if="reading.title">{{ reading.title }}</h3>
+
+        <!-- Introduction - show both languages in line-by-line mode -->
         <div v-if="reading.introduction" class="reading-introduction mb-5">
             <div v-for="(introduction, index) in reading.introduction.split('\n')" :key="index" class="introduction">
                 {{ introduction }}
             </div>
         </div>
-        <h3 class="mb-2 ref">{{ Ref }}</h3>
-        <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
-            <component v-for="(verse, verseIdx) in passage.verses" :key="verseIdx" class="verse-text"
-                :is="menu.spacing === 'line' ? 'div' : 'span'">
-                <span class="verse-number">{{ verse.number }}</span> {{ verse.text }}
-            </component>
+        <div v-if="secondLanguageReading?.introduction && isLineByLine" class="reading-introduction mb-5 secondary-text">
+            <div v-for="(introduction, index) in secondLanguageReading.introduction.split('\n')" :key="'second-' + index" class="introduction">
+                {{ introduction }}
+            </div>
         </div>
+
+        <h3 class="mb-2 ref">{{ Ref }}</h3>
+
+        <!-- Passages with verses -->
+        <div v-for="(passage, passageIdx) in reading.passages" :key="passageIdx">
+            <!-- Line-by-line mode: alternate verses -->
+            <template v-if="isLineByLine && secondLanguageReading">
+                <template v-for="(verse, verseIdx) in passage.verses" :key="verseIdx">
+                    <!-- Primary language verse -->
+                    <component class="verse-text" :is="menu.spacing === 'line' ? 'div' : 'span'">
+                        <span class="verse-number">{{ verse.number }}</span> {{ verse.text }}
+                    </component>
+                    <!-- Secondary language verse -->
+                    <component class="verse-text secondary-text" :is="menu.spacing === 'line' ? 'div' : 'span'"
+                        v-if="getSecondLanguageVerse(passageIdx, verse.number)">
+                        <span class="verse-number">{{ verse.number }}</span> {{ getSecondLanguageVerse(passageIdx, verse.number)?.text }}
+                    </component>
+                </template>
+            </template>
+
+            <!-- Side-by-side mode or no second language: normal rendering -->
+            <template v-else>
+                <component v-for="(verse, verseIdx) in passage.verses" :key="verseIdx" class="verse-text"
+                    :is="menu.spacing === 'line' ? 'div' : 'span'">
+                    <span class="verse-number">{{ verse.number }}</span> {{ verse.text }}
+                </component>
+            </template>
+        </div>
+
+        <!-- HTML content (synaxarium) - only show primary language -->
         <div v-if="reading.html" class="custom-html">
             <div v-html="reading.html"></div>
         </div>
+
+        <!-- Conclusion - show both languages in line-by-line mode -->
         <div v-if="reading.conclusion" class="reading-conclusion">
             {{ reading.conclusion }}
+        </div>
+        <div v-if="secondLanguageReading?.conclusion && isLineByLine" class="reading-conclusion secondary-text">
+            {{ secondLanguageReading.conclusion }}
         </div>
     </div>
 </template>
@@ -25,10 +60,12 @@
 <script setup lang="ts">
 import { computed } from '@vue/reactivity';
 import { useMenu } from '../../store/menu';
-import { type Reading } from '../../types/readings.js';
+import { useReadings } from '../../store/readings';
+import { type Reading, type Verse } from '../../types/readings.js';
 
 const props = defineProps<{
     reading: Reading,
+    secondLanguageReading?: Reading,
     sectionIdx?: number,
     subSectionIdx?: number,
     readingIdx?: number
@@ -43,8 +80,24 @@ const readingId = computed(() => {
     return undefined;
 });
 
-const menu = useMenu()
-const zoom = computed(() => menu.zoom)
+const menu = useMenu();
+const readings = useReadings();
+const zoom = computed(() => menu.zoom);
+
+// Check if we're in line-by-line mode
+const isLineByLine = computed(() => {
+    return readings.secondLanguage && readings.secondLanguageDisplaySetting === 'line-by-line' && props.secondLanguageReading;
+});
+
+// Get matching verse from second language reading
+const getSecondLanguageVerse = (passageIdx: number, verseNumber: number): Verse | undefined => {
+    if (!props.secondLanguageReading?.passages) return undefined;
+
+    const secondPassage = props.secondLanguageReading.passages[passageIdx];
+    if (!secondPassage) return undefined;
+
+    return secondPassage.verses.find(v => v.number === verseNumber);
+};
 
 const verseBaseSize = 1
 const verseFontSize = computed(() => {
@@ -130,6 +183,16 @@ const Ref = computed(() => {
 
 .reading-title {
     font-size: v-bind('refFontSize + "rem"');
+}
+
+/* Secondary language styling */
+.secondary-text {
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.v-theme--dark .secondary-text {
+    opacity: 0.7;
 }
 
 </style>

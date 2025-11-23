@@ -49,5 +49,10 @@
         "day": "Tag",
         "of": "von",
         "noResults": "Keine Ergebnisse gefunden"
-    }
+    },
+    "secondLanguage": "Zweite Sprache",
+    "displayMode": "Anzeigemodus",
+    "lineByLine": "Zeile für Zeile",
+    "sideBySide": "Nebeneinander",
+    "none": "Keine"
 }
