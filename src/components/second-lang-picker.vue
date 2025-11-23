@@ -22,6 +22,7 @@ async function onInput(id: number | null) {
         }
     } else {
         readings.secondSections = null;
+        readings.secondBible = null;
     }
 }
 
