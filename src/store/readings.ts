@@ -133,7 +133,7 @@ export const useReadings = defineStore('readings', () => {
     const secondBible = ref<Bible | null>(null);
     const secondBibles = ref<Bible[] | null>(null);
     const secondLanguage = useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null);
-    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SECOND_LANGUAGE_DISPLAY_SETTING", "line-by-line");
+    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SECOND_LANGUAGE_SETTING", "side-by-side");
 
     async function fetchSecondLanguageReadings() {
         if (!secondLanguage.value) {
