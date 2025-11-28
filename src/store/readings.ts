@@ -8,6 +8,13 @@ import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
 
+interface CacheVersionInfo {
+    CacheVersion: number;
+    CacheDataUrl: string;
+    CacheBegin: string;
+    CacheEnd: string;
+}
+
 const today = new Date()
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
@@ -64,9 +71,22 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
-    const latestCacheVersion = 6;
     const disableCache = false;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
+    const cacheVersionInfo = ref<CacheVersionInfo | null>(null);
+
+    async function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
+        if (cacheVersionInfo.value) {
+            return cacheVersionInfo.value;
+        }
+        try {
+            const response = await fetch('https://katemeros-cache-version.psaid.workers.dev/');
+            cacheVersionInfo.value = await response.json();
+            return cacheVersionInfo.value;
+        } catch {
+            return null;
+        }
+    }
 
     async function getReadings() {
         fetchSecondLanguageReadings()
@@ -86,8 +106,12 @@ export const useReadings = defineStore('readings', () => {
             params["bibleId"] = version;
         }
         const key = `${formatedDate}-${language.value}`;
+
+        // Fetch cache version info dynamically
+        const cacheInfo = await fetchCacheVersionInfo();
+
         const cached = await localforage.getItem<DayReading>(key);
-        if (!disableCache && cached && currentCacheVersion.value === latestCacheVersion) {
+        if (!disableCache && cached && cacheInfo && currentCacheVersion.value === cacheInfo.CacheVersion) {
             setReading(cached);
         }
         else {
@@ -95,8 +119,9 @@ export const useReadings = defineStore('readings', () => {
 
             if (
                 !disableCache &&
-                date.value >= new Date(2025, 10, 4) && // November 4, 2025
-                date.value <= new Date(2026, 10, 4)    // November 4, 2026
+                cacheInfo &&
+                date.value >= new Date(cacheInfo.CacheBegin) &&
+                date.value <= new Date(cacheInfo.CacheEnd)
             ) {
                 preloading.value = true;
                 fetchFromApi(formatedDate, params)
@@ -109,9 +134,9 @@ export const useReadings = defineStore('readings', () => {
                     });
                 // bust cache
                 await localforage.clear();
-                await loadCacheData()
+                await loadCacheData(cacheInfo.CacheDataUrl)
                 const cached = await localforage.getItem<DayReading>(key);
-                currentCacheVersion.value = latestCacheVersion;
+                currentCacheVersion.value = cacheInfo.CacheVersion;
                 if (cached) {
                     setReading(cached);
                 }
@@ -170,9 +195,9 @@ export const useReadings = defineStore('readings', () => {
         return res;
     }
 
-    async function loadCacheData() {
+    async function loadCacheData(cacheDataUrl: string) {
         try {
-            const response = await fetch('https://katameros.blob.core.windows.net/cache/current.json');
+            const response = await fetch(cacheDataUrl);
             const data = await response.json();
 
             const entries = Object.entries(data);
