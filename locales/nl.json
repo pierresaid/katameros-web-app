@@ -1,0 +1,58 @@
+{
+    "home": "Home",
+    "theme": "Thema",
+    "spacing": "Afstand",
+    "language": "Taal",
+    "bible": "Bijbel",
+    "light": "Licht",
+    "dark": "Donker",
+    "line": "Regel",
+    "paragraph": "Alinea",
+    "close": "Sluiten",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "date": "Datum",
+    "coptic-date": "Koptische datum",
+    "day": "Dag",
+    "month": "Maand",
+    "year": "Jaar",
+    "aria": {
+        "cross": "Kruis",
+        "prevDay": "Vorige dag",
+        "nextDay": "Volgende dag",
+        "openDatePicker": "Datumkiezer openen",
+        "toggleNav": "Menu",
+        "langPicker": "Taalkiezer",
+        "readingMenu": "Lezingen",
+        "subSectionMenu": "Subsecties",
+        "settings": "Instellingen",
+        "zoomIn": "Inzoomen",
+        "zoomOut": "Uitzoomen"
+    },
+    "error": {
+        "loadingReadings": "Fout bij het laden van de lezingen"
+    },
+    "reload": "Herladen",
+    "zoom": "Zoom",
+    "contact": {
+        "contact": "Contact",
+        "name": "Naam",
+        "email": "E-mail",
+        "message": "Bericht",
+        "send": "Verzenden",
+        "MessageSent": "Bericht verzonden",
+        "MessageFailed": "Bericht verzenden mislukt"
+    },
+    "synaxarium": {
+        "title": "Synaxarium",
+        "search": "Zoeken op titel",
+        "day": "Dag",
+        "of": "van",
+        "noResults": "Geen resultaten gevonden"
+    },
+    "secondLanguage": "Tweede taal",
+    "displayMode": "Weergavemodus",
+    "lineByLine": "Regel voor regel",
+    "sideBySide": "Naast elkaar",
+    "none": "Geen"
+}
