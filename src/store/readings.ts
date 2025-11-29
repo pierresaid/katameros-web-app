@@ -73,18 +73,21 @@ export const useReadings = defineStore('readings', () => {
 
     const disableCache = false;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
-    const cacheVersionInfo = ref<CacheVersionInfo | null>(null);
+    const cacheVersionInfo = useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" });
+    const cacheVersionFetched = ref(false);
 
     async function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
-        if (cacheVersionInfo.value) {
+        if (cacheVersionFetched.value) {
             return cacheVersionInfo.value;
         }
         try {
             const response = await fetch('https://katemeros-cache-version.psaid.workers.dev/');
             cacheVersionInfo.value = await response.json();
+            cacheVersionFetched.value = true;
             return cacheVersionInfo.value;
         } catch {
-            return null;
+            cacheVersionFetched.value = true;
+            return cacheVersionInfo.value;
         }
     }
 
@@ -120,6 +123,7 @@ export const useReadings = defineStore('readings', () => {
             if (
                 !disableCache &&
                 cacheInfo &&
+                !preloading.value &&
                 date.value >= new Date(cacheInfo.CacheBegin) &&
                 date.value <= new Date(cacheInfo.CacheEnd)
             ) {
@@ -158,7 +162,7 @@ export const useReadings = defineStore('readings', () => {
     const secondBible = ref<Bible | null>(null);
     const secondBibles = ref<Bible[] | null>(null);
     const secondLanguage = useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null);
-    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SECOND_LANGUAGE_SETTING", "side-by-side");
+    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side");
 
     async function fetchSecondLanguageReadings() {
         if (!secondLanguage.value) {

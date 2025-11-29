@@ -35,17 +35,16 @@ function setDate(inc: number) {
 
 <template>
     <div class="text-center date">
-        <CopticCrossOutline style="width : 120px; height: 120px;" />
+        <CopticCrossOutline style="width : 120px; height: 120px;" :animate="readings.preloading" />
         <div class="g-date" :style="smAndDown ? 'display: block;' : ''" style="width: 100%;">
             {{ date }}
             <v-locale-provider :rtl="false">
                 <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
                     <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
-                        :disabled="readings.preloading" :aria-label="$t('aria.prevDay')" />
-                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')"
-                        :disabled="readings.preloading" />
+                         :aria-label="$t('aria.prevDay')" />
+                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
                     <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text"
-                        :disabled="readings.preloading" :aria-label="$t('aria.nextDay')" />
+                         :aria-label="$t('aria.nextDay')" />
                     <DatePickerDialog v-model="menu.dateDialog" />
                 </div>
             </v-locale-provider>
