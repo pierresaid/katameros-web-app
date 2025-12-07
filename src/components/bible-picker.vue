@@ -23,7 +23,7 @@ function onInput(id: number) {
         <v-select v-if="readings.bibles && readings.bibles.length > 1" density="compact" variant="underlined"
             :disabled="readings.loading" style="height:46px;" @update:model-value="onInput" v-model="value"
             @input="(onInput as any)"
-            :items="readings.bibles?.map(x => ({ ...x, name: x.name.length > 15 ? x.name.slice(0, 12) + '...' : x.name }))"
+            :items="readings.bibles"
             item-title="name" item-value="id">
         </v-select>
         <div v-else-if="readings.bible" class="solo-bible">
