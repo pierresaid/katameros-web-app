@@ -114,48 +114,54 @@ export const useReadings = defineStore('readings', () => {
         const cacheInfo = await fetchCacheVersionInfo();
 
         const cached = await localforage.getItem<DayReading>(key);
-        if (!disableCache && cached && cacheInfo && currentCacheVersion.value === cacheInfo.CacheVersion) {
+        const cacheVersionIsCurrent = cacheInfo && currentCacheVersion.value === cacheInfo.CacheVersion;
+        const cacheHasMatchingBible = !version || cached?.bible?.id === version;
+
+        // Use cache if it exists, version is current, and Bible matches (or no specific Bible requested)
+        if (!disableCache && cached && cacheVersionIsCurrent && cacheHasMatchingBible) {
             setReading(cached);
         }
+        // Cache version is outdated - reload entire cache
+        else if (
+            !disableCache &&
+            cacheInfo &&
+            !cacheVersionIsCurrent &&
+            !preloading.value &&
+            date.value >= new Date(cacheInfo.CacheBegin) &&
+            date.value <= new Date(cacheInfo.CacheEnd)
+        ) {
+            loading.value = true;
+            preloading.value = true;
+            fetchFromApi(formatedDate, params)
+                .then(res => { // We don't await here to parallelize fetching and caching
+                    setReading(res);
+                    loading.value = false;
+                })
+                .catch(e => {
+                    error.value = true;
+                });
+            // bust cache
+            await localforage.clear();
+            await loadCacheData(cacheInfo.CacheDataUrl)
+            const cachedAfterReload = await localforage.getItem<DayReading>(key);
+            currentCacheVersion.value = cacheInfo.CacheVersion;
+            if (cachedAfterReload) {
+                setReading(cachedAfterReload);
+            }
+            preloading.value = false;
+            loading.value = false;
+        }
+        // Cache is current but Bible doesn't match, or no cache - just fetch from API
         else {
             loading.value = true;
-
-            if (
-                !disableCache &&
-                cacheInfo &&
-                !preloading.value &&
-                date.value >= new Date(cacheInfo.CacheBegin) &&
-                date.value <= new Date(cacheInfo.CacheEnd)
-            ) {
-                preloading.value = true;
-                fetchFromApi(formatedDate, params)
-                    .then(res => { // We don't await here to parallelize fetching and caching
-                        setReading(res);
-                        loading.value = false;
-                    })
-                    .catch(e => {
-                        error.value = true;
-                    });
-                // bust cache
-                await localforage.clear();
-                await loadCacheData(cacheInfo.CacheDataUrl)
-                const cached = await localforage.getItem<DayReading>(key);
-                currentCacheVersion.value = cacheInfo.CacheVersion;
-                if (cached) {
-                    setReading(cached);
-                }
-                preloading.value = false;
+            try {
+                const res = await fetchFromApi(formatedDate, params);
+                setReading(res);
+            } catch (e) {
+                error.value = true;
             }
-            else {
-                try {
-                    const res = await fetchFromApi(formatedDate, params);
-                    setReading(res);
-                } catch (e) {
-                    error.value = true;
-                }
-            }
+            loading.value = false;
         }
-        loading.value = false;
     }
 
     const secondSections = ref<Section[] | null>(null);
