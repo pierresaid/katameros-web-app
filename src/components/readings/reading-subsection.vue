@@ -4,17 +4,18 @@
         <div v-if="subSection.introduction" class="subSection-introduction" v-html="subSection.introduction.replace(/\n/g, '<br>')"></div>
 
         <!-- Side-by-side mode -->
-        <div v-if="readings.secondLanguage && readings.secondLanguageDisplaySetting === 'side-by-side'" class="bilingual-grid">
-            <div class="primary-column">
-                <Reading v-for="(reading, readingIdx) in subSection.readings" :key="reading.id || readingIdx"
-                    :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+        <template v-if="readings.secondLanguage && readings.secondLanguageDisplaySetting === 'side-by-side'">
+            <div v-for="(reading, readingIdx) in subSection.readings" :key="reading.id || readingIdx" class="bilingual-row">
+                <div class="primary-column">
+                    <Reading :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+                </div>
+                <div class="secondary-column">
+                    <Reading v-if="getSecondLanguageReading(readingIdx)"
+                        :reading="getSecondLanguageReading(readingIdx)!"
+                        :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
+                </div>
             </div>
-            <div class="secondary-column">
-                <Reading v-for="(reading, readingIdx) in secondaryReadings" 
-                    :reading="reading"
-                    :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
-            </div>
-        </div>
+        </template>
 
         <!-- Line-by-line mode or no second language -->
         <Reading v-else v-for="(reading, readingIdx) in subSection.readings" :key="reading.id || readingIdx"
@@ -61,24 +62,6 @@ const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined =
     return secondSubSection.readings.find(r => r.id === currentReading.id);
 };
 
-// Computed property for secondary readings to ensure reactivity
-const secondaryReadings = computed(() => {
-    if (!readings.secondSections || !readings.secondLanguage || !readings.sections) {
-        return props.subSection.readings;
-    }
-
-    const currentSection = readings.sections[props.sectionIdx];
-    if (!currentSection) return props.subSection.readings;
-
-    const secondSection = readings.secondSections.find(s => s.id === currentSection.id);
-    if (!secondSection) return props.subSection.readings;
-
-    const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
-    if (!secondSubSection) return props.subSection.readings;
-
-    return secondSubSection.readings;
-});
-
 const subSectionTitleBaseSize = 1.6;
 const subSectionTitleSize  = computed(() => {
     return Number((menu.zoom * subSectionTitleBaseSize).toFixed(2));
@@ -116,14 +99,19 @@ const verseFontSize = computed(() => {
 }
 
 /* Bilingual side-by-side layout */
-.bilingual-grid {
+.bilingual-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    align-items: start;
 }
 
 .primary-column,
 .secondary-column {
     min-width: 0; /* Prevent grid overflow */
+}
+
+.bilingual-row .reading {
+    margin-bottom: 20px;
 }
 </style>
