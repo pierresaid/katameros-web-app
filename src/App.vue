@@ -111,4 +111,10 @@ color: inherit;
 .v-locale--is-rtl .reading-conclusion {
   font-family: "ScheherazadeNew", "Raleway" !important;
 }
+
+/* Safe area insets for landscape mode (notch on left/right) */
+.v-main {
+  padding-left: env(safe-area-inset-left) !important;
+  padding-right: env(safe-area-inset-right) !important;
+}
 </style>
