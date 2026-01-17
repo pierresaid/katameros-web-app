@@ -1,0 +1,58 @@
+{
+    "home": "หน้าแรก",
+    "theme": "ธีม",
+    "spacing": "ระยะห่าง",
+    "language": "ภาษา",
+    "bible": "พระคัมภีร์",
+    "light": "สว่าง",
+    "dark": "มืด",
+    "line": "บรรทัด",
+    "paragraph": "ย่อหน้า",
+    "close": "ปิด",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "date": "วันที่",
+    "coptic-date": "วันที่คอปติก",
+    "day": "วัน",
+    "month": "เดือน",
+    "year": "ปี",
+    "aria": {
+        "cross": "กางเขน",
+        "prevDay": "วันก่อนหน้า",
+        "nextDay": "วันถัดไป",
+        "openDatePicker": "เปิดตัวเลือกวันที่",
+        "toggleNav": "สลับการนำทาง",
+        "langPicker": "ตัวเลือกภาษา",
+        "readingMenu": "เมนูบทอ่าน",
+        "subSectionMenu": "เมนูหมวดย่อย",
+        "settings": "การตั้งค่า",
+        "zoomIn": "ขยาย",
+        "zoomOut": "ย่อ"
+    },
+    "error": {
+        "loadingReadings": "เกิดข้อผิดพลาดในการโหลดบทอ่าน"
+    },
+    "reload": "โหลดใหม่",
+    "zoom": "ขยาย",
+    "contact": {
+        "contact": "ติดต่อ",
+        "name": "ชื่อ",
+        "email": "อีเมล",
+        "message": "ข้อความ",
+        "send": "ส่ง",
+        "MessageSent": "ส่งข้อความแล้ว",
+        "MessageFailed": "ส่งข้อความล้มเหลว"
+    },
+    "synaxarium": {
+        "title": "ซินักซาเรียม",
+        "search": "ค้นหาตามชื่อ",
+        "day": "วัน",
+        "of": "ของ",
+        "noResults": "ไม่พบผลลัพธ์"
+    },
+    "secondLanguage": "ภาษาที่สอง",
+    "displayMode": "โหมดการแสดงผล",
+    "lineByLine": "บรรทัดต่อบรรทัด",
+    "sideBySide": "เคียงข้างกัน",
+    "none": "ไม่มี"
+}
