@@ -112,6 +112,22 @@ color: inherit;
   font-family: "ScheherazadeNew", "Raleway" !important;
 }
 
+/* Override Arabic font for LTR secondary language text */
+.v-locale--is-rtl [dir="ltr"] .subSection-introduction,
+.v-locale--is-rtl [dir="ltr"] .ref,
+.v-locale--is-rtl [dir="ltr"] .verse-text,
+.v-locale--is-rtl [dir="ltr"] .section-title,
+.v-locale--is-rtl [dir="ltr"] .introduction,
+.v-locale--is-rtl [dir="ltr"] .subSection-title,
+.v-locale--is-rtl [dir="ltr"] .reading-conclusion,
+.v-locale--is-rtl .verse-text[dir="ltr"],
+.v-locale--is-rtl .introduction[dir="ltr"],
+.v-locale--is-rtl .reading-introduction[dir="ltr"],
+.v-locale--is-rtl .reading-conclusion[dir="ltr"] {
+  font-family: inherit !important;
+  font-style: italic;
+}
+
 /* Safe area insets for landscape mode (notch on left/right) */
 .v-main {
   padding-left: env(safe-area-inset-left) !important;
