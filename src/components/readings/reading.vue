@@ -8,7 +8,7 @@
                 {{ introduction }}
             </div>
         </div>
-        <div v-if="secondLanguageReading?.introduction && isLineByLine" class="reading-introduction mb-5 secondary-text">
+        <div v-if="secondLanguageReading?.introduction && isLineByLine" class="reading-introduction mb-5 secondary-text" :dir="secondLanguageDir">
             <div v-for="(introduction, index) in secondLanguageReading.introduction.split('\n')" :key="'second-' + index" class="introduction">
                 {{ introduction }}
             </div>
@@ -27,7 +27,7 @@
                     </component>
                     <!-- Secondary language verse -->
                     <component class="verse-text secondary-text" :is="menu.spacing === 'line' ? 'div' : 'span'"
-                        v-if="getSecondLanguageVerse(passageIdx, verse.number)">
+                        v-if="getSecondLanguageVerse(passageIdx, verse.number)" :dir="secondLanguageDir">
                         <span class="verse-number">{{ verse.number }}</span> {{ getSecondLanguageVerse(passageIdx, verse.number)?.text }}
                     </component>
                 </template>
@@ -51,7 +51,7 @@
         <div v-if="reading.conclusion" class="reading-conclusion">
             {{ reading.conclusion }}
         </div>
-        <div v-if="secondLanguageReading?.conclusion && isLineByLine" class="reading-conclusion secondary-text">
+        <div v-if="secondLanguageReading?.conclusion && isLineByLine" class="reading-conclusion secondary-text" :dir="secondLanguageDir">
             {{ secondLanguageReading.conclusion }}
         </div>
     </div>
@@ -62,6 +62,7 @@ import { computed } from '@vue/reactivity';
 import { useMenu } from '../../store/menu';
 import { useReadings } from '../../store/readings';
 import { type Reading, type Verse } from '../../types/readings.js';
+import LANGUAGES from '../../consts/languages';
 
 const props = defineProps<{
     reading: Reading,
@@ -87,6 +88,13 @@ const zoom = computed(() => menu.zoom);
 // Check if we're in line-by-line mode
 const isLineByLine = computed(() => {
     return readings.secondLanguage && readings.secondLanguageDisplaySetting === 'line-by-line' && props.secondLanguageReading;
+});
+
+// Get text direction for second language
+const secondLanguageDir = computed(() => {
+    if (!readings.secondLanguage) return 'ltr';
+    const lang = Object.values(LANGUAGES).find(l => l.id === readings.secondLanguage);
+    return lang && 'rtl' in lang && lang.rtl ? 'rtl' : 'ltr';
 });
 
 // Get matching verse from second language reading

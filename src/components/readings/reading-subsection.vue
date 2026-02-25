@@ -9,7 +9,7 @@
                 <div class="primary-column">
                     <Reading :reading="reading" :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
                 </div>
-                <div class="secondary-column">
+                <div class="secondary-column" :dir="secondLanguageDir">
                     <Reading v-if="getSecondLanguageReading(readingIdx)"
                         :reading="getSecondLanguageReading(readingIdx)!"
                         :section-idx="sectionIdx" :sub-section-idx="subSectionIdx" :reading-idx="readingIdx" />
@@ -31,6 +31,7 @@ import { useMenu } from '../../store/menu';
 import { useReadings } from '../../store/readings';
 import { type SubSection, type Reading as ReadingType } from '../../types/readings.js';
 import Reading from './reading.vue';
+import LANGUAGES from '../../consts/languages';
 
 const props = defineProps<{
     subSection: SubSection,
@@ -58,6 +59,13 @@ const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined =
 
     return secondSubSection.readings[readingIdx];
 };
+
+// Get text direction for second language
+const secondLanguageDir = computed(() => {
+    if (!readings.secondLanguage) return 'ltr';
+    const lang = Object.values(LANGUAGES).find(l => l.id === readings.secondLanguage);
+    return lang && 'rtl' in lang && lang.rtl ? 'rtl' : 'ltr';
+});
 
 const subSectionTitleBaseSize = 1.6;
 const subSectionTitleSize  = computed(() => {
