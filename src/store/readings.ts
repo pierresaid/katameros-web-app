@@ -247,6 +247,10 @@ export const useReadings = defineStore('readings', () => {
         const lang = Object.values(LANGUAGES).find(x => x.id === id);
         if (!lang)
             return;
+        // Swap languages if switching to the current secondary language
+        if (secondLanguage.value == id) {
+            secondLanguage.value = language.value;
+        }
         language.value = lang.id;
         getReadings();
     }
