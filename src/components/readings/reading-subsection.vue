@@ -56,10 +56,7 @@ const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined =
     const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
     if (!secondSubSection) return undefined;
 
-    const currentReading = props.subSection.readings[readingIdx];
-    if (!currentReading) return undefined;
-
-    return secondSubSection.readings.find(r => r.id === currentReading.id);
+    return secondSubSection.readings[readingIdx];
 };
 
 const subSectionTitleBaseSize = 1.6;
