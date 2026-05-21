@@ -132,6 +132,9 @@ export const useReadings = defineStore('readings', () => {
         ) {
             loading.value = true;
             preloading.value = true;
+            if (cached && cacheHasMatchingBible) {
+                setReading(cached);
+            }
             fetchFromApi(formatedDate, params)
                 .then(res => { // We don't await here to parallelize fetching and caching
                     setReading(res);
