@@ -37,7 +37,7 @@ function onSave() {
             </v-tabs>
             <v-divider />
             <v-card-text>
-                <v-window v-model="tab">
+                <v-window v-model="tab" :touch="false">
                     <v-window-item value="date">
                         <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
                             inline :locale="readings.languageCode == 'ar' ? 'en' : readings.languageCode" auto-apply
