@@ -71,7 +71,7 @@ export const useReadings = defineStore('readings', () => {
         panel.value.push(id);
     }
 
-    const disableCache = false;
+    const disableCache = import.meta.env.DEV;
     const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
     const cacheVersionInfo = useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" });
     const cacheVersionFetched = ref(false);

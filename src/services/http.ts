@@ -1,113 +1,74 @@
-import axios, { AxiosError, type AxiosInstance, type AxiosRequestConfig } from "axios";
+const baseURL = String(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
 
-interface HttpRequestConfig {
-    /**
-     * The service name that is logged on errors
-     */
-    httpServiceName?: string;
-    baseURL?: string;
-}
-
-class Http {
-    private instance: AxiosInstance;
-    private _errorHandler?: () => void;
-    private _unauthorizedHandler?: () => void;
-    private _config: HttpRequestConfig;
-
-    constructor(config: HttpRequestConfig = {}) {
-        this._config = config;
-        this.instance = axios.create(config as AxiosRequestConfig);
-    }
-
-    /**
-     * Set the default Authorization header for every Http call
-     * @param token Authorization token
-     */
-    setToken(token: string | null) {
-        if (token)
-            this.instance.defaults.headers.common["Authorization"] = token;
-        else
-            delete this.instance.defaults.headers.common.Authorization;
-    }
-
-    /**
-     * @param handler The error handler called on every failed request
-     */
-    public set errorHandler(handler: () => void) {
-        this._errorHandler = handler;
-        this.setInterceptors();
-    }
-
-    /**
-     * @param handler The handler called on every 401 failed response
-     */
-    public set onUnauthorized(handler: () => void) {
-        this._unauthorizedHandler = handler;
-        this.setInterceptors();
-    }
-
-    private setInterceptors() {
-        this.instance.interceptors.response.use(
-            (config) => {
-                return config;
-            },
-            (error: AxiosError) => {
-                console.error(
-                    `[HTTP] ${this._config.httpServiceName ?? ""} ${error.message}`,
-                    error.toJSON()
-                );
-                if (error.response?.status === 401 && this._unauthorizedHandler) {
-                    this._unauthorizedHandler();
-                }
-                if (this._errorHandler) {
-                    this._errorHandler();
-                }
-                return Promise.reject(error);
+function buildUrl(route: string, params?: Record<string, unknown>) {
+    const path = route.startsWith("/") ? route : `/${route}`;
+    let url = `${baseURL}${path}`;
+    if (params) {
+        const search = new URLSearchParams();
+        for (const [key, value] of Object.entries(params)) {
+            if (value !== undefined && value !== null) {
+                search.append(key, String(value));
             }
-        );
+        }
+        const qs = search.toString();
+        if (qs) url += `?${qs}`;
+    }
+    return url;
+}
+
+async function request<T>(
+    method: string,
+    route: string,
+    body?: unknown,
+    params?: Record<string, unknown>
+): Promise<T> {
+    const url = buildUrl(route, params);
+    const headers: Record<string, string> = { Accept: "application/json" };
+    const init: RequestInit = { method, headers };
+    if (body !== undefined) {
+        headers["Content-Type"] = "application/json";
+        init.body = JSON.stringify(body);
     }
 
-    /**
-     * Http GET `url`
-     * @param url Url
-     * @param params Query Params
-     */
-    async get<T = any>(route: string, params?: Record<string, unknown>) {
-        const res = await this.instance.get<T>(route, { params });
-        return res.data;
+    let response: Response;
+    try {
+        response = await fetch(url, init);
+    } catch (e) {
+        const message = e instanceof Error ? e.message : String(e);
+        console.error(`[HTTP] ${method} ${url} ${message}`);
+        throw e;
     }
 
-    /**
-     * Http POST `url`
-     * @param url Url
-     * @param data data to post
-     * @param params Query Params
-     */
-    async post<T = any>(route: string, data?: unknown, params?: Record<string, unknown>) {
-        const res = await this.instance.post<T>(route, data, { params });
-        return res.data;
+    if (!response.ok) {
+        console.error(`[HTTP] ${method} ${url} ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP ${response.status} ${response.statusText}`);
     }
 
-    /**
-     * Http PUT `url`
-     * @param url Url
-     * @param data data to put
-     * @param params Query Params
-     */
-    async put<T = any>(route: string, data?: unknown, params?: Record<string, unknown>) {
-        const res = await this.instance.put<T>(route, data, { params });
-        return res.data;
+    if (response.status === 204) {
+        return undefined as T;
     }
-
-    /**
-     * Http DELETE `url`
-     * @param url Url
-     * @param params Query Params
-     */
-    async delete<T = any>(route: string, params?: Record<string, unknown>) {
-        const res = await this.instance.delete<T>(route, { params });
-        return res.data;
+    const text = await response.text();
+    if (!text) {
+        return undefined as T;
+    }
+    try {
+        return JSON.parse(text) as T;
+    } catch {
+        return text as unknown as T;
     }
 }
 
-export const http = new Http({ baseURL: import.meta.env.VITE_API_BASE_URL });
+export const http = {
+    get<T = any>(route: string, params?: Record<string, unknown>) {
+        return request<T>("GET", route, undefined, params);
+    },
+    post<T = any>(route: string, data?: unknown, params?: Record<string, unknown>) {
+        return request<T>("POST", route, data, params);
+    },
+    put<T = any>(route: string, data?: unknown, params?: Record<string, unknown>) {
+        return request<T>("PUT", route, data, params);
+    },
+    delete<T = any>(route: string, params?: Record<string, unknown>) {
+        return request<T>("DELETE", route, undefined, params);
+    },
+};
