@@ -42,27 +42,39 @@ async function onsubmit() {
         <Form v-slot="{ handleSubmit }">
             <Field v-slot="{ field, errorMessage }" name="name" rules="required">
                 <v-text-field v-model="name" :error-messages="errorMessage" autocomplete="name" v-bind="field"
-                    autcomplete="name" name="name" :label="t('contact.name')" required />
+                    autcomplete="name" name="name" :label="t('contact.name')" :disabled="loading" required />
             </Field>
             <Field v-slot="{ errorMessage, field }" name="email" rules="required|email" autocomplete="email">
                 <v-text-field v-model="email" v-bind="field" :error-messages="errorMessage" :label="t('contact.email')"
-                    auto-complete="email" name="email" required />
+                    auto-complete="email" name="email" type="email" :disabled="loading" required />
             </Field>
-            <Field v-slot="{ errorMessage, field }" name="message" rules="required|min:5">
+            <Field v-slot="{ errorMessage, field }" name="message" rules="required|min:5|max:5000">
                 <v-textarea v-model="message" v-bind="field" :error-messages="errorMessage"
-                    :label="t('contact.message')" />
+                    :label="t('contact.message')" :disabled="loading" auto-grow rows="3"
+                    :counter="5000" maxlength="5000" />
             </Field>
-            <div style="display: flex; flex-wrap: wrap">
+            <div class="contact-actions">
                 <v-btn @click.prevent="handleSubmit(onsubmit)" type="submit" color="primary" class="mr-4"
                     :loading="loading">
                     {{ t('contact.send') }}
                 </v-btn>
                 <v-btn append-icon="mdi-github" href="https://github.com/pierresaid/katameros-api"
-                    @click="track('contact-github')"
-                    style="text-transform: capitalize; margin-left:auto; font-weight: 700;" target="_blank">
-                    Github
+                    @click="track('contact-github')" class="github-btn" target="_blank">
+                    GitHub
                 </v-btn>
             </div>
         </Form>
     </v-container>
 </template>
+
+<style scoped>
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.github-btn {
+    margin-left: auto;
+    font-weight: 700;
+}
+</style>

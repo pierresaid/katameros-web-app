@@ -1,5 +1,5 @@
 import { defineRule } from 'vee-validate';
-import { required, email, min } from '@vee-validate/rules';
+import { required, email, min, max } from '@vee-validate/rules';
 import { configure } from 'vee-validate';
 import { localize } from '@vee-validate/i18n';
 import en from '@vee-validate/i18n/dist/locale/en.json';
@@ -27,3 +27,4 @@ configure({
 defineRule('required', required);
 defineRule('email', email);
 defineRule('min', min);
+defineRule('max', max);
