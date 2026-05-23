@@ -54,5 +54,10 @@
     "displayMode": "Display Mode",
     "lineByLine": "Line by Line",
     "sideBySide": "Side by Side",
-    "none": "None"
+    "none": "None",
+    "about": "About",
+    "seo": {
+        "brand": "Katameros — The Coptic Lectionary",
+        "tagline": "The Coptic lectionary. Church readings for all weekdays and feasts."
+    }
 }

@@ -5,6 +5,9 @@ import { useNotif } from '../store/notif';
 import { useI18n } from 'vue-i18n';
 import { http } from '../services/http';
 import { track } from '@/helpers/track';
+import { useSeo } from '@/composables/useSeo';
+
+useSeo('contact.contact');
 
 const name = ref('');
 const email = ref('');

@@ -5,12 +5,13 @@ import { useReadings } from '../store/readings';
 import CurrentReading from './current-reading.vue';
 import LangPickerSmall from './lang-picker-small.vue';
 import { useDisplay } from 'vuetify';
+import { useCurrentLang } from '@/composables/useCurrentLang';
 
 const readings = useReadings()
 const menu = useMenu()
 const { xs } = useDisplay()
 const route = useRoute();
-
+const lang = useCurrentLang();
 </script>
 
 
@@ -21,13 +22,13 @@ const route = useRoute();
                 :aria-label="$t('aria.toggleNav')" />
         </template>
         <v-app-bar-title style="display: flex; margin-left: 0px;">
-            <router-link to="/">
+            <router-link :to="{ name: 'home', params: { lang } }">
                 <h1 class="coptic kt">Katameroc</h1>
             </router-link>
         </v-app-bar-title>
 
         <template v-slot:append>
-            <Transition v-if="xs && route.path == '/'" name="fade" mode="out-in">
+            <Transition v-if="xs && route.name === 'home'" name="fade" mode="out-in">
                 <div v-if="readings.currentSection">
                     <CurrentReading />
                 </div>
@@ -36,7 +37,7 @@ const route = useRoute();
                 </div>
             </Transition>
             <div v-else class="flex">
-                <CurrentReading v-if="route.path == '/'" />
+                <CurrentReading v-if="route.name === 'home'" />
                 <LangPickerSmall />
             </div>
         </template>

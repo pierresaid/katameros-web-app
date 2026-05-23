@@ -54,5 +54,10 @@
     "displayMode": "Mode d'affichage",
     "lineByLine": "Ligne par ligne",
     "sideBySide": "Côte à côte",
-    "none": "Aucun"
+    "none": "Aucun",
+    "about": "À propos",
+    "seo": {
+        "brand": "Katameros — Lectionnaire copte",
+        "tagline": "Le lectionnaire copte. Lectures de l'Église pour tous les jours et fêtes."
+    }
 }

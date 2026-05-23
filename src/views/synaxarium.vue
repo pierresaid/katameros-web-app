@@ -57,17 +57,21 @@
 
 <script setup lang="ts">
 import { useSynaxarium } from '@/store/synaxarium';
+import { useSeo } from '@/composables/useSeo';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import type { SynaxEntry } from '@/types/synaxarium';
 import { useReadings } from '@/store/readings';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
 import { nextTick, ref } from 'vue';
 
+useSeo('synaxarium.title');
+
 const synaxStore = useSynaxarium();
 const readings = useReadings();
 const router = useRouter();
+const route = useRoute();
 const isLoadingReadings = ref(false);
 
 const handleEntryClick = async (entry: SynaxEntry) => {
@@ -94,7 +98,7 @@ const handleEntryClick = async (entry: SynaxEntry) => {
       await readings.getReadings();
 
       // Navigate to home page
-      await router.push('/');
+      await router.push({ name: 'home', params: { lang: route.params.lang } });
 
       // Wait for the DOM to update and sections to load
       await nextTick();

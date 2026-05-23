@@ -54,5 +54,10 @@
     "displayMode": "Anzeigemodus",
     "lineByLine": "Zeile für Zeile",
     "sideBySide": "Nebeneinander",
-    "none": "Keine"
+    "none": "Keine",
+    "about": "Über",
+    "seo": {
+        "brand": "Katameros — Koptisches Lektionar",
+        "tagline": "Das koptische Lektionar. Kirchliche Lesungen für alle Wochentage und Festtage."
+    }
 }

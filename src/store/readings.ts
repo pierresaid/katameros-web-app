@@ -1,5 +1,5 @@
 import { computed } from '@vue/reactivity';
-import { defineStore } from 'pinia'
+import { defineStore, skipHydrate } from 'pinia'
 import { ref, watch, watchEffect } from 'vue';
 import LANGUAGES from '../consts/languages';
 import formatDate from '../helpers/formatDate';
@@ -21,7 +21,7 @@ const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
 const SECOND_LANGUAGE_LOCAL_STORAGE = "SECOND_LANGUAGE_LOCAL_STORAGE";
 
 export const useReadings = defineStore('readings', () => {
-    const date = ref(new Date(today.getFullYear(), today.getMonth(), today.getDate()));
+    const date = skipHydrate(ref(new Date(today.getFullYear(), today.getMonth(), today.getDate())));
     const sections = ref<Section[] | null>(null);
     const title = ref<string | null>(null);
     const preloading = ref(false);
@@ -29,11 +29,10 @@ export const useReadings = defineStore('readings', () => {
     const error = ref(true);
     const bibleOriginalName = ref("")
     const bibles = ref<Bible[]>()
-    const pickedBibles = useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", [])
+    const pickedBibles = skipHydrate(useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", []))
     const periodInfo = ref<string | null>(null);
     const loading = ref(false);
-    const langIsDefined = localStorage.getItem(LANGUAGE_LOCAL_STORAGE) !== null;
-    const language = useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1);
+    const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1));
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
     const panel = ref<number[]>([])
     const visibleSections = ref<number[]>([])
@@ -72,8 +71,8 @@ export const useReadings = defineStore('readings', () => {
     }
 
     const disableCache = import.meta.env.DEV;
-    const currentCacheVersion = useStorage<number>("CURRENT_CACHE_VERSION", 0);
-    const cacheVersionInfo = useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" });
+    const currentCacheVersion = skipHydrate(useStorage<number>("CURRENT_CACHE_VERSION", 0));
+    const cacheVersionInfo = skipHydrate(useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" }));
     const cacheVersionFetched = ref(false);
 
     async function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
@@ -170,8 +169,8 @@ export const useReadings = defineStore('readings', () => {
     const secondSections = ref<Section[] | null>(null);
     const secondBible = ref<Bible | null>(null);
     const secondBibles = ref<Bible[] | null>(null);
-    const secondLanguage = useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null);
-    const secondLanguageDisplaySetting = useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side");
+    const secondLanguage = skipHydrate(useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null));
+    const secondLanguageDisplaySetting = skipHydrate(useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side"));
 
     async function fetchSecondLanguageReadings() {
         if (!secondLanguage.value) {
@@ -258,5 +257,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, langIsDefined, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
+    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
 })

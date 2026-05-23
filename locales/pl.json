@@ -54,5 +54,10 @@
     "displayMode": "Tryb wyświetlania",
     "lineByLine": "Linia po linii",
     "sideBySide": "Obok siebie",
-    "none": "Brak"
+    "none": "Brak",
+    "about": "O nas",
+    "seo": {
+        "brand": "Katameros — Lekcjonarz koptyjski",
+        "tagline": "Lekcjonarz koptyjski. Czytania kościelne na wszystkie dni tygodnia i święta."
+    }
 }

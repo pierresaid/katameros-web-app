@@ -8,6 +8,9 @@ import { useReadings } from '@/store/readings';
 import { useDisplay } from 'vuetify';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import { useMenu } from '@/store/menu';
+import { useSeo } from '@/composables/useSeo';
+
+useSeo('home');
 
 const readings = useReadings();
 const { smAndDown } = useDisplay()

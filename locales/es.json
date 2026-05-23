@@ -54,5 +54,10 @@
     "displayMode": "Modo de visualización",
     "lineByLine": "Línea por línea",
     "sideBySide": "Lado a lado",
-    "none": "Ninguno"
+    "none": "Ninguno",
+    "about": "Acerca de",
+    "seo": {
+        "brand": "Katameros — Leccionario copto",
+        "tagline": "El leccionario copto. Lecturas de la iglesia para todos los días de la semana y festividades."
+    }
 }

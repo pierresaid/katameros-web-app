@@ -54,5 +54,10 @@
     "displayMode": "Weergavemodus",
     "lineByLine": "Regel voor regel",
     "sideBySide": "Naast elkaar",
-    "none": "Geen"
+    "none": "Geen",
+    "about": "Over",
+    "seo": {
+        "brand": "Katameros — Koptisch lectionarium",
+        "tagline": "Het Koptische lectionarium. Kerklezingen voor alle weekdagen en feestdagen."
+    }
 }

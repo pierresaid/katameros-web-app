@@ -1,13 +1,9 @@
-// Styles
-// import '@mdi/font/css/materialdesignicons.css'
-// import 'vuetify/styles'
-import '@mdi/font/css/materialdesignicons.css' 
+import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-// Vuetify
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
+import { fr, en, ar, de, it, pl, es, nl } from 'vuetify/locale'
 
 const defLight = {
   colors: {
@@ -50,20 +46,27 @@ const defDark = {
   }
 }
 
-import { fr, en, ar, de, it, pl, es, nl } from 'vuetify/locale'
-
-
-export const vuetifyApp = createVuetify({
-  theme: {
-    defaultTheme: 'dark',
-    themes: {
-      light: defLight,
-      dark: defDark
-    }
-  },
-  locale: {
-    messages: { fr, en, ar, de, it, pl, es, nl },
-  },
-  components,
-  directives,
-})
+export function createVuetifyInstance(isClient: boolean) {
+  return createVuetify({
+    ssr: !isClient,
+    theme: {
+      defaultTheme: 'dark',
+      themes: {
+        light: defLight,
+        dark: defDark
+      }
+    },
+    locale: {
+      messages: { fr, en, ar, de, it, pl, es, nl },
+    },
+    icons: {
+      defaultSet: 'mdi',
+      aliases,
+      sets: { mdi },
+    },
+    display: {
+      mobileBreakpoint: 'sm',
+      thresholds: { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1920, xxl: 2560 },
+    },
+  })
+}

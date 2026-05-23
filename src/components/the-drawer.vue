@@ -11,19 +11,20 @@ import SecondLangDisplayMode from './second-lang-display-mode.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { useReadings } from '@/store/readings.js';
+import { useCurrentLang } from '@/composables/useCurrentLang';
 const menu = useMenu()
 const { t } = useI18n()
 const readings = useReadings();
+const lang = useCurrentLang();
 
 const items = computed(() => {
-    const m = [
-        { title: 'home', to: '/', icon: 'mdi-book-open-page-variant' },
-        // { title: 'About', to: 'about', icon: 'mdi-book-cross' },
+    const m: { title: string, name: string, icon: string }[] = [
+        { title: 'home', name: 'home', icon: 'mdi-book-open-page-variant' },
     ]
     if (readings.languageCode == 'fr' || readings.languageCode == 'en' || readings.languageCode == 'ar' || readings.languageCode == 'it')
-        m.push({ title: 'synaxarium.title', to: 'synaxarium', icon: 'mdi-book-cross' })
-    
-    m.push({ title: 'contact.contact', to: 'contact', icon: 'mdi-chat' })
+        m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
+
+    m.push({ title: 'contact.contact', name: 'contact', icon: 'mdi-chat' })
     return m;
 })
 </script>
@@ -32,7 +33,9 @@ const items = computed(() => {
 <template>
     <v-navigation-drawer v-model="menu.navOpen" order="2">
         <v-list nav role="navigation">
-            <v-list-item v-for="item in items" :key="item.to" :to="item.to" :title="$t(item.title)" role="link"
+            <v-list-item v-for="item in items" :key="item.name"
+                :to="{ name: item.name, params: { lang } }"
+                :title="$t(item.title)" role="link"
                 :prepend-icon="item.icon" />
         </v-list>
 
@@ -66,12 +69,6 @@ const items = computed(() => {
             </v-list-item>
         </v-list>
 
-
         <v-divider />
-        <!-- <template #append> -->
-        <!-- <v-btn variant="tonal" block append-icon="mdi-wrench-outline" @click="menu.configOpen = !menu.configOpen">
-                Settings
-            </v-btn> -->
-        <!-- </template> -->
     </v-navigation-drawer>
 </template>

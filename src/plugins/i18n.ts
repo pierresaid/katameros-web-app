@@ -9,19 +9,21 @@ import es from '../../locales/es.json'
 import nl from '../../locales/nl.json'
 import th from '../../locales/th.json'
 
-export const i18n = createI18n({
-    fallbackLocale: "en",
-    legacy: false,
-    locale: "en",
-    messages: {
-        en,
-        fr,
-        de,
-        it,
-        ar,
-        pl,
-        es,
-        nl,
-        th,
-    }
-  })
+export function createI18nInstance() {
+    return createI18n({
+        fallbackLocale: "en",
+        legacy: false,
+        locale: "en",
+        messages: {
+            en,
+            fr,
+            de,
+            it,
+            ar,
+            pl,
+            es,
+            nl,
+            th,
+        }
+    })
+}

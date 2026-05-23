@@ -1,64 +1,65 @@
 <script setup lang="ts">
-import { useLocale, useTheme } from 'vuetify';
+import { useTheme } from 'vuetify';
 import Notif from './components/notif.vue';
 import TheDrawer from './components/the-drawer.vue';
 import TheHeader from './components/the-header.vue';
 import { useMenu } from './store/menu';
-import { onMounted } from 'vue';
-import { watch } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { useReadings } from './store/readings';
-import { setLocale } from '@vee-validate/i18n';
-import LANGUAGES from './consts/languages';
-import { useRoute, useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
+import { useRoute } from 'vue-router';
 import { track } from './helpers/track';
+import LANGUAGES from './consts/languages';
+import { useHead } from '@unhead/vue';
+import { useCurrentLang } from './composables/useCurrentLang';
+import { RTL_LANGS } from './consts/supportedLangs';
 
-function getUserLanguage() {
-  return navigator.language.slice(0, 2);}
+const route = useRoute()
+const currentLang = useCurrentLang()
+const currentDir = computed(() => RTL_LANGS.has(currentLang.value) ? 'rtl' : 'ltr')
 
-const router = useRouter()
-const { current } = useLocale()
-const i18n = useI18n()
+useHead({
+  htmlAttrs: {
+    lang: currentLang,
+    dir: currentDir,
+  },
+})
 
-onMounted(async () => {
+onMounted(() => {
   const readings = useReadings()
-  const route = useRoute();
-
   const menu = useMenu()
-  const theme = useTheme();
+  const theme = useTheme()
 
-  await router.isReady()
-
-  const langQuery = route.query['lang']
-  const lang = langQuery ?? getUserLanguage()
-  
-  const langId = Object.values(LANGUAGES).find(l => l.code == lang)?.id
-
-  if (langId && (langQuery || !readings.langIsDefined)) {
-    readings.language = langId
+  function syncLanguage() {
+    const code = route.params.lang as string | undefined
+    if (!code) return
+    const langId = Object.values(LANGUAGES).find(l => l.code === code)?.id
+    if (langId && readings.language !== langId) {
+      readings.language = langId
+    }
   }
-  
-  setLocale(readings.languageCode);
-  current.value = readings.languageCode
-  i18n.locale.value = readings.languageCode
-  watch(() => readings.languageCode, () => {
-    setLocale(readings.languageCode);
-    current.value = readings.languageCode
-    i18n.locale.value = readings.languageCode
-    track('language-change', { lang: readings.languageCode })
-  });
-  readings.getReadings();
-  theme.change(menu.theme);
+
+  syncLanguage()
+  if (route.params.lang) {
+    readings.getReadings()
+    track(route.params.lang as string)
+  }
+
+  watch(() => route.params.lang, (newLang, oldLang) => {
+    if (!newLang || newLang === oldLang) return
+    syncLanguage()
+    readings.getReadings()
+    track('language-change', { lang: newLang as string })
+  })
+
+  theme.change(menu.theme)
   watch(menu, () => theme.change(menu.theme))
-  track(readings.languageCode)
-});
+})
 </script>
 
 <template>
   <v-app>
     <the-header />
     <the-drawer />
-    <!-- <config-drawer /> -->
     <v-main>
       <router-view></router-view>
     </v-main>
