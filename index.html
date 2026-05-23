@@ -36,6 +36,22 @@
     }
     </script>
 
+    <script>
+      // Apply stored theme synchronously to avoid dark/light flash on hydration
+      (function () {
+        try {
+          var raw = localStorage.getItem('THEME_LOCAL_STORAGE');
+          var saved = raw ? raw.replace(/^"|"$/g, '') : null;
+          var theme = saved === 'light' || saved === 'dark'
+            ? saved
+            : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          var root = document.documentElement;
+          root.classList.remove('v-theme--dark', 'v-theme--light');
+          root.classList.add('v-theme--' + theme);
+        } catch (e) {}
+      })();
+    </script>
+
     <script defer src="https://umami-kt.codu.dev/script.js" data-website-id="ae0915ab-6248-442d-b0f3-b3b70b921edc"></script>
   </head>
   <body>
