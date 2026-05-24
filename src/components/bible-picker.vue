@@ -24,7 +24,7 @@ function onInput(id: number) {
             :disabled="readings.loading" style="height:46px;" @update:model-value="onInput" v-model="value"
             @input="(onInput as any)"
             :items="readings.bibles"
-            item-title="name" item-value="id">
+            item-title="name" item-value="id" autocomplete="off">
         </v-select>
         <div v-else-if="readings.bible" class="solo-bible">
             {{ readings.bible.name }}

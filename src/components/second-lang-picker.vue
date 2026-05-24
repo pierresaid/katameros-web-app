@@ -40,7 +40,8 @@ function getDisplayName(item: any) {
         <div class="font-weight-bold my-2">{{ $t('secondLanguage') }}</div>
         <v-select density="compact" variant="underlined" style="height:46px;" :disabled="readings.loading" persistent-clear
             @update:model-value="onInput" :model-value="readings.secondLanguage"
-            :items="availableLanguages" item-title="name" item-value="id" clearable :placeholder="$t('none')">
+            :items="availableLanguages" item-title="name" item-value="id" clearable :placeholder="$t('none')"
+            autocomplete="off">
             <template #selection="{ item }">
                 {{ getDisplayName(item) }}
             </template>
