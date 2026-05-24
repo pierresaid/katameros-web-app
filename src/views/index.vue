@@ -5,7 +5,6 @@ import DatePickerDialog from '../components/date-picker-dialog.vue';
 import { computed } from '@vue/reactivity';
 import CopticCrossOutline from '../components/coptic-cross-outline.vue';
 import { useReadings } from '@/store/readings';
-import { useDisplay } from 'vuetify';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import { useMenu } from '@/store/menu';
 import { useSeo } from '@/composables/useSeo';
@@ -13,7 +12,6 @@ import { useSeo } from '@/composables/useSeo';
 useSeo('home');
 
 const readings = useReadings();
-const { smAndDown } = useDisplay()
 
 const menu = useMenu()
 
@@ -39,10 +37,10 @@ function setDate(inc: number) {
 <template>
     <div class="text-center date">
         <CopticCrossOutline style="width : 120px; height: 120px;" :animate="readings.preloading" />
-        <div class="g-date" :style="smAndDown ? 'display: block;' : ''" style="width: 100%;">
+        <div class="g-date" style="width: 100%;">
             {{ date }}
             <v-locale-provider :rtl="false">
-                <div class="date-control" :class="smAndDown ? 'mx-a p-u' : ''">
+                <div class="date-control">
                     <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
                          :aria-label="$t('aria.prevDay')" />
                     <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
@@ -107,6 +105,18 @@ function setDate(inc: number) {
     display: flex;
     right: 15%;
     width: fit-content;
+}
+
+/* Mobile: stack date and controls vertically — pure CSS so SSR and client agree */
+@media (max-width: 599px) {
+    .g-date {
+        display: block;
+    }
+    .date-control {
+        position: unset;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .date {

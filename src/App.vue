@@ -133,5 +133,8 @@ color: inherit;
 .v-main {
   padding-left: env(safe-area-inset-left) !important;
   padding-right: env(safe-area-inset-right) !important;
+  /* Bake the v-app-bar offset so SSR HTML doesn't render content under the fixed header
+     before Vuetify's layout composable runs on the client. */
+  padding-top: 64px !important;
 }
 </style>
