@@ -119,6 +119,7 @@ export const useReadings = defineStore('readings', () => {
         // Use cache if it exists, version is current, and Bible matches (or no specific Bible requested)
         if (!disableCache && cached && cacheVersionIsCurrent && cacheHasMatchingBible) {
             setReading(cached);
+            loading.value = false;
         }
         // Cache version is outdated - reload entire cache
         else if (
