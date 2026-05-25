@@ -8,6 +8,10 @@ import { LANG_PATTERN } from '@/consts/supportedLangs'
 
 export const routes: Array<RouteRecordRaw> = [
   { path: '/', component: RedirectHome, name: 'redirect-home' },
+  // Legacy paths (pre-lang-prefix) — bounce through RedirectHome which preserves the suffix
+  { path: '/synaxarium', component: RedirectHome },
+  { path: '/about', component: RedirectHome },
+  { path: '/contact', component: RedirectHome },
   { path: `/:lang${LANG_PATTERN}`, component: Index, name: 'home' },
   { path: `/:lang${LANG_PATTERN}/synaxarium`, component: Synaxarium, name: 'synaxarium' },
   { path: `/:lang${LANG_PATTERN}/about`, component: About, name: 'about' },

@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { detectLang } from '@/consts/supportedLangs'
+import { useRoute, useRouter } from 'vue-router'
+import { detectLang, isSupportedLang, type SupportedLang } from '@/consts/supportedLangs'
 import { useSeo } from '@/composables/useSeo'
 
 useSeo({ titleKey: 'seo.brand', isRoot: true })
 
+const route = useRoute()
 const router = useRouter()
 
 onMounted(() => {
-    const lang = detectLang()
-    router.replace(`/${lang}/`)
+    // Priority: ?lang= query > stored preference > navigator language > default
+    const queryLang = route.query.lang as string | undefined
+    const lang: SupportedLang = isSupportedLang(queryLang)
+        ? (queryLang as SupportedLang)
+        : detectLang()
+
+    // Preserve the path suffix (so /synaxarium stays as /{lang}/synaxarium)
+    const suffix = route.path === '/' ? '' : route.path
+    router.replace(`/${lang}${suffix || '/'}`)
 })
 </script>
 
