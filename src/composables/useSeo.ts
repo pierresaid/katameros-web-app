@@ -14,9 +14,10 @@ function pathWithoutLang(fullPath: string): string {
 }
 
 interface SeoOptions {
-    titleKey: string
+    titleKey?: string
     descriptionKey?: string
     isRoot?: boolean
+    brandOnly?: boolean
 }
 
 export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
@@ -29,9 +30,9 @@ export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
     const lang = useCurrentLang()
 
     useHead(() => {
-        const pageTitle = t(opts.titleKey)
         const brand = t('seo.brand')
-        const fullTitle = opts.isRoot ? brand : `${pageTitle} — ${brand}`
+        const brandOnly = opts.isRoot || opts.brandOnly || !opts.titleKey
+        const fullTitle = brandOnly ? brand : `${t(opts.titleKey!)} — ${brand}`
         const description = t(opts.descriptionKey ?? 'seo.tagline')
         const suffix = pathWithoutLang(route.path)
         const canonical = opts.isRoot

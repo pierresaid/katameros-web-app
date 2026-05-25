@@ -9,7 +9,7 @@ import { getCopticMonth } from '@/helpers/copticMonth';
 import { useMenu } from '@/store/menu';
 import { useSeo } from '@/composables/useSeo';
 
-useSeo('home');
+useSeo({ brandOnly: true });
 
 const readings = useReadings();
 
