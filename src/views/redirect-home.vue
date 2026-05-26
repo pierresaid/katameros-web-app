@@ -4,10 +4,12 @@ import { useRoute, useRouter } from 'vue-router'
 import { detectLang, isSupportedLang, type SupportedLang } from '@/consts/supportedLangs'
 import { useSeo } from '@/composables/useSeo'
 
-useSeo({ titleKey: 'seo.brand', isRoot: true })
-
 const route = useRoute()
 const router = useRouter()
+
+// Only the true root is the homepage; legacy sub-paths (/synaxarium, /about, /contact)
+// must canonicalize to their default-language version, not to the homepage.
+useSeo({ titleKey: 'seo.brand', brandOnly: true, isRoot: route.path === '/' })
 
 onMounted(() => {
     // Priority: ?lang= query > stored preference > navigator language > default

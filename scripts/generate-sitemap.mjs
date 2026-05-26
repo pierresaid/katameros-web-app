@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const SITE_URL = 'https://katameros.app'
 const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl', 'th']
+const DEFAULT_LANG = 'fr'
 const SYNAX_LANGS = new Set(['fr', 'en', 'ar', 'it'])
 const ROUTES = ['', '/about', '/contact', '/synaxarium']
 
@@ -22,7 +23,7 @@ function entryFor(lang, route, langsForRoute) {
     const alts = langsForRoute
         .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${urlFor(l, route)}" />`)
         .join('\n')
-    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${route === '' ? '/' : route}" />`
+    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${urlFor(DEFAULT_LANG, route)}" />`
     return `  <url>
     <loc>${urlFor(lang, route)}</loc>
 ${alts}
