@@ -17,13 +17,14 @@ export function isSupportedLang(value: string | undefined): value is SupportedLa
 
 export function detectLang(): SupportedLang {
     if (typeof window === 'undefined' || typeof navigator === 'undefined') return DEFAULT_LANG
-    // Honor the legacy numeric-id preference if present
+    // Prefer the visitor's browser language when we support it.
+    const nav = navigator.language?.slice(0, 2)
+    if (isSupportedLang(nav)) return nav
+    // Otherwise fall back to a previously stored (legacy numeric-id) preference.
     const legacy = window.localStorage?.getItem('LANGUAGE_LOCAL_STORAGE')
     if (legacy) {
         const fromLegacy = LANG_ID_TO_CODE[Number(legacy)]
         if (fromLegacy) return fromLegacy
     }
-    const nav = navigator.language?.slice(0, 2)
-    if (isSupportedLang(nav)) return nav
     return DEFAULT_LANG
 }

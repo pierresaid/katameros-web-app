@@ -12,7 +12,7 @@ const router = useRouter()
 useSeo({ titleKey: 'seo.brand', brandOnly: true, isRoot: route.path === '/' })
 
 onMounted(() => {
-    // Priority: ?lang= query > stored preference > navigator language > default
+    // Priority: ?lang= query > navigator language > stored preference > default
     const queryLang = route.query.lang as string | undefined
     const lang: SupportedLang = isSupportedLang(queryLang)
         ? (queryLang as SupportedLang)

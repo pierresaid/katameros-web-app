@@ -32,7 +32,7 @@ export const useReadings = defineStore('readings', () => {
     const pickedBibles = skipHydrate(useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", []))
     const periodInfo = ref<string | null>(null);
     const loading = ref(true);
-    const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1));
+    const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1, undefined, { writeDefaults: false }));
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
     const panel = ref<number[]>([])
     const visibleSections = ref<number[]>([])
