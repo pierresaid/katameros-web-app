@@ -32,7 +32,7 @@ export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
     useHead(() => {
         const brand = t('seo.brand')
         const brandOnly = opts.isRoot || opts.brandOnly || !opts.titleKey
-        const fullTitle = brandOnly ? brand : `${t(opts.titleKey!)} — ${brand}`
+        const fullTitle = brandOnly ? brand : `${t(opts.titleKey!)} - ${brand}`
         const description = t(opts.descriptionKey ?? 'seo.tagline')
         const suffix = pathWithoutLang(route.path)
         const canonical = opts.isRoot

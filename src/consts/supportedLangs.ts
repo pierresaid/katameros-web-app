@@ -17,14 +17,16 @@ export function isSupportedLang(value: string | undefined): value is SupportedLa
 
 export function detectLang(): SupportedLang {
     if (typeof window === 'undefined' || typeof navigator === 'undefined') return DEFAULT_LANG
-    // Prefer the visitor's browser language when we support it.
+    // Honour the user's previously chosen language first. It's persisted as a
+    // numeric id under LANGUAGE_LOCAL_STORAGE whenever the route language changes,
+    // so a returning visitor keeps the language they last used.
+    const stored = window.localStorage?.getItem('LANGUAGE_LOCAL_STORAGE')
+    if (stored) {
+        const fromStored = LANG_ID_TO_CODE[Number(stored)]
+        if (fromStored) return fromStored
+    }
+    // First launch (nothing stored yet): fall back to the visitor's browser language.
     const nav = navigator.language?.slice(0, 2)
     if (isSupportedLang(nav)) return nav
-    // Otherwise fall back to a previously stored (legacy numeric-id) preference.
-    const legacy = window.localStorage?.getItem('LANGUAGE_LOCAL_STORAGE')
-    if (legacy) {
-        const fromLegacy = LANG_ID_TO_CODE[Number(legacy)]
-        if (fromLegacy) return fromLegacy
-    }
     return DEFAULT_LANG
 }

@@ -32,6 +32,9 @@ export const useReadings = defineStore('readings', () => {
     const pickedBibles = skipHydrate(useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", []))
     const periodInfo = ref<string | null>(null);
     const loading = ref(true);
+    // True only while the primary reading is being fetched from the API.
+    // Drives the skeleton so it never shows for instant cache reads.
+    const apiLoading = ref(false);
     const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1, undefined, { writeDefaults: false }));
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
     const panel = ref<number[]>([])
@@ -109,16 +112,26 @@ export const useReadings = defineStore('readings', () => {
         }
         const key = `${formatedDate}-${language.value}`;
 
+        // Read the local cache first (fast IndexedDB read). Knowing whether we
+        // already have something displayable lets us reserve the skeleton for the
+        // cases where we genuinely have to hit the API.
+        const cached = await localforage.getItem<DayReading>(key);
+        const cacheHasMatchingBible = !version || cached?.bible?.id === version;
+
+        // Nothing displayable cached -> an API round-trip is unavoidable, so show
+        // the skeleton now instead of waiting on the cache-version network call.
+        if (!cached || !cacheHasMatchingBible) {
+            apiLoading.value = true;
+        }
+
         // Fetch cache version info dynamically
         const cacheInfo = await fetchCacheVersionInfo();
-
-        const cached = await localforage.getItem<DayReading>(key);
         const cacheVersionIsCurrent = cacheInfo && currentCacheVersion.value === cacheInfo.CacheVersion;
-        const cacheHasMatchingBible = !version || cached?.bible?.id === version;
 
         // Use cache if it exists, version is current, and Bible matches (or no specific Bible requested)
         if (!disableCache && cached && cacheVersionIsCurrent && cacheHasMatchingBible) {
             setReading(cached);
+            apiLoading.value = false;
             loading.value = false;
         }
         // Cache version is outdated - reload entire cache
@@ -133,15 +146,17 @@ export const useReadings = defineStore('readings', () => {
             loading.value = true;
             preloading.value = true;
             if (cached && cacheHasMatchingBible) {
-                setReading(cached);
+                setReading(cached); // show stale cache immediately; no skeleton needed
             }
             fetchFromApi(formatedDate, params)
                 .then(res => { // We don't await here to parallelize fetching and caching
                     setReading(res);
+                    apiLoading.value = false;
                     loading.value = false;
                 })
                 .catch(e => {
                     error.value = true;
+                    apiLoading.value = false;
                 });
             // bust cache
             await localforage.clear();
@@ -150,6 +165,7 @@ export const useReadings = defineStore('readings', () => {
             currentCacheVersion.value = cacheInfo.CacheVersion;
             if (cachedAfterReload) {
                 setReading(cachedAfterReload);
+                apiLoading.value = false;
             }
             preloading.value = false;
             loading.value = false;
@@ -157,12 +173,14 @@ export const useReadings = defineStore('readings', () => {
         // Cache is current but Bible doesn't match, or no cache - just fetch from API
         else {
             loading.value = true;
+            apiLoading.value = true;
             try {
                 const res = await fetchFromApi(formatedDate, params);
                 setReading(res);
             } catch (e) {
                 error.value = true;
             }
+            apiLoading.value = false;
             loading.value = false;
         }
     }
@@ -258,5 +276,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
+    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
 })

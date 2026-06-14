@@ -1,6 +1,6 @@
     <template>
     <transition name="fade" mode="out-in">
-        <v-container v-if="!readings.loading || readings.sections" key="content">
+        <v-container v-if="!readings.apiLoading || readings.sections" key="content">
             <v-expansion-panels v-model="readings.panel" :multiple="true" variant="accordion">
                 <v-expansion-panel v-for="(section, idx) in readings.sections" :key="section.id">
                     <reading-section :section="section" :idx="idx" />
