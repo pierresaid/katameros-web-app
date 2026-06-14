@@ -12,6 +12,7 @@ import LANGUAGES from './consts/languages';
 import { useHead } from '@unhead/vue';
 import { useCurrentLang } from './composables/useCurrentLang';
 import { RTL_LANGS } from './consts/supportedLangs';
+import { enableKeepAwake } from './helpers/keepAwake';
 
 const route = useRoute()
 const currentLang = useCurrentLang()
@@ -28,6 +29,9 @@ onMounted(() => {
   const readings = useReadings()
   const menu = useMenu()
   const theme = useTheme()
+
+  // Keep the screen awake while the native app is open (no-op on web).
+  enableKeepAwake()
 
   function syncLanguage() {
     const code = route.params.lang as string | undefined
