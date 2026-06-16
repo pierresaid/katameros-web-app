@@ -38,7 +38,10 @@ function setDate(inc: number) {
     <div class="text-center date">
         <CopticCrossOutline style="width : 120px; height: 120px;" :animate="readings.preloading" />
         <div class="g-date" style="width: 100%;">
-            {{ date }}
+            <ClientOnly>
+                <template #placeholder><span class="date-placeholder" aria-hidden="true">&nbsp;</span></template>
+                {{ date }}
+            </ClientOnly>
             <v-locale-provider :rtl="false">
                 <div class="date-control">
                     <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
@@ -51,7 +54,10 @@ function setDate(inc: number) {
             </v-locale-provider>
         </div>
         <div>
-            {{ copticDate }}
+            <ClientOnly>
+                <template #placeholder><span class="date-placeholder" aria-hidden="true">&nbsp;</span></template>
+                {{ copticDate }}
+            </ClientOnly>
         </div>
         <Transition name="fade">
             <div v-if="readings.periodInfo">
