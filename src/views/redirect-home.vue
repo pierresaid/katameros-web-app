@@ -19,8 +19,10 @@ onMounted(() => {
         : detectLang()
 
     // Preserve the path suffix (so /synaxarium stays as /{lang}/synaxarium)
+    // and the remaining query params (e.g. ?date=), dropping the consumed ?lang=
     const suffix = route.path === '/' ? '' : route.path
-    router.replace(`/${lang}${suffix || '/'}`)
+    const { lang: _, ...query } = route.query
+    router.replace({ path: `/${lang}${suffix || '/'}`, query })
 })
 </script>
 

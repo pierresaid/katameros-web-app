@@ -42,6 +42,20 @@ onMounted(() => {
     }
   }
 
+  const dateParam = route.query.date
+  if (typeof dateParam === 'string') {
+    const match = /^(\d{1,2})-(\d{1,2})-(\d{4})$/.exec(dateParam)
+    if (match) {
+      const day = Number(match[1])
+      const month = Number(match[2])
+      const year = Number(match[3])
+      const parsed = new Date(year, month - 1, day)
+      if (parsed.getDate() === day && parsed.getMonth() === month - 1) {
+        readings.date = parsed
+      }
+    }
+  }
+
   syncLanguage()
   if (route.params.lang) {
     readings.getReadings()
