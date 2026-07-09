@@ -60,6 +60,7 @@ import { useSynaxarium } from '@/store/synaxarium';
 import { useSeo } from '@/composables/useSeo';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import type { SynaxEntry } from '@/types/synaxarium';
+import type { SubSection } from '@/types/readings';
 import { useReadings } from '@/store/readings';
 import { useRoute, useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
@@ -73,6 +74,40 @@ const readings = useReadings();
 const router = useRouter();
 const route = useRoute();
 const isLoadingReadings = ref(false);
+
+// The static synaxarium JSON and the API titles can differ by invisible
+// characters (non-breaking spaces, curly apostrophes) or casing — normalize
+// both sides before comparing.
+const normalizeTitle = (title: unknown): string => String(title ?? '')
+  .normalize('NFC')
+  .replace(/[\u2018\u2019\u02BC]/g, "'")
+  .replace(/[\u201C\u201D]/g, '"')
+  .replace(/[\u200B-\u200D\uFEFF]/g, '')
+  .replace(/\s+/g, ' ')
+  .trim()
+  .replace(/\.+$/, '')
+  .toLowerCase();
+
+const findReadingIdx = (subSection: SubSection, entry: SynaxEntry): number => {
+  // 1. Exact title match
+  let idx = subSection.readings.findIndex(r => r.title === entry.Title);
+  if (idx !== -1) return idx;
+
+  // 2. Normalized title match
+  const target = normalizeTitle(entry.Title);
+  idx = subSection.readings.findIndex(r => normalizeTitle(r.title) === target);
+  if (idx !== -1) return idx;
+
+  // 3. Positional match: the static list and the API stories of a day are in
+  // the same order, so when both have the same count, entry k is reading k.
+  const dayEntries = synaxStore.entries.filter(e => e.Day === entry.Day && e.Month === entry.Month);
+  if (dayEntries.length === subSection.readings.length) {
+    const pos = dayEntries.indexOf(entry);
+    if (pos !== -1) return pos;
+  }
+
+  return -1;
+};
 
 const handleEntryClick = async (entry: SynaxEntry) => {
   // Get current coptic year from the readings store
@@ -103,44 +138,29 @@ const handleEntryClick = async (entry: SynaxEntry) => {
       // Wait for the DOM to update and sections to load
       await nextTick();
 
-      // Find the synaxarium section
-      // We need to wait a bit for sections to load from API
-      // setTimeout(() => {
       if (readings.sections) {
         // Find the Liturgy section (section id 3)
         const sectionIdx = readings.sections.findIndex(section => section.id === 3);
+        const section = sectionIdx !== -1 ? readings.sections[sectionIdx] : undefined;
 
-        if (sectionIdx !== -1) {
-          const section = readings.sections[sectionIdx];
+        if (section) {
+          // Find the Synaxarium subsection
+          const subSectionIdx = section.subSections.findIndex(ss => ss.id == 10);
+          const subSection = subSectionIdx !== -1 ? section.subSections[subSectionIdx] : undefined;
 
-          if (section) {
-            // Find the Synaxarium subsection
-            const subSectionIdx = section.subSections.findIndex(
-              ss => ss.id == 10
-            );
+          if (subSection) {
+            const readingIdx = findReadingIdx(subSection, entry);
 
-            if (subSectionIdx !== -1) {
-              const subSection = section.subSections[subSectionIdx];
-
-              if (subSection) {
-                // Find the reading by matching the title
-                const readingIdx = subSection.readings.findIndex(
-                  r => r.title === entry.Title
-                );
-
-                if (readingIdx !== -1) {
-                  // Found the exact story - scroll to it
-                  scrollToReading(sectionIdx, subSectionIdx, readingIdx);
-                } else {
-                  // Fallback: scroll to the beginning of synaxarium subsection
-                  scrollToSubSection(sectionIdx, subSectionIdx);
-                }
-              }
+            if (readingIdx !== -1) {
+              // Found the story - scroll to it
+              await scrollToReading(sectionIdx, subSectionIdx, readingIdx);
+            } else {
+              // Fallback: scroll to the beginning of synaxarium subsection
+              await scrollToSubSection(sectionIdx, subSectionIdx);
             }
           }
         }
       }
-      // },300);
 
       // Reset loading state
       isLoadingReadings.value = false;
