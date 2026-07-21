@@ -8,6 +8,7 @@ import synaxDataFr from '../../assets/synax-days-fr.json';
 import synaxDataEn from '../../assets/synax-days-en.json';
 import synaxDataAr from '../../assets/synax-days-ar.json';
 import synaxDataIt from '../../assets/synax-days-it.json';
+import synaxDataNl from '../../assets/synax-days-nl.json';
 
 // Map language codes to their data
 const synaxDataMap: Record<string, SynaxEntry[]> = {
@@ -15,6 +16,7 @@ const synaxDataMap: Record<string, SynaxEntry[]> = {
   'en': synaxDataEn as SynaxEntry[],
   'ar': synaxDataAr as SynaxEntry[],
   'it': synaxDataIt as SynaxEntry[],
+  'nl': synaxDataNl as SynaxEntry[],
 };
 
 export const useSynaxarium = defineStore('synaxarium', () => {

@@ -2,232 +2,312 @@
   {
     "Day": 1,
     "Month": 1,
-    "Title": "Fête du Nayrouz (Début de la Sainte Année Copte)."
+    "Title": "Jour de l’an copte."
   },
   {
     "Day": 1,
     "Month": 1,
-    "Title": "Martyre de Saint Barthélemy l'Apôtre"
+    "Title": "Commémoration de la guérison de Job, le juste."
   },
   {
     "Day": 1,
     "Month": 1,
-    "Title": "Départ de Saint Milius, Troisième Pape d'Alexandrie"
+    "Title": "Martyre de l’apôtre saint Barthélémy"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Décès de saint Mylious, 3ème pape d’Alexandrie"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Décès du pape Marc V – le 98ème patriarche de saint Marc."
   },
   {
     "Day": 2,
     "Month": 1,
-    "Title": "Martyre de Saint Jean le Baptiste"
+    "Title": "Martyre de saint Jean le baptiste."
   },
   {
     "Day": 2,
     "Month": 1,
-    "Title": "Martyre de Saint Daysa le Soldat"
+    "Title": "Martyre de saint Dassya, le soldat."
   },
   {
     "Day": 3,
     "Month": 1,
-    "Title": "Le Saint Concile d'Alexandrie"
+    "Title": "Tenue d'un concile à Alexandrie à l’époque du pape Denys au sujet de l’éternité de l’âme."
   },
   {
     "Day": 3,
     "Month": 1,
-    "Title": "Un grand tremblement de terre eut lieu au Caire et dans de nombreuses villes d'Egypte"
+    "Title": "Décès de sainte Théodora, la pénitente."
   },
   {
     "Day": 4,
     "Month": 1,
-    "Title": "Départ de Saint Macaire II, 69e Pape d'Alexandrie"
+    "Title": "Commémoration de Josué fils de Noun."
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "Décès de Saint Macaire II, le 69ème pape d'Alexandrie."
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "Décès de sainte Véréna."
   },
   {
     "Day": 5,
     "Month": 1,
-    "Title": "Martyre de Sainte Sophie"
+    "Title": "Martyre de sainte Sophie."
   },
   {
     "Day": 6,
     "Month": 1,
-    "Title": "Isaïe le Prophète"
+    "Title": "Martyre du prophète Isaïe fils d’Amos."
   },
   {
     "Day": 6,
     "Month": 1,
-    "Title": "Martyre de Sainte Basilissa"
+    "Title": "Martyre de sainte Bassiliya."
   },
   {
     "Day": 7,
     "Month": 1,
-    "Title": "Saint Dioscore, 25e Pape d'Alexandrie"
+    "Title": "Décès du pape Dioscore, le 25ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 7,
     "Month": 1,
-    "Title": "Martyre des Saints Agathe, Pierre, Jean, Amoun, Amouna et leur mère Rebecca"
+    "Title": "Décès du pape Jean XII, le 93ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 7,
     "Month": 1,
-    "Title": "Saint Sévère, évêque de Gabala"
+    "Title": "Martyre de sainte Rébecca et de ses cinq enfants : Agathôn, Pierre, Jean, Amoun et Amouna."
+  },
+  {
+    "Day": 7,
+    "Month": 1,
+    "Title": "Décès du saint Sévérien évêque de Gabala."
   },
   {
     "Day": 8,
     "Month": 1,
-    "Title": "Le martyre de Zacharie le Prophète"
+    "Title": "Décès du prophète Moïse."
   },
   {
     "Day": 8,
     "Month": 1,
-    "Title": "Décès de Moïse le Prophète"
+    "Title": "Martyre du prêtre Zacharie."
   },
   {
     "Day": 8,
     "Month": 1,
-    "Title": "Le martyre de Saint Diomède"
+    "Title": "Martyre de saint Diomède."
   },
   {
     "Day": 9,
     "Month": 1,
-    "Title": "Martyre de Saint Pissora l'Evêque"
+    "Title": "Martyre d’abba Pissora, l’évêque."
+  },
+  {
+    "Day": 9,
+    "Month": 1,
+    "Title": "Martyre des deux évêques vénérables Pélée et Nil."
   },
   {
     "Day": 10,
     "Month": 1,
-    "Title": "Martyre de Sainte Matrone"
+    "Title": "Martyre de saint Jean l’égyptien et de ses compagnons"
   },
   {
     "Day": 10,
     "Month": 1,
-    "Title": "Commémoration de Saint Basin et de ses enfants"
+    "Title": "Martyre de sainte Matrouna."
+  },
+  {
+    "Day": 10,
+    "Month": 1,
+    "Title": "Martyre de sainte Bassine et de ses trois enfants."
   },
   {
     "Day": 11,
     "Month": 1,
-    "Title": "Martyre de saint Basilides"
+    "Title": "Martyre de saint Basilides, le ministre."
+  },
+  {
+    "Day": 11,
+    "Month": 1,
+    "Title": "Martyre des trois paysans d’Esna."
   },
   {
     "Day": 12,
     "Month": 1,
-    "Title": "Réunion du troisième concile œcuménique à Ephèse pour juger Nestorius, le patriarche de Constantinople"
+    "Title": "Commémoration de l’archange Michel."
   },
   {
     "Day": 12,
     "Month": 1,
-    "Title": "Transfert des reliques de saint Clémus et de ses compagnons"
+    "Title": "Réunion du concile œcuménique à Ephèse."
+  },
+  {
+    "Day": 12,
+    "Month": 1,
+    "Title": "Transfert des reliques de saint Eqlymus et de ses compagnons."
   },
   {
     "Day": 13,
     "Month": 1,
-    "Title": "Décès du Pape Mathias II, 90ème Patriarche d’Alexandrie"
+    "Title": "Commémoration du miracle fait par saint Basile le grand, évêque de Césarée de Cappadoce."
   },
   {
     "Day": 13,
     "Month": 1,
-    "Title": "Commémoration du miracle accomplie par Saint Basile, Evêque de Césarée en Cappadoce"
+    "Title": "Décès du pape Matthieu II, le 90ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 14,
     "Month": 1,
-    "Title": "Décès de Saint Agathon le Stylite"
+    "Title": "Décès de saint Agathôn le stylite."
+  },
+  {
+    "Day": 14,
+    "Month": 1,
+    "Title": "Martyre de saint Felix, de sa sœur sainte Regula ainsi que saint Exuperantius."
   },
   {
     "Day": 15,
     "Month": 1,
-    "Title": "Déportation de la dépouille de Saint Stéphane (Etienne) l’archidiacre"
+    "Title": "Translation des reliques de saint Etienne."
+  },
+  {
+    "Day": 15,
+    "Month": 1,
+    "Title": "Décès d’abba Athanase de Qous."
   },
   {
     "Day": 16,
     "Month": 1,
-    "Title": "Commémoration de la consécration du Sanctuaire de l’église de la Résurrection à Jérusalem"
-  },
-  {
-    "Day": 16,
-    "Month": 1,
-    "Title": "Transfert des reliques de St Jean Chrysostome"
+    "Title": "Consécration de la basilique de la Résurrection à Jérusalem."
   },
   {
     "Day": 17,
     "Month": 1,
-    "Title": "Célébration de la consécration de l’église de l’honorable croix"
+    "Title": "Commémoration des festivités de la sainte Croix."
   },
   {
     "Day": 17,
     "Month": 1,
-    "Title": "La disparition de Sainte Theognosta"
+    "Title": "Martyre de saint Castor, le prêtre"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Décès de sainte Théoghnosta."
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Décès d’el Mo’allem Guirguis al-Gohari, le saint."
   },
   {
     "Day": 18,
     "Month": 1,
-    "Title": "Martyre de Saint Porphyrius"
+    "Title": "Deuxième jour de la commémoration de la manifestation de la sainte Croix."
   },
   {
     "Day": 18,
     "Month": 1,
-    "Title": "Décès de Saint Stéphane le prêtre et martyre de Nicée"
+    "Title": "Martyre de saint Porphyre."
+  },
+  {
+    "Day": 18,
+    "Month": 1,
+    "Title": "Martyre de saint Etienne le prêtre et de sainte Niketé."
   },
   {
     "Day": 19,
     "Month": 1,
-    "Title": "Départ de Saint Grégoire l'arménien"
+    "Title": "Troisième jour de la commémoration de la manifestation de la sainte Croix."
+  },
+  {
+    "Day": 19,
+    "Month": 1,
+    "Title": "Commémoration de la remontée de saint Grégoire l’arménien de sa fosse."
   },
   {
     "Day": 20,
     "Month": 1,
-    "Title": "Départ du Pape Athanase II, 28ème successeur de Saint Marc"
+    "Title": "Décès de sainte Théopista."
   },
   {
     "Day": 20,
     "Month": 1,
-    "Title": "Martyre de Sainte Melitina la vierge"
+    "Title": "Décès du pape Athanase II, le 28ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 20,
     "Month": 1,
-    "Title": "Départ de Sainte Theopista"
+    "Title": "Martyre de sainte Mélitine."
   },
   {
     "Day": 21,
     "Month": 1,
-    "Title": "Commémoration de la Sainte Vierge Theotokos"
+    "Title": "Commémoration de la sainte vierge Marie."
   },
   {
     "Day": 21,
     "Month": 1,
-    "Title": "Martyres de Saint Cyprien et Sainte Justine"
+    "Title": "Martyre de saint Cyprien et sainte Justine."
   },
   {
     "Day": 22,
     "Month": 1,
-    "Title": "Martyre des saints Cotylas, Axoua et Tatas"
+    "Title": "Martyre de saint Cotylas, de sa sœur sainte Axoua, et de saint Tâtâs son ami."
   },
   {
     "Day": 22,
     "Month": 1,
-    "Title": "Martyre de Saint Jules d’Aqfahs"
+    "Title": "Martyre de saint Jules d’Akfahs, le biographe des martyrs et de ses compagnons."
   },
   {
     "Day": 23,
     "Month": 1,
-    "Title": "Martyre des saints Eunopios et André"
+    "Title": "Martyre de saint Onanius et saint André."
   },
   {
     "Day": 23,
     "Month": 1,
-    "Title": "Martyre de Saint Takla"
-  },
-  {
-    "Day": 23,
-    "Month": 1,
-    "Title": "Martyre de Saint Jules d’Aqfahs"
+    "Title": "Martyre de sainte Thècle."
   },
   {
     "Day": 24,
     "Month": 1,
-    "Title": "Départ de Saint Grégoire l'ascète"
+    "Title": "Martyre de saint Quadrat, l’un des soixante-dix disciples."
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "Décès de saint Grégoire, le théologien."
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "Décès de saint Grégoire, le moine."
   },
   {
     "Day": 25,
     "Month": 1,
-    "Title": "Commémoration du prophète Jonas"
+    "Title": "Décès du prophète Jonas."
+  },
+  {
+    "Day": 25,
+    "Month": 1,
+    "Title": "Martyre de saint Maurice, commandant de la légion thébaine."
   },
   {
     "Day": 26,
@@ -237,547 +317,732 @@
   {
     "Day": 27,
     "Month": 1,
-    "Title": "Le Martyre de Saint Eustache et de ses deux fils"
+    "Title": "Martyre de saint Eustathe, de ses deux fils et de son épouse."
   },
   {
     "Day": 28,
     "Month": 1,
-    "Title": "Martyr des saints Abadir et Iraï sa sœur"
+    "Title": "Martyre des saints Abadir et Iraï sa sœur."
   },
   {
     "Day": 29,
     "Month": 1,
-    "Title": "Le Martyre de Sainte Arbsima la Vierge et de ses sœurs les Vierges"
+    "Title": "Commémoration de l’Annonciation, la Nativité et la Résurrection."
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "Martyre de sainte Rhipsimé et de ses sœurs."
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "Martyre de sainte Fébronya."
   },
   {
     "Day": 30,
     "Month": 1,
-    "Title": "Commémoration du miracle opéré par Dieu en faveur de Saint Athanase l'Apostolique"
+    "Title": "Commémoration du grand miracle que le Seigneur fit en faveur de saint Athanase l’apostolique."
   },
   {
     "Day": 1,
     "Month": 2,
-    "Title": "Martyre de Sainte Anastasia"
+    "Title": "Martyre de sainte Anastasie."
   },
   {
     "Day": 2,
     "Month": 2,
-    "Title": "Arrivée de Saint Sévère, patriarche d’Antioche, en Egypte"
+    "Title": "Venue en Egypte de saint Sévère, le patriarche d'Antioche."
   },
   {
     "Day": 3,
     "Month": 2,
-    "Title": "Saint Simon II, 51ème Pape siégeant sur le trône de Saint Marc"
+    "Title": "Décès du pape Simon II, le 51ème pape de la prédication de saint Marc."
   },
   {
     "Day": 3,
     "Month": 2,
-    "Title": "Le martyre de Saint Jean le soldat"
+    "Title": "Martyre de saint Ours et saint Victor de la légion thébaine."
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Martyre de saint Jean le soldat."
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Décès de la reine sainte Théodora."
   },
   {
     "Day": 4,
     "Month": 2,
-    "Title": "Martyre de Saint Bacchus, l'ami de Saint Serge"
+    "Title": "Martyre de saint Bacchus, le compagnon de saint Serges."
   },
   {
     "Day": 5,
     "Month": 2,
-    "Title": "Martyre de Saint Paul, Patriarche de Constantinople"
+    "Title": "Martyre de saint Paul, patriarche de Constantinople."
+  },
+  {
+    "Day": 5,
+    "Month": 2,
+    "Title": "Décès d’abba Pierre, l’évêque de Bahnassa."
   },
   {
     "Day": 6,
     "Month": 2,
-    "Title": "Départ de la pieuse Anne, prophétesse et mère du prophète Samuel"
+    "Title": "Décès d’Anne la juste, la mère du prophète Samuel."
   },
   {
     "Day": 7,
     "Month": 2,
-    "Title": "Départ de Saint Paul de Tamouh"
+    "Title": "Décès de Paul de Tammouh."
   },
   {
     "Day": 8,
     "Month": 2,
-    "Title": "Martyre de saint Matra"
+    "Title": "Martyre de saint Matra."
   },
   {
     "Day": 8,
     "Month": 2,
-    "Title": "Martyre d’abba Hour et de Suzanne et ses enfants ainsi qu’abba Aghathon l’ermite"
+    "Title": "Martyre d’abba Hour et de Tossiya et leurs enfants."
+  },
+  {
+    "Day": 8,
+    "Month": 2,
+    "Title": "Martyre d’abba Aghathon l’ermite."
   },
   {
     "Day": 9,
     "Month": 2,
-    "Title": "Décès de saint Euménius, le septième pape de la prédication de saint Marc"
+    "Title": "Décès de saint Euménius, le septième pape de la prédication de saint Marc."
   },
   {
     "Day": 9,
     "Month": 2,
-    "Title": "Eclipse du soleil en 978 des martyrs"
-  },
-  {
-    "Day": 9,
-    "Month": 2,
-    "Title": "Commémoration de l'évêque Siméon"
+    "Title": "Commémoration de l'évêque saint Siméon et de ses compagnons."
   },
   {
     "Day": 10,
     "Month": 2,
-    "Title": "Martyre de saint Serges, le compagnon de saint Bacchus"
+    "Title": "Martyre de saint Serges, le compagnon de saint Bacchus."
   },
   {
     "Day": 11,
     "Month": 2,
-    "Title": "Décès de saint Jacques, patriarche d’Antioche"
+    "Title": "Décès de saint Jacques, patriarche d’Antioche."
   },
   {
     "Day": 11,
     "Month": 2,
-    "Title": "Décès de sainte Pélagie"
+    "Title": "Décès de sainte Pélagie, la pénitente."
   },
   {
     "Day": 12,
     "Month": 2,
-    "Title": "Décès de saint Dimitri 1er le 12ème pape d'Alexandrie"
+    "Title": "Commémoration de l'archange Michel."
   },
   {
     "Day": 12,
     "Month": 2,
-    "Title": "Martyre de saint Matthieu l'évangéliste"
+    "Title": "Martyre de saint Matthieu l'évangéliste."
   },
   {
     "Day": 12,
     "Month": 2,
-    "Title": "Commémoration de l'archange Michel"
+    "Title": "Décès de saint Démétrios 1er le 12ème pape d'Alexandrie."
   },
   {
     "Day": 13,
     "Month": 2,
-    "Title": "Décès de saint Zacharie, le moine"
+    "Title": "Décès de saint Zacharie, le moine."
   },
   {
     "Day": 14,
     "Month": 2,
-    "Title": "Décès de Saint Philippe, l’un des sept diacres"
+    "Title": "Décès de Saint Philippe, l’un des sept diacres."
   },
   {
     "Day": 15,
     "Month": 2,
-    "Title": "Martyre de saint Panteleimon, le médecin"
+    "Title": "Martyre de saint Pantéléïmôn, le médecin."
   },
   {
     "Day": 16,
     "Month": 2,
-    "Title": "Départ de saint Agathon, le trente-neuvième pape d'Alexandrie"
+    "Title": "Décès de saint Agathon, le trente-neuvième pape d'Alexandrie."
   },
   {
     "Day": 16,
     "Month": 2,
-    "Title": "Commémoration des saints Carpus, Apollos et Pierre"
+    "Title": "Commémoration des saints Carpus, Apollos et Pierre."
   },
   {
     "Day": 17,
     "Month": 2,
-    "Title": "Décès de saint Dioscore II, le 31ème pape d’Alexandrie"
+    "Title": "Décès du pape Dioscore II, le 31ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 18,
     "Month": 2,
-    "Title": "Départ de saint Théophile le 23ème pape d'Alexandrie"
+    "Title": "Décès du pape saint Théophile le 23ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 19,
     "Month": 2,
-    "Title": "Tenue du concile d’Antioche contre Paul de Samosate"
+    "Title": "Martyre à Fayoum de saint Théophile et de sa femme."
   },
   {
     "Day": 19,
     "Month": 2,
-    "Title": "Martyre à Fayoum de saint Théophile et de sa femme"
+    "Title": "Tenue du concile d’Antioche pour juger Paul de Samosate."
   },
   {
     "Day": 20,
     "Month": 2,
-    "Title": "Décès de saint Jean Colobos"
+    "Title": "Décès de saint Jean Colobos."
   },
   {
     "Day": 21,
     "Month": 2,
-    "Title": "Commémoration de la mère de Dieu"
+    "Title": "Commémoration de la Mère de Dieu, la très sainte Vierge Marie."
   },
   {
     "Day": 21,
     "Month": 2,
-    "Title": "Commémoration de la Translation des reliques de Lazare"
+    "Title": "Décès du prophète Joël."
   },
   {
     "Day": 21,
     "Month": 2,
-    "Title": "Décès du prophète Joël"
+    "Title": "Translation des reliques de Lazare, le bien-aimé de notre Seigneur."
   },
   {
     "Day": 21,
     "Month": 2,
-    "Title": "Décès de saint Freige"
+    "Title": "Décès de saint Freige."
   },
   {
     "Day": 22,
     "Month": 2,
-    "Title": "Martyre de Saint Luc l'évangéliste"
+    "Title": "Martyre de Saint Luc l'évangéliste."
   },
   {
     "Day": 23,
     "Month": 2,
-    "Title": "Décès de saint Joseph, le cinquante-deuxième pape d'Alexandrie"
+    "Title": "Martyre de saint Denys, évêque de Corinthe."
   },
   {
     "Day": 23,
     "Month": 2,
-    "Title": "Martyre de saint Denys, évêque de Corinthe"
+    "Title": "Décès du pape Joseph 1er, le cinquante-deuxième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 24,
     "Month": 2,
-    "Title": "Décès de saint Hilarion"
+    "Title": "Décès du moine saint Hilarion le grand."
   },
   {
     "Day": 24,
     "Month": 2,
-    "Title": "Martyre de saint Paul, Longin et Zéna"
+    "Title": "Martyre de saint Paul, saint Longin et sainte Dina."
   },
   {
     "Day": 25,
     "Month": 2,
-    "Title": "Décès de saint Apollo et saint Abib"
+    "Title": "Décès de saint Abib l’ami de saint Apollo."
   },
   {
     "Day": 25,
     "Month": 2,
-    "Title": "Consécration de l’église de Saint Julius El-Akfahsi"
+    "Title": "Consécration de l’église de Saint Jules d’Akfahs."
   },
   {
     "Day": 26,
     "Month": 2,
-    "Title": "Martyre de saint Timon, le disciple"
+    "Title": "Martyre de saint Timon, le disciple et le diacre."
   },
   {
     "Day": 26,
     "Month": 2,
-    "Title": "Commémoration des sept martyrs de la montagne de saint Antoine"
+    "Title": "Commémoration des 7 martyrs de la montagne de saint Antoine."
   },
   {
     "Day": 27,
     "Month": 2,
-    "Title": "Martyre de saint Macaire, évêque d’Edkou"
+    "Title": "Martyre de saint Macaire, évêque de Qaw."
   },
   {
     "Day": 28,
     "Month": 2,
-    "Title": "Martyre des saints Marcien et Mercure"
+    "Title": "Martyre des saints Marcien et Mercure."
   },
   {
     "Day": 29,
     "Month": 2,
-    "Title": "Martyre de saint Dimitri de Thessalonique"
+    "Title": "Commémoration des 3 fêtes du Seigneur : l’annonciation, la nativité et Pâques."
+  },
+  {
+    "Day": 29,
+    "Month": 2,
+    "Title": "Martyre de saint Dimitri de Thessalonique."
+  },
+  {
+    "Day": 29,
+    "Month": 2,
+    "Title": "Décès du pape Gabriel VII, le 95ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 30,
     "Month": 2,
-    "Title": "Consécration de l'église de saint Marc, l'évangéliste et apparition de sa tête sacrée"
+    "Title": "Apparition de la tête de saint Marc, l'évangéliste et Consécration de son église."
   },
   {
     "Day": 30,
     "Month": 2,
-    "Title": "Décès de saint Abraham l'hermite"
+    "Title": "Décès de saint Abraham l'ermite."
   },
   {
     "Day": 1,
     "Month": 3,
-    "Title": "Martyre des saints Maxime, Numitius, Victor et Philippe"
+    "Title": "Commémoration de saint Cléopas, un des deux disciples d’Emmaüs."
   },
   {
     "Day": 1,
     "Month": 3,
-    "Title": "Commémoration de saint Cléopas et son compagnon"
+    "Title": "Martyre de saint Cyriaque, évêque de Jérusalem, et de sa mère."
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Martyre des saints Maxime, Numitius, Victor et Philippe."
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Martyre de sainte Anastasie la grande et de saint Cyrille."
   },
   {
     "Day": 2,
     "Month": 3,
-    "Title": "Décès de saint Pierre III, le vingt-septième pape d’Alexandrie"
+    "Title": "Décès du pape Pierre III, le vingt-septième patriarche de la prédication de saint Marc."
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "Martyre de saint Macaire, le libyen."
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "Décès de saint Ephramios d’Edesse."
   },
   {
     "Day": 3,
     "Month": 3,
-    "Title": "Décès de saint Cyriaque"
+    "Title": "Martyre de saint Athanase et sa sœur Irène."
   },
   {
     "Day": 3,
     "Month": 3,
-    "Title": "Décès de saint Athanase et sa sœur Irène"
+    "Title": "Martyre de saint Agathon."
+  },
+  {
+    "Day": 3,
+    "Month": 3,
+    "Title": "Décès de saint Cyriaque de Corinthe."
   },
   {
     "Day": 4,
     "Month": 3,
-    "Title": "Martyre des saints Jean et Jacques, les évêques de Perse"
+    "Title": "Martyre des saints Jean et Jacques, les évêques de Perse."
   },
   {
     "Day": 4,
     "Month": 3,
-    "Title": "Martyre des saints Epimaque et Gordien"
+    "Title": "Martyre de saint Thomas, l’évêque."
+  },
+  {
+    "Day": 4,
+    "Month": 3,
+    "Title": "Martyre des saints Epimaque et Gordien."
   },
   {
     "Day": 5,
     "Month": 3,
-    "Title": "Apparition de la tête de saint Longin, le soldat"
+    "Title": "Apparition de la tête de saint Longin, le soldat."
   },
   {
     "Day": 5,
     "Month": 3,
-    "Title": "Martyre de saint Timothée et transfert des reliques de saint Théodore à Chatab"
+    "Title": "Martyre de saint Timothée."
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Transfert des reliques de saint Théodore à Choteb."
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Décès de saint Joseph au mont Chamah."
   },
   {
     "Day": 6,
     "Month": 3,
-    "Title": "Décès de saint Félix, pape de Rome"
+    "Title": "Consécration de l'église de la sainte Vierge au monastère al-Moharrak, au mont Kosquâm."
   },
   {
     "Day": 6,
     "Month": 3,
-    "Title": "Consécration de l'église de la sainte Vierge au monastère al-Moharrak, au mont Kosquâm"
+    "Title": "Décès de saint Félix, pape de Rome."
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "Martyre de saint Georges d'Alexandrie"
+    "Title": "Consécration de l'église de saint Georges de Cappadoce."
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "Martyre de saint Nehroua"
+    "Title": "Martyre de saint Georges d'Alexandrie."
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "Décès de saint Menas, l'évêque de Thmouï"
+    "Title": "Martyre de saint Nehroua."
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "Consécration de l'église de saint Georges de Cappadoce"
+    "Title": "Martyre des saints Akepsimas, Aithala et Joseph."
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Décès de saint Menas, l'évêque de Thmouï."
   },
   {
     "Day": 8,
     "Month": 3,
-    "Title": "Commémoration des quatre vivants incorporels"
+    "Title": "Commémoration des quatre vivants incorporels."
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "Martyre de saint Nikandros, le prêtre de Myre."
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "Décès du père Piryos, le directeur de l’école théologique d’Alexandrie."
   },
   {
     "Day": 9,
     "Month": 3,
-    "Title": "Décès d’abba Isaac, le quarante-et-unième pape d’Alexandrie"
+    "Title": "Tenue du 1er concile œcuménique à Nicée."
   },
   {
     "Day": 9,
     "Month": 3,
-    "Title": "Tenue du concile de Nicée"
+    "Title": "Décès du pape Isaac, le quarante-et-unième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 10,
     "Month": 3,
-    "Title": "Martyre des 50 vierges et de leur mère spirituelle"
+    "Title": "Martyre des 50 vierges et de leur mère spirituelle."
   },
   {
     "Day": 10,
     "Month": 3,
-    "Title": "Réunion d’un concile à Rome au sujet de la fête de l’Epiphanie et du carême"
+    "Title": "Réunion d’un concile à Rome au sujet de la fête de l’Epiphanie et du carême."
   },
   {
     "Day": 11,
     "Month": 3,
-    "Title": "Décès de sainte Anne"
+    "Title": "Décès de sainte Anne, la mère de la sainte Vierge Marie, la Mère de Dieu."
   },
   {
     "Day": 11,
     "Month": 3,
-    "Title": "Commémoration du martyre de saint Archélaüs et de saint Elysée, l’higoumène"
+    "Title": "Martyre de saint Michel, le moine."
+  },
+  {
+    "Day": 11,
+    "Month": 3,
+    "Title": "Commémoration du martyre de saint Archélaüs et de saint Elysée, l’higoumène."
   },
   {
     "Day": 12,
     "Month": 3,
-    "Title": "Commémoration de l’archange Michel"
+    "Title": "Commémoration de l’archange Michel, le chef de l’armée du Seigneur."
+  },
+  {
+    "Day": 12,
+    "Month": 3,
+    "Title": "Décès de saint Jean le syriaque."
   },
   {
     "Day": 13,
     "Month": 3,
-    "Title": "Décès de saint Timothée, évêque d’Antinoë"
+    "Title": "Commémoration de l’archange Gabriel."
   },
   {
     "Day": 13,
     "Month": 3,
-    "Title": "Décès de saint Zacharie, 64ème pape d’Alexandrie"
+    "Title": "Décès du pape abba Zacharie, le 64ème patriarche de la prédication de saint Marc."
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Martyre de saint Théodore Tiron."
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Décès de saint Timothée, évêque d’Antinoë."
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Décès d’Abba Joseph au mont al-Assas."
   },
   {
     "Day": 14,
     "Month": 3,
-    "Title": "Décès de saint Martin, évêque de Tours"
+    "Title": "Décès de saint Martin, évêque de Tours."
+  },
+  {
+    "Day": 14,
+    "Month": 3,
+    "Title": "Martyre de l’officier Pharos et de ses enseignants."
   },
   {
     "Day": 15,
     "Month": 3,
-    "Title": "Martyre de saint Ménas"
+    "Title": "Martyre de saint Ménas, le thaumaturge."
+  },
+  {
+    "Day": 15,
+    "Month": 3,
+    "Title": "Décès de saint Jean ar-Robbane."
   },
   {
     "Day": 16,
     "Month": 3,
-    "Title": "Commencement du jeûne de l’avent"
+    "Title": "Début du jeûne de l’avent pour l’Eglise copte orthodoxe."
   },
   {
     "Day": 16,
     "Month": 3,
-    "Title": "Consécration de l’église de saint Onuphre"
+    "Title": "Consécration de l’église de saint Onuphre l'Anachorète."
   },
   {
     "Day": 16,
     "Month": 3,
-    "Title": "Martyre de saint Juste, l’évêque"
+    "Title": "Martyre de saint Juste, l’évêque."
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Décès du pape Ménas II, le 61ème patriarche de la prédication de saint Marc."
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Décès de saint Nylus le sinaïte."
   },
   {
     "Day": 17,
     "Month": 3,
-    "Title": "Décès de saint Jean Chrysostome"
+    "Title": "Décès de saint Jean Chrysostome."
+  },
+  {
+    "Day": 17,
+    "Month": 3,
+    "Title": "Décès de saint Paul au mont Danfiq."
   },
   {
     "Day": 18,
     "Month": 3,
-    "Title": "Martyre des saintes Atrasis et Yoana"
+    "Title": "Martyre de saint Philippe, l’apôtre."
   },
   {
     "Day": 18,
     "Month": 3,
-    "Title": "Martyre de saint Juste, l’évêque"
+    "Title": "Martyre des saintes Atrasis et Jeanne."
+  },
+  {
+    "Day": 18,
+    "Month": 3,
+    "Title": "Commémoration du miracle du transfert de la colline du Mokattam."
   },
   {
     "Day": 19,
     "Month": 3,
-    "Title": "Consécration de l’église de saint Serge et saint Baccus"
+    "Title": "Consécration de l’église de saint Serge et saint Bacchus à el-Rassafa."
   },
   {
     "Day": 19,
     "Month": 3,
-    "Title": "Commémoration de la prédication de l’apôtre saint Barthélémy"
+    "Title": "Martyre de saint Habib."
   },
   {
     "Day": 20,
     "Month": 3,
-    "Title": "Décès de saint Anien, le second pape d’Alexandrie"
+    "Title": "Décès de saint Anien, le second patriarche de la prédication de saint Marc."
   },
   {
     "Day": 20,
     "Month": 3,
-    "Title": "Consécration de l’église des deux saints le prince Théodore, fils de Jean al-Chatby et du prince Théodore al-Michriki"
+    "Title": "Consécration de l’église du prince Théodore de Choteb et celle du prince Théodore l’oriental."
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "Commémoration de sainte vierge Marie, la mère de Dieu"
+    "Title": "Commémoration de sainte vierge Marie, la mère de Dieu."
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "Décès de saint Grégoire le Thaumaturge"
+    "Title": "Décès de saint Grégoire le Thaumaturge."
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "Décès de saint Côme, le cinquante-quatrième pape d'Alexandrie"
+    "Title": "Décès du pape Côme II, le 54ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "Commémoration des saints Alphée, Zachée, Romain et Jean ainsi que des saints Thomas, Victor et Isaac d'al-Achmounein"
+    "Title": "Décès de Jean de Lycopolis dans la montagne de cette ville."
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Commémoration des saints Alphée, Zachée, Romain et Jean les martyrs ainsi que des saints Thomas, Victor et Isaac d'al-Achmounein."
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Transfert du corps de saint Jean Kamé au monastère el-Souryan."
   },
   {
     "Day": 22,
     "Month": 3,
-    "Title": "Martyre de saint Côme et saint Damien, de leurs frères et de leur mère"
+    "Title": "Martyre de saint Côme et saint Damien, de leurs frères et de leur mère."
   },
   {
     "Day": 23,
     "Month": 3,
-    "Title": "Décès de saint Corneille, le centurion"
+    "Title": "Décès de saint Corneille, le centurion."
   },
   {
     "Day": 23,
     "Month": 3,
-    "Title": "Consécration de l’église de sainte Marina"
+    "Title": "Consécration de l’église de sainte Marina."
   },
   {
     "Day": 24,
     "Month": 3,
-    "Title": "Commémoration des vingt quatre prêtres"
+    "Title": "Commémoration des vingt-quatre prêtres incorporels."
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "Martyre de l’évêque Narcisse et de sainte Tekla."
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "Décès de saint Proclus, le patriarche de Constantinople."
   },
   {
     "Day": 25,
     "Month": 3,
-    "Title": "Martyre de saint Mercure"
+    "Title": "Martyre de saint Mercure."
   },
   {
     "Day": 26,
     "Month": 3,
-    "Title": "Martyre de saint Valérien et saint Tiburce son frère"
+    "Title": "Martyre de saint Valérien et saint Tiburce son frère."
   },
   {
     "Day": 26,
     "Month": 3,
-    "Title": "Commémoration de saint Grégoire, évêque de Nysse"
+    "Title": "Commémoration de saint Grégoire, évêque de Nysse."
   },
   {
     "Day": 27,
     "Month": 3,
-    "Title": "Martyre de saint Jacques l’intercis"
+    "Title": "Martyre de saint Jacques l’intercis."
+  },
+  {
+    "Day": 27,
+    "Month": 3,
+    "Title": "Consécration de l’église de saint Victor le martyr, le fils de Romanos."
   },
   {
     "Day": 28,
     "Month": 3,
-    "Title": "Martyre de saint Sarabamôn, évêque de Nikiou"
+    "Title": "Martyre de saint Sarabamôn, évêque de Nikiou."
   },
   {
     "Day": 29,
     "Month": 3,
-    "Title": "Martyre de saint Pierre, le sceau des martyrs"
+    "Title": "Commémoration des 3 fêtes majeures du Seigneur : l’Annonciation, la Nativité et Pâques."
   },
   {
     "Day": 29,
     "Month": 3,
-    "Title": "Martyre de saint Clément, le pape de Rome"
+    "Title": "Martyre du pape Pierre, le sceau des martyrs, le dix-septième patriarche de la prédication de saint Marc."
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Martyre de saint Clément 1er, le pape de Rome."
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Martyre de sainte Catherine d’Alexandrie."
   },
   {
     "Day": 30,
     "Month": 3,
-    "Title": "Décès de saint Acace, patriarche de Constantinople"
+    "Title": "Martyre de saint Macaire."
   },
   {
     "Day": 30,
     "Month": 3,
-    "Title": "Martyre de saint Macaire"
+    "Title": "Martyre de saint Jean de Qalyoub, le moine."
   },
   {
     "Day": 30,
     "Month": 3,
-    "Title": "Consécration de l’église de saint Côme et saint Damien, de leurs frères et de leur mère"
+    "Title": "Décès de saint Acace, patriarche de Constantinople."
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "Consécration de l’église de saint Côme et saint Damien, de leurs frères et de leur mère."
   },
   {
     "Day": 1,
     "Month": 4,
-    "Title": "Décès de saint Jean III, le 40ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Jean III, le 40ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 1,
     "Month": 4,
-    "Title": "Décès de saint Athanase III, le 76ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Athanase III, le 76ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 1,
     "Month": 4,
-    "Title": "Décès de saint Pierre d'Edesse, évêque de Ghazza."
+    "Title": "Décès de saint Pierre d'Edesse, évêque de Gaza."
   },
   {
     "Day": 1,
@@ -842,7 +1107,7 @@
   {
     "Day": 6,
     "Month": 4,
-    "Title": "Décès de saint Abraham ibn Zara’a, le 62ème pape de la prédication de saint Marc."
+    "Title": "Décès de saint Abraham ibn Zara’a, le 62ème pape de la prédication de saint Marc"
   },
   {
     "Day": 6,
@@ -892,7 +1157,7 @@
   {
     "Day": 8,
     "Month": 4,
-    "Title": "Décès de saint Hiéraclas, 13ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Hiéraclas, 13ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 9,
@@ -962,7 +1227,7 @@
   {
     "Day": 13,
     "Month": 4,
-    "Title": "Décès du pape Marc VIII, le 108ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marc VIII, le 108ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 13,
@@ -997,7 +1262,7 @@
   {
     "Day": 14,
     "Month": 4,
-    "Title": "Décès du pape Christodule, le 66ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Christodule, le 66ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 14,
@@ -1017,7 +1282,7 @@
   {
     "Day": 15,
     "Month": 4,
-    "Title": "Décès d’abba Ezéchiel d’ Hermonthis."
+    "Title": "Décès d’Abba Ezéchiel d’ Hermonthis."
   },
   {
     "Day": 16,
@@ -1027,7 +1292,7 @@
   {
     "Day": 16,
     "Month": 4,
-    "Title": "Martyre des saints Harouâdj, Ananias et Khouzi d’Akhmîm"
+    "Title": "Martyre des saints Harouâdj, Ananias et Khouzi d’Akhmîm."
   },
   {
     "Day": 16,
@@ -1052,7 +1317,7 @@
   {
     "Day": 17,
     "Month": 4,
-    "Title": "Décès de saint Elie au mont Pichwaw"
+    "Title": "Décès de saint Elie au mont Pichwaw."
   },
   {
     "Day": 18,
@@ -1067,7 +1332,7 @@
   {
     "Day": 19,
     "Month": 4,
-    "Title": "Décès du pape Gabriel VI, le 91ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Gabriel VI, le 91ème patriarche de la prédication de saint Marc"
   },
   {
     "Day": 19,
@@ -1082,7 +1347,7 @@
   {
     "Day": 20,
     "Month": 4,
-    "Title": "Martyre d’abba Elie, l’évêque du monastère al-Mouharrak et de Qousiah."
+    "Title": "Martyre d’Abba Elie, l’évêque du monastère al-Mouharrak et de Qousiah."
   },
   {
     "Day": 21,
@@ -1092,7 +1357,7 @@
   {
     "Day": 21,
     "Month": 4,
-    "Title": "Martyre de saint Barnabé, l’un des douze disciples."
+    "Title": "Martyre de saint Barnabé, l’un des soixante-dix disciples."
   },
   {
     "Day": 22,
@@ -1107,7 +1372,7 @@
   {
     "Day": 22,
     "Month": 4,
-    "Title": "Décès de saint Anastase, le 36ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Anastase, le 36ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 23,
@@ -1142,7 +1407,7 @@
   {
     "Day": 26,
     "Month": 4,
-    "Title": "Consécration de l’église des deux saints : abba Pichaï et abba Pierre."
+    "Title": "Consécration de l’église des deux saints : abba Pichaï et abba Pierre."
   },
   {
     "Day": 27,
@@ -1152,7 +1417,7 @@
   {
     "Day": 28,
     "Month": 4,
-    "Title": "Préparation de la fête de la Nativité de notre Seigneur Jésus Christ."
+    "Title": "Préparation (برمون) de la fête de la Nativité de notre Seigneur Jésus Christ."
   },
   {
     "Day": 28,
@@ -1207,7 +1472,7 @@
   {
     "Day": 2,
     "Month": 5,
-    "Title": "Décès de saint Théonas, le 16ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Théonas, le 16ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 2,
@@ -1242,12 +1507,12 @@
   {
     "Day": 5,
     "Month": 5,
-    "Title": "Décès du pape Théodose II, le 79ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Théodose II, le 79ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 5,
     "Month": 5,
-    "Title": "Décès du pape Matthieu 1er, le 87ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Matthieu 1er, le 87ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 6,
@@ -1267,22 +1532,22 @@
   {
     "Day": 6,
     "Month": 5,
-    "Title": "Décès du pape Marcien, huitième patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marcien, huitième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "Décès du pape Marc III, 73ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marc III, 73ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "Décès du pape Gabriel III, 77ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Gabriel III, 77ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "Décès de saint Basile le grand, archevêque de Césarée en Capadoce."
+    "Title": "Décès de saint Basile le grand, archevêque de Césarée en Cappadoce."
   },
   {
     "Day": 6,
@@ -1302,17 +1567,17 @@
   {
     "Day": 8,
     "Month": 5,
-    "Title": "Décès du pape Andronic, le trente-septième patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Andronic, le trente-septième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 8,
     "Month": 5,
-    "Title": "Décès du pape Benjamin 1er, le trente-huitième patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Benjamin 1er, le trente-huitième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 8,
     "Month": 5,
-    "Title": "Décès du pape Gabriel V, le quatre-vingt-huitième patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Gabriel V, le quatre-vingt-huitième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 8,
@@ -1322,12 +1587,12 @@
   {
     "Day": 9,
     "Month": 5,
-    "Title": "Décès de saint Abraham, le compagnon d’abba Gawarguy."
+    "Title": "Décès de saint Abraham, le compagnon d’Abba Gawarguy."
   },
   {
     "Day": 9,
     "Month": 5,
-    "Title": "Décès d’abba Phis."
+    "Title": "Décès d’Abba Phîs."
   },
   {
     "Day": 10,
@@ -1337,7 +1602,7 @@
   {
     "Day": 10,
     "Month": 5,
-    "Title": "Décès de saint Juste, le disciple d’abba Samuel le confesseur."
+    "Title": "Décès de saint Juste, le disciple d’Abba Samuel le confesseur."
   },
   {
     "Day": 11,
@@ -1347,12 +1612,12 @@
   {
     "Day": 11,
     "Month": 5,
-    "Title": "Décès du pape Jean VI, le 74ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean VI, le 74ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 11,
     "Month": 5,
-    "Title": "Décès du pape Benjamin II, le 82ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Benjamin II, le 82ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 12,
@@ -1392,7 +1657,7 @@
   {
     "Day": 14,
     "Month": 5,
-    "Title": "Décès de saint Archélides."
+    "Title": "Décès de saint Archillidés."
   },
   {
     "Day": 14,
@@ -1417,7 +1682,7 @@
   {
     "Day": 16,
     "Month": 5,
-    "Title": "Décès de saint Jean, le 48ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Jean, le 48ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 17,
@@ -1432,7 +1697,7 @@
   {
     "Day": 18,
     "Month": 5,
-    "Title": "Décès de saint Jacques, l’évêque de Nisibe."
+    "Title": "Décès de saint Jacques, l’évêque de Nissibe."
   },
   {
     "Day": 18,
@@ -1457,12 +1722,12 @@
   {
     "Day": 20,
     "Month": 5,
-    "Title": "Martyre de saint Klog, le prêtre."
+    "Title": "Martyre de saint Kloug, le prêtre."
   },
   {
     "Day": 20,
     "Month": 5,
-    "Title": "Martyre de saint Bahna."
+    "Title": "Martyre de saint Bahnaw."
   },
   {
     "Day": 20,
@@ -1477,7 +1742,7 @@
   {
     "Day": 21,
     "Month": 5,
-    "Title": "Décès de sainte Hilarie, la fille de l’empereur Zénon."
+    "Title": "Décès de sainte Hillarie, la fille de l’empereur Zénon."
   },
   {
     "Day": 22,
@@ -1492,7 +1757,7 @@
   {
     "Day": 23,
     "Month": 5,
-    "Title": "Décès d’abba Cyrille IV, le père de la réforme, le 110ème patriarche de la prédication de saint Marc."
+    "Title": "Décès d’Abba Cyrille IV, le père de la réforme, le 110ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 24,
@@ -1537,7 +1802,7 @@
   {
     "Day": 27,
     "Month": 5,
-    "Title": "Martyre d’abba Fam (Phœbammon) d’Ossîm, le soldat."
+    "Title": "Martyre d’Abba Fam (Phœbammon) d’Oussîm, le soldat."
   },
   {
     "Day": 27,
@@ -1547,12 +1812,12 @@
   {
     "Day": 27,
     "Month": 5,
-    "Title": "Translation des reliques de saint Timothée, le disciple de l’apôtre saint Paul."
+    "Title": "Translation des reliques de saint Timothée, le disciple de l’apôtre saint Paul."
   },
   {
     "Day": 28,
     "Month": 5,
-    "Title": "Martyre d’abba Kaou."
+    "Title": "Martyre d’Abba Kaou."
   },
   {
     "Day": 28,
@@ -1582,7 +1847,7 @@
   {
     "Day": 30,
     "Month": 5,
-    "Title": "Décès du pape Ménas 1er, le 47ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Ménas 1er, le 47ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 30,
@@ -1622,7 +1887,7 @@
   {
     "Day": 3,
     "Month": 6,
-    "Title": "Décès de saint Hédra dans la roche de Benhadeb."
+    "Title": "Décès de saint Hédra dans la roche de Bénhadeb."
   },
   {
     "Day": 4,
@@ -1637,7 +1902,7 @@
   {
     "Day": 5,
     "Month": 6,
-    "Title": "Décès du pape Agrippin, le 10ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Agrippin, le 10ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 5,
@@ -1647,7 +1912,7 @@
   {
     "Day": 5,
     "Month": 6,
-    "Title": "Décès de saint Apollo, le compagnon de saint Abib."
+    "Title": "Décès de saint Apollo, le compagnon de saint Apip."
   },
   {
     "Day": 5,
@@ -1667,22 +1932,22 @@
   {
     "Day": 6,
     "Month": 6,
-    "Title": "Décès du pape Marc IV, le quatre-vingt-quatrième patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marc IV, le quatre-vingt-quatrième patriarche de la prédication de saint Marc."
   },
   {
     "Day": 6,
     "Month": 6,
-    "Title": "Décès de saint Zânoufyous."
+    "Title": "Décès de saint Zânoufyous."
   },
   {
     "Day": 7,
     "Month": 6,
-    "Title": "Décès du pape saint Alexandre II le 43ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Alexandre II le 43ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 7,
     "Month": 6,
-    "Title": "Décès du pape saint Théodore 1er le 45ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Théodore 1er le 45ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 8,
@@ -1732,7 +1997,7 @@
   {
     "Day": 11,
     "Month": 6,
-    "Title": "Décès du pape Jean XIII, le 94ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XIII, le 94ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 11,
@@ -1757,7 +2022,7 @@
   {
     "Day": 13,
     "Month": 6,
-    "Title": "Décès du pape Timothée III, le 32ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Timothée III, le 32ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 14,
@@ -1767,7 +2032,7 @@
   {
     "Day": 14,
     "Month": 6,
-    "Title": "Décès du pape saint Jacques, le 50ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Jacques, le 50ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 15,
@@ -1777,12 +2042,12 @@
   {
     "Day": 15,
     "Month": 6,
-    "Title": "Martyre du saint prophète Zacharie fils de Bérékya, fils de Iddo."
+    "Title": "Martyre du saint prophète Zacharie fils de Bérékya, fils d’Iddo."
   },
   {
     "Day": 15,
     "Month": 6,
-    "Title": "Martyre d’abba Pigol, le prêtre."
+    "Title": "Martyre d’Abba Pigol, le prêtre."
   },
   {
     "Day": 15,
@@ -1797,12 +2062,12 @@
   {
     "Day": 16,
     "Month": 6,
-    "Title": "Décès du pape Michel III, le 92ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Michel III, le 92ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 16,
     "Month": 6,
-    "Title": "Décès de saint Michel al-Beheiry, l’hygoumène, du monastère al-Mouharrak."
+    "Title": "Décès de saint Michel al-Beheiry, l’higoumène, du monastère al-Mouharrak."
   },
   {
     "Day": 17,
@@ -1832,7 +2097,7 @@
   {
     "Day": 20,
     "Month": 6,
-    "Title": "Décès du pape saint Pierre II, le 21ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Pierre II, le 21ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 20,
@@ -1852,7 +2117,7 @@
   {
     "Day": 21,
     "Month": 6,
-    "Title": "Décès du pape Gabriel 1er, le 57ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Gabriel 1er, le 57ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 21,
@@ -1862,7 +2127,7 @@
   {
     "Day": 22,
     "Month": 6,
-    "Title": "Décès de saint Marouthas évêque de Maypherkat."
+    "Title": "Décès de saint Maruthas évêque de Maypherkat."
   },
   {
     "Day": 23,
@@ -1887,12 +2152,12 @@
   {
     "Day": 25,
     "Month": 6,
-    "Title": "Martyre de saint Quona à Rome"
+    "Title": "Martyre des saints Quona à Rome"
   },
   {
     "Day": 25,
     "Month": 6,
-    "Title": "Martyr de saint Ménas à Qos."
+    "Title": "Martyre de saint Ménas à Qous."
   },
   {
     "Day": 25,
@@ -1912,7 +2177,7 @@
   {
     "Day": 26,
     "Month": 6,
-    "Title": "Martyre des deux évêque Tyrannion et Silvain ainsi que du prêtre Zénobe et de leurs compagnons dans la ville de Tyr."
+    "Title": "Martyre des deux évêques Tyrannion et Silvain ainsi que du prêtre Zénobe et de leurs compagnons dans la ville de Tyr."
   },
   {
     "Day": 27,
@@ -1942,7 +2207,7 @@
   {
     "Day": 30,
     "Month": 6,
-    "Title": "Décès du pape Cyrille (Kyrillos) VI, le 116ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Cyrille (Kyrellos) VI, le 116ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 1,
@@ -1977,7 +2242,7 @@
   {
     "Day": 3,
     "Month": 7,
-    "Title": "Décès du pape Côme III, le 58ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Côme III, le 58ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 3,
@@ -2007,7 +2272,7 @@
   {
     "Day": 5,
     "Month": 7,
-    "Title": "Décès d'abba Sarapamôn, higoumène du monastère de saint Jean Colobos."
+    "Title": "Décès d'abba Sarapamôn, higoumène du monastère de saint Jean Colobos."
   },
   {
     "Day": 5,
@@ -2177,7 +2442,7 @@
   {
     "Day": 20,
     "Month": 7,
-    "Title": "Décès du pape Michel (Khaïl) III, le 56ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Michel (Khaïl) III, le 56ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 20,
@@ -2227,7 +2492,7 @@
   {
     "Day": 24,
     "Month": 7,
-    "Title": "Décès du pape saint Macaire 1er, le 59ème Pape de la prédication de saint Marc."
+    "Title": "Décès du pape saint Macaire 1er, le 59ème Pape de la prédication de saint Marc."
   },
   {
     "Day": 25,
@@ -2252,7 +2517,7 @@
   {
     "Day": 26,
     "Month": 7,
-    "Title": "Décès du pape Pierre VI, le 104ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Pierre VI, le 104ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 27,
@@ -2277,7 +2542,7 @@
   {
     "Day": 28,
     "Month": 7,
-    "Title": "Décès du pape Pierre (Boutros) VII, le 109ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Pierre (Boutros) VII, le 109ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 28,
@@ -2332,12 +2597,12 @@
   {
     "Day": 2,
     "Month": 8,
-    "Title": "Décès du pape Jean IX le 81ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean IX le 81ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 3,
     "Month": 8,
-    "Title": "Décès du pape Michel II, le 71ème pape de la prédication de saint Marc."
+    "Title": "Décès du pape Michel II, le 71ème pape de la prédication de saint Marc."
   },
   {
     "Day": 3,
@@ -2412,7 +2677,7 @@
   {
     "Day": 10,
     "Month": 8,
-    "Title": "Décès du pape Gabriel II, le 70ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Gabriel II, le 70ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 11,
@@ -2447,7 +2712,7 @@
   {
     "Day": 13,
     "Month": 8,
-    "Title": "Décès du pape Jean XVII, le 105ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XVII, le 105ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 13,
@@ -2462,7 +2727,7 @@
   {
     "Day": 14,
     "Month": 8,
-    "Title": "Décès du pape Maxime, le 15ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Maxime, le 15ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 14,
@@ -2482,12 +2747,12 @@
   {
     "Day": 15,
     "Month": 8,
-    "Title": "Décès du pape Marc VI, le 101ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marc VI, le 101ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 16,
     "Month": 8,
-    "Title": "Martyre de saint Antipas, évêque de Pergame et disciple de l’apôtre saint Jean."
+    "Title": "Martyre de saint Antipas, évêque de Pergame et disciple de l’apôtre saint Jean."
   },
   {
     "Day": 16,
@@ -2522,7 +2787,7 @@
   {
     "Day": 19,
     "Month": 8,
-    "Title": "Martyre du bienheureux Jean Abou-Nagah le grand et du notable Abou-l-‘Ala Fahd fils d’Ibrahim ainsi que de leurs compagnons."
+    "Title": "Martyre du bienheureux Jean Abou-Nagah le grand et du notable Abou-l-‘Ala Fahd fils d’Ibrahim ainsi que de leurs compagnons."
   },
   {
     "Day": 19,
@@ -2547,17 +2812,17 @@
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Décès du pape Alexandre I, le 19ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Alexandre I, le 19ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Décès du pape Marc II, le 49ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Marc II, le 49ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Décès du pape Michel II, le 53ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Michel II, le 53ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 22,
@@ -2572,12 +2837,12 @@
   {
     "Day": 24,
     "Month": 8,
-    "Title": "Martyre de saint Sina, le soldat et le compagnon de saint Isidore."
+    "Title": "Martyre de saint Sina, le soldat et le compagnon de saint Isidore."
   },
   {
     "Day": 24,
     "Month": 8,
-    "Title": "Décès du pape Chénouté I, le 55ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Chénouté I, le 55ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 25,
@@ -2597,7 +2862,7 @@
   {
     "Day": 26,
     "Month": 8,
-    "Title": "Décès du pape Jean VII, le 78ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean VII, le 78ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 27,
@@ -2672,7 +2937,7 @@
   {
     "Day": 4,
     "Month": 9,
-    "Title": "Décès du pape Jean V, le 72ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean V, le 72ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 5,
@@ -2702,7 +2967,7 @@
   {
     "Day": 7,
     "Month": 9,
-    "Title": "Décès du pape saint Athanase l’apostolique, le 20ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Athanase l’apostolique, le 20ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 8,
@@ -2737,7 +3002,7 @@
   {
     "Day": 10,
     "Month": 9,
-    "Title": "Lancement des trois jeunes saints : Ananias, Azarias et Misaël dans la fournaise de feu."
+    "Title": "Lancement des trois jeunes saints : Ananias, Azarias et Misaël dans la fournaise de feu."
   },
   {
     "Day": 11,
@@ -2827,12 +3092,7 @@
   {
     "Day": 17,
     "Month": 9,
-    "Title": "Commémoration de la Pentecôte."
-  },
-  {
-    "Day": 17,
-    "Month": 9,
-    "Title": "Décès de saint Georges, le compagnon de saint Abraam."
+    "Title": "Décès de saint Epiphane, évêque de Chypre."
   },
   {
     "Day": 18,
@@ -2922,7 +3182,7 @@
   {
     "Day": 24,
     "Month": 9,
-    "Title": "Martyre de saint Chatoufa, le moine du monastère d’abba Macaire"
+    "Title": "Martyre de saint Chatoufa, le moine du monastère d’abba Macaire."
   },
   {
     "Day": 25,
@@ -3007,7 +3267,7 @@
   {
     "Day": 2,
     "Month": 10,
-    "Title": "Décès du pape Jean XVIII, le 107ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XVIII, le 107ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 3,
@@ -3107,7 +3367,7 @@
   {
     "Day": 8,
     "Month": 10,
-    "Title": "Commémoration de sainte Tamada et ses enfants ainsi que saint Armanous et sa mère."
+    "Title": "Commémoration de sainte Tamada et ses enfants ainsi que saint Armanous et sa mère."
   },
   {
     "Day": 9,
@@ -3137,7 +3397,7 @@
   {
     "Day": 10,
     "Month": 10,
-    "Title": "Martyre de sainte Dabamoune, sa sœur Bastamoune ainsi que leur mère Sophie."
+    "Title": "Martyre de sainte Dabamoune, sa sœur Bastamoune ainsi que leur mère Sophie."
   },
   {
     "Day": 10,
@@ -3147,7 +3407,7 @@
   {
     "Day": 10,
     "Month": 10,
-    "Title": "Décès du pape Jean XVI le 103ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XVI le 103ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 11,
@@ -3172,12 +3432,12 @@
   {
     "Day": 12,
     "Month": 10,
-    "Title": "Décès de saint Juste le 6ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Juste le 6ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 12,
     "Month": 10,
-    "Title": "Décès de saint Cyrille II le 67ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Cyrille II le 67ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 13,
@@ -3197,7 +3457,7 @@
   {
     "Day": 14,
     "Month": 10,
-    "Title": "Décès du pape Jean XIX, 113ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XIX, 113ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 15,
@@ -3227,12 +3487,12 @@
   {
     "Day": 18,
     "Month": 10,
-    "Title": "Décès du pape Damien 35ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Damien 35ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 18,
     "Month": 10,
-    "Title": "Inauguration de la nouvelle cathédrale saint Marc sur le terrain du monastère saint Freige (anba Rouwés)."
+    "Title": "Inauguration de la nouvelle cathédrale saint Marc sur le terrain du monastère saint Freige (anba Rouwés)."
   },
   {
     "Day": 19,
@@ -3247,7 +3507,7 @@
   {
     "Day": 19,
     "Month": 10,
-    "Title": "Décès du pape Achille, le 18ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Achille, le 18ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 19,
@@ -3307,7 +3567,7 @@
   {
     "Day": 25,
     "Month": 10,
-    "Title": "Décès du pape Pierre IV, le 34ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Pierre IV, le 34ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 26,
@@ -3332,7 +3592,7 @@
   {
     "Day": 28,
     "Month": 10,
-    "Title": "Décès du pape Théodose, le 33ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Théodose, le 33ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 28,
@@ -3362,7 +3622,7 @@
   {
     "Day": 30,
     "Month": 10,
-    "Title": "Décès du pape Côme 1er, le 44ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Côme 1er, le 44ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 1,
@@ -3387,7 +3647,7 @@
   {
     "Day": 3,
     "Month": 11,
-    "Title": "Décès du pape saint Cyrille 1er, le 24ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape saint Cyrille 1er, le 24ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 3,
@@ -3462,7 +3722,7 @@
   {
     "Day": 9,
     "Month": 11,
-    "Title": "Décès du pape Céladion le 9ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Céladion le 9ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 10,
@@ -3472,7 +3732,7 @@
   {
     "Day": 10,
     "Month": 11,
-    "Title": "Martyre de saint Théodore, évêque de Corinthe ainsi que ses compagnons."
+    "Title": "Martyre de saint Théodore, évêque de Corinthe ainsi que ses compagnons."
   },
   {
     "Day": 11,
@@ -3522,7 +3782,7 @@
   {
     "Day": 14,
     "Month": 11,
-    "Title": "Décès du pape Pierre V, le 83ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Pierre V, le 83ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 15,
@@ -3532,12 +3792,12 @@
   {
     "Day": 15,
     "Month": 11,
-    "Title": "Martyr de saint Cyr et sainte Julitte."
+    "Title": "Martyre de saint Cyr et sainte Julitte."
   },
   {
     "Day": 15,
     "Month": 11,
-    "Title": "Martyr de saint Horesius de Soul."
+    "Title": "Martyre de saint Horesius de Soul."
   },
   {
     "Day": 16,
@@ -3632,7 +3892,7 @@
   {
     "Day": 24,
     "Month": 11,
-    "Title": "Décès du pape Simon 1er, le 42ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Simon 1er, le 42ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 25,
@@ -3682,7 +3942,7 @@
   {
     "Day": 26,
     "Month": 11,
-    "Title": "Décès de saint Timothée, le 22ème patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Timothée, le 22ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 27,
@@ -3727,7 +3987,7 @@
   {
     "Day": 1,
     "Month": 12,
-    "Title": "Décès du pape Cyrille V le 112ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Cyrille V le 112ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 2,
@@ -3742,7 +4002,7 @@
   {
     "Day": 3,
     "Month": 12,
-    "Title": "Décès du pape Prime, le 5ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Prime, le 5ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 4,
@@ -3782,7 +4042,7 @@
   {
     "Day": 7,
     "Month": 12,
-    "Title": "Décès de saint Timothée II, 26ème Patriarche de la prédication de saint Marc."
+    "Title": "Décès de saint Timothée II, 26ème Patriarche de la prédication de saint Marc."
   },
   {
     "Day": 7,
@@ -3822,7 +4082,7 @@
   {
     "Day": 12,
     "Month": 12,
-    "Title": "Intronisation de l’empereur Constantin"
+    "Title": "Intronisation de l’empereur Constantin."
   },
   {
     "Day": 13,
@@ -3842,12 +4102,12 @@
   {
     "Day": 16,
     "Month": 12,
-    "Title": "Proclamation de l’assomption du corps de la très sainte vierge Marie"
+    "Title": "Proclamation de l’assomption du corps de la très sainte vierge Marie"
   },
   {
     "Day": 16,
     "Month": 12,
-    "Title": "Décès du pape Matthieu IV le 102ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Matthieu IV le 102ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 17,
@@ -3922,7 +4182,7 @@
   {
     "Day": 25,
     "Month": 12,
-    "Title": "Décès du pape Macaire III, le 114ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Macaire III, le 114ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 26,
@@ -3997,7 +4257,7 @@
   {
     "Day": 3,
     "Month": 13,
-    "Title": "Décès du pape Jean XIV, le 96ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XIV, le 96ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 4,
@@ -4017,12 +4277,12 @@
   {
     "Day": 5,
     "Month": 13,
-    "Title": "Décès du pape Jean XV, le 99ème patriarche de la prédication de saint Marc."
+    "Title": "Décès du pape Jean XV, le 99ème patriarche de la prédication de saint Marc."
   },
   {
     "Day": 5,
     "Month": 13,
-    "Title": "Décès de saint Barsouma el-Iryân (le nu)."
+    "Title": "Décès de saint Parsouma el-Iryân (le nu)."
   },
   {
     "Day": 6,

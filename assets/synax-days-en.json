@@ -2,17 +2,27 @@
   {
     "Day": 1,
     "Month": 1,
-    "Title": "Feast of El-Nayrouz (Beginning of the Blessed Coptic Year)"
+    "Title": "Feast of El-Nayrouz (Beginning of the New Coptic Year)"
   },
   {
     "Day": 1,
     "Month": 1,
-    "Title": "The Martyrdom of St. Bartholomew, the Apostle"
+    "Title": "The Commemoration of the Healing of the Righteous Job"
   },
   {
     "Day": 1,
     "Month": 1,
-    "Title": "The Departure of St. Melyos (Milius), the Third Pope of Alexandria"
+    "Title": "The Martyrdom of St. Bartholomew the Apostle"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "The Departure of Pope Milius (Milio), the Third Patriarch of the See of St. Mark"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "The Departure of Pope Marcus (Mark) the Fifth, the Ninety-Eighth Patriarch of the See of St. Mark"
   },
   {
     "Day": 2,
@@ -27,17 +37,27 @@
   {
     "Day": 3,
     "Month": 1,
-    "Title": "A Council held in the city of Alexandria"
+    "Title": "A Council held in the city of Alexandria, during the papacy of Pope Dionysius, in reference to the immortality of the spirit"
   },
   {
     "Day": 3,
     "Month": 1,
-    "Title": "A Great Earthquake took place in Cairo and Most of the Egyptian Cities"
+    "Title": "The Departure of St. Theodora the Penitent (of Alexandria)"
   },
   {
     "Day": 4,
     "Month": 1,
-    "Title": "The Departure of St. Macarius, 69th Pope of Alexandria"
+    "Title": "The Commemoration of Joshua, the son of Nun"
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "The Departure of Pope Macarius II, 69th Pope of Alexandria"
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "The Departure of St. Verena"
   },
   {
     "Day": 5,
@@ -47,7 +67,7 @@
   {
     "Day": 6,
     "Month": 1,
-    "Title": "The Departure of Isaiah the Prophet"
+    "Title": "The Martyrdom of Isaiah the Prophet, Son of Amoz"
   },
   {
     "Day": 6,
@@ -57,22 +77,22 @@
   {
     "Day": 7,
     "Month": 1,
-    "Title": "The Departure of St. Dioscorus, 25th Pope of Alexandria"
+    "Title": "The Departure of Pope Dioscorus, 25th Pope of Alexandria"
   },
   {
     "Day": 7,
     "Month": 1,
-    "Title": "The Martyrdom of Sts. Agathon, Peter, John, Amun and Amuna and Their Mother, Rebecca"
+    "Title": "The Departure of Pope Youannes (John) XII, 93rd Pope of Alexandria"
   },
   {
     "Day": 7,
     "Month": 1,
-    "Title": "The Departure of St. Severianus, Bishop of Gabala"
+    "Title": "The Martyrdom of St. Rebecca and her five children, Agathon, Peter, John, Amun and Amuna"
   },
   {
-    "Day": 8,
+    "Day": 7,
     "Month": 1,
-    "Title": "The Martyrdom of Zacharias the Prophet"
+    "Title": "The Departure of St. Severian (Severianus), Bishop of Gabala"
   },
   {
     "Day": 8,
@@ -82,12 +102,27 @@
   {
     "Day": 8,
     "Month": 1,
-    "Title": "The Martyrdom of St. Dimides (Diomede)"
+    "Title": "The Martyrdom of Zacharias the Priest"
+  },
+  {
+    "Day": 8,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Dimides (Diomede), the Presbyter"
   },
   {
     "Day": 9,
     "Month": 1,
     "Title": "The Martyrdom of St. Pisora the Bishop"
+  },
+  {
+    "Day": 9,
+    "Month": 1,
+    "Title": "The Martyrdom of the Honorable Bishops, Pilus and Nylios"
+  },
+  {
+    "Day": 10,
+    "Month": 1,
+    "Title": "The Martyrdom of Sts. Youannes the Egyptian and his companions"
   },
   {
     "Day": 10,
@@ -97,32 +132,42 @@
   {
     "Day": 10,
     "Month": 1,
-    "Title": "The Commemoration of Sts. Basin and Her Children"
+    "Title": "The Commemoration of Sts. Basin and Her Three Children"
   },
   {
     "Day": 11,
     "Month": 1,
-    "Title": "The Martyrdom of Saint Basilides (Wasilides)"
+    "Title": "The Martyrdom of Saint Basilides (Wasilides), the Minister"
+  },
+  {
+    "Day": 11,
+    "Month": 1,
+    "Title": "The Martyrdom of the Three Farmers in Esna"
   },
   {
     "Day": 12,
     "Month": 1,
-    "Title": "The Assembly of the Third Ecumenical Council at Ephesus to Judge Nestorius, Archbishop of Constantinople"
+    "Title": "The Commemoration of the Archangel Michael"
   },
   {
     "Day": 12,
     "Month": 1,
-    "Title": "The Translocation of the Relics of Sts. Clemus (Aklimos) and His Companions"
+    "Title": "The Commemoration of the Assembly of the Third Ecumenical Council at Ephesus"
+  },
+  {
+    "Day": 12,
+    "Month": 1,
+    "Title": "The Translocation of the relics of Sts. Clemus (Aklimos) and his companions"
   },
   {
     "Day": 13,
     "Month": 1,
-    "Title": "The Departure of Pope Mattheos II, 90th Patriarch of the See of St. Mark"
+    "Title": "The Commemoration of the Miracle performed by St. Basilius (Basil) the Great, Bishop of Caesarea, Cappadocia"
   },
   {
     "Day": 13,
     "Month": 1,
-    "Title": "The Commemoration of the Miracle performed by St. Basilius (Basil), Bishop of Caesarea, Cappadocia"
+    "Title": "The Departure of Pope Mettaos II (Matthew II), 90th Patriarch of the See of St. Mark"
   },
   {
     "Day": 14,
@@ -130,24 +175,49 @@
     "Title": "The Departure of St. Agathon the Stylite"
   },
   {
+    "Day": 14,
+    "Month": 1,
+    "Title": "The Martyrdom of Sts. Felix and Regula, his Sister, and St. Exuperantius"
+  },
+  {
     "Day": 15,
     "Month": 1,
-    "Title": "Translocation of the Body of St. Stephen the Archdeacon"
+    "Title": "The Translocation of the Body of St. Stephen the Archdeacon"
+  },
+  {
+    "Day": 15,
+    "Month": 1,
+    "Title": "The Departure of Anba Athanasius El-Quosy"
   },
   {
     "Day": 16,
     "Month": 1,
-    "Title": "The Commemoration of the Consecration of the Sanctuaries of the church of Resurrection in Jerusalem"
+    "Title": "The Consecration of the church of Resurrection in Jerusalem"
   },
   {
-    "Day": 16,
+    "Day": 17,
     "Month": 1,
-    "Title": "The Translocation of the Relics of St. John Chrysostom (of the Golden Mouth)"
+    "Title": "The commemoration of the Celebration of the Honorable Cross in the Church of Resurrection"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Castor, the Presbyter"
   },
   {
     "Day": 17,
     "Month": 1,
     "Title": "The Departure of St. Theognosta"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "The Departure of the Saint el-Moallem (Master) Girgis el-Gohari"
+  },
+  {
+    "Day": 18,
+    "Month": 1,
+    "Title": "The Second day of the Feast of the Cross"
   },
   {
     "Day": 18,
@@ -157,27 +227,32 @@
   {
     "Day": 18,
     "Month": 1,
-    "Title": "The Commemoration of Stephen the Priest, and St. Niceta (Niketa) the Martyr"
+    "Title": "The Martyrdom of St. Stephen the Presbyter, and St. Niceta (Niketa)"
   },
   {
     "Day": 19,
     "Month": 1,
-    "Title": "The Commemoration of St. Gregory, Patriarch of the Armenians"
+    "Title": "The Third day of the Feast of the Cross"
   },
   {
-    "Day": 20,
+    "Day": 19,
     "Month": 1,
-    "Title": "The Departure of pope Athanasius the Second, the Twenty-Eighth Patriarch of the See of St. Mark"
-  },
-  {
-    "Day": 20,
-    "Month": 1,
-    "Title": "The Martyrdom of St. Melitina the Virgin"
+    "Title": "The Commemoration of the lifting up of St. Gregory, from the Pit"
   },
   {
     "Day": 20,
     "Month": 1,
     "Title": "The Departure of St. Theopista"
+  },
+  {
+    "Day": 20,
+    "Month": 1,
+    "Title": "The Departure of Pope Athanasius the Second, the Twenty-Eighth Patriarch of the See of St. Mark"
+  },
+  {
+    "Day": 20,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Melitina the Virgin"
   },
   {
     "Day": 21,
@@ -187,7 +262,7 @@
   {
     "Day": 21,
     "Month": 1,
-    "Title": "The Martyrdom of St. Cyprian (Cyprianus) and St. Justina"
+    "Title": "The Martyrdom of St. Cyprian (Cyprianus) the Bishop and St. Justina"
   },
   {
     "Day": 22,
@@ -197,27 +272,17 @@
   {
     "Day": 22,
     "Month": 1,
-    "Title": "The Martyrdom of St. Julius of Aqfahs (El-Akfehasi), the Writer of the Biography of Martyrs"
+    "Title": "The Martyrdom of St. Julius of Aqfahs (El-Akfehasi), the Writer of the Biography of Martyrs, and his companions"
   },
   {
     "Day": 23,
     "Month": 1,
-    "Title": "The Martyrdom of Sts. Eunapios (Onanius) and Andrew"
+    "Title": "The Martyrdom of Sts. Eunapius (Onanius) and Andrew his Brother"
   },
   {
     "Day": 23,
     "Month": 1,
-    "Title": "The Commemoration of the Martyrdom of St. Thecla"
-  },
-  {
-    "Day": 23,
-    "Month": 1,
-    "Title": "The Re-Opening of the church of the Virgin in Haret El-Rum"
-  },
-  {
-    "Day": 24,
-    "Month": 1,
-    "Title": "The Departure of St. Gregory the Ascetic"
+    "Title": "The Commemoration of the Martyr St. Thecla"
   },
   {
     "Day": 24,
@@ -225,29 +290,54 @@
     "Title": "The Martyrdom of St. Quadratus, One of the Seventy Disciples"
   },
   {
+    "Day": 24,
+    "Month": 1,
+    "Title": "The Departure of St. Gregory, the Theologian"
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "The Departure of St. Gregory, the Monk"
+  },
+  {
     "Day": 25,
     "Month": 1,
     "Title": "The Departure of Jonah, the Great Prophet"
   },
   {
+    "Day": 25,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Maurice, the Leader of the Theban Legion"
+  },
+  {
     "Day": 26,
     "Month": 1,
-    "Title": "The Angels' Annunciation of John the Baptist to Zacharias"
+    "Title": "The Annunciation of Zacharias the Priest with the Birth of John the Baptist"
   },
   {
     "Day": 27,
     "Month": 1,
-    "Title": "The Martyrdom of St. Eustathius and His Two Sons"
+    "Title": "The Martyrdom of St. Eustathius, his Two Sons and his Wife"
   },
   {
     "Day": 28,
     "Month": 1,
-    "Title": "The Martyrdom of Saints Abadir (Apater) and Eraee (Herai), His Sister"
+    "Title": "The Martyrdom of Saints Abadir (Apater) and Era-ee (Erini), his Sister"
   },
   {
     "Day": 29,
     "Month": 1,
-    "Title": "The Martyrdom of St. Arbsima (Repsima) the Virgin and Her Sisters the Virgins"
+    "Title": "The Commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Arbsima (Repsima), Agatha her Mother and the 72 Virgins"
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "The Martyrdom of St. Febronia (the Coptic Nun)"
   },
   {
     "Day": 30,
@@ -267,12 +357,22 @@
   {
     "Day": 3,
     "Month": 2,
-    "Title": "The Departure of St. Simon II, 51st Pope of the See of St. Mark"
+    "Title": "The Departure of St. Siemon II, 51st Pope of the See of St. Mark"
   },
   {
     "Day": 3,
     "Month": 2,
-    "Title": "The Martyrdom of St. John the Soldier"
+    "Title": "The Martyrdom of Sts. Ursus and Victor of the Theban Legion"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "The Departure of Empress Theodora"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "The Martyrdom of St. John El-Ashruby, the Soldier"
   },
   {
     "Day": 4,
@@ -285,14 +385,19 @@
     "Title": "The Martyrdom of St. Paul, Patriarch of Constantinople"
   },
   {
+    "Day": 5,
+    "Month": 2,
+    "Title": "The Departure of Anba Peter, Bishop of El-Bahnasa"
+  },
+  {
     "Day": 6,
     "Month": 2,
-    "Title": "The Departure of the Righteous Hannah, the Prophetess Mother of Samuel, the Prophet"
+    "Title": "The Departure of the Righteous Hannah, Mother of Samuel, the Prophet"
   },
   {
     "Day": 7,
     "Month": 2,
-    "Title": "The Departure of St. Paul of Tamouh"
+    "Title": "The Departure of St. Paul of Tammoh"
   },
   {
     "Day": 8,
@@ -302,22 +407,22 @@
   {
     "Day": 8,
     "Month": 2,
-    "Title": "The Martyrdom of the Saints Abba Hor, Tosia (Susanna) and Her Children, and Abba Agathon, the Hermit"
+    "Title": "The Martyrdom of the Saints Abba Or, Tosia (Susanna) and their Children"
+  },
+  {
+    "Day": 8,
+    "Month": 2,
+    "Title": "The Departure of Abba Agathon, the Hermit"
   },
   {
     "Day": 9,
     "Month": 2,
-    "Title": "The Departure of St. Eumenius, the Seventh Pope of the See of St. Mark"
+    "Title": "The Departure of Pope Omanious (Eumenes), the Seventh Patriarch of the See of St. Mark"
   },
   {
     "Day": 9,
     "Month": 2,
-    "Title": "The Eclipse of the Sun in the Year 958 A.M"
-  },
-  {
-    "Day": 9,
-    "Month": 2,
-    "Title": "The Commemoration of St. Simon (Simeon) the Bishop"
+    "Title": "The Commemoration of St. Simon (Simeon), the Bishop"
   },
   {
     "Day": 10,
@@ -332,12 +437,12 @@
   {
     "Day": 11,
     "Month": 2,
-    "Title": "The Departure of St. Pelagia"
+    "Title": "The Departure of St. Pelagia, the Penitent"
   },
   {
     "Day": 12,
     "Month": 2,
-    "Title": "The Departure of Abba Demetrius I, 12th Pope of Alexandria"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
@@ -347,7 +452,7 @@
   {
     "Day": 12,
     "Month": 2,
-    "Title": "The Commemoration of the Archangel Michael"
+    "Title": "The Departure of Abba Demetrius I, the Vinedresser, 12th Patriarch of Alexandria"
   },
   {
     "Day": 13,
@@ -372,27 +477,27 @@
   {
     "Day": 16,
     "Month": 2,
-    "Title": "The Commemoration of the Sts. Carpus, Apollos (Papylus) and Peter"
+    "Title": "The Commemoration of the Sts. Carpus, Apollo and Peter"
   },
   {
     "Day": 17,
     "Month": 2,
-    "Title": "The Departure of St. Dioscorus II 31st Pope of Alexandria"
+    "Title": "The Departure of St. Dioscorus II, 31st Pope of Alexandria"
   },
   {
     "Day": 18,
     "Month": 2,
-    "Title": "The Departure of the Honorable Father Saint Theophilus 23rd Pope of Alexandria"
-  },
-  {
-    "Day": 19,
-    "Month": 2,
-    "Title": "The Assembly of the Council of Antioch against Paul of Samosata"
+    "Title": "The Departure of the Honorable Father Saint Theophilus, 23rd Pope of Alexandria"
   },
   {
     "Day": 19,
     "Month": 2,
     "Title": "The Martyrdom of Sts. Theophilus and His Wife in Fayyum"
+  },
+  {
+    "Day": 19,
+    "Month": 2,
+    "Title": "The Assembly of a Council in Antioch against Paul of Samosata"
   },
   {
     "Day": 20,
@@ -402,12 +507,7 @@
   {
     "Day": 21,
     "Month": 2,
-    "Title": "The Commemoration of the Theotokos"
-  },
-  {
-    "Day": 21,
-    "Month": 2,
-    "Title": "The Commemoration of the Relocation of the Body of Lazarus"
+    "Title": "The Commemoration of the Theotokos, the Virgin St. Mary"
   },
   {
     "Day": 21,
@@ -417,7 +517,12 @@
   {
     "Day": 21,
     "Month": 2,
-    "Title": "The Departure of St. Freig (Abba Tegi, Anba Roweiss)"
+    "Title": "The Relocation of the Body of Lazarus, the Beloved of the Lord"
+  },
+  {
+    "Day": 21,
+    "Month": 2,
+    "Title": "The Departure of Anba Roweis, (St. Freig, Ava Tegi)"
   },
   {
     "Day": 22,
@@ -427,17 +532,17 @@
   {
     "Day": 23,
     "Month": 2,
-    "Title": "The Departure of St. Yousab, 52nd Pope of Alexandria"
+    "Title": "The Martyrdom of St. Dionysius, Bishop of Corinth"
   },
   {
     "Day": 23,
     "Month": 2,
-    "Title": "The Martyrdom of St. Dionysius, Bishop of Corinth"
+    "Title": "The Departure of St. Yousab, 52nd Pope of Alexandria"
   },
   {
     "Day": 24,
     "Month": 2,
-    "Title": "The Departure of the Righteous Father Abba Hilarion"
+    "Title": "The Departure of the Great Father Abba Hilarion, the Monk"
   },
   {
     "Day": 24,
@@ -447,12 +552,12 @@
   {
     "Day": 25,
     "Month": 2,
-    "Title": "The Departure of the Saints Apollo and Abib"
+    "Title": "The Departure of Saint Abib, the Friend of St. Apollo"
   },
   {
     "Day": 25,
     "Month": 2,
-    "Title": "The Commemoration of the Consecration of the Church of Saint Julius El-Akfahsee (Aqfahs)"
+    "Title": "The Consecration of the Church of the martyr Julius El-Akfehasi (Aqfahs), the Writer of the Biography of Martyrs"
   },
   {
     "Day": 26,
@@ -467,7 +572,7 @@
   {
     "Day": 27,
     "Month": 2,
-    "Title": "The Martyrdom of the Righteous Father Saint Macarius Bishop of Edkow (Tkoou)"
+    "Title": "The Martyrdom of St. Macarius, Bishop of Edko (Tkoou)"
   },
   {
     "Day": 28,
@@ -477,17 +582,37 @@
   {
     "Day": 29,
     "Month": 2,
+    "Title": "The commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 2,
     "Title": "The Martyrdom of St. Demetrius of Thessalonica"
   },
   {
-    "Day": 30,
+    "Day": 29,
     "Month": 2,
-    "Title": "The Commemoration of the Consecration of the Church of St. Mark the Evangelist and the Appearance of His Holy Head"
+    "Title": "The Departure of Pope Gabriel VII, the 95th Pope of Alexandria"
   },
   {
     "Day": 30,
     "Month": 2,
-    "Title": "The Departure of St. Ibrahim (Ibraham) the Hermit"
+    "Title": "The Appearance of the Holy Head of St. Mark the Evangelist and the Consecration of his Church"
+  },
+  {
+    "Day": 30,
+    "Month": 2,
+    "Title": "The Departure of St. Ibrahim El-Menofy, the Hermit"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "The Martyrdom of ST. Cleopas the Apostle, one of the two Disciples of Emmaus"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Cyriacus, Bishop of Jerusalem and his Mother"
   },
   {
     "Day": 1,
@@ -497,27 +622,47 @@
   {
     "Day": 1,
     "Month": 3,
-    "Title": "The Commemoration of Saint Cleopas the Apostle and His Companion"
+    "Title": "The Martyrdom of St. Anastasia the Elder and St. Cyril (Kyrollos)"
   },
   {
     "Day": 2,
     "Month": 3,
-    "Title": "The Departure of St. Peter the Third 27th Pope of Alexandria"
+    "Title": "The Departure of St. Peter III, 27th Pope of Alexandria"
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Macarius the Libyan"
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "The Departure of St. Aframios El-Rahawy"
   },
   {
     "Day": 3,
     "Month": 3,
-    "Title": "The Departure of St. Cyriacus"
+    "Title": "The Martyrdom of St. Athanasius and His Sister, Irene"
   },
   {
     "Day": 3,
     "Month": 3,
-    "Title": "The Departure of St. Athanasius and His Sister, Irene"
+    "Title": "The Martyrdom of St. Aghathon"
+  },
+  {
+    "Day": 3,
+    "Month": 3,
+    "Title": "The Departure of St. Cyriacus, from the city of Corinth"
   },
   {
     "Day": 4,
     "Month": 3,
     "Title": "The Martyrdom of Saints John and James, Bishops of Persia"
+  },
+  {
+    "Day": 4,
+    "Month": 3,
+    "Title": "The Martyrdom of Anba Thomas, the Bishop"
   },
   {
     "Day": 4,
@@ -532,7 +677,22 @@
   {
     "Day": 5,
     "Month": 3,
-    "Title": "The Martyrdom of St. Timothy and the Relocation of the Body of St. Theodore, the Prince, to Shotb"
+    "Title": "The Martyrdom of St. Timothy, the Deacon"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "The Relocation of the Body of St. Theodore, the Prince, to the city of Shotb"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "The Departure of St. Yousab (Joseph) on the Shamah Mount"
+  },
+  {
+    "Day": 6,
+    "Month": 3,
+    "Title": "The Commemoration of the Consecration of the church of the Virgin in the Mouharaque Monastery in Quosquam Mount"
   },
   {
     "Day": 6,
@@ -540,69 +700,109 @@
     "Title": "The Departure of St. Felix, Pope of Rome"
   },
   {
-    "Day": 6,
+    "Day": 7,
     "Month": 3,
-    "Title": "The Consecration of the church of the Virgin in the Mouharaque Monastery in Quosquam Mount"
+    "Title": "The Consecration of the Church of St. George of Cappadocia, in the city of Lydda"
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "The Martyrdom of St. George of Alexandria"
+    "Title": "The Martyrdom of St. George, the Alexandrian"
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "The Martyrdom of St. Nehroua"
+    "Title": "The Martyrdom of St. Nehroua (Naharua), of Fayyum"
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "The Departure of St. Mina, Bishop of Tamai (Thmoui)"
+    "Title": "The Martyrdom of Sts. Akebsyma, Itala and Joseph"
   },
   {
     "Day": 7,
     "Month": 3,
-    "Title": "The Consecration of the Church of St. George of Cappadocia"
+    "Title": "The Departure of St. Mina, Bishop of Tamai (Thmoui) El-Amdid"
   },
   {
     "Day": 8,
     "Month": 3,
-    "Title": "The Commemoration of the Four Incorporeal Beasts"
+    "Title": "The Commemoration of the Four Incorporeal Creatures"
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Nikandros, Priest of Myra"
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "The Departure of Father Pierius, Dean of the Theological School of Alexandria"
   },
   {
     "Day": 9,
     "Month": 3,
-    "Title": "The Departure of the Holy Father Anba Isaac, 41st Pope of Alexandria"
+    "Title": "The Assembly of the First Ecumenical Council at Nicea"
   },
   {
     "Day": 9,
     "Month": 3,
-    "Title": "The Assembly of the Ecumenical Council at Nicea"
+    "Title": "The Departure of Pope Isaac, the 41st Pope of Alexandria"
+  },
+  {
+    "Day": 9,
+    "Month": 3,
+    "Title": "The Consecration of the Great Cathedral in Abbasia - Cairo"
   },
   {
     "Day": 10,
     "Month": 3,
-    "Title": "The Martyrdom of St. Sophia and the Fifty Virgins with her"
+    "Title": "The Martyrdom of the Fifty Virgins and their mother St. Sophia"
   },
   {
     "Day": 10,
     "Month": 3,
-    "Title": "The Assembly of a Council in Rome because of the Feast of Theophany and Lent"
+    "Title": "The Assembly of a Council in Rome because of the glorious Feast of Theophany and the Great Lent"
   },
   {
     "Day": 11,
     "Month": 3,
-    "Title": "The Departure of St. Anna (Hannah), the mother of the Theotokos"
+    "Title": "The Departure of St. Anna (Hannah), the mother of the Holy Virgin St. Mary"
   },
   {
     "Day": 11,
     "Month": 3,
-    "Title": "The Commemoration of the Martyrdom of St. Archelaus and the Martyrdom of Elisha the Hegumen"
+    "Title": "The Martyrdom of St. Michael, the Monk"
+  },
+  {
+    "Day": 11,
+    "Month": 3,
+    "Title": "The Martyrdom of Sts. Archelaus and Elisha the Hegumen"
   },
   {
     "Day": 12,
     "Month": 3,
-    "Title": "The Commemoration of the Honored Archangel Michael"
+    "Title": "The Commemoration of the Honored Archangel Michael, the Head of the Heavenly Hosts"
+  },
+  {
+    "Day": 12,
+    "Month": 3,
+    "Title": "The Departure of St. John (Youhanna), the Syrian"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "The Commemoration of the Honorable Archangel Gabriel"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "The Departure of Pope Zacharias, 64th Pope of Alexandria"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Tadros Tyro"
   },
   {
     "Day": 13,
@@ -612,12 +812,17 @@
   {
     "Day": 13,
     "Month": 3,
-    "Title": "The Departure of St. Zacharias, 64th Pope of Alexandria"
+    "Title": "The Departure of Anba Yousab (Joseph), in El-Assas Mountain"
   },
   {
     "Day": 14,
     "Month": 3,
-    "Title": "The Departure of St. Martinus (Martin) Bishop of Tours (Thrace)"
+    "Title": "The Departure of St. Martinus, Bishop of Thrace"
+  },
+  {
+    "Day": 14,
+    "Month": 3,
+    "Title": "The Martyrdom of Officer Faros and the Six Hermits"
   },
   {
     "Day": 15,
@@ -625,14 +830,19 @@
     "Title": "The Martyrdom of Saint Mari-Mina, the Wonder Worker"
   },
   {
-    "Day": 16,
+    "Day": 15,
     "Month": 3,
-    "Title": "The Beginning of the Fast of the Nativity (Advent) in the Coptic Church"
+    "Title": "The Departure of St. John, El-Rabban (Priest-Monk)"
   },
   {
     "Day": 16,
     "Month": 3,
-    "Title": "The Consecration of the Church of St. Abu-Nofer (Onuphrius)"
+    "Title": "The Beginning of the Fast of the Nativity (Advent) in our Coptic Orthodox Church"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "The Consecration of the Church of St. Abu-Nofer (Onuphrius) the Hermit"
   },
   {
     "Day": 16,
@@ -640,14 +850,24 @@
     "Title": "The Martyrdom of Saint Yostus, the Bishop"
   },
   {
+    "Day": 16,
+    "Month": 3,
+    "Title": "The Departure of Pope Mina II, the 61st Patriarch of the SEE of St. Mark"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "The Departure of St. Nilus of Sinai"
+  },
+  {
     "Day": 17,
     "Month": 3,
     "Title": "The Departure of Saint John Chrysostom"
   },
   {
-    "Day": 18,
+    "Day": 17,
     "Month": 3,
-    "Title": "The Martyrdom of the Two Saints: Atrasis and Yoana (Junia)"
+    "Title": "The Departure of St. Paul of the Danfeek Mount"
   },
   {
     "Day": 18,
@@ -655,14 +875,24 @@
     "Title": "The Martyrdom of Saint Philip the Apostle"
   },
   {
-    "Day": 19,
+    "Day": 18,
     "Month": 3,
-    "Title": "The Consecration of the Church of St. Sergius and St. Bacchus"
+    "Title": "The Martyrdom of the Two Saints: Atrasis and Yona (Junia)"
+  },
+  {
+    "Day": 18,
+    "Month": 3,
+    "Title": "The Commemoration of the Miracle of Moving the Mokattam Mountain"
   },
   {
     "Day": 19,
     "Month": 3,
-    "Title": "The Commemoration of the Preaching of St. Bartholomew, the Apostle"
+    "Title": "The Consecration of the Church of Sts. Sergius and Bacchus"
+  },
+  {
+    "Day": 19,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Abibus"
   },
   {
     "Day": 20,
@@ -672,7 +902,7 @@
   {
     "Day": 20,
     "Month": 3,
-    "Title": "The Consecration of the Churches of Prince Theodore, the Son of John El-Shotbe, and Prince Theodore El-Mishreke"
+    "Title": "The Consecration of the Churches of Prince Theodore El-Shotbe, and Prince Theodore El-Mishreke"
   },
   {
     "Day": 21,
@@ -682,22 +912,32 @@
   {
     "Day": 21,
     "Month": 3,
-    "Title": "The Departure of Saint Gregory, the Wonder Worker"
+    "Title": "The Departure of Saint Gregory, the Wonder Worker (Thaumaturgus)"
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "The Departure of Saint Cosma, 54th Pope of Alexandria"
+    "Title": "The Departure of Saint Cosma II, 54th Pope of Alexandria"
   },
   {
     "Day": 21,
     "Month": 3,
-    "Title": "The Commemoration of the Holy Martyrs Alphaeus, Zacchaeus, Romanus and John, and the Commemoration of the Saints Thomas, Victor, and Isaac of the City of Ashmunen"
+    "Title": "The Departure of St. John El-Tabayse in Assiut Mount"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "The Commemoration of the Holy Martyrs Alphaeus, Zacchaeus, Romanus and John, and the Commemoration of the Saints Thomas, Victor and Isaac of the City of Ashmunein"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "The Translocation of the Body of St. Yehness (John) Kama from his monastery to the Syrian Monastery"
   },
   {
     "Day": 22,
     "Month": 3,
-    "Title": "The Martyrdom of Saints Cosmas, Damian, Their Brothers and Their Mother"
+    "Title": "The Martyrdom of Saints Cosmas, Demian, Their Brothers and Their Mother"
   },
   {
     "Day": 23,
@@ -707,12 +947,22 @@
   {
     "Day": 23,
     "Month": 3,
-    "Title": "The Consecration of the Church of St. Marina"
+    "Title": "The Consecration of the Church of the Martyr, St. Marina"
   },
   {
     "Day": 24,
     "Month": 3,
-    "Title": "The Commemoration of the Twenty-Four Priests"
+    "Title": "The Commemoration of the Twenty-Four Presbyters"
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "The Martyrdom of Bishop Narcees, and St. Thecla"
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "The Departure of St. Proclus, Patriarch of Constantinople"
   },
   {
     "Day": 25,
@@ -722,17 +972,22 @@
   {
     "Day": 26,
     "Month": 3,
-    "Title": "The Commemoration of the Martyrdom of the Sts. Valerian (Balaryanos) and Tiburcius (Thiborinos), His Brother"
+    "Title": "The Martyrdom of Sts. Valerian and Tiburtius, His Brother"
   },
   {
     "Day": 26,
     "Month": 3,
-    "Title": "The Commemoration of St. Gregory, Bishop of Nyssa"
+    "Title": "The Departure of St. Gregory, Bishop of Nyssa"
   },
   {
     "Day": 27,
     "Month": 3,
-    "Title": "The Martyrdom of St. James the Mangled (Sawn)"
+    "Title": "The Martyrdom of St. James the Persian (Intercisus, Sawn-Asunder)"
+  },
+  {
+    "Day": 27,
+    "Month": 3,
+    "Title": "The Consecration of the Church of St. Victor Ebn-Romanus"
   },
   {
     "Day": 28,
@@ -742,7 +997,12 @@
   {
     "Day": 29,
     "Month": 3,
-    "Title": "The Martyrdom of St. Peter, the Seal of the Martyrs, 17th Pope of Alexandria"
+    "Title": "The commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "The Martyrdom of St. Peter, “the Seal of the Martyrs”, 17th Pope of Alexandria"
   },
   {
     "Day": 29,
@@ -750,9 +1010,9 @@
     "Title": "The Martyrdom of St. Clement, Pope of Rome"
   },
   {
-    "Day": 30,
+    "Day": 29,
     "Month": 3,
-    "Title": "The Departure of St. Acacius, Patriarch of Constantinople"
+    "Title": "The Martyrdom of St. Catherine of Alexandria"
   },
   {
     "Day": 30,
@@ -762,22 +1022,52 @@
   {
     "Day": 30,
     "Month": 3,
-    "Title": "The Consecration of the Church of Saints Cosmas, Damian, Their Brothers and Their Mother"
+    "Title": "The Martyrdom of the Monk St. John El-Qalyuby"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "The Departure of St. Acacius, Patriarch of Constantinople"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "The Consecration of the Church of Saints Cosmas, Demian, Their Brothers and Their Mother"
   },
   {
     "Day": 1,
     "Month": 4,
-    "Title": "The Departure of St. Peter Elrahawy, Bishop of Gaza"
+    "Title": "The Departure of Pope Youannes III, the 40th Patriarch of Alexandria"
   },
   {
     "Day": 1,
     "Month": 4,
-    "Title": "The Consecration of the Church of the Saint Abba Shenouda"
+    "Title": "The Departure of Pope Athanasius III, the 76th Patriarch of Alexandria"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "The Departure of St. Peter El-Rahawy, Bishop of Gaza"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "The Consecration of the Church of the Martyr Abe-Fam the Soldier, in the city of Abnub"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "The Consecration of the Church of the Saint Abba Shenouda, the Archimandrite"
   },
   {
     "Day": 2,
     "Month": 4,
-    "Title": "The Departure of the Saint Abba Hor, the Monk"
+    "Title": "The Departure of the Saint Abba Or (Abahor), the Monk"
+  },
+  {
+    "Day": 2,
+    "Month": 4,
+    "Title": "The Departure of the Saint Abba Hermina, the Anchorite"
   },
   {
     "Day": 3,
@@ -785,9 +1075,24 @@
     "Title": "The Entrance of Saint Mary into the Temple at Jerusalem"
   },
   {
+    "Day": 3,
+    "Month": 4,
+    "Title": "The Martyrdom of St. Bestavros, the New Martyr"
+  },
+  {
     "Day": 4,
     "Month": 4,
-    "Title": "The Martyrdom of St. Andrew the Apostle, the Brother of St. Peter"
+    "Title": "The Martyrdom of St. Andrew, One of the Twelve Apostles"
+  },
+  {
+    "Day": 4,
+    "Month": 4,
+    "Title": "The consecration of the Church of St. John El-Heraquly"
+  },
+  {
+    "Day": 4,
+    "Month": 4,
+    "Title": "The Translocation of the Bodies of the Two Saints Anba Bishoy and Anba Paula"
   },
   {
     "Day": 5,
@@ -797,7 +1102,7 @@
   {
     "Day": 5,
     "Month": 4,
-    "Title": "The Martyrdom of St. Victor (Boctor)"
+    "Title": "The Martyrdom of St. Victor (Boctor) of Assiut"
   },
   {
     "Day": 5,
@@ -807,47 +1112,72 @@
   {
     "Day": 6,
     "Month": 4,
-    "Title": "The Departure of St. Abraam (Abraham), Ebn-Zaraa, 62nd Pope of Alexandria"
+    "Title": "The Departure of Pope Abraam (Abraham) Ebn-Zaraa, 62nd pope of Alexandria"
   },
   {
     "Day": 6,
     "Month": 4,
-    "Title": "The Martyrdom of St. Anatolius (Anatole)"
+    "Title": "The Martyrdom of St. Patlas (Anatolius – Anatole) the presbyter"
   },
   {
     "Day": 7,
     "Month": 4,
-    "Title": "The Departure of St. Matthew the Poor"
+    "Title": "The Departure of St. Mettaos El-Fakhoury (Matthew the Poor)"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "The Martyrdom of Saints Banina and Banawa"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "The Consecration of the Church of St. Abiskhiron (of Qalin) El-kelieni"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "The Departure of St. John Bishop of Armant"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "The Martyrdom of the Distinguished Coptic Engineer Sa-eed Ebn Kateb El-Faraghany"
   },
   {
     "Day": 8,
     "Month": 4,
-    "Title": "The Departure of St. Heraclas (Theoclas), 13th Pope of Alexandria"
+    "Title": "The Martyrdom of St. Esi (Isi) and His Sister Thecla"
   },
   {
     "Day": 8,
     "Month": 4,
-    "Title": "The Martyrdom of the Saints: Barbara and Juliana"
+    "Title": "The Martyrdom of the Two Saints: Barbara and Juliana"
   },
   {
     "Day": 8,
     "Month": 4,
-    "Title": "The Martyrdom of the Saints: Esi (Isi) and His Sister Thecla"
+    "Title": "The Departure of the Saint Abba Samuel the Confessor"
   },
   {
     "Day": 8,
     "Month": 4,
-    "Title": "The Departure of St. Samuel the Abbot of El-Qualamon Monastery (Abba Samuel the Confessor)"
-  },
-  {
-    "Day": 8,
-    "Month": 4,
-    "Title": "The departure of St. Yustus, the monk of St. Anthony's monastery"
+    "Title": "The Departure of St. Heraclas (Yaraklas), 13th Pope of Alexandria"
   },
   {
     "Day": 9,
     "Month": 4,
-    "Title": "The Departure of St. Poemin, the Confessor"
+    "Title": "The Departure of St. Poemen the Confessor"
+  },
+  {
+    "Day": 10,
+    "Month": 4,
+    "Title": "The Departure of St. Nicholas, Bishop of Myra"
+  },
+  {
+    "Day": 10,
+    "Month": 4,
+    "Title": "The Martyrdom of St. Shura of Akhmeem"
   },
   {
     "Day": 10,
@@ -855,14 +1185,19 @@
     "Title": "The Relocation of the Body of St. Severus, Patriarch of Antioch"
   },
   {
-    "Day": 10,
+    "Day": 11,
     "Month": 4,
-    "Title": "The Departure of St. Nicholas, the Confessor, Bishop of Myra (Mora)"
+    "Title": "The Departure of Anba Pijimi, the Anchorite"
   },
   {
     "Day": 11,
     "Month": 4,
-    "Title": "The Departure of the Saint Abba Pijimi"
+    "Title": "The Martyrdom of St. Abtelmaos (Ptolemy), a Native of Denderah"
+  },
+  {
+    "Day": 11,
+    "Month": 4,
+    "Title": "The Commemoration of the consecration of the Church of St. Claudius (Ekladius), in the city of Bakour, district of Abu-Taig"
   },
   {
     "Day": 12,
@@ -877,42 +1212,47 @@
   {
     "Day": 12,
     "Month": 4,
-    "Title": "The Commemoration of St. John the Confessor"
+    "Title": "The Departure of St. John the Confessor"
   },
   {
     "Day": 12,
     "Month": 4,
-    "Title": "Assembly of a Council in Rome Against Benates (Novatus) the Priest"
+    "Title": "Assembly of a Council in Rome against Benates (Novatus) the Priest"
   },
   {
     "Day": 13,
     "Month": 4,
-    "Title": "The Martyrdom of St. Barsanuphius"
+    "Title": "The Commemoration of the Honorable Archangel Raphael"
   },
   {
     "Day": 13,
     "Month": 4,
-    "Title": "The Departure of St. Abracius (Apraxios)"
+    "Title": "The Martyrdom of St. Barsanuphius, the Monk"
   },
   {
     "Day": 13,
     "Month": 4,
-    "Title": "The Consecration of the Church of St. Misaeal (Misayil), the Anchorite"
+    "Title": "The Departure of Pope Mark (Marcus) VIII, 108th Pope of Alexandria"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "The Departure of St. Aprakius"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "The Departure of St. Elias (Elijah) the Anchorite"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "The Consecration of the Church of St. Misael the Anchorite"
   },
   {
     "Day": 14,
     "Month": 4,
-    "Title": "The Martyrdom of Saints Behnam and Sarah, His Sister"
-  },
-  {
-    "Day": 14,
-    "Month": 4,
-    "Title": "The Departure of Saint Christodoulos"
-  },
-  {
-    "Day": 14,
-    "Month": 4,
-    "Title": "The Martyrdom of Saints Simeon of Menouf, Abba Hor, and Abba Mina the Elder"
+    "Title": "The Martyrdom of Saint (Mari) Behnam and Sarah, His Sister"
   },
   {
     "Day": 14,
@@ -920,9 +1260,34 @@
     "Title": "The Martyrdom of Saint Ammonius, Bishop of Esna (Latopolis)"
   },
   {
+    "Day": 14,
+    "Month": 4,
+    "Title": "The Martyrdom of Saints Simeon of Menouf, Abba Or, and Abba Mina the Elder"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "The Departure of Pope Christodoulos, 66th Pope of Alexandria"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "The Departure of Saint Christodoulos, the Anchorite"
+  },
+  {
     "Day": 15,
     "Month": 4,
     "Title": "The Departure of St. Gregory, Patriarch of the Armenians"
+  },
+  {
+    "Day": 15,
+    "Month": 4,
+    "Title": "The Departure of St. Lucas, the Stylite"
+  },
+  {
+    "Day": 15,
+    "Month": 4,
+    "Title": "The Departure of the saint Anba Ezekiel, a native of Armunt"
   },
   {
     "Day": 16,
@@ -932,7 +1297,17 @@
   {
     "Day": 16,
     "Month": 4,
-    "Title": "The Martyrdom of Saints Harouadi, Ananias and Khouzi"
+    "Title": "The Martyrdom of Saints Harouadj, Ananias and Khouzi"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "The Martyrdom of Sts. Eulogius and Arsenius, Patron Sts. of El-Hadid monastery in Akhmeem"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "The Martyrdom of St. Amsah el-Quifty"
   },
   {
     "Day": 16,
@@ -942,7 +1317,12 @@
   {
     "Day": 17,
     "Month": 4,
-    "Title": "The Commemoration of the Departure of St. Luke the Stylite and the Relocation of His Holy Relics"
+    "Title": "The Commemoration of the Relocation of the Body of St. Luke the Stylite"
+  },
+  {
+    "Day": 17,
+    "Month": 4,
+    "Title": "The Departure of St. Elias, in Mount Bash-waw"
   },
   {
     "Day": 18,
@@ -952,22 +1332,32 @@
   {
     "Day": 18,
     "Month": 4,
-    "Title": "The Commemoration of St. Heracleas the Martyr and St. Philemon the Priest"
+    "Title": "The Martyrdom of St. Heracleas and St. Philemon the Priest"
   },
   {
     "Day": 19,
     "Month": 4,
-    "Title": "The Departure of St. John, Bishop of El-Borollos Who Gathered the Biographies of the Saints (The Synaxarion)"
+    "Title": "The Departure of Pope Gabriel VI, the 91st Pope of Alexandria"
+  },
+  {
+    "Day": 19,
+    "Month": 4,
+    "Title": "The Departure of Anba John, Bishop of El-Berollos, Who Gathered the Biographies of the Saints (The Synaxarium)"
   },
   {
     "Day": 20,
     "Month": 4,
-    "Title": "The Departure of the Upright Haggai the Prophet"
+    "Title": "The Departure of Haggai the Prophet"
+  },
+  {
+    "Day": 20,
+    "Month": 4,
+    "Title": "The Martyrdom of Abba Elias, Bishop of El-Kosiah"
   },
   {
     "Day": 21,
     "Month": 4,
-    "Title": "The Commemoration of the Virgin Mary, the Theotokos"
+    "Title": "The Commemoration of the Pure Virgin St. Mary, the Theotokos"
   },
   {
     "Day": 21,
@@ -977,12 +1367,17 @@
   {
     "Day": 22,
     "Month": 4,
-    "Title": "The Commemoration of the Archangel Gabriel"
+    "Title": "The Commemoration of the Honorable Archangel Gabriel, the Announcer"
   },
   {
     "Day": 22,
     "Month": 4,
-    "Title": "The Departure of St. Anastasius, 36th Pope of Alexandria"
+    "Title": "The Martyrdom of St. Pachom and Dalusham his Sister"
+  },
+  {
+    "Day": 22,
+    "Month": 4,
+    "Title": "The Departure of Pope Anastasius, the 36th Patriarch of Alexandria"
   },
   {
     "Day": 23,
@@ -997,22 +1392,17 @@
   {
     "Day": 24,
     "Month": 4,
-    "Title": "The Martyrdom of St. Ignatius, Patriarch of Antioch"
-  },
-  {
-    "Day": 24,
-    "Month": 4,
-    "Title": "The Departure of St. Philogonus, Patriarch of Antioch"
-  },
-  {
-    "Day": 24,
-    "Month": 4,
-    "Title": "The Birth of St. Takla Haymanot, the Ethiopian"
+    "Title": "The Martyrdom of St. Ignatius, Theophorus, Patriarch of Antioch"
   },
   {
     "Day": 25,
     "Month": 4,
-    "Title": "The Departure of St. John Kama (Khame)"
+    "Title": "The Departure of St. John Kama (Khame), the Priest"
+  },
+  {
+    "Day": 25,
+    "Month": 4,
+    "Title": "The Departure of St. Abshai of Mount Toud"
   },
   {
     "Day": 26,
@@ -1022,27 +1412,57 @@
   {
     "Day": 26,
     "Month": 4,
-    "Title": "The Commemoration of St. Juliana the Martyr"
+    "Title": "The Consecration of the Church of the Two Martyrs Anba Bishay and Anba Peter"
   },
   {
     "Day": 27,
     "Month": 4,
-    "Title": "The Martyrdom of St. Anba \"Bisadi\" (Psote), the Bishop"
+    "Title": "The Martyrdom of Anba \"Bisadi\" (Psote), Bishop of Psoi"
   },
   {
     "Day": 28,
     "Month": 4,
-    "Title": "The Martyrdom of 150 Men and 24 Women from Ansena"
+    "Title": "The Paramoun of the Holy Nativity Feast"
+  },
+  {
+    "Day": 28,
+    "Month": 4,
+    "Title": "The Martyrdom of 150 Men and 24 Women from the City of Ansena"
+  },
+  {
+    "Day": 28,
+    "Month": 4,
+    "Title": "The Grand Opening of the Cathedral of the Nativity of Christ"
   },
   {
     "Day": 29,
     "Month": 4,
-    "Title": "The Feast of the Nativity of Our Lord Jesus Christ (Christmas)"
+    "Title": "The Feast of the Glorified Birth of Our Lord Jesus Christ (Christmas)"
+  },
+  {
+    "Day": 29,
+    "Month": 4,
+    "Title": "The commemoration of the Martyrs of Akhmeem"
   },
   {
     "Day": 30,
     "Month": 4,
-    "Title": "The Departure of St. John, Archpriest of Scetis"
+    "Title": "The Departure of St. John (Youannis), the Hegumen of Scetis"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "The Adoration of the Wise men (Magi) for the Savior"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "The Martyrdom of the Saint the Hegumen Michael el-Tokhy"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "The Martyrdom of Zacharias the Child and His Companions in Akhmeem"
   },
   {
     "Day": 1,
@@ -1055,49 +1475,94 @@
     "Title": "The Martyrdom of St. Lawindianus (Leontius)"
   },
   {
-    "Day": 2,
+    "Day": 1,
     "Month": 5,
-    "Title": "The Departure of St. Theonas, 16th Pope of Alexandria"
+    "Title": "The Martyrdom of St. Dioscorus and his Brother Esculapius"
   },
   {
     "Day": 2,
     "Month": 5,
-    "Title": "The Martyrdom of St. Callinicus (Gallinicus), Bishop of Oseem"
+    "Title": "The Departure of Anba Theonas, 16th Pope of Alexandria"
+  },
+  {
+    "Day": 2,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Callinicus, Bishop of Oseem"
+  },
+  {
+    "Day": 2,
+    "Month": 5,
+    "Title": "The Departure of Anba Youna"
   },
   {
     "Day": 3,
     "Month": 5,
-    "Title": "The Commemoration of the Slain Children of Bethlehem by the Order of King Herod"
+    "Title": "The Martyrdom of the Children of Bethlehem"
   },
   {
     "Day": 4,
     "Month": 5,
-    "Title": "The Departure of St. John the Evangelist and Theologian"
+    "Title": "The Departure of St. John the Evangelist"
   },
   {
     "Day": 5,
     "Month": 5,
-    "Title": "Martyrdom of St.Eusegnius (Eugenius) the Soldier"
+    "Title": "The Martyrdom of St. Eusegnius (Eugenius) the Soldier"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Banikarous (Panekyris, the Persian)"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "The Departure of Pope Theodosius II, the 79th Pope of Alexandria"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "The Departure of Pope Mettaos I (Matthew), the 87th Pope of Alexandria"
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "The Commemoration of the Circumcision of the Lord Christ"
+    "Title": "The Honorable Feast of Circumcision"
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "The Ascension of Elijah the Prophet"
+    "Title": "The Commemoration of the Ascension of the Prophet Elijah alive into Heaven"
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "The Departure of St. Marcianus, 8th Pope of Alexandria"
+    "Title": "The Martyrdom of the Four Archons in Esna"
   },
   {
     "Day": 6,
     "Month": 5,
-    "Title": "The Departure of St. Basil the Great, Bishop Of Caesarea"
+    "Title": "The Departure of Pope Marcianus, 8th Patriarch of Alexandria"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "The Departure of Pope Mark III, 73rd Patriarch of Alexandria"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "The Departure of Pope Gabriel III, 77th Patriarch of Alexandria"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "The Departure of St. Basil the Great, the Archbishop of Caesarea, Cappadocia"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "The Consecration of the Church of St. Isaac of Tiphre"
   },
   {
     "Day": 7,
@@ -1117,7 +1582,7 @@
   {
     "Day": 8,
     "Month": 5,
-    "Title": "The Departure of Pope Benhamin, 38th Pope of Alexandria"
+    "Title": "The Departure of Pope Benjamin I, 38th Pope of Alexandria"
   },
   {
     "Day": 8,
@@ -1127,47 +1592,67 @@
   {
     "Day": 8,
     "Month": 5,
-    "Title": "The Consecration of the Church of St. Mercurius the Great"
+    "Title": "The Consecration of the Church of St. Macarius the Great"
   },
   {
     "Day": 9,
     "Month": 5,
-    "Title": "The Departure of Abba Abraam, Companion of Abba Gawarga"
+    "Title": "The Departure of St. Abraam, Friend of Abba Gawarga"
+  },
+  {
+    "Day": 9,
+    "Month": 5,
+    "Title": "The Departure of the Saint Abba Phees"
   },
   {
     "Day": 10,
     "Month": 5,
-    "Title": "Paramouni of Holy Theophany (Epiphany)"
+    "Title": "Paramouni of the Honorable Theophany Feast (Epiphany)"
+  },
+  {
+    "Day": 10,
+    "Month": 5,
+    "Title": "The Departure of St. Justus, Disciple of Anba Samuel the confessor"
   },
   {
     "Day": 11,
     "Month": 5,
-    "Title": "The Holy Theophany of Our Lord, God and Savior, Jesus Christ (Baptism of the Lord christ)"
+    "Title": "The Theophany Feast of Our Lord, Epiphany (Baptism of the Lord Christ)"
+  },
+  {
+    "Day": 11,
+    "Month": 5,
+    "Title": "The Departure of Pope Youannes (John) VI, 74th Patriarch of Alexandria"
+  },
+  {
+    "Day": 11,
+    "Month": 5,
+    "Title": "The Departure of Pope Benjamin II, 82nd Patriarch of Alexandria"
   },
   {
     "Day": 12,
     "Month": 5,
-    "Title": "The Commemoration of the Archangel Michael"
+    "Title": "The Second day of the feast of Holy Theophany"
   },
   {
     "Day": 12,
     "Month": 5,
-    "Title": "The Martyrdom of St. Theodore El-Mishreke (the Oriental)"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
     "Month": 5,
-    "Title": "The Martyrdom of St. Anatole (Anatolius)"
+    "Title": "The Martyrdom of St. Theodore El-Mishreke (Oriental)"
+  },
+  {
+    "Day": 12,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Anatolius"
   },
   {
     "Day": 13,
     "Month": 5,
-    "Title": "The Commemoration of the Miracle at Cana of Galilee"
-  },
-  {
-    "Day": 13,
-    "Month": 5,
-    "Title": "The Departure of St. Theophilus, the Monk"
+    "Title": "The Feast of the Wedding at Cana of Galilee"
   },
   {
     "Day": 13,
@@ -1175,14 +1660,24 @@
     "Title": "The Martyrdom of St. Demiana"
   },
   {
-    "Day": 14,
+    "Day": 13,
     "Month": 5,
-    "Title": "The Departure of St. Archiledis (Arselidas)"
+    "Title": "The Departure of St. Theophilus, the Monk"
   },
   {
     "Day": 14,
     "Month": 5,
-    "Title": "The Departure of St. Maximus, Brother of St. Domadius (Domatius)"
+    "Title": "The Departure of St. Archelides the monk"
+  },
+  {
+    "Day": 14,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Mahrati (Mohrael)"
+  },
+  {
+    "Day": 14,
+    "Month": 5,
+    "Title": "The Departure of St. Maximus, the Brother of St. Dometius"
   },
   {
     "Day": 15,
@@ -1197,17 +1692,17 @@
   {
     "Day": 16,
     "Month": 5,
-    "Title": "The Departure of St. John IV, 48th Pope of Alexandria"
+    "Title": "The Departure of Pope John IV, 48th patriarch of Alexandria"
   },
   {
     "Day": 17,
     "Month": 5,
-    "Title": "The Departure of St. Maximus and St. Domatius (Domadius)"
+    "Title": "The Departure of St. Dometius, the Brother of St. Maximus"
   },
   {
     "Day": 17,
     "Month": 5,
-    "Title": "The Departure of Anba Yusab, Bishop of Girga, known as El- Abbah"
+    "Title": "The Departure of Anba Yusab el-Abbah, Bishop of Girga"
   },
   {
     "Day": 18,
@@ -1215,9 +1710,19 @@
     "Title": "The Departure of St. James, Bishop of Nisibis"
   },
   {
+    "Day": 18,
+    "Month": 5,
+    "Title": "The commemoration of Mary and Martha, the Sisters of the Beloved Lazarus"
+  },
+  {
+    "Day": 18,
+    "Month": 5,
+    "Title": "The Departure of Anba Andrew (Andras), known as Abou El-Leef"
+  },
+  {
     "Day": 19,
     "Month": 5,
-    "Title": "The Discovery of the Relics of St. Abahor (Pihour) St. Bisoura (Pisoura) and their Mother Ampira (Asra)"
+    "Title": "The Discovery of the Relics of St. Abahour (Pihour), St. Bisoura (Pisoura) and their Mother Ampera (Asra)"
   },
   {
     "Day": 20,
@@ -1227,37 +1732,42 @@
   {
     "Day": 20,
     "Month": 5,
-    "Title": "The Commemoration of the Consecration of the Church of St. John, the Owner of the Golden Gospel, and the Transfer of His Relics to It. Also, the Commemoration of the Martyrdom of Anba Behna (Bahnou) and Anba Kloag (Bagoug), the Priest"
+    "Title": "The Martyrdom of Anba Kloag (Bagoug), the Priest"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Behna (Bahnou)"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "The Commemoration of the Consecration of the Church of St. John, the Owner of the Golden Gospel"
   },
   {
     "Day": 21,
     "Month": 5,
-    "Title": "The Dormition of Our Lady, the Virgin Mary, the Theotokos"
+    "Title": "The Departure of the Virgin St. Mary, the Mother of God"
   },
   {
     "Day": 21,
     "Month": 5,
-    "Title": "The Departure of St. Hilaria, Daughter of Emperor Zeno"
-  },
-  {
-    "Day": 21,
-    "Month": 5,
-    "Title": "The Departure of St. Gregorius (Gregory of Nyssa), Brother of St. Basil the Great"
+    "Title": "The Departure of St. Hilaria, the Daughter of Emperor Zeno"
   },
   {
     "Day": 22,
     "Month": 5,
-    "Title": "The Departure of St. Anthony the Great (Antonius)"
+    "Title": "The Departure of the Great Saint Anba Anthony (Antonius) the Father of all Monks"
   },
   {
     "Day": 23,
     "Month": 5,
-    "Title": "The Martyrdom of St. Timothy, the Apostle"
+    "Title": "The Martyrdom of St. Timothy the Apostle"
   },
   {
     "Day": 23,
     "Month": 5,
-    "Title": "The Departure of Pope Cyril IV (Kyrillos), 110th Pope of Alexandria"
+    "Title": "The Departure of Pope Cyril (Kyrillos) IV, 110th Patriarch of Alexandria"
   },
   {
     "Day": 24,
@@ -1267,22 +1777,27 @@
   {
     "Day": 24,
     "Month": 5,
-    "Title": "The Martyrdom of Anba Bisada (St. Psati), the Priest"
+    "Title": "The Martyrdom of Anba Bisada the Priest"
   },
   {
     "Day": 25,
     "Month": 5,
-    "Title": "The Departure of St. Peter, the Worshipper"
+    "Title": "The Departure of St. Peter of Scetis (the Ascetic)"
   },
   {
     "Day": 25,
     "Month": 5,
-    "Title": "The Martyrdom of St. Askala (Asela), the Ascetic"
+    "Title": "The Martyrdom of St. Askala (Asela)"
   },
   {
     "Day": 26,
     "Month": 5,
-    "Title": "The Martyrdom of the Forty-Nine Saints, the Elders of Sheheat (Scetis)"
+    "Title": "The Martyrdom of the Forty-Nine Saints, the Elders of Shiheet (Scetis)"
+  },
+  {
+    "Day": 26,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Bagoush"
   },
   {
     "Day": 26,
@@ -1292,57 +1807,77 @@
   {
     "Day": 27,
     "Month": 5,
-    "Title": "The Martyrdom of St. Sarapion"
+    "Title": "The Commemoration of the Honorable Archangel Suriel"
   },
   {
     "Day": 27,
     "Month": 5,
-    "Title": "The Commemoration of the Archangel Suriel"
+    "Title": "The Martyrdom of St. Abe-Fam the Soldier (St. Phoebammon)"
   },
   {
     "Day": 27,
     "Month": 5,
-    "Title": "The Relocation of the Relics of St. Timothy, the Apostle"
+    "Title": "The Martyrdom of St. Serapion"
   },
   {
     "Day": 27,
     "Month": 5,
-    "Title": "The Martyrdom of St. Abe-Fam, the Soldier (St. Phoebammon)"
+    "Title": "The Translocation of the Relics of St. Timothy the Apostle"
   },
   {
     "Day": 28,
     "Month": 5,
-    "Title": "The Martyrdom of St. Clement"
+    "Title": "The Martyrdom of the Saint Anba Kaou"
   },
   {
     "Day": 28,
     "Month": 5,
-    "Title": "The Martyrdom of St. Anba Kaou"
+    "Title": "The Martyrdom of St. Clement, Bishop of Angora"
+  },
+  {
+    "Day": 28,
+    "Month": 5,
+    "Title": "The Martyrdom of St. Babylas (Philyas) Bishop of Thmoui (Tamai) El-Amdid"
   },
   {
     "Day": 29,
     "Month": 5,
-    "Title": "The Departure of St. Eksani (St. Xene)"
+    "Title": "The Departure of St. Eksanie (St. Xene)"
   },
   {
     "Day": 29,
     "Month": 5,
-    "Title": "The Commemoration of St. Seriakos (Syriacus), the Fighter"
+    "Title": "The Departure of St. Seriakus (Syriacus) the Struggle-mantled"
   },
   {
     "Day": 30,
     "Month": 5,
-    "Title": "The Martyrdom of Saints Pistis, Helpis, Agape, and Their Mother, Sophia"
+    "Title": "The Martyrdom of the Virginal Saints Pistis, Helpis, Agape and their Mother Sophia"
+  },
+  {
+    "Day": 30,
+    "Month": 5,
+    "Title": "The Departure of Pope Mina I, the 47th Patriarch of Alexandria"
+  },
+  {
+    "Day": 30,
+    "Month": 5,
+    "Title": "The Departure of St. Ibrahim el-Rahawy the Hermit"
   },
   {
     "Day": 1,
     "Month": 6,
-    "Title": "The Commemoration of the Ecumenical Council in Constantinople"
+    "Title": "The Commemoration of the Second Universal Council in the city of Constantinople"
   },
   {
     "Day": 1,
     "Month": 6,
-    "Title": "The Commemoration of the Consecration of the Church of St. Peter, the Seal of Martyrs"
+    "Title": "The Martyrdom of St. Abadion Bishop of Ansena"
+  },
+  {
+    "Day": 1,
+    "Month": 6,
+    "Title": "The Consecration of the Church of St. Peter, the Seal of Martyrs in the City of Alexandria"
   },
   {
     "Day": 2,
@@ -1352,12 +1887,17 @@
   {
     "Day": 2,
     "Month": 6,
-    "Title": "The Departure of St. Longinus, Abbot of El-Zugag Monastery"
+    "Title": "The Departure of St. Longinus, Abbot of El-Zugag Monastery and his father St. Lucianus"
   },
   {
     "Day": 3,
     "Month": 6,
-    "Title": "The Departure of St. James, the Ascetic"
+    "Title": "The Departure of St. James, the Monk"
+  },
+  {
+    "Day": 3,
+    "Month": 6,
+    "Title": "The Departure of St. Hedra, of the Rock of Banhadab"
   },
   {
     "Day": 4,
@@ -1367,62 +1907,102 @@
   {
     "Day": 5,
     "Month": 6,
+    "Title": "The Commemoration of the Relocation of the Relics of the Forty-Nine Elders of the Wilderness of Shiheet"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
     "Title": "The Departure of St. Agrippinus, 10th Pope of Alexandria"
   },
   {
     "Day": 5,
     "Month": 6,
-    "Title": "The Commemoration of the Saints Anba Bishay and Anba Abanoub"
+    "Title": "The Departure of the Saints Anba Bishay the Founder of the Red Monastery"
   },
   {
     "Day": 5,
     "Month": 6,
-    "Title": "The Departure of St. Apollo, friend of Anba Abib"
+    "Title": "The Departure of St. Apollo, the Companion of Anba Abib"
   },
   {
     "Day": 5,
     "Month": 6,
-    "Title": "The Commemoration of the Relocation of the Relics of the Forty-Nine Elders of the Wilderness of Shiheet (Scetis)"
+    "Title": "The Martyrdom of St. Hippolytus, Pope of Rome"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "The Departure of St. Aba-Noub, the Owner of the Golden Fan"
   },
   {
     "Day": 6,
     "Month": 6,
-    "Title": "The Appearance of the Body of St. Apolidus (Hippolytus), Pope of Rome"
+    "Title": "The Martyrdom of Sts. Cyrus, John, the Three Virgins and Their Mother"
   },
   {
     "Day": 6,
     "Month": 6,
-    "Title": "The Martyrdom of the Saints Abakir, John, the Three Virgins and Their Mother"
+    "Title": "The Departure of Pope Mark (Marcus) IV, 84th Patriarch of Alexandria"
+  },
+  {
+    "Day": 6,
+    "Month": 6,
+    "Title": "The Departure of St. Zanofios"
   },
   {
     "Day": 7,
     "Month": 6,
-    "Title": "The Martyrdom of St. Fabianus (Fabrianus), Pope of Rome"
+    "Title": "The Departure of St. Alexandros II, 43rd Pope of Alexandria"
+  },
+  {
+    "Day": 7,
+    "Month": 6,
+    "Title": "The Departure of St. Theodorus (Theodore), 45th Pope of Alexandria"
   },
   {
     "Day": 8,
     "Month": 6,
-    "Title": "The Feast of Presenting the Lord Christ in the Temple"
+    "Title": "The Feast of Presenting the Lord Christ to the Temple"
+  },
+  {
+    "Day": 8,
+    "Month": 6,
+    "Title": "The Departure of St. Simeon the Elder"
+  },
+  {
+    "Day": 8,
+    "Month": 6,
+    "Title": "The Commemoration of the Contemporary Martyrs of the Coptic Church"
   },
   {
     "Day": 9,
     "Month": 6,
-    "Title": "The Departure of St. Severus, Patriarch of Antioch"
+    "Title": "The Departure of St. Barsauma, the Father of the Syrian Monks"
   },
   {
     "Day": 9,
     "Month": 6,
-    "Title": "The Departure of St. James (Yacobus), 50th Pope of Alexandria"
+    "Title": "The Martyrdom of St. Paul the Syrian"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "The Martyrdom of St. Simeon"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "The Departure of St. Euphrosyne of Alexandria"
   },
   {
     "Day": 10,
     "Month": 6,
-    "Title": "The Martyrdom of St. James the Apostle, Son of Alphaeus"
+    "Title": "The Martyrdom of St. Philo, Bishop of the Persians"
   },
   {
     "Day": 10,
     "Month": 6,
-    "Title": "The Martyrdom of St. Justus, Son of Emperor Numerian"
+    "Title": "The Martyrdom of St. Justus, the Son of Emperor Numerian"
   },
   {
     "Day": 10,
@@ -1430,9 +2010,9 @@
     "Title": "The Departure of St. Isidore of Pelusium"
   },
   {
-    "Day": 10,
+    "Day": 11,
     "Month": 6,
-    "Title": "The Martyrdom of St. Philo, Bishop of the Persian"
+    "Title": "The Departure of Pope Yoannis XIII (John), 94th Patriarch of Alexandria"
   },
   {
     "Day": 11,
@@ -1442,12 +2022,12 @@
   {
     "Day": 12,
     "Month": 6,
-    "Title": "The Commemoration of the Archangel Michael"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
     "Month": 6,
-    "Title": "The Departure of St. Gelasius"
+    "Title": "The Departure of St. Gelasius, the Ascetic"
   },
   {
     "Day": 13,
@@ -1457,7 +2037,7 @@
   {
     "Day": 13,
     "Month": 6,
-    "Title": "The Departure of St. Timothy III, 32nd Pope of Alexandria"
+    "Title": "The Departure of St. Timothy III, the 32nd Patriarch of Alexandria"
   },
   {
     "Day": 14,
@@ -1467,12 +2047,22 @@
   {
     "Day": 14,
     "Month": 6,
-    "Title": "The Departure of St. James (Yacobus), 50th Pope of Alexandria"
+    "Title": "The Departure of St. James (Jacob), 50th Patriarch of Alexandria"
   },
   {
     "Day": 15,
     "Month": 6,
-    "Title": "The Departure of St. Zechariah, the Prophet"
+    "Title": "The Departure of St. Paphnoute, the Monk"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "The Martyrdom of the Righteous Zechariah the Prophet the Son of Berechiah, the Son of Iddo"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "The Martyrdom of Anba Begoul (Pigol) the Priest"
   },
   {
     "Day": 15,
@@ -1480,19 +2070,29 @@
     "Title": "The Consecration of the First Church Dedicated for the Forty Martyrs of Sebaste"
   },
   {
-    "Day": 15,
+    "Day": 16,
     "Month": 6,
-    "Title": "The Departure of St. Paphnoute (Paphnotius)"
+    "Title": "The Departure of St. Elizabeth, Mother of St. John the Baptist"
   },
   {
     "Day": 16,
     "Month": 6,
-    "Title": "Departure of St. Elizabeth, the Mother of St. John the Baptist"
+    "Title": "The Departure of Pope Michael III, the 92nd Patriarch of Alexandria"
+  },
+  {
+    "Day": 16,
+    "Month": 6,
+    "Title": "The Departure of the Hegumen Michael (Mikhael) el-Behairy, el Muharraqy"
   },
   {
     "Day": 17,
     "Month": 6,
-    "Title": "The Martyrdom of St. Mina (Menas), the Monk"
+    "Title": "The Martyrdom of St. Mina the Monk"
+  },
+  {
+    "Day": 17,
+    "Month": 6,
+    "Title": "The Consecration of the Church of St. Castor of Bardanouha"
   },
   {
     "Day": 18,
@@ -1500,34 +2100,39 @@
     "Title": "The Departure of St. Malatius the Confessor, Patriarch of Antioch"
   },
   {
+    "Day": 18,
+    "Month": 6,
+    "Title": "The Consecration of the Church of St. Paul the Simple"
+  },
+  {
     "Day": 19,
     "Month": 6,
-    "Title": "The Commemoration of the Relocation of the Relics of St. Martianus, the Monk"
+    "Title": "The Commemoration of the Relocation of the Relics of St. Martianus the Monk to Antioch"
   },
   {
     "Day": 20,
     "Month": 6,
-    "Title": "The Departure of St. Peter, 21st Pope of Alexandria"
+    "Title": "The Departure of St. Peter II, 21st Patriarch of Alexandria"
   },
   {
     "Day": 20,
     "Month": 6,
-    "Title": "The Commemoration of Sts. Basil, Theodore and Timothy, the Martyrs"
+    "Title": "The Martyrdom of the Saints, Basil, Theodore and Timothy in Alexandria"
   },
   {
     "Day": 21,
     "Month": 6,
-    "Title": "The Commemoration of the Virgin St. Mary"
+    "Title": "The Commemoration of the Virgin St. Mary, the Theotokos"
   },
   {
     "Day": 21,
     "Month": 6,
-    "Title": "The Martyrdom of St. Onesimus, the Disciple of St. Paul"
+    "Title": "The Martyrdom of St. Onesimus, the Disciple of the Apostle St. Paul"
   },
   {
     "Day": 21,
     "Month": 6,
-    "Title": "The Departure of St. Gabriel, 57th Pope of Alexandria"
+    "Title": "The Departure of St. Gabriel I, 57th Patriarch of Alexandria"
   },
   {
     "Day": 21,
@@ -1537,17 +2142,17 @@
   {
     "Day": 22,
     "Month": 6,
-    "Title": "The Departure of St. Maruta (Maruthas) the Bishop"
+    "Title": "The Departure of St. Maruta (Marouta) the Bishop"
   },
   {
     "Day": 23,
     "Month": 6,
-    "Title": "The Martyrdom of St. Eusebius, Son of Basilides, the Minister"
+    "Title": "The Martyrdom of St. Eusebius, Son of Basilides the Vizier"
   },
   {
     "Day": 24,
     "Month": 6,
-    "Title": "The Departure of St. Agapetus (Agapius), the Bishop"
+    "Title": "The Departure of St. Agapetus the Bishop"
   },
   {
     "Day": 24,
@@ -1557,17 +2162,27 @@
   {
     "Day": 25,
     "Month": 6,
-    "Title": "The Martyrdom of Sts. Archippus, Philemon and Lycia the Virgin"
+    "Title": "The Martyrdom of Sts. Philemon, Apphia, and their Son Archippus"
   },
   {
     "Day": 25,
     "Month": 6,
-    "Title": "The Martyrdom of St. Quona (Kona) and St. Mina"
+    "Title": "The Martyrdom of St. Quona, in the City of Rome"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "The Martyrdom of St. Mina, in the City of Quos"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "The Departure of St. Abu-Fana in Mount Delga"
   },
   {
     "Day": 26,
     "Month": 6,
-    "Title": "The Departure of St. Hosea, the Prophet"
+    "Title": "The Departure of the Righteous Hosea, the Prophet"
   },
   {
     "Day": 26,
@@ -1575,14 +2190,24 @@
     "Title": "The Martyrdom of St. Zadok and the 128 who were with Him"
   },
   {
+    "Day": 26,
+    "Month": 6,
+    "Title": "The Martyrdom of the Two Bishops, Tyranius and Silvanus and the Priest Zinopius and Their Companions in the city of Tyre"
+  },
+  {
     "Day": 27,
     "Month": 6,
     "Title": "The Departure of St. Eustathius, Patriarch of Antioch"
   },
   {
+    "Day": 27,
+    "Month": 6,
+    "Title": "The Martyrdom of St. Perpetua and her Companions"
+  },
+  {
     "Day": 28,
     "Month": 6,
-    "Title": "The Martyrdom of St. Theodore, the Roman"
+    "Title": "The Relocation of the Relics of the Martyr St. Theodore (Tadros), the Oriental (el-Mishreke)"
   },
   {
     "Day": 29,
@@ -1597,32 +2222,42 @@
   {
     "Day": 30,
     "Month": 6,
-    "Title": "Abba Kyrillos the Sixth, the 116th Pope of Alexandria"
+    "Title": "The Departure of Pope Kyrollos VI, the 116th Pope of Alexandria"
   },
   {
     "Day": 1,
     "Month": 7,
-    "Title": "The Departure of St. Narcissus"
+    "Title": "The Martyrdom of St. Makronius and Thecla"
   },
   {
     "Day": 1,
     "Month": 7,
-    "Title": "The Martyrdom of St. Alexandrus"
+    "Title": "The Martyrdom of St. Alexandrus, the Soldier"
   },
   {
     "Day": 1,
     "Month": 7,
-    "Title": "Commemoration of Anba Marcura"
+    "Title": "The Departure of St. Narcissus, Bishop of Jerusalem"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "The Departure of Anba Marcura, the Bishop"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "The Departure of the Monk George (Guirguis) Ebn El-A’ameed known as Ebn el-Makeen"
   },
   {
     "Day": 2,
     "Month": 7,
-    "Title": "The Martyrdom of St. Macrobius (Makrawy) the Bishop"
+    "Title": "The Martyrdom of St. Macrobius (Macrawy) the Bishop"
   },
   {
     "Day": 3,
     "Month": 7,
-    "Title": "The Departure of St. Cosmas, the Fifty-Eighth Pope of Alexandria"
+    "Title": "The Departure of the Holy Father Pope Cosmas, 58th Patriarch of Alexandria"
   },
   {
     "Day": 3,
@@ -1632,12 +2267,17 @@
   {
     "Day": 3,
     "Month": 7,
+    "Title": "The Departure of St. Porphyry, Bishop of Gaza"
+  },
+  {
+    "Day": 3,
+    "Month": 7,
     "Title": "The Departure of St. Hadid the priest"
   },
   {
     "Day": 4,
     "Month": 7,
-    "Title": "Assembly of the Holy Council on the island of Bani-Omar"
+    "Title": "The Assembly of a Holy Council on the island of Bani-Omar"
   },
   {
     "Day": 4,
@@ -1647,17 +2287,12 @@
   {
     "Day": 5,
     "Month": 7,
-    "Title": "The Departure of Anba Serapamon, Archpriest of Abba Yehnis (John) monastery"
+    "Title": "The Departure of Anba Serapamon, Hegumen of Abba Yehnis (John) monastery"
   },
   {
     "Day": 5,
     "Month": 7,
-    "Title": "Commemoration of the Martyrdom of St. Eudexia (Eutychia)"
-  },
-  {
-    "Day": 5,
-    "Month": 7,
-    "Title": "The Martyrdom of St. Peter the priest"
+    "Title": "The Martyrdom of St. Eudoxia (Eutychia)"
   },
   {
     "Day": 6,
@@ -1667,7 +2302,7 @@
   {
     "Day": 6,
     "Month": 7,
-    "Title": "The Departure of St. Theodotus, the bishop"
+    "Title": "The Departure of the Bishop St. Theodotus, the Confessor."
   },
   {
     "Day": 7,
@@ -1695,39 +2330,44 @@
     "Title": "The Martyrdom of St. Arianus, the Governor of Ansena"
   },
   {
-    "Day": 9,
+    "Day": 8,
     "Month": 7,
-    "Title": "The Departure of St. Konan"
+    "Title": "The Departure of Pope Shenouda III, the 117th Pope of Alexandria"
   },
   {
     "Day": 9,
     "Month": 7,
-    "Title": "The Martyrdom of Sts. Abrianus, Amrata his wife, Eusebius, Armanius, and the Forty Martyrs. "
+    "Title": "The Departure of St. Konan, the Confessor"
+  },
+  {
+    "Day": 9,
+    "Month": 7,
+    "Title": "The Martyrdom of Sts. Andrianus, Martha his wife, Eusebius, Armanius, and Forty Martyrs"
   },
   {
     "Day": 10,
     "Month": 7,
-    "Title": "Commemoration Of the Appearance Of The Glorious Cross"
+    "Title": "Commemoration of the Appearance of the Honorable Cross"
   },
   {
     "Day": 11,
     "Month": 7,
-    "Title": "The Martyrdom Of St. Basil (Basilaos) The Bishop"
+    "Title": "The Martyrdom of St. Basil (Basilius) the Bishop"
   },
   {
     "Day": 12,
     "Month": 7,
-    "Title": "The Commemoration of the Honorable Angel Michael"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
     "Month": 7,
-    "Title": "The Commemoration of the revealing of the virginity of St. Demetrius the Twelfth Pope of Alexandria"
+    "Title": "The revealing of the virginity of St. Demetrius, 12th Pope of Alexandria"
   },
   {
     "Day": 12,
     "Month": 7,
-    "Title": "The Martyrdom of St. Malachias of Palestine"
+    "Title": "The Martyrdom of St. Malachi (Malachious) of Palestine"
   },
   {
     "Day": 12,
@@ -1735,9 +2375,19 @@
     "Title": "The Martyrdom of St. Glathinos in Damascus"
   },
   {
+    "Day": 12,
+    "Month": 7,
+    "Title": "The Departure of the Saint Hegumen Pishoy Kamel"
+  },
+  {
     "Day": 13,
     "Month": 7,
-    "Title": "The Departure of Abba Dionysius, the Fourteenth Pope of Alexandria"
+    "Title": "The Martyrdom of the Forty Martyrs of Sebaste"
+  },
+  {
+    "Day": 13,
+    "Month": 7,
+    "Title": "The Departure of Pope Dionysius, 14th Patriarch of Alexandria"
   },
   {
     "Day": 13,
@@ -1745,14 +2395,9 @@
     "Title": "The Return of the Great Sts. Anba Macarius the Great and Anba Macarius of Alexandria, from Exile"
   },
   {
-    "Day": 13,
-    "Month": 7,
-    "Title": "The Martyrdom of the Forty Martyrs of Sebastia"
-  },
-  {
     "Day": 14,
     "Month": 7,
-    "Title": "The Departure of Anba Kyrellos (Cyril) the Seventy Fifth Pope of Alexandria"
+    "Title": "The Martyrdom of the Bishops Eugenius, Agathodorus and Elpidius"
   },
   {
     "Day": 14,
@@ -1762,22 +2407,27 @@
   {
     "Day": 14,
     "Month": 7,
-    "Title": "The Martyrdom of the Sts. Eugenius, Agathodorus and Elpidius"
+    "Title": "The Departure of Anba Kyrillos (Cyril) III, 75th Patriarch of Alexandria"
   },
   {
     "Day": 15,
     "Month": 7,
-    "Title": "The Departure of St. Sarah the nun"
+    "Title": "The Departure of St. Sarah the Nun"
   },
   {
     "Day": 15,
     "Month": 7,
-    "Title": "The Martyrdom of St. Helias of Hnes"
+    "Title": "The Martyrdom of St. Helias of Ahnas"
   },
   {
     "Day": 16,
     "Month": 7,
-    "Title": "The Departure Of The Saint Anba Khail (Mikhail) The Forty Six Pope Of The See Of St. Mark"
+    "Title": "The Apparition of the Virgin St. Mary in the church of St. Demiana in Papadouplo, Shoubra, Cairo, Egypt"
+  },
+  {
+    "Day": 16,
+    "Month": 7,
+    "Title": "The Departure of Pope Khail I (Mikhael), 46th Patriarch of Alexandria"
   },
   {
     "Day": 17,
@@ -1787,7 +2437,7 @@
   {
     "Day": 17,
     "Month": 7,
-    "Title": "The Commemoration of the Sts. George the ascetic, Belasius the martyr, and Anba Joseph the bishop"
+    "Title": "The Martyrdom of St. Sidhom Bishay in Domiat"
   },
   {
     "Day": 17,
@@ -1797,52 +2447,57 @@
   {
     "Day": 17,
     "Month": 7,
-    "Title": "The Martyrdom of St. Sedhom Bishay in Domiat"
+    "Title": "The Commemoration of St. George the ascetic, St. Belasius the martyr, and Anba Joseph the bishop"
   },
   {
     "Day": 18,
     "Month": 7,
-    "Title": "The Martyrdom of St. Isidore, Friend of Sina the Soldier"
+    "Title": "The Martyrdom of St. Isidore, Friend of St. Sina the Soldier"
   },
   {
     "Day": 19,
     "Month": 7,
-    "Title": "The Martyrdom of St. Aristobulus, the apostle"
+    "Title": "The Martyrdom of St. Aristobulus, one of the 70 Apostles"
   },
   {
     "Day": 19,
     "Month": 7,
-    "Title": "The Martyrdom of the Sts. Alexander, Agabius, Alexander, Timol (Timolaos), Dionysius, Romulus, and Blesius (Valesius)"
+    "Title": "The Martyrdom of Sts. Alexander, Agabius and their companions"
   },
   {
     "Day": 20,
     "Month": 7,
-    "Title": "The Departure Of the St. Anba Khail (Mikhail) the Fifty Six Pope of the See of St. Mark"
+    "Title": "The Departure of Pope Khail III, 56th Patriarch of Alexandria"
   },
   {
     "Day": 20,
     "Month": 7,
-    "Title": "Raising of Lazarus from the dead"
+    "Title": "The Commemoration of Raising Lazarus, from the dead"
   },
   {
     "Day": 21,
     "Month": 7,
-    "Title": "Commemoration of the Theotokos and Ever-Virgin St. Mary"
+    "Title": "The Commemoration of the Theotokos, the Pure Virgin St. Mary"
   },
   {
     "Day": 21,
     "Month": 7,
-    "Title": "Commemoration of the visit of Our Lord Christ to Bethany"
+    "Title": "The visit of the Savior to Bethany and the Consultation of the chief Priests to kill Lazarus, whom the Lord raised from the dead"
   },
   {
     "Day": 21,
     "Month": 7,
-    "Title": "Consultation of the Chief Priests to put the righteous Lazarus to death, whom the Lord raised from the dead"
+    "Title": "The Martyrdom of Sts. Theodore and Timothy"
   },
   {
     "Day": 22,
     "Month": 7,
-    "Title": "The Departure of St. Kyrellos (Cyril), Bishop of Jerusalem"
+    "Title": "The Departure of St. Kyrollos (Cyril), Bishop of Jerusalem"
+  },
+  {
+    "Day": 22,
+    "Month": 7,
+    "Title": "The Departure of the Just Man Joseph of Arimathea"
   },
   {
     "Day": 22,
@@ -1857,27 +2512,27 @@
   {
     "Day": 24,
     "Month": 7,
-    "Title": "The Apparition of the Pure Lady the Virgin in the church of Zeiton"
+    "Title": "The Apparition of the Pure Virgin St. Mary on her church in Zeiton"
   },
   {
     "Day": 24,
     "Month": 7,
-    "Title": "The Departure of Anba Macarius, the Fifty-Ninth Pope of Alexandria"
+    "Title": "The Departure of Pope Macarius I, 59th Patriarch of Alexandria"
   },
   {
     "Day": 25,
     "Month": 7,
-    "Title": "The Commemoration of the Crucifixion of Our Lord Jesus Christ"
+    "Title": "The Departure of St. Prisca, One of the Seventy Apostles"
   },
   {
     "Day": 25,
     "Month": 7,
-    "Title": "The Departure of St. Macarius the Great"
+    "Title": "The Martyrdom of St. Onesiphorous, one of the Seventy Apostles"
   },
   {
     "Day": 25,
     "Month": 7,
-    "Title": "The Martyrdom of St. Domicos"
+    "Title": "The Departure of Pope Mattheos III, the One Hundredth Patriarch of Alexandria"
   },
   {
     "Day": 26,
@@ -1887,7 +2542,7 @@
   {
     "Day": 26,
     "Month": 7,
-    "Title": "The Departure of Pope Peter VI, the One Hundred and Fourth Pope of Alexandria"
+    "Title": "The Departure of Pope Peter VI, 104th Patriarch of Alexandria"
   },
   {
     "Day": 27,
@@ -1907,22 +2562,22 @@
   {
     "Day": 28,
     "Month": 7,
-    "Title": "The Departure of the righteous Emperor Constantine the Great"
+    "Title": "The Departure of Emperor Constantine the Great"
   },
   {
     "Day": 28,
     "Month": 7,
-    "Title": "The Departure of Pope Peter (Petros) VII, the One Hundred and Ninth Patriarch"
+    "Title": "The Departure of Pope Peter (Petros) VII, 109th Patriarch of Alexandria"
   },
   {
     "Day": 28,
     "Month": 7,
-    "Title": "The commemoration of Anba Sarapamon, known as \"The Veiled\" Bishop of El-Monofia. "
+    "Title": "The Departure of Anba Sarabamon, known as \"Abu Tarha\" Bishop of El-Menufia"
   },
   {
     "Day": 29,
     "Month": 7,
-    "Title": "The Commemoration of the Life giving Annunciation"
+    "Title": "The Feast of the Glorious Annunciation"
   },
   {
     "Day": 29,
@@ -1937,27 +2592,42 @@
   {
     "Day": 30,
     "Month": 7,
-    "Title": "The Commemoration of the Transfer of the Relies of St. James, known as the Mangled"
+    "Title": "The Departure of Samson, One of the Judges of Israel"
   },
   {
     "Day": 30,
     "Month": 7,
-    "Title": "The Commemoration of Samson, One of the Judges of Israel"
+    "Title": "The Commemoration of the Relocation of the Relics of St. James the Persian, known as Intercisus or Sawn-Asunder"
   },
   {
     "Day": 1,
     "Month": 8,
-    "Title": "The Martyrdom of the Holy Virgins: Agape, Eirene, and Shiona"
+    "Title": "The Departure of St. Silvanus the monk"
   },
   {
     "Day": 1,
     "Month": 8,
-    "Title": "The Martyrdom of the One Hundred and Fifty believers by the hand of king of Persia"
+    "Title": "The Departure of Aaron the priest"
+  },
+  {
+    "Day": 1,
+    "Month": 8,
+    "Title": "The Raid of the Arabs of Upper Egypt on the Wilderness of Shiheet (Scetis)"
   },
   {
     "Day": 2,
     "Month": 8,
-    "Title": "The Martyrdom of St. James the Apostle Brother of St. John the Apostle"
+    "Title": "The Martyrdom of St. Christopher"
+  },
+  {
+    "Day": 2,
+    "Month": 8,
+    "Title": "The Departure of Pope Yoannis IX, 81st Patriarch of Alexandria"
+  },
+  {
+    "Day": 3,
+    "Month": 8,
+    "Title": "The Departure of Pope Michael II, 71st Patriarch of Alexandria"
   },
   {
     "Day": 3,
@@ -1965,44 +2635,34 @@
     "Title": "The Departure of St. John, Bishop of Jerusalem"
   },
   {
-    "Day": 3,
+    "Day": 4,
     "Month": 8,
-    "Title": "The Departure of the holy father Anba Michael, the Seventy First Pope of the See of St. Mark"
+    "Title": "The Martyrdom of Sts. Victor, Decius, Eirene the Virgin and those who were with them; men, women and virgins"
   },
   {
     "Day": 4,
     "Month": 8,
-    "Title": "The Departure of Anba Isaac, the Disciple of Anba Apollo"
-  },
-  {
-    "Day": 4,
-    "Month": 8,
-    "Title": "The Departure of Pope Gabriel II, the Seventy Pope of Alexandria, who was known as Ibn Turaik"
+    "Title": "The Departure of St. Okeen"
   },
   {
     "Day": 5,
     "Month": 8,
-    "Title": "The Commemoration of the Great Prophet Ezekiel, the son of Buzi"
+    "Title": "The Martyrdom of the Prophet Ezekiel, son of Buzi"
   },
   {
     "Day": 5,
     "Month": 8,
-    "Title": "The Martyrdom of St. Hepatius, Bishop of Gangra"
+    "Title": "The Martyrdom of St. Hepatius, Bishop of Gangara"
   },
   {
     "Day": 6,
     "Month": 8,
-    "Title": "The Commemoration of the Appearance of the Lord to Thomas the Apostle after His Resurrection"
-  },
-  {
-    "Day": 6,
-    "Month": 8,
-    "Title": "The Departure of St. Mary of Egypt"
+    "Title": "The Departure of St. Mary of Egypt, the Anchorite"
   },
   {
     "Day": 7,
     "Month": 8,
-    "Title": "The Departure of the Righteous Joachim, The Lord Christ Grandfather"
+    "Title": "The Departure of the Righteous St. Joachim, the Father of the Blessed Virgin St. Mary"
   },
   {
     "Day": 7,
@@ -2012,7 +2672,7 @@
   {
     "Day": 7,
     "Month": 8,
-    "Title": "The Departure of Sts. Agapius, Theodora, and Metruf"
+    "Title": "The Martyrdom of Sts. Agapius and Theodora"
   },
   {
     "Day": 8,
@@ -2022,17 +2682,17 @@
   {
     "Day": 8,
     "Month": 8,
-    "Title": "The Martyrdom of the One Hundred and Fifty believers by the hand of king of Persia"
+    "Title": "The Martyrdom of the 150 believers by the hand of king of Persia"
   },
   {
     "Day": 9,
     "Month": 8,
-    "Title": "The Departure of St. Zosimus (Zocima)"
+    "Title": "The Departure of St. Zosima (Zosimus) the Priest"
   },
   {
     "Day": 9,
     "Month": 8,
-    "Title": "The commemoration of the Wonder that took place on the hand of Pope Sinuthius (Shenouda I) the Fifty Fifth Patriarch"
+    "Title": "The commemoration of the Sign that took place by the hands of Pope Shenouda I, 55th Patriarch of Alexandria"
   },
   {
     "Day": 10,
@@ -2042,12 +2702,12 @@
   {
     "Day": 10,
     "Month": 8,
-    "Title": "The Departure of Pope Gabriel II, the Seventy Pope of Alexandria, who was known as Ibn Turaik"
+    "Title": "The Departure of Pope Gabriel II, 70th patriarch of Alexandria, known as Ibn Turayk"
   },
   {
     "Day": 11,
     "Month": 8,
-    "Title": "The Departure of st. Theodora"
+    "Title": "The Departure of St. Theodora the Nun"
   },
   {
     "Day": 11,
@@ -2057,52 +2717,62 @@
   {
     "Day": 12,
     "Month": 8,
-    "Title": "The Departure of St. Alexander, Bishop of Jerusalem"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
     "Month": 8,
-    "Title": "The Commemoration of St. Antonios, Bishop of Tamoui"
+    "Title": "The Departure of St. Alexander, the Confessor, Bishop of Jerusalem"
+  },
+  {
+    "Day": 12,
+    "Month": 8,
+    "Title": "The Departure of St. Antonios, Bishop of Thmoui"
   },
   {
     "Day": 13,
     "Month": 8,
-    "Title": "The Martyrdom of the Sts. Joshua and Joseph"
+    "Title": "The Martyrdom of Sts. Joshua and Joseph"
   },
   {
     "Day": 13,
     "Month": 8,
-    "Title": "The Commemoration of Dionisa (Denisa) the Deaconess and Medius the Martyr"
+    "Title": "The Departure of Pope Yoannis XVII, 105th Patriarch of Alexandria"
   },
   {
     "Day": 13,
     "Month": 8,
-    "Title": "The Departure of Pope Yoannis the Seventeenth, the 15th. Patriarch of Alexandria"
+    "Title": "The Departure of St. Dionisa (Denisa) the Deaconess"
+  },
+  {
+    "Day": 13,
+    "Month": 8,
+    "Title": "The Martyrdom of St. Midius"
   },
   {
     "Day": 14,
     "Month": 8,
-    "Title": "The Departure of the Holy Father Anba Maximus The Fifteenth Pope of Alexandria"
+    "Title": "The Departure of Pope Maximus, 15th Patriarch of Alexandria"
+  },
+  {
+    "Day": 14,
+    "Month": 8,
+    "Title": "The Departure of St. Ehron the Syrian"
   },
   {
     "Day": 15,
     "Month": 8,
-    "Title": "The Commemoration of the Consecration of the first altar for St. Nicholas, Bishop of Mora for the Jacobite Christians"
+    "Title": "The Consecration of the church of St. Agabus, one of the Seventy Disciples"
   },
   {
     "Day": 15,
     "Month": 8,
-    "Title": "The Commemoration of the Consecration of the church of St. Agabus, the Apostle"
+    "Title": "The Martyrdom of St. Alexandra, the Empress"
   },
   {
     "Day": 15,
     "Month": 8,
-    "Title": "The Departure of St. Alexandra, the Empress"
-  },
-  {
-    "Day": 15,
-    "Month": 8,
-    "Title": "The Departure of Pope Mark (Marcus) VI, the 11st. Patriarch"
+    "Title": "The Departure of Pope Mark VI, 101st Patriarch of Alexandria"
   },
   {
     "Day": 16,
@@ -2110,69 +2780,79 @@
     "Title": "The Martyrdom of St. Antipas, Bishop of Pergamos"
   },
   {
+    "Day": 16,
+    "Month": 8,
+    "Title": "the Commemoration of Enoch the Just, being taken alive to Heaven"
+  },
+  {
     "Day": 17,
     "Month": 8,
-    "Title": "The Martyrdom of St. James the Apostle Brother of St. John the Apostle"
+    "Title": "The Martyrdom of St. James One of the Twelve Apostles and the Brother of St. John the Beloved"
+  },
+  {
+    "Day": 17,
+    "Month": 8,
+    "Title": "The Departure of St. Nicodemus"
   },
   {
     "Day": 18,
     "Month": 8,
-    "Title": "The Martyrdom of St. Arsenius, Slave of St. Sousnyous"
+    "Title": "The Martyrdom of St. Arsenius, the Disciple of St. Sousnyous"
+  },
+  {
+    "Day": 18,
+    "Month": 8,
+    "Title": "The Departure of St. Apollo, the disciple of St. Samuel the Confessor"
   },
   {
     "Day": 19,
     "Month": 8,
-    "Title": "The Martyrdom of St. Simeon the Armenian, Bishop of the country of Persia and 150 with him"
+    "Title": "The Martyrdom of St. Simeon the Armenian, Bishop of the country of Persia"
   },
   {
     "Day": 19,
     "Month": 8,
-    "Title": "The Martyrdom of the blessed Youhanna (John) Abu Nagaah El-Kabeer"
+    "Title": "The Martyrdom of the blessed Youhanna (John) Abu Nagaah El-Kabeer, the Vizier Abu Elaala Fahd ibn Ibrahim and their companions"
   },
   {
     "Day": 19,
     "Month": 8,
-    "Title": "The Martyrdom of the Vizier Abu Elaala Fahd ibn Ibrahim and his companions"
-  },
-  {
-    "Day": 19,
-    "Month": 8,
-    "Title": "The Martyrdom of Daoud (David), the Monk"
+    "Title": "The Martyrdom of the Monk Daoud (David) ibn Ghobrial el-Bargy"
   },
   {
     "Day": 20,
     "Month": 8,
-    "Title": "The Martyrdom of St. Babnuda (Paphnute)"
+    "Title": "The Martyrdom of St. Babnuda (Paphnute) of Dendereh"
   },
   {
     "Day": 21,
     "Month": 8,
-    "Title": "The Commemoration of the Lady the Theotokos"
+    "Title": "The Commemoration of the Virgin St. Mary, the Theotokos"
   },
   {
     "Day": 21,
     "Month": 8,
-    "Title": "The Departure of St. Hierotheos, of Athens"
+    "Title": "The Departure of St. Hierotheos, Bishop of Athens"
+  },
+  {
+    "Day": 22,
+    "Month": 8,
+    "Title": "The Departure of Pope Alexander I, 19th Patriarch of Alexandria"
+  },
+  {
+    "Day": 22,
+    "Month": 8,
+    "Title": "The Departure of Pope Mark II, 49th Patriarch of Alexandria"
+  },
+  {
+    "Day": 22,
+    "Month": 8,
+    "Title": "The Departure of Pope Khail II, 53rd Patriarch of Alexandria"
   },
   {
     "Day": 22,
     "Month": 8,
     "Title": "The Departure of St. Isaac (Ishaq), of Hourin"
-  },
-  {
-    "Day": 22,
-    "Month": 8,
-    "Title": "The Departure of St. Alexander I, 19th Pope of the See of St. Mark"
-  },
-  {
-    "Day": 22,
-    "Month": 8,
-    "Title": "The Departure of St. Mark 11, 49th Pope of the See of St. Mark"
-  },
-  {
-    "Day": 22,
-    "Month": 8,
-    "Title": "The Departure of St. Michael 11, 53rd Pope of the See of St. Mark"
   },
   {
     "Day": 23,
@@ -2182,52 +2862,47 @@
   {
     "Day": 24,
     "Month": 8,
-    "Title": "The Departure of Pope Sinuthius (Shenouda I), 55th Pope of Alexandria"
+    "Title": "The Martyrdom of St. Sina, the Soldier"
   },
   {
     "Day": 24,
     "Month": 8,
-    "Title": "The Martyrdom of St. Sina, the Soldier"
+    "Title": "The Departure of Pope Sinuthius (Shenouda I), 55th Patriarch of Alexandria"
   },
   {
     "Day": 25,
     "Month": 8,
-    "Title": "The Martyrdom of St. Sarah, and her two sons"
+    "Title": "The Martyrdom of St. Sarah and her two sons"
   },
   {
     "Day": 25,
     "Month": 8,
-    "Title": "The Commemoration of Sts. Babnuda (Paphnute) the hermit, Theodore the worshipper, and the One hundred martyrs"
+    "Title": "The Commemoration of St. Theodore the hermit and the One hundred and twenty martyrs"
   },
   {
     "Day": 26,
     "Month": 8,
-    "Title": "The Martyrdom of St. Sousenyos"
+    "Title": "The Martyrdom of St. Sousnyos"
   },
   {
     "Day": 26,
     "Month": 8,
-    "Title": "The Departure of Pope Youannis VII, 78th. Patriarch"
+    "Title": "The Departure of Pope Yoannis VII, 78th Patriarch of Alexandria"
   },
   {
     "Day": 27,
     "Month": 8,
-    "Title": "Martyrdom of St.Boctor Ebn Romanus"
+    "Title": "The Martyrdom of St. Boctor Ebn Romanus"
   },
   {
     "Day": 28,
     "Month": 8,
-    "Title": "The Departure of St. Helena, The Empress"
+    "Title": "The Martyrdom of St. Milius, the Ascetic"
   },
   {
-    "Day": 28,
+    "Day": 29,
     "Month": 8,
-    "Title": "The Departure of Pope Yoannis the Eleventh, the 89th. Patriarch of Alexandra"
-  },
-  {
-    "Day": 28,
-    "Month": 8,
-    "Title": "The Departure of St. Gabriel the Eighth, the 97th. Patriarch of Alexandria"
+    "Title": "The commemoration of the Three Major Feasts of the Lord"
   },
   {
     "Day": 29,
@@ -2242,67 +2917,72 @@
   {
     "Day": 30,
     "Month": 8,
-    "Title": "The Martyrdom of the Great Saint Mark, the Apostle The Evangelist of the Land of Egypt"
+    "Title": "The Martyrdom of the Great Saint Mark, the Apostle, the Evangelist of the Land of Egypt"
   },
   {
     "Day": 1,
     "Month": 9,
-    "Title": "The Nativity of the Blessed Virgin Mary The Mother of God"
+    "Title": "The Nativity of the Blessed Virgin Mary the Mother of God"
   },
   {
     "Day": 2,
     "Month": 9,
-    "Title": "The Departure of the righteous Job"
+    "Title": "The Departure of the Righteous Job"
   },
   {
     "Day": 2,
     "Month": 9,
-    "Title": "The Departure of St. Tadros (Theodore), the disciple of St. Pachomius"
+    "Title": "The Departure of St. Tadros (Theodore) of Tabennisis, the Disciple of St. Pachomius"
   },
   {
     "Day": 2,
     "Month": 9,
-    "Title": "The Martyrdom of St. Philothaos"
+    "Title": "The Martyrdom of St. Philotheos"
   },
   {
     "Day": 3,
     "Month": 9,
-    "Title": "The Departure of St. Jason, one of the Seventy disciples"
+    "Title": "The Departure of St. Jason, One of the Seventy Disciples"
   },
   {
     "Day": 3,
     "Month": 9,
-    "Title": "The Departure of St. Otimus, the Priest"
+    "Title": "The Martyrdom of St. Otimus, the Priest"
   },
   {
     "Day": 3,
     "Month": 9,
-    "Title": "The Departure of Pope Gabriel IV, the 86th. Patriarch of Alexandria"
+    "Title": "The Departure of Pope Gabriel IV, the 86th Patriarch of Alexandria"
   },
   {
     "Day": 4,
     "Month": 9,
-    "Title": "The Departure of St. Helena, The Empress"
+    "Title": "The Departure of Pope John I (Yoannis), the 29th Patriarch of Alexandria"
   },
   {
     "Day": 4,
     "Month": 9,
-    "Title": "The Departure of Pope Yoannis the Eleventh, the 89th. Patriarch of Alexandra"
-  },
-  {
-    "Day": 4,
-    "Month": 9,
-    "Title": "The Departure of St. Gabriel the Eighth, the 97th. Patriarch of Alexandria"
+    "Title": "The Departure of Pope Yoannis V, the 72nd Patriarch of Alexandria"
   },
   {
     "Day": 5,
     "Month": 9,
-    "Title": "The Martyrdom of St. Jeremiah the Prophet"
+    "Title": "The Martyrdom of Jeremiah the Prophet"
   },
   {
     "Day": 6,
     "Month": 9,
-    "Title": "The Martyrdom of St. Isaac El-Defrawi"
+    "Title": "The Martyrdom of St. Isaac of Tiphre (El-Defrawi)"
+  },
+  {
+    "Day": 6,
+    "Month": 9,
+    "Title": "The Martyrdom of Mother Dolagy and Her Four Children"
+  },
+  {
+    "Day": 6,
+    "Month": 9,
+    "Title": "The Martyrdom of Anba Paphnute of El-Bandarah"
   },
   {
     "Day": 6,
@@ -2312,12 +2992,17 @@
   {
     "Day": 6,
     "Month": 9,
-    "Title": "The Departure of Father Paphnute of El-Bandarah"
+    "Title": "The Arrival of the Relics of the Coptic Martyrs of Libya"
   },
   {
     "Day": 7,
     "Month": 9,
-    "Title": "The Departure of St. Athanasius the Apostolic the 20th. Pope of Alexandria"
+    "Title": "The Departure of St. Athanasius the Apostolic the 20th Pope of Alexandria"
+  },
+  {
+    "Day": 8,
+    "Month": 9,
+    "Title": "The Commemoration of the Ascension of Our Lord Jesus Christ to Heaven"
   },
   {
     "Day": 8,
@@ -2327,37 +3012,42 @@
   {
     "Day": 8,
     "Month": 9,
-    "Title": "The Departure of St. Daniel the Archpriest of Sheahat (Scetis)"
+    "Title": "The Departure of St. Daniel the Hegumen of the Wilderness of Shiheet (Scetis)"
   },
   {
     "Day": 9,
     "Month": 9,
-    "Title": "The Departure of St. Helena, The Empress"
+    "Title": "The Departure of St. Helena, the Queen"
   },
   {
     "Day": 9,
     "Month": 9,
-    "Title": "The Departure of Pope Yoannis the Eleventh, the 89th. Patriarch of Alexandra"
+    "Title": "The Departure of Pope Yoannis XI, 89th Patriarch of Alexandra"
   },
   {
     "Day": 9,
     "Month": 9,
-    "Title": "The Departure of St. Gabriel the Eighth, the 97th. Patriarch of Alexandria"
+    "Title": "The Departure of Pope Gabriel VIII, 97th Patriarch of Alexandria"
   },
   {
     "Day": 10,
     "Month": 9,
-    "Title": "The Departure of the Three Hebrew Young Men Hananiah, Azariah and Mishael"
+    "Title": "The Departure of the Three Holy Young Men Hananiah, Azariah and Mishael"
   },
   {
     "Day": 11,
     "Month": 9,
-    "Title": "The Departure Of St. Simon the Stylite"
+    "Title": "The Departure of St. Paphnotius (St. Paphnute), the Bishop"
+  },
+  {
+    "Day": 11,
+    "Month": 9,
+    "Title": "The Martyrdom of St. Theoclia, the wife of St. Justus"
   },
   {
     "Day": 12,
     "Month": 9,
-    "Title": "The Commemoration of the Consecration of the church of St. Demiana"
+    "Title": "The Commemoration of the Honorable Archangel Michael"
   },
   {
     "Day": 12,
@@ -2372,22 +3062,27 @@
   {
     "Day": 12,
     "Month": 9,
-    "Title": "The Departure of Pope Mark the Seventh, the 16th. Patriarch of Alexandria"
+    "Title": "The Departure of Pope Mark VII, 106th Patriarch of Alexandria"
   },
   {
     "Day": 12,
     "Month": 9,
-    "Title": "The Commemoration of the Martyrdom of Master (Moallem) Malati"
+    "Title": "The Martyrdom of Master (Moallem) Malati"
+  },
+  {
+    "Day": 12,
+    "Month": 9,
+    "Title": "The Commemoration of the Consecration of the church of St. Demiana"
   },
   {
     "Day": 13,
     "Month": 9,
-    "Title": "The Departure of St. Junia, One of the Seventy Disciples"
+    "Title": "The Departure of St. Arsenius, the Tutor of the Emperor's Children"
   },
   {
     "Day": 13,
     "Month": 9,
-    "Title": "The Martyrdom of St. Julian (Yulianus) and his mother in Alexandria"
+    "Title": "The Martyrdom of the Saint Abba Pigol (Begoul) the Soldier"
   },
   {
     "Day": 14,
@@ -2402,12 +3097,27 @@
   {
     "Day": 15,
     "Month": 9,
-    "Title": "The Departure Of St. Simon the Stylite"
+    "Title": "The Martyrdom of St. Simon the Zealot (Simon the Canaanite), one of the Twelve Apostles"
+  },
+  {
+    "Day": 15,
+    "Month": 9,
+    "Title": "The Martyrdom of 400 martyrs in Dandara (Denderah)"
+  },
+  {
+    "Day": 15,
+    "Month": 9,
+    "Title": "The Martyrdom of the Hermit St. Mina the Deacon"
+  },
+  {
+    "Day": 15,
+    "Month": 9,
+    "Title": "The Departure of the Priest Shams El-Ri'asah Abi El-Barakat known as Ebn Kabr"
   },
   {
     "Day": 16,
     "Month": 9,
-    "Title": "The Commemoration of St. John The Evangelist"
+    "Title": "The Consecration of the church of St. John the Evangelist in the city of Alexandria"
   },
   {
     "Day": 17,
@@ -2417,102 +3127,162 @@
   {
     "Day": 18,
     "Month": 9,
-    "Title": "The Departure of St. George (Ga'orgi), the Friend of St. Abraam"
+    "Title": "The Commemoration of the feast of Pentecost"
   },
   {
     "Day": 18,
     "Month": 9,
-    "Title": "The Commemoration of the feast of Pentecost"
+    "Title": "The Departure of St. George (Ga'orgi), the Friend of St. Abraam"
   },
   {
     "Day": 19,
     "Month": 9,
-    "Title": "The Commemoration of the Departure of Abba Isaac, the Priest of El-Qalali (Cells)"
+    "Title": "The Departure of Abba Isaac, the Priest of El-Qalali (Cells)"
   },
   {
     "Day": 19,
     "Month": 9,
-    "Title": "The Commemoration of the Martyrdom of St. Isidorus (Isidore) of Antioch"
+    "Title": "The Martyrdom of St. Isidorus (Isidore) of Antioch"
   },
   {
     "Day": 20,
     "Month": 9,
-    "Title": "The Departure Of St. Ammonius The Hermit"
+    "Title": "The Martyrdom of the Six Soldiers who accompanied Claudius Stratelates, the Martyr"
+  },
+  {
+    "Day": 20,
+    "Month": 9,
+    "Title": "The Departure of St. Ammonius the Hermit"
   },
   {
     "Day": 21,
     "Month": 9,
-    "Title": "Commemoration of the Holy and Pure Virgin Mary"
+    "Title": "The Commemoration of the Holy and Pure Virgin St. Mary"
+  },
+  {
+    "Day": 21,
+    "Month": 9,
+    "Title": "The Departure of St. Marcian (Martinianus)"
   },
   {
     "Day": 22,
     "Month": 9,
-    "Title": "The Departure of St. Andronicus One of the Seventy Disciples"
+    "Title": "The Departure of St. Andronicus, one of the Seventy Disciples"
+  },
+  {
+    "Day": 22,
+    "Month": 9,
+    "Title": "The martyrdom of 142 Young Men and 28 Women"
+  },
+  {
+    "Day": 22,
+    "Month": 9,
+    "Title": "The Departure of St. Amoun, the Founder of the Wilderness of Nitria"
   },
   {
     "Day": 23,
     "Month": 9,
-    "Title": "The Martyrdom of St. Colluthus of Antinoe (Known as Abu Colta)"
+    "Title": "The Departure of St. Junia, One of the Seventy Apostles"
   },
   {
     "Day": 23,
     "Month": 9,
-    "Title": "The Departure of the most honored Layman Ibrahim El-Gohari"
+    "Title": "The Martyrdom of St. Thecla during the passion of St. Claudius"
+  },
+  {
+    "Day": 23,
+    "Month": 9,
+    "Title": "The Departure of St. Botamoun the Confessor"
+  },
+  {
+    "Day": 23,
+    "Month": 9,
+    "Title": "The Martyrdom of St. Julian (Yulianus) and his Mother in Alexandria"
   },
   {
     "Day": 24,
     "Month": 9,
-    "Title": "The Departure Of St. Simon the Stylite"
+    "Title": "The Commemoration of the Entrance of the Lord Christ into Egypt"
+  },
+  {
+    "Day": 24,
+    "Month": 9,
+    "Title": "The Departure of Habakkuk the Prophet"
+  },
+  {
+    "Day": 24,
+    "Month": 9,
+    "Title": "The Martyrdom of the Monk St. Bashnouna El-Maqari"
   },
   {
     "Day": 25,
     "Month": 9,
-    "Title": "The Martyrdom of St. Colluthus of Antinoe (Known as Abu Colta)"
+    "Title": "The Martyrdom of St. Colluthus of Antinoe (Known as Abu Colta) the Physician"
   },
   {
     "Day": 25,
     "Month": 9,
-    "Title": "The Departure of the most honored Layman Ibrahim El-Gohari"
+    "Title": "The Departure of the Honored Archon El-Mo’alem Ibrahim El-Gohari"
   },
   {
     "Day": 26,
     "Month": 9,
-    "Title": "The Martyrdom Of St. Thomas, the Apostle"
+    "Title": "The Martyrdom of St. Thomas the Apostle"
   },
   {
     "Day": 27,
     "Month": 9,
-    "Title": "The Departure of Pope Youannis the Second, the 30th. Patriarch of the See of St. Mark"
+    "Title": "The Departure of Lazarus the Beloved of the Lord"
   },
   {
     "Day": 27,
     "Month": 9,
-    "Title": "The Departure of Lazarus the beloved of the Lord"
+    "Title": "The Departure of St. Thomas the Anchorite of Shinshif Mount"
+  },
+  {
+    "Day": 27,
+    "Month": 9,
+    "Title": "The Departure of Pope Yoannis II, the 30th Patriarch of Alexandria"
   },
   {
     "Day": 28,
     "Month": 9,
-    "Title": "The commemoration of the Relocation of the Body of St. Epiphanius"
+    "Title": "The Commemoration of the Relocation of the Body of St. Epiphanius, Bishop of Cyprus"
   },
   {
     "Day": 29,
     "Month": 9,
-    "Title": "The Departure Of St. Simon the Stylite"
+    "Title": "The Commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 9,
+    "Title": "The Departure of St. Simon the Stylite"
   },
   {
     "Day": 30,
     "Month": 9,
-    "Title": "The Departure of Pope Mikhail the First, the 68th. Patriarch of Alexandria"
+    "Title": "The Departure of St. Fournos (Fores), one of the seventy disciples"
   },
   {
     "Day": 30,
     "Month": 9,
-    "Title": "The Departure of St. Fournous, one of the seventy disciples"
+    "Title": "The Departure of Pope Michael I, the 68th Patriarch of Alexandria"
   },
   {
     "Day": 1,
     "Month": 10,
-    "Title": "The Consecration of the church of St. Leontius of Tripoli"
+    "Title": "The Departure of St. Corpus, One of the Seventy"
+  },
+  {
+    "Day": 1,
+    "Month": 10,
+    "Title": "The Martyrdom of St. Abe-Fame (Bifam) El-Tahawy the soldier"
+  },
+  {
+    "Day": 1,
+    "Month": 10,
+    "Title": "The Consecration of the church of St. Leontief of Tripoli"
   },
   {
     "Day": 1,
@@ -2522,27 +3292,17 @@
   {
     "Day": 1,
     "Month": 10,
-    "Title": "The Consecration of the church of St. Abe-Fam (Epipham) the soldier"
+    "Title": "The Martyrdom of St. Zikam"
   },
   {
     "Day": 2,
     "Month": 10,
-    "Title": "The Commemoration of the Appearance of the Bodies of St. John the Baptist and Elisha the Prophet"
+    "Title": "The Appearance of the Bodies of St. John the Baptist and Elisha the Prophet"
   },
   {
     "Day": 2,
     "Month": 10,
-    "Title": "The Departure of Pope Yoannis the Eighteenth, the 17th. Pope of Alexandria"
-  },
-  {
-    "Day": 3,
-    "Month": 10,
-    "Title": "The Construction of the first church of St. George in the cities of Birma and Beer Maa (Water Well) in the Oases"
-  },
-  {
-    "Day": 3,
-    "Month": 10,
-    "Title": "The Departure of St. Martha of Egypt"
+    "Title": "The Departure of Pope Yoannis XVIII, 107th Patriarch of Alexandria"
   },
   {
     "Day": 3,
@@ -2552,72 +3312,97 @@
   {
     "Day": 3,
     "Month": 10,
-    "Title": "The Departure of Pope Cosmas, the 44th Patriarch"
+    "Title": "The Departure of St. Abraam, Bishop of El Fayyom"
   },
   {
     "Day": 3,
     "Month": 10,
-    "Title": "The Departure of St. Abraam, bishop of El-Fayyoum"
+    "Title": "The Departure of the Ascetic St. Martha of Egypt"
   },
   {
     "Day": 4,
     "Month": 10,
-    "Title": "The Martyrdom of St. Shenousi (Sanusi)"
+    "Title": "The Martyrdom of St. Shinosy (Sanusi)"
   },
   {
     "Day": 4,
     "Month": 10,
-    "Title": "The Martyrdom of Saint Anba Amoun and the Righteous Sophia"
+    "Title": "The Martyrdom of John of Heraclia"
   },
   {
     "Day": 4,
     "Month": 10,
-    "Title": "The Martyrdom of John of Herakleia"
+    "Title": "The Martyrdom of the Saints Anba Amoun and the Righteous Sophia"
   },
   {
     "Day": 4,
     "Month": 10,
-    "Title": "The Departure of St. Aba-Hour"
+    "Title": "The Departure of St. Abba Or"
   },
   {
     "Day": 4,
     "Month": 10,
-    "Title": "The Departure of Pope Yoannis the Eighth (80th Patriarch)"
+    "Title": "The Departure of Pope Yoannis VIII, 80th Patriarch of Alexandria"
   },
   {
     "Day": 5,
     "Month": 10,
-    "Title": "The Departure of St. James of the East"
+    "Title": "The Departure of St. James the Oriental, the Confessor"
   },
   {
     "Day": 5,
     "Month": 10,
-    "Title": "The Martyrdom of Sts. Anba Bshay (Ebsoy) and Anba Botros (Peter)"
+    "Title": "The Martyrdom of St Bifam"
   },
   {
     "Day": 5,
     "Month": 10,
-    "Title": "The Commemoration of the Consecration of the church of St. Boctor (Victor) in the region of Sho"
+    "Title": "The Martyrdom of Sts. Anba Bishay (Ebsoy) and Anba Botros (Peter)"
+  },
+  {
+    "Day": 5,
+    "Month": 10,
+    "Title": "The Consecration of the church of St. Boctor (Victor) in the region of Sho"
   },
   {
     "Day": 6,
     "Month": 10,
-    "Title": "The Departure of Pope Yoannis the Nineteenth, 113th Patriarch of Alexandria"
+    "Title": "The Martyrdom of St. Theodore, the Monk"
   },
   {
     "Day": 6,
     "Month": 10,
-    "Title": "The Martyrdom of Sts. Apakir, John, Ptolemy and Philip"
+    "Title": "The Martyrdom of the Four Archons in Esna"
+  },
+  {
+    "Day": 6,
+    "Month": 10,
+    "Title": "The Departure of St. Didymus the Blind"
   },
   {
     "Day": 7,
     "Month": 10,
-    "Title": "The Martyrdom of St. Abaskhiroun the Soldier. "
+    "Title": "The Martyrdom of St. Abaskhiroun of Qalin, the Soldier"
+  },
+  {
+    "Day": 7,
+    "Month": 10,
+    "Title": "The Departure of St. Moises of Akhmim Mount"
+  },
+  {
+    "Day": 7,
+    "Month": 10,
+    "Title": "The Consecration of the church of St. Matthew (Mettaos) el-Fakhory in Esna Mount"
   },
   {
     "Day": 8,
     "Month": 10,
-    "Title": "The Commemoration of the Consecration of the Church of the Virgin Lady known as El-Mahammah"
+    "Title": "The Commemoration of the Consecration of the Church of the Virgin Lady known as El-Mahamma"
+  },
+  {
+    "Day": 8,
+    "Month": 10,
+    "Title": "The Martyrdom of St. George (Girgis), the new martyr"
   },
   {
     "Day": 8,
@@ -2625,39 +3410,44 @@
     "Title": "The Commemoration of St. Tamada and her children, and Armenius and his mother"
   },
   {
-    "Day": 8,
+    "Day": 9,
     "Month": 10,
-    "Title": "The Martyrdom of George (Girgis) the new martyr"
+    "Title": "The Departure of Samuel the Prophet"
   },
   {
     "Day": 9,
     "Month": 10,
-    "Title": "The Martyrdom of St. Claudius"
+    "Title": "The Martyrdom of St. Lucilianus and four others with him"
   },
   {
     "Day": 9,
     "Month": 10,
-    "Title": "The Commemoration of the Consecration of the Altar of the Forty Martyrs in Alexandria"
+    "Title": "The Martyrdom of Sts. Abamoun and Serna"
+  },
+  {
+    "Day": 9,
+    "Month": 10,
+    "Title": "The Relocation of the Relics of St. Mercurius Abu Safain to Cairo"
   },
   {
     "Day": 10,
     "Month": 10,
-    "Title": "The Martyrdom of St. Dabamon"
+    "Title": "The Martyrdom of the Priest St. Maxy el-Shinrawy"
   },
   {
     "Day": 10,
     "Month": 10,
-    "Title": "The Commemoration of the Closing of the Pagan Temples and Opening of the Churches"
+    "Title": "The Martyrdom of St. Dabamon, her Sister Epistemon and their Mother Sophia"
   },
   {
     "Day": 10,
     "Month": 10,
-    "Title": "The Departure of St. Yoannis the 16th, the 13rd Pope of Alexandria"
+    "Title": "The Commemoration of Opening the Churches"
   },
   {
     "Day": 10,
     "Month": 10,
-    "Title": "The Enthronement of Pope Demitrius the Second, the 111th Patriarch of Alexandria"
+    "Title": "The Departure of Pope Yoannis XVI, 103rd Patriarch of Alexandria"
   },
   {
     "Day": 11,
@@ -2677,17 +3467,22 @@
   {
     "Day": 12,
     "Month": 10,
-    "Title": "The Departure of St. Justus, the Sixth Pope of the See of St. Mark"
-  },
-  {
-    "Day": 12,
-    "Month": 10,
-    "Title": "The Departure of St. Kyrillos the Second, the 67th Pope of Alexandria"
-  },
-  {
-    "Day": 12,
-    "Month": 10,
     "Title": "The Departure of St. Euphemia"
+  },
+  {
+    "Day": 12,
+    "Month": 10,
+    "Title": "The Departure of St. Justus, 6th Patriarch of Alexandria"
+  },
+  {
+    "Day": 12,
+    "Month": 10,
+    "Title": "The Departure of Pope Kyrillos II, 67th Patriarch of the See of St. Mark"
+  },
+  {
+    "Day": 13,
+    "Month": 10,
+    "Title": "The Commemoration of the Archangel Gabriel, the Announcer"
   },
   {
     "Day": 13,
@@ -2695,69 +3490,54 @@
     "Title": "The Departure of St. John, Bishop of Jerusalem"
   },
   {
-    "Day": 13,
-    "Month": 10,
-    "Title": "The Commemoration of the Archangel Gabriel, the Announcer of Daniel the Prophet"
-  },
-  {
-    "Day": 14,
-    "Month": 10,
-    "Title": "The Departure of Pope Yoannis the Nineteenth, 113th Patriarch of Alexandria"
-  },
-  {
     "Day": 14,
     "Month": 10,
     "Title": "The Martyrdom of Sts. Apakir, John, Ptolemy and Philip"
   },
   {
-    "Day": 15,
+    "Day": 14,
     "Month": 10,
-    "Title": "The Turning Over of the Relics of the Great St. Mark the Apostle by the hand of Pope Paul the Sixth, Pope of Rome"
+    "Title": "The Departure of Pope John (Yoannis) XIX, 113th Patriarch of the See of St. Mark"
   },
   {
     "Day": 15,
     "Month": 10,
-    "Title": "The Consecration of the Church of Mari Mina at Maryut"
+    "Title": "The Consecration of the Church of Mari Mina, the Wonder worker, at Mariut"
+  },
+  {
+    "Day": 15,
+    "Month": 10,
+    "Title": "Receiving the Relics of St. Mark"
   },
   {
     "Day": 16,
     "Month": 10,
-    "Title": "The Departure of St. Abba Nofer the Anchorite"
+    "Title": "The Departure of Abba Nofer the Anchorite"
   },
   {
     "Day": 17,
     "Month": 10,
-    "Title": "The Return of the Relics of the Great St. Mark to the New St. Mark Cathedral"
+    "Title": "The Departure of St. Latsoun el-Behnesawy"
   },
   {
     "Day": 17,
     "Month": 10,
-    "Title": "The Departure of St. Latsoun El-Bahnasawy"
+    "Title": "The Return of the Relics of St. Mark to the New St. Mark Cathedral"
   },
   {
     "Day": 18,
     "Month": 10,
-    "Title": "The Inauguration of the New St. Mark Cathedral in the Monastery of Anba Rowais"
+    "Title": "The Departure of Pope Demianos, 35th Patriarch of Alexandria"
   },
   {
     "Day": 18,
     "Month": 10,
-    "Title": "The Departure of St. Damianos, 35th Pope of Alexandria"
+    "Title": "The Inauguration of the New St. Mark Cathedral in the Monastery of Anba Roweis in Cairo"
   },
   {
     "Day": 19,
     "Month": 10,
-    "Title": "The First Pontifical Liturgy in the New St. Mark Cathedral in the Monastery of Anba Rowais"
-  },
-  {
-    "Day": 19,
-    "Month": 10,
-    "Title": "The Departure of Pope Archelaus, the Eighteenth Pope of Alexandria"
-  },
-  {
-    "Day": 19,
-    "Month": 10,
-    "Title": "The Martyrdom of St. George (Girgis) known as El-Mezahem"
+    "Title": "The Martyrdom of St. George (Girgis) known as el-Mozahim (the Zahimian)"
   },
   {
     "Day": 19,
@@ -2765,14 +3545,34 @@
     "Title": "The Martyrdom of St. Bishai Anoub"
   },
   {
+    "Day": 19,
+    "Month": 10,
+    "Title": "The Departure of Pope Archillas (Archilaous), 18th Patriarch of Alexandria"
+  },
+  {
+    "Day": 19,
+    "Month": 10,
+    "Title": "The First Pontifical Liturgy in the New St. Mark Cathedral in the Monastery of Anba Roweis and placing the relics of St. Mark in the Shrine prepared for him under the altar of the Cathedral"
+  },
+  {
     "Day": 20,
     "Month": 10,
     "Title": "The Departure of Elisha, the Prophet"
   },
   {
+    "Day": 20,
+    "Month": 10,
+    "Title": "The Consecration of the church of Abba Klog, the Priest"
+  },
+  {
     "Day": 21,
     "Month": 10,
-    "Title": "The Commemoration of the First Church for The Virgin Mary in the city of Philippi"
+    "Title": "The Commemoration of the First Church Built for the Virgin Mary in the city of Philippi"
+  },
+  {
+    "Day": 21,
+    "Month": 10,
+    "Title": "The Commemoration of the Miracle of Melting the Iron in the city of Bartus by the Prayers of the Virgin St. Mary"
   },
   {
     "Day": 21,
@@ -2782,42 +3582,42 @@
   {
     "Day": 21,
     "Month": 10,
-    "Title": "The Departure of St. Cedron (Kardonos), the Fourth Patriarch of Alexandria"
+    "Title": "The Departure of St. Kedron, 4th Patriarch of Alexandria"
   },
   {
     "Day": 22,
     "Month": 10,
-    "Title": "The Consecration of the Church of Sts. Cosmas, Damian, Their Mother, and Brothers"
+    "Title": "The Consecration of the Church of Sts. Cosmas, Demian, Their Brothers and Mother"
   },
   {
     "Day": 23,
     "Month": 10,
-    "Title": "The Departure of St. Abba Noub the Confessor"
+    "Title": "The Departure of the Saint Abba Noub the Confessor"
   },
   {
     "Day": 24,
     "Month": 10,
-    "Title": "Martyrdom of the Great Saint Anba Moses the Black"
+    "Title": "The Martyrdom of the Mighty Saint Abba Moses the Ethiopian"
+  },
+  {
+    "Day": 24,
+    "Month": 10,
+    "Title": "The Departure of St. Isidore, the Priest of Scetis"
   },
   {
     "Day": 25,
     "Month": 10,
-    "Title": "The Martyrdom of St. Jude, one of the Seventy Disciples"
-  },
-  {
-    "Day": 25,
-    "Month": 10,
-    "Title": "The Departure of St. Peter the Fourth, 34th Pope of Alexandria"
-  },
-  {
-    "Day": 26,
-    "Month": 10,
-    "Title": "The Departure of the Great Prophet Joshua Son of Nun"
+    "Title": "The Departure of Pope Peter IV, 34th Patriarch of Alexandria"
   },
   {
     "Day": 26,
     "Month": 10,
     "Title": "The Consecration of the Church of Archangel Gabriel"
+  },
+  {
+    "Day": 26,
+    "Month": 10,
+    "Title": "The Commemoration of the Miracle of the Sign \"The Sun Standing Still\" Through The Prayers of Joshua Son of Nun"
   },
   {
     "Day": 27,
@@ -2830,19 +3630,29 @@
     "Title": "The Martyrdom of St. Thomas of Shentalet"
   },
   {
-    "Day": 28,
+    "Day": 27,
     "Month": 10,
-    "Title": "The Departure of St. Theodosius, 33rd Pope of Alexandria"
+    "Title": "The Departure of St. John Ebn el-Abah"
   },
   {
     "Day": 28,
     "Month": 10,
-    "Title": "The Commemoration of the Consecration of the Church of Anba Sarabamoun, Bishop of Nikios"
+    "Title": "The Departure of Pope Theodosius, 33rd Patriarch of Alexandria"
+  },
+  {
+    "Day": 28,
+    "Month": 10,
+    "Title": "The Commemoration of the Consecration of the Church of Anba Sarabamon, Bishop of Nikios"
   },
   {
     "Day": 29,
     "Month": 10,
-    "Title": "The Martyrdom of the Seven Ascetic Saints in Tounar Mount"
+    "Title": "The Commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 10,
+    "Title": "The Martyrdom of the Seven Ascetics in Tounah Mount"
   },
   {
     "Day": 29,
@@ -2855,24 +3665,34 @@
     "Title": "The Nativity of St. John, the Baptist"
   },
   {
-    "Day": 1,
-    "Month": 11,
-    "Title": "The Martyrdom of Saint Febronia the Ascetic"
+    "Day": 30,
+    "Month": 10,
+    "Title": "The Departure of Pope Cosmas I, 44th Patriarch of the See of St. Mark"
   },
   {
     "Day": 1,
     "Month": 11,
-    "Title": "The Departure of Saints Bioukha and Tayaban (Banayen) the priests"
+    "Title": "The Martyrdom of Saint Febronia, the Ascetic"
+  },
+  {
+    "Day": 1,
+    "Month": 11,
+    "Title": "The Departure of Sts Bioukha and Tayaban the priests"
+  },
+  {
+    "Day": 1,
+    "Month": 11,
+    "Title": "The Consecration of the church of the Martyr Mari Mina in Mount Abnoub"
   },
   {
     "Day": 2,
     "Month": 11,
-    "Title": "The Departure of St. Thaddaeus, the Apostle"
+    "Title": "The Departure of St. Jude, the Apostle (Lebbaeus whose surname was Thaddaeus)"
   },
   {
     "Day": 3,
     "Month": 11,
-    "Title": "The Departure of St. Kyrillos (Cyril) the First, the Twenty- Fourth Pope of Alexandria"
+    "Title": "The Departure of St. Cyril (Kyrillos) I, 24th Pope of Alexandria"
   },
   {
     "Day": 3,
@@ -2882,7 +3702,7 @@
   {
     "Day": 4,
     "Month": 11,
-    "Title": "The Commemoration of the Relocation of the Relics of Sts. Apakir and John"
+    "Title": "The Commemoration of the Relocation of the Relics of the Two Martyrs Apakir and John"
   },
   {
     "Day": 5,
@@ -2890,9 +3710,14 @@
     "Title": "The Martyrdom of Sts. Peter and Paul, the Apostles"
   },
   {
+    "Day": 5,
+    "Month": 11,
+    "Title": "The Martyrdom of St. Marcus, governor of el-Borolus and Father of St. Demiana"
+  },
+  {
     "Day": 6,
     "Month": 11,
-    "Title": "The Martyrdom of St. Aoulimpas, the Apostle"
+    "Title": "The Martyrdom of St. Aoulimpas, One of the Seventy Disciples"
   },
   {
     "Day": 6,
@@ -2905,14 +3730,9 @@
     "Title": "The Departure of St. Shenouda (Shenoute), the Archimandrite"
   },
   {
-    "Day": 7,
-    "Month": 11,
-    "Title": "The Martyrdom of St Ignatius, Bishop of Antioch, in Rome"
-  },
-  {
     "Day": 8,
     "Month": 11,
-    "Title": "The Departure of St. Anba Bishoy"
+    "Title": "The Departure of St. Anba Pishoy"
   },
   {
     "Day": 8,
@@ -2932,17 +3752,22 @@
   {
     "Day": 8,
     "Month": 11,
-    "Title": "The Departure of Cyrus (Karas), brother of Emperor Theodosius"
+    "Title": "The Departure of St. Cyrus (Karas), the Anchorite"
+  },
+  {
+    "Day": 8,
+    "Month": 11,
+    "Title": "The Departure of St. Marcus (Mark) el-Antony"
   },
   {
     "Day": 9,
     "Month": 11,
-    "Title": "The Martyrdom of St. Simon Cleophas, the Apostle"
+    "Title": "The Martyrdom of St. Simon son of Clopas, the Apostle and Bishop of Jerusalem"
   },
   {
     "Day": 9,
     "Month": 11,
-    "Title": "The Departure of St. Cladianus (Celadion), the Ninth Pope of the See of St. Mark"
+    "Title": "The Departure of Pope Cladianus (Celadion), 9th Patriarch of Alexandria"
   },
   {
     "Day": 10,
@@ -2955,11 +3780,6 @@
     "Title": "The Martyrdom of St. Theodore, Bishop of Corinth, and his companions"
   },
   {
-    "Day": 10,
-    "Month": 11,
-    "Title": "The Departure of Anba Gabriel VII, 95th Pope of Alexandria"
-  },
-  {
     "Day": 11,
     "Month": 11,
     "Title": "The Martyrdom of Sts. John and Simon, his cousin"
@@ -2967,7 +3787,7 @@
   {
     "Day": 11,
     "Month": 11,
-    "Title": "The Departure of St. Isaiah, the hermit"
+    "Title": "The Departure of St. Isaiah of Scetis"
   },
   {
     "Day": 12,
@@ -2980,6 +3800,11 @@
     "Title": "The Martyrdom of St. Abba Hour El-Siriakousy"
   },
   {
+    "Day": 12,
+    "Month": 11,
+    "Title": "The Departure of Anba Sisoes (Shishoy) the Great"
+  },
+  {
     "Day": 13,
     "Month": 11,
     "Title": "The Departure of St. Pisentius, Bishop of Qift"
@@ -2987,32 +3812,32 @@
   {
     "Day": 13,
     "Month": 11,
-    "Title": "The Martyrdom of St. Apamon of Toukh"
+    "Title": "The Martyrdom of St. Apamon (Ammon) of Toukh"
   },
   {
     "Day": 13,
     "Month": 11,
-    "Title": "The Martyrdom of St. Abba Shenoute, during the Early Arab Rule. "
+    "Title": "The Martyrdom of St. Shenoute, during the Early Arab Rule"
   },
   {
     "Day": 14,
     "Month": 11,
-    "Title": "The Martyrdom of St. Procopius (Proconius) of Jerusalem"
+    "Title": "The Martyrdom of St. Proconius (Procopius) of Jerusalem"
   },
   {
     "Day": 14,
     "Month": 11,
-    "Title": "The Departure of St. Peter the Fifth, 83rd Patriarch of Alexandria"
+    "Title": "The Departure of Pope Peter V, 83rd Patriarch of Alexandria"
   },
   {
     "Day": 15,
     "Month": 11,
-    "Title": "The Departure of St. Ephraem El-Soriani (The Syrian)"
+    "Title": "The Departure of St. Ephrem the Syrian"
   },
   {
     "Day": 15,
     "Month": 11,
-    "Title": "The Martyrdom of St. Cyriacus and St. Julietta His Mother"
+    "Title": "The Martyrdom of St. Cyriacus and St. Julitta, his Mother"
   },
   {
     "Day": 15,
@@ -3022,12 +3847,17 @@
   {
     "Day": 16,
     "Month": 11,
-    "Title": "The Departure of St. John, of the Golden Gospel"
+    "Title": "The Departure of St. John, the Owner of the Golden Gospel"
   },
   {
     "Day": 16,
     "Month": 11,
-    "Title": "The Recovery of the Holy Relics of St. George, the Great Martyr"
+    "Title": "The Relocation of the Relics of St. George, the Great Martyr to his Church in Old Cairo"
+  },
+  {
+    "Day": 16,
+    "Month": 11,
+    "Title": "The Consecration of the church of St. Philotheos"
   },
   {
     "Day": 17,
@@ -3035,24 +3865,34 @@
     "Title": "The Martyrdom of St. Euphemia"
   },
   {
+    "Day": 17,
+    "Month": 11,
+    "Title": "The Martyrdom of the Two Saints Thecla and Martha who were from Esna.3"
+  },
+  {
     "Day": 18,
     "Month": 11,
-    "Title": "The Martyrdom of St. James the Apostle, Bishop of Jerusalem"
+    "Title": "The Martyrdom of St. James the Apostle, the Brother of the Lord, Bishop of Jerusalem"
   },
   {
     "Day": 19,
     "Month": 11,
-    "Title": "The Martyrdom of Sts. Bidaba, Bishop of Qift, Anba Andrew, and Anba Christodoulas"
+    "Title": "The Martyrdom of Sts. Bidaba, Bishop of Qift, Anba Andrew, and Anba Christodolos"
   },
   {
     "Day": 19,
     "Month": 11,
-    "Title": "The Martyrdom of St. Pantaleemon, the Physician"
+    "Title": "The Martyrdom of the Martyrs of the Massacre of Esna"
   },
   {
     "Day": 19,
     "Month": 11,
-    "Title": "The Departure of Pope Youanis X, 85th Patriarch of Alexandria"
+    "Title": "The Martyrdom of St. Pantaleemon the Physician"
+  },
+  {
+    "Day": 19,
+    "Month": 11,
+    "Title": "The Departure of Pope Yoannis X, 85th Patriarch of Alexandria"
   },
   {
     "Day": 20,
@@ -3062,22 +3902,22 @@
   {
     "Day": 21,
     "Month": 11,
-    "Title": "The Commemoration of the Lady, the Virgin Mary"
+    "Title": "The Commemoration of the Lady, the Virgin St. Mary"
   },
   {
     "Day": 21,
     "Month": 11,
-    "Title": "The Departure of St. Sisinnios (Sosenius), the Eunich"
+    "Title": "The Departure of St. Sisinnios (Sosenius), the Eunuch"
   },
   {
     "Day": 22,
     "Month": 11,
-    "Title": "The Commemoration of the Martyrdom of St. Macarius, the Son of Basilides (Wasilides) the Minister"
+    "Title": "The Martyrdom of St. Macarius, the Son of Basilides (Wasilides) the Minister"
   },
   {
     "Day": 22,
     "Month": 11,
-    "Title": "The Commemoration of the Martyrdom of St. Leontius of Tripoli (Lawendius)"
+    "Title": "The Martyrdom of St. Leontius of Tripoli (Lawendius)"
   },
   {
     "Day": 23,
@@ -3092,22 +3932,22 @@
   {
     "Day": 24,
     "Month": 11,
-    "Title": "The Martyrdom of St. Apanoub"
+    "Title": "The Martyrdom of St. Apa-Noub of Nahisah"
   },
   {
     "Day": 24,
     "Month": 11,
-    "Title": "The Departure of St. Simeon the First, 42nd Pope of Alexandria"
+    "Title": "The Departure of Pope Simeon I, 42nd Patriarch of Alexandria"
   },
   {
     "Day": 25,
     "Month": 11,
-    "Title": "The Departure of St. Thecla"
+    "Title": "The Consecration of the Church of St. Mercurius Abu-Safain"
   },
   {
     "Day": 25,
     "Month": 11,
-    "Title": "The Martyrdom of the Saint Abba Isaac"
+    "Title": "The Martyrdom of St. Isaac"
   },
   {
     "Day": 25,
@@ -3132,37 +3972,32 @@
   {
     "Day": 25,
     "Month": 11,
-    "Title": "The Martyrdom of St. Domadius El-Souriani (The Syrian)"
+    "Title": "The Martyrdom of St. Dometius El-Souriany (The Syrian)"
   },
   {
     "Day": 25,
     "Month": 11,
-    "Title": "The Consecration of the Church of St. Mercurius"
-  },
-  {
-    "Day": 25,
-    "Month": 11,
-    "Title": "The Departure of St. Palamon, the Father of the Monks"
+    "Title": "The Departure of St. Palamon"
   },
   {
     "Day": 26,
     "Month": 11,
-    "Title": "Repose of St. Joseph the Carpenter"
+    "Title": "The Departure of the Upright St. Joseph, the Carpenter"
   },
   {
     "Day": 26,
     "Month": 11,
-    "Title": "Repose of Timothy I, Pope of Alexandria"
-  },
-  {
-    "Day": 27,
-    "Month": 11,
-    "Title": "The Consecration of the Church of St. Abba Fam"
+    "Title": "The Departure of St. Timothy, 22nd Pope of Alexandria"
   },
   {
     "Day": 27,
     "Month": 11,
     "Title": "The Martyrdom of St. Apamon (Abba Amoun)"
+  },
+  {
+    "Day": 27,
+    "Month": 11,
+    "Title": "The Consecration of the Church of St. Abba Fam (Bifam), the Soldier of Oseem"
   },
   {
     "Day": 28,
@@ -3172,7 +4007,12 @@
   {
     "Day": 29,
     "Month": 11,
-    "Title": "The Commemoration of the Translocation of the Relics of St. Andrew, the Apostle"
+    "Title": "The Commemoration of the Three Major Feasts of the Lord"
+  },
+  {
+    "Day": 29,
+    "Month": 11,
+    "Title": "The Commemoration of the Relocation of the Relics of St. Andrew, the Apostle"
   },
   {
     "Day": 29,
@@ -3192,7 +4032,7 @@
   {
     "Day": 1,
     "Month": 12,
-    "Title": "The Departure of St. Kyrillos V (Cyril), 112th Pope of Alexandria"
+    "Title": "The Departure of Pope Kyrillos V (Cyril), 112th Patriarch of Alexandria"
   },
   {
     "Day": 2,
@@ -3202,27 +4042,27 @@
   {
     "Day": 3,
     "Month": 12,
-    "Title": "The Relocation of the Body of St. Simon (Simeon) the Stylite to the city of Antioch"
+    "Title": "The Relocation of the Body of St. Simon (Simeon) the Stylite to the city of Constantinople"
   },
   {
     "Day": 3,
     "Month": 12,
-    "Title": "The Departure of Pope Abriamus (Primus), Fifth Patriarch of Alexandria"
+    "Title": "The Departure of Pope Ebrimus (Primus), Fifth Patriarch of Alexandria"
   },
   {
     "Day": 4,
     "Month": 12,
-    "Title": "Departure of Hezekiah the King"
+    "Title": "The Departure of Hezekiah, the Righteous King"
   },
   {
     "Day": 4,
     "Month": 12,
-    "Title": "Consecration of the Church of the Great St. Anthony"
+    "Title": "The Consecration of the Church of the Great St. Anthony (Antonius)"
   },
   {
     "Day": 5,
     "Month": 12,
-    "Title": "The Departure of St. John the Soldier"
+    "Title": "The Martyrdom of St. John the Soldier"
   },
   {
     "Day": 6,
@@ -3230,39 +4070,49 @@
     "Title": "The Martyrdom of St. Julietta"
   },
   {
-    "Day": 7,
+    "Day": 6,
     "Month": 12,
-    "Title": "The Annunciation of St. Joachim with the Birth of the Virgin Mary"
+    "Title": "The Departure of St. Jacob al-Baradai"
+  },
+  {
+    "Day": 6,
+    "Month": 12,
+    "Title": "The Departure of Abba Besa, the Disciple of St. Shenouda the Archimandrite"
   },
   {
     "Day": 7,
     "Month": 12,
-    "Title": "The Departure of St. Timothy II (Timotheos), 26th Pope of Alexandria"
+    "Title": "The Annunciation of the Angel to St. Joachim with the Birth of the Virgin St. Mary"
+  },
+  {
+    "Day": 7,
+    "Month": 12,
+    "Title": "The Departure of Pope Timothy II, 26th Patriarch of Alexandria"
+  },
+  {
+    "Day": 7,
+    "Month": 12,
+    "Title": "The Departure of St. Pisentius the Hermit in the Todd Mount"
   },
   {
     "Day": 8,
     "Month": 12,
-    "Title": "The Martyrdom of the Sts. Lazarus, Salomi, His Wife, and Their Children"
-  },
-  {
-    "Day": 8,
-    "Month": 12,
-    "Title": "The Confession of St. Peter, the Apostle, that Christ is the Son of the Living God"
+    "Title": "The Martyrdom of Sts. Eleazar, Salome, His Wife, and Their Children"
   },
   {
     "Day": 9,
     "Month": 12,
-    "Title": "Martyrdom of St.Ari, the Priest of Shatanouf"
+    "Title": "The Martyrdom of St. Ari, the Priest of Shatanof"
+  },
+  {
+    "Day": 10,
+    "Month": 12,
+    "Title": "The Martyrdom of St. Pihebs (Bekhibs)"
   },
   {
     "Day": 10,
     "Month": 12,
     "Title": "The Martyrdom of St. Matra"
-  },
-  {
-    "Day": 10,
-    "Month": 12,
-    "Title": "The Martyrdom of St. Pigebs (Bekhebs)"
   },
   {
     "Day": 11,
@@ -3277,7 +4127,7 @@
   {
     "Day": 12,
     "Month": 12,
-    "Title": "The Reign of the Righteous Emperor Constantine, the Great"
+    "Title": "The commemoration of the Reign of Emperor Constantine, in Rome"
   },
   {
     "Day": 13,
@@ -3287,22 +4137,27 @@
   {
     "Day": 14,
     "Month": 12,
-    "Title": "The Commemoration of the Great Sign, the Lord had Manifested During the Papacy of St. Theophilus"
+    "Title": "The Commemoration of the Great Sign, the Lord had Manifested During the Papacy of Pope Theophilus"
   },
   {
     "Day": 15,
     "Month": 12,
-    "Title": "The Commemoration of the Departure of St. Mary Known as Marina, the Ascetic"
+    "Title": "The Departure of St. Mary Known as Marina, the Ascetic"
+  },
+  {
+    "Day": 15,
+    "Month": 12,
+    "Title": "The Departure of the Saintly Archdeacon Habib Girgis"
   },
   {
     "Day": 16,
     "Month": 12,
-    "Title": "The Assumption of the Body of the Pure Virgin St. Mary"
+    "Title": "The Revealing of the Assumption of the Body of the Pure Virgin St. Mary to Heaven"
   },
   {
     "Day": 16,
     "Month": 12,
-    "Title": "The Departure of St. Mattias IV (Mattheos), 12nd Patriarch of Alexandria"
+    "Title": "The Departure of Pope Matthew IV (Mattheos), 102nd Patriarch of Alexandria"
   },
   {
     "Day": 17,
@@ -3322,7 +4177,7 @@
   {
     "Day": 19,
     "Month": 12,
-    "Title": "The Translocation of the Body of St. Macarius to His Monastery in Scetis"
+    "Title": "The Return of the Body of St. Macarius the Great to His Monastery in Scetis"
   },
   {
     "Day": 20,
@@ -3332,7 +4187,7 @@
   {
     "Day": 21,
     "Month": 12,
-    "Title": "The Commemoration of the Virgin, the Mother of God"
+    "Title": "The Commemoration of the Virgin St. Mary, the Mother of God"
   },
   {
     "Day": 21,
@@ -3347,7 +4202,7 @@
   {
     "Day": 22,
     "Month": 12,
-    "Title": "The Martyrdom of St. Hadid"
+    "Title": "The Departure of St. Augustine"
   },
   {
     "Day": 23,
@@ -3357,17 +4212,17 @@
   {
     "Day": 23,
     "Month": 12,
-    "Title": "The Martyrdom of St. Damian in Antioch"
-  },
-  {
-    "Day": 24,
-    "Month": 12,
-    "Title": "The Departure of St. Takla Haymanot, the Ethiopian"
+    "Title": "The Martyrdom of St. Demian in Antioch"
   },
   {
     "Day": 24,
     "Month": 12,
     "Title": "The Departure of St. Thomas, Bishop of Mar'ash (Syria)"
+  },
+  {
+    "Day": 24,
+    "Month": 12,
+    "Title": "The Departure of St. Takla Haymanot, the Ethiopian"
   },
   {
     "Day": 25,
@@ -3377,7 +4232,7 @@
   {
     "Day": 25,
     "Month": 12,
-    "Title": "The Departure of St. Macarius III, 114th Pope of Alexandria"
+    "Title": "The Departure of Pope Macarius III, 114th Patriarch of Alexandria"
   },
   {
     "Day": 26,
@@ -3392,7 +4247,7 @@
   {
     "Day": 27,
     "Month": 12,
-    "Title": "The Martyrdom of Sts. Benjamin and his Sister Eudexia"
+    "Title": "The Martyrdom of Sts. Benjamin and his Sister Eudoxia"
   },
   {
     "Day": 27,
@@ -3402,32 +4257,27 @@
   {
     "Day": 28,
     "Month": 12,
-    "Title": "Our father Abraham"
-  },
-  {
-    "Day": 28,
-    "Month": 12,
-    "Title": "Our father Isaac"
-  },
-  {
-    "Day": 28,
-    "Month": 12,
-    "Title": "The father of the Tribes Jacob"
+    "Title": "The Commemoration of the Patriarchs: Abraham, Isaac, and Jacob"
   },
   {
     "Day": 29,
     "Month": 12,
-    "Title": "The Martyrdom of Sts. Athanasius, the Bishop, Gerasimus (Jarasimus), and Theodotus"
+    "Title": "The Commemoration of the Three Major Feasts of the Lord"
   },
   {
     "Day": 29,
     "Month": 12,
-    "Title": "The Arrival of the Holy Relic of St. John, the Short, to the Wilderness of Scetis"
+    "Title": "The Martyrdom of Sts. Athanasius, the Bishop and his two Servants"
+  },
+  {
+    "Day": 29,
+    "Month": 12,
+    "Title": "The Arrival of the Relic of St. John, the Short, to the Wilderness of Scetis"
   },
   {
     "Day": 30,
     "Month": 12,
-    "Title": "The Departure of St. Malachi, the Prophet"
+    "Title": "The Departure of Malachi, the Prophet"
   },
   {
     "Day": 1,
@@ -3447,22 +4297,17 @@
   {
     "Day": 3,
     "Month": 13,
-    "Title": "The Commemoration of the Angel Raphael, the Archangel"
+    "Title": "The commemoration of the Archangel Raphael"
   },
   {
     "Day": 3,
     "Month": 13,
-    "Title": "The Martyrdom of St. Andrianus"
+    "Title": "The Martyrdom of Sts. Andrianus, and his companions"
   },
   {
     "Day": 3,
     "Month": 13,
-    "Title": "The Departure of St. Yoannis XIV, 96th Pope of Alexandria"
-  },
-  {
-    "Day": 4,
-    "Month": 13,
-    "Title": "The Departure of St. Leparius, Bishop of Rome"
+    "Title": "The Departure of Pope Yoannis XIV, 96th Patriarch of Alexandria"
   },
   {
     "Day": 4,
@@ -3472,17 +4317,12 @@
   {
     "Day": 5,
     "Month": 13,
-    "Title": "The Departure of St. James, Bishop of Misre"
-  },
-  {
-    "Day": 5,
-    "Month": 13,
     "Title": "The Departure of the Righteous Amos, the Prophet"
   },
   {
     "Day": 5,
     "Month": 13,
-    "Title": "The Departure of St. Barsoma, the \"Naked\""
+    "Title": "The Departure of St. James, Bishop of Misr"
   },
   {
     "Day": 5,
@@ -3490,33 +4330,13 @@
     "Title": "The Departure of St. Yoannis XV, 99th Pope of Alexandria"
   },
   {
+    "Day": 5,
+    "Month": 13,
+    "Title": "The Departure of St. Barsoum, the \"Naked\""
+  },
+  {
     "Day": 6,
     "Month": 13,
-    "Title": "A Thanksgiving To God"
-  },
-  {
-    "Day": 3,
-    "Month": 4,
-    "Title": "The Martyrdom of St. Bestavros, the New Martyr"
-  },
-  {
-    "Day": 7,
-    "Month": 4,
-    "Title": "The Martyrdom of Saints Banina and Banawa"
-  },
-  {
-    "Day": 7,
-    "Month": 4,
-    "Title": "The Consecration of the Church of St. Abiskhiron (of Qalin) El-kelieni"
-  },
-  {
-    "Day": 7,
-    "Month": 4,
-    "Title": "The Departure of St. John Bishop of Armant"
-  },
-  {
-    "Day": 7,
-    "Month": 4,
-    "Title": "The Martyrdom of the Distinguished Coptic Engineer Sa-eed Ebn Kateb El-Faraghany"
+    "Title": "A Thanksgiving to God"
   }
 ]

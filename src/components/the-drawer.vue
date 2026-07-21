@@ -21,7 +21,7 @@ const items = computed(() => {
     const m: { title: string, name: string, icon: string }[] = [
         { title: 'home', name: 'home', icon: 'mdi-book-open-page-variant' },
     ]
-    if (readings.languageCode == 'fr' || readings.languageCode == 'en' || readings.languageCode == 'ar' || readings.languageCode == 'it')
+    if (readings.languageCode == 'fr' || readings.languageCode == 'en' || readings.languageCode == 'ar' || readings.languageCode == 'it' || readings.languageCode == 'nl')
         m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
 
     m.push({ title: 'contact.contact', name: 'contact', icon: 'mdi-chat' })
