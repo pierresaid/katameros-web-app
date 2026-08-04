@@ -36,6 +36,7 @@ function setDate(inc: number) {
 
 <template>
     <div class="text-center date">
+        <h1 class="d-sr-only">{{ $t('seo.homeHeading') }}</h1>
         <CopticCrossOutline style="width : 120px; height: 120px;" :animate="readings.preloading" />
         <div class="g-date" style="width: 100%;">
             <ClientOnly>

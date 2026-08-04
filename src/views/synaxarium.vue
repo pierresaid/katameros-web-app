@@ -2,7 +2,8 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="text-h4 mb-4">{{ $t('synaxarium.title') }}</h1>
+        <h1 class="text-h4 mb-2">{{ $t('synaxarium.title') }}</h1>
+        <p class="text-body-2 text-medium-emphasis mb-4">{{ $t('seo.synaxariumDescription') }}</p>
 
         <v-text-field
           v-model="synaxStore.searchQuery"
@@ -18,7 +19,7 @@
         <v-virtual-scroll
           v-if="!isLoadingReadings"
           :items="synaxStore.filteredEntries"
-          height="calc(100vh - 250px)"
+          height="calc(100vh - 300px)"
           item-height="80"
         >
           <template v-slot:default="{ item, index }">
@@ -39,7 +40,7 @@
           </template>
         </v-virtual-scroll>
 
-        <div v-if="isLoadingReadings" class="d-flex align-center justify-center" style="height: calc(100vh - 250px);">
+        <div v-if="isLoadingReadings" class="d-flex align-center justify-center" style="height: calc(100vh - 300px);">
           <v-progress-circular
             indeterminate
             color="primary"
@@ -58,6 +59,7 @@
 <script setup lang="ts">
 import { useSynaxarium } from '@/store/synaxarium';
 import { useSeo } from '@/composables/useSeo';
+import { SYNAX_LANGS } from '@/consts/supportedLangs';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import type { SynaxEntry } from '@/types/synaxarium';
 import type { SubSection } from '@/types/readings';
@@ -67,7 +69,11 @@ import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
 import { nextTick, ref } from 'vue';
 
-useSeo('synaxarium.title');
+useSeo({
+  titleKey: 'synaxarium.title',
+  descriptionKey: 'seo.synaxariumDescription',
+  langs: SYNAX_LANGS,
+});
 
 const synaxStore = useSynaxarium();
 const readings = useReadings();

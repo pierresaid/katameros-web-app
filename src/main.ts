@@ -7,7 +7,7 @@ import { createVuetifyInstance } from './plugins/vuetify'
 import { createI18nInstance } from './plugins/i18n'
 import './plugins/vee-validate'
 import { setLocale as setVeeValidateLocale } from '@vee-validate/i18n'
-import { isSupportedLang, DEFAULT_LANG, SUPPORTED_LANGS, type SupportedLang } from './consts/supportedLangs'
+import { isSupportedLang, DEFAULT_LANG, SUPPORTED_LANGS, SYNAX_LANGS, type SupportedLang } from './consts/supportedLangs'
 
 if (import.meta.env.SSR) {
   class NoopObserver {
@@ -64,8 +64,6 @@ export const createApp = ViteSSG(
   },
 )
 
-const SYNAX_LANGS = new Set<SupportedLang>(['fr', 'en', 'ar', 'it'])
-
 export async function includedRoutes(_paths: string[], _routes: any[]) {
   return [
     '/',
@@ -73,7 +71,7 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
       `/${lang}`,
       `/${lang}/about`,
       `/${lang}/contact`,
-      ...(SYNAX_LANGS.has(lang) ? [`/${lang}/synaxarium`] : []),
+      ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium`] : []),
     ]),
   ]
 }

@@ -58,6 +58,10 @@
     "about": "O nas",
     "seo": {
         "brand": "Katameros - Lekcjonarz koptyjski",
-        "tagline": "Lekcjonarz koptyjski. Czytania kościelne na wszystkie dni tygodnia i święta."
+        "tagline": "Lekcjonarz koptyjski. Czytania kościelne na wszystkie dni tygodnia i święta.",
+        "homeHeading": "Lekcjonarz koptyjski – codzienne czytania kościelne",
+        "synaxariumDescription": "Synaksarion Koptyjskiego Kościoła Ortodoksyjnego: żywoty świętych i męczenników na każdy dzień kalendarza koptyjskiego.",
+        "aboutDescription": "O Katameros: bezpłatna aplikacja koptyjskiego lekcjonarza — codzienne czytania w 9 językach, w przeglądarce i na telefonie.",
+        "contactDescription": "Skontaktuj się z zespołem Katameros: pytania, sugestie lub poprawki dotyczące aplikacji lekcjonarza."
     }
 }

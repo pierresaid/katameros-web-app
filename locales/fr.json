@@ -58,6 +58,10 @@
     "about": "À propos",
     "seo": {
         "brand": "Katameros - Lectionnaire copte",
-        "tagline": "Le lectionnaire copte. Lectures de l'Église pour tous les jours et fêtes."
+        "tagline": "Le lectionnaire copte. Lectures de l'Église pour tous les jours et fêtes.",
+        "homeHeading": "Lectionnaire copte – lectures quotidiennes de l'Église",
+        "synaxariumDescription": "Le synaxaire de l'Église copte orthodoxe : la vie des saints et des martyrs pour chaque jour du calendrier copte.",
+        "aboutDescription": "À propos de Katameros : l'application gratuite du lectionnaire copte orthodoxe — lectures quotidiennes en 9 langues, sur le web et sur mobile.",
+        "contactDescription": "Contactez l'équipe de Katameros : questions, suggestions ou corrections concernant l'application du lectionnaire copte."
     }
 }

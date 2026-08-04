@@ -58,6 +58,10 @@
     "about": "Über",
     "seo": {
         "brand": "Katameros - Koptisches Lektionar",
-        "tagline": "Das koptische Lektionar. Kirchliche Lesungen für alle Wochentage und Festtage."
+        "tagline": "Das koptische Lektionar. Kirchliche Lesungen für alle Wochentage und Festtage.",
+        "homeHeading": "Koptisches Lektionar – tägliche kirchliche Lesungen",
+        "synaxariumDescription": "Das Synaxarium der koptisch-orthodoxen Kirche: das Leben der Heiligen und Märtyrer für jeden Tag des koptischen Kalenders.",
+        "aboutDescription": "Über Katameros: die kostenlose App für das koptisch-orthodoxe Lektionar — tägliche Lesungen in 9 Sprachen, im Web und auf dem Smartphone.",
+        "contactDescription": "Kontaktieren Sie das Katameros-Team: Fragen, Vorschläge oder Korrekturen zur Lektionar-App."
     }
 }

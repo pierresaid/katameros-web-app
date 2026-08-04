@@ -2,7 +2,7 @@
 import CopticCrossOutlineAnimated from '../components/coptic-cross-outline-animated.vue';
 import { useSeo } from '@/composables/useSeo';
 
-useSeo('about');
+useSeo('about', 'seo.aboutDescription');
 </script>
 
 

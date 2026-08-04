@@ -7,7 +7,7 @@ import { http } from '../services/http';
 import { track } from '@/helpers/track';
 import { useSeo } from '@/composables/useSeo';
 
-useSeo('contact.contact');
+useSeo('contact.contact', 'seo.contactDescription');
 
 const name = ref('');
 const email = ref('');

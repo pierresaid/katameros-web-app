@@ -15,8 +15,10 @@ if (!existsSync(distDir)) {
     mkdirSync(distDir, { recursive: true })
 }
 
+// Trailing slash everywhere: Netlify serves the prerendered pages as
+// directories and 301s the slash-less form.
 function urlFor(lang, route) {
-    return `${SITE_URL}/${lang}${route === '' ? '/' : route}`
+    return `${SITE_URL}/${lang}${route}/`
 }
 
 function entryFor(lang, route, langsForRoute) {

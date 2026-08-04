@@ -58,6 +58,10 @@
     "about": "Informazioni",
     "seo": {
         "brand": "Katameros - Lezionario copto",
-        "tagline": "Il lezionario copto. Letture della Chiesa per tutti i giorni feriali e festivi."
+        "tagline": "Il lezionario copto. Letture della Chiesa per tutti i giorni feriali e festivi.",
+        "homeHeading": "Lezionario copto – letture quotidiane della Chiesa",
+        "synaxariumDescription": "Il sinassario della Chiesa copta ortodossa: le vite dei santi e dei martiri per ogni giorno del calendario copto.",
+        "aboutDescription": "Informazioni su Katameros: l'app gratuita del lezionario copto ortodosso — letture quotidiane in 9 lingue, sul web e su mobile.",
+        "contactDescription": "Contatta il team di Katameros: domande, suggerimenti o correzioni sull'app del lezionario copto."
     }
 }

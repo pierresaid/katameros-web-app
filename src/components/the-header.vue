@@ -22,8 +22,10 @@ const lang = useCurrentLang();
                 :aria-label="$t('aria.toggleNav')" />
         </template>
         <v-app-bar-title style="display: flex; margin-left: 0px;">
-            <router-link :to="{ name: 'home', params: { lang } }">
-                <h1 class="coptic kt">Katameroc</h1>
+            <router-link :to="{ name: 'home', params: { lang } }" aria-label="Katameros">
+                <!-- Not a heading: "Katameroc" is Latin text drawn with a Coptic
+                     font, and search engines were surfacing it as a page title. -->
+                <span class="coptic kt" aria-hidden="true">Katameroc</span>
             </router-link>
         </v-app-bar-title>
 

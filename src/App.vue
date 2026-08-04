@@ -110,6 +110,7 @@ onMounted(() => {
 }
 
 .kt {
+  display: inline-block;
   font-size: 1.4em;
   font-weight: bold;
   height: 44px;
