@@ -69,6 +69,7 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
     '/',
     ...SUPPORTED_LANGS.flatMap(lang => [
       `/${lang}`,
+      `/${lang}/feasts`,
       `/${lang}/about`,
       `/${lang}/contact`,
       ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium`] : []),

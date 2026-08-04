@@ -34,6 +34,7 @@ Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacito
 
 - **`src/store/readings.ts`:** Main store - manages date, language, Bible version, sections, caching via LocalForage. Fetches from `/readings/gregorian/{date}` API endpoint. Supports dual-language display (side-by-side or line-by-line).
 - **`src/store/synaxarium.ts`:** Loads synaxarium entries from static JSON files in `assets/`
+- **`src/store/feasts.ts`:** Fetches feast dates from `/feasts/{year}/{languageId}`, cached per year+language in a dedicated LocalForage instance. Consumed by the date-picker markers/Feasts tab and the feasts view via `src/composables/useFeastList.ts`
 - **`src/store/menu.ts`:** UI state (drawer, zoom, spacing settings)
 - **`src/store/notif.ts`:** Notification state
 
@@ -42,6 +43,7 @@ Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacito
 Routes defined in `src/router/index.ts`:
 - `/` → `src/views/index.vue` (main readings page)
 - `/synaxarium` → `src/views/synaxarium.vue`
+- `/feasts` → `src/views/feasts.vue`
 - `/about` → `src/views/about.vue`
 - `/contact` → `src/views/contact.vue`
 

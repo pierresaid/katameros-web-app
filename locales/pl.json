@@ -10,7 +10,9 @@
         "subSectionMenu": "Menu podsekcji",
         "toggleNav": "Przełącz nawigację",
         "zoomIn": "Powiększ",
-        "zoomOut": "Pomniejsz"
+        "zoomOut": "Pomniejsz",
+        "prevYear": "Poprzedni rok",
+        "nextYear": "Następny rok"
     },
     "zoom": "Powiększenie",
     "bible": "Biblia",
@@ -50,6 +52,11 @@
         "of": "z",
         "noResults": "Nie znaleziono wyników"
     },
+    "feasts": {
+        "title": "Święta",
+        "next": "Następne święto",
+        "empty": "Nie udało się wczytać świąt."
+    },
     "secondLanguage": "Drugi język",
     "displayMode": "Tryb wyświetlania",
     "lineByLine": "Linia po linii",
@@ -62,6 +69,7 @@
         "homeHeading": "Lekcjonarz koptyjski – codzienne czytania kościelne",
         "synaxariumDescription": "Synaksarion Koptyjskiego Kościoła Ortodoksyjnego: żywoty świętych i męczenników na każdy dzień kalendarza koptyjskiego.",
         "aboutDescription": "O Katameros: bezpłatna aplikacja koptyjskiego lekcjonarza — codzienne czytania w 9 językach, w przeglądarce i na telefonie.",
-        "contactDescription": "Skontaktuj się z zespołem Katameros: pytania, sugestie lub poprawki dotyczące aplikacji lekcjonarza."
+        "contactDescription": "Skontaktuj się z zespołem Katameros: pytania, sugestie lub poprawki dotyczące aplikacji lekcjonarza.",
+        "feastsDescription": "Święta Koptyjskiego Kościoła Ortodoksyjnego: daty i czytania na Nayrouz, Boże Narodzenie, Teofanię, Wielkanoc i inne."
     }
 }

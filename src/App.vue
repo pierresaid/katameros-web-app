@@ -88,6 +88,14 @@ onMounted(() => {
 <style>
 :root {
   --primary-color: #FFC107;
+  /* Muted terracotta accent shared by the feast markers, lists and page */
+  --feast-accent: #a65b52;
+  --feast-accent-soft: rgba(166, 91, 82, 0.09);
+}
+
+.v-theme--dark {
+  --feast-accent: #c98b82;
+  --feast-accent-soft: rgba(201, 139, 130, 0.14);
 }
 
 @font-face {

@@ -27,7 +27,9 @@
         "subSectionMenu": "Unterabschnittsmenü",
         "settings": "Einstellungen",
         "zoomIn": "Vergrößern",
-        "zoomOut": "Verkleinern"
+        "zoomOut": "Verkleinern",
+        "prevYear": "Vorheriges Jahr",
+        "nextYear": "Nächstes Jahr"
     },
     "error": {
         "loadingReadings": "Fehler beim Laden der Lesungen"
@@ -50,6 +52,11 @@
         "of": "von",
         "noResults": "Keine Ergebnisse gefunden"
     },
+    "feasts": {
+        "title": "Feste",
+        "next": "Nächstes Fest",
+        "empty": "Die Feste konnten nicht geladen werden."
+    },
     "secondLanguage": "Zweite Sprache",
     "displayMode": "Anzeigemodus",
     "lineByLine": "Zeile für Zeile",
@@ -62,6 +69,7 @@
         "homeHeading": "Koptisches Lektionar – tägliche kirchliche Lesungen",
         "synaxariumDescription": "Das Synaxarium der koptisch-orthodoxen Kirche: das Leben der Heiligen und Märtyrer für jeden Tag des koptischen Kalenders.",
         "aboutDescription": "Über Katameros: die kostenlose App für das koptisch-orthodoxe Lektionar — tägliche Lesungen in 9 Sprachen, im Web und auf dem Smartphone.",
-        "contactDescription": "Kontaktieren Sie das Katameros-Team: Fragen, Vorschläge oder Korrekturen zur Lektionar-App."
+        "contactDescription": "Kontaktieren Sie das Katameros-Team: Fragen, Vorschläge oder Korrekturen zur Lektionar-App.",
+        "feastsDescription": "Die Feste der koptisch-orthodoxen Kirche: Termine und Lesungen zu Nayrouz, Weihnachten, Theophanie, Ostern und mehr."
     }
 }

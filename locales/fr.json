@@ -27,7 +27,9 @@
         "subSectionMenu": "Sous-sections",
         "settings": "Paramètres",
         "zoomIn": "Zoomer",
-        "zoomOut": "Dézoomer"
+        "zoomOut": "Dézoomer",
+        "prevYear": "Année précédente",
+        "nextYear": "Année suivante"
     },
     "error": {
         "loadingReadings": "Erreur lors du chargement des lectures"
@@ -50,6 +52,11 @@
         "of": "de",
         "noResults": "Aucun résultat trouvé"
     },
+    "feasts": {
+        "title": "Fêtes",
+        "next": "Prochaine fête",
+        "empty": "Impossible de charger les fêtes."
+    },
     "secondLanguage": "Deuxième langue",
     "displayMode": "Mode d'affichage",
     "lineByLine": "Ligne par ligne",
@@ -62,6 +69,7 @@
         "homeHeading": "Lectionnaire copte – lectures quotidiennes de l'Église",
         "synaxariumDescription": "Le synaxaire de l'Église copte orthodoxe : la vie des saints et des martyrs pour chaque jour du calendrier copte.",
         "aboutDescription": "À propos de Katameros : l'application gratuite du lectionnaire copte orthodoxe — lectures quotidiennes en 9 langues, sur le web et sur mobile.",
-        "contactDescription": "Contactez l'équipe de Katameros : questions, suggestions ou corrections concernant l'application du lectionnaire copte."
+        "contactDescription": "Contactez l'équipe de Katameros : questions, suggestions ou corrections concernant l'application du lectionnaire copte.",
+        "feastsDescription": "Les fêtes de l'Église copte orthodoxe : dates et lectures du Nayrouz, de la Nativité, de la Théophanie, de Pâques et plus."
     }
 }
