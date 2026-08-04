@@ -7,7 +7,7 @@ export const RTL_LANGS: Set<SupportedLang> = new Set(['ar'])
 
 // Languages that have synaxarium data (static JSON in assets/).
 // Keep in sync with SYNAX_LANGS in scripts/generate-sitemap.mjs.
-export const SYNAX_LANGS: readonly SupportedLang[] = ['fr', 'en', 'ar', 'it']
+export const SYNAX_LANGS: readonly SupportedLang[] = ['fr', 'en', 'ar', 'it', 'nl']
 
 export const LANG_PATTERN = `(${SUPPORTED_LANGS.join('|')})`
 

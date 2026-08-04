@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 const SITE_URL = 'https://katameros.app'
 const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl', 'th']
 const DEFAULT_LANG = 'fr'
-const SYNAX_LANGS = new Set(['fr', 'en', 'ar', 'it'])
+const SYNAX_LANGS = new Set(['fr', 'en', 'ar', 'it', 'nl'])
 const ROUTES = ['', '/about', '/contact', '/synaxarium']
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
