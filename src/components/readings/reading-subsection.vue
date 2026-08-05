@@ -100,7 +100,7 @@ const verseFontSize = computed(() => {
 
 .reading {
     margin-top: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 /* Bilingual side-by-side layout */

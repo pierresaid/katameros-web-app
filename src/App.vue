@@ -86,14 +86,13 @@ onMounted(() => {
 </template>
 
 <style>
-/* Body font shortlist (swap the family in .v-application below + this root size):
-   - "Source Sans 3"              -> html 106.25%  (saved option: liked)
-   - "Atkinson Hyperlegible Next" -> html 100%     (active)
+/* Body font shortlist:
+   - "Atkinson Hyperlegible Next" (active). Sized up via size-adjust: 106% on
+     its @font-face blocks: the glyphs render larger everywhere (verses, titles,
+     UI) while every CSS font-size and the other faces stay untouched.
+     The borrowed zero face compensates at 112% (1.06 digit match x 1.06 bump).
+   - "Source Sans 3" (saved option: liked)
    - Serifs tried and not picked: Literata, Source Serif 4, Gentium Book Plus */
-html {
-  font-size: 100%;
-}
-
 :root {
   --primary-color: #FFC107;
   /* Warm neutral (taupe) for the feast markers, lists and page,
@@ -174,6 +173,7 @@ html {
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
+  size-adjust: 108%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -183,6 +183,7 @@ html {
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
+  size-adjust: 108%;
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -192,6 +193,7 @@ html {
   font-weight: 200 800;
   font-style: italic;
   font-display: swap;
+  size-adjust: 108%;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -201,6 +203,7 @@ html {
   font-weight: 200 800;
   font-style: italic;
   font-display: swap;
+  size-adjust: 108%;
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -213,7 +216,7 @@ html {
   src: url("/fonts/SourceSans3-Latin.woff2") format("woff2");
   font-weight: 200 800;
   font-display: swap;
-  size-adjust: 106%;
+  size-adjust: 112%;
   unicode-range: U+0030;
 }
 
@@ -283,5 +286,18 @@ color: inherit;
   /* Bake the v-app-bar offset so SSR HTML doesn't render content under the fixed header
      before Vuetify's layout composable runs on the client. */
   padding-top: 64px !important;
+}
+
+.v-expansion-panel-text__wrapper {
+  padding: 8px 18px 16px !important;
+}
+
+
+@media (max-width: 768px) {
+  .v-container {
+    /* Your mobile styles */
+    padding: 8px;
+  }
+
 }
 </style>
