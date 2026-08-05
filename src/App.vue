@@ -88,14 +88,25 @@ onMounted(() => {
 <style>
 :root {
   --primary-color: #FFC107;
-  /* Muted terracotta accent shared by the feast markers, lists and page */
-  --feast-accent: #a65b52;
-  --feast-accent-soft: rgba(166, 91, 82, 0.09);
+  /* Warm neutral (taupe) for the feast markers, lists and page,
+     so the amber primary stays the only real accent */
+  --feast-accent: #79695c;
+  --feast-accent-soft: rgba(121, 105, 92, 0.09);
+  /* Fasting periods use the same neutral at a quieter register:
+     feasts are marked by dots and day numbers, fasts by soft washes */
+  --fast-accent: #79695c;
+  --fast-accent-soft: rgba(121, 105, 92, 0.08);
+  --fast-accent-hover: rgba(121, 105, 92, 0.14);
+  --fast-accent-border: rgba(121, 105, 92, 0.32);
 }
 
 .v-theme--dark {
-  --feast-accent: #c98b82;
-  --feast-accent-soft: rgba(201, 139, 130, 0.14);
+  --feast-accent: #b3a08f;
+  --feast-accent-soft: rgba(179, 160, 143, 0.13);
+  --fast-accent: #b3a08f;
+  --fast-accent-soft: rgba(179, 160, 143, 0.11);
+  --fast-accent-hover: rgba(179, 160, 143, 0.20);
+  --fast-accent-border: rgba(179, 160, 143, 0.40);
 }
 
 @font-face {

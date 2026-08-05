@@ -45,6 +45,19 @@ const markers = computed<DatePickerMarker[]>(() => {
     return [...byDay.values()];
 })
 
+// Soft background wash on every day inside a fasting period
+const highlighted = computed(() => {
+    const dates: Date[] = [];
+    for (const year of [viewedYear.value - 1, viewedYear.value, viewedYear.value + 1]) {
+        for (const fast of feasts.fastsForYear(year)) {
+            const end = new Date(fast.end);
+            for (let day = new Date(fast.start); day <= end; day.setDate(day.getDate() + 1))
+                dates.push(new Date(day));
+        }
+    }
+    return { dates };
+})
+
 const {
     year: feastYear,
     currentYear,
@@ -90,7 +103,7 @@ function onSave() {
             <v-tabs v-model="tab" color="primary">
                 <v-tab value="date">{{ $t("date") }}</v-tab>
                 <v-tab value="coptic-date">{{ $t("coptic-date") }}</v-tab>
-                <v-tab value="feasts">{{ $t("feasts.title") }}</v-tab>
+                <v-tab value="feasts">{{ $t("feasts.tab") }}</v-tab>
             </v-tabs>
             <v-divider />
             <v-card-text>
@@ -99,7 +112,7 @@ function onSave() {
                         <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
                             inline :locale="readings.languageCode == 'ar' ? 'en' : readings.languageCode" auto-apply
                             :enable-time-picker="false" :dark="menu.theme === 'dark'"
-                            :markers="markers" @update-month-year="onMonthYearUpdate">
+                            :markers="markers" :highlight="highlighted" @update-month-year="onMonthYearUpdate">
                         </Datepicker>
                     </v-window-item>
                     <v-window-item value="coptic-date">
@@ -160,11 +173,13 @@ function onSave() {
 .dp__theme_light {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
+    --dp-highlight-color: var(--fast-accent-soft);
 }
 
 .dp__theme_dark {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
+    --dp-highlight-color: var(--fast-accent-soft);
 }
 
 .feasts-tab {

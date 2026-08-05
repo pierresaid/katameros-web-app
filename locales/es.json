@@ -53,7 +53,8 @@
         "noResults": "No se encontraron resultados"
     },
     "feasts": {
-        "title": "Fiestas",
+        "title": "Fiestas y ayunos",
+        "tab": "Fiestas",
         "next": "Próxima fiesta",
         "empty": "No se pudieron cargar las fiestas."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "El sinaxario de la Iglesia copta ortodoxa: las vidas de los santos y mártires para cada día del calendario copto.",
         "aboutDescription": "Acerca de Katameros: la aplicación gratuita del leccionario copto ortodoxo — lecturas diarias en 9 idiomas, en la web y en el móvil.",
         "contactDescription": "Contacta con el equipo de Katameros: preguntas, sugerencias o correcciones sobre la aplicación del leccionario copto.",
-        "feastsDescription": "Las fiestas de la Iglesia copta ortodoxa: fechas y lecturas de cada fiesta del año litúrgico."
+        "feastsDescription": "Las fiestas y los ayunos de la Iglesia copta ortodoxa: fechas, períodos de ayuno y lecturas de todo el año litúrgico."
     }
 }

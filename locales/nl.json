@@ -53,7 +53,8 @@
         "noResults": "Geen resultaten gevonden"
     },
     "feasts": {
-        "title": "Feesten",
+        "title": "Feesten en vasten",
+        "tab": "Feesten",
         "next": "Volgend feest",
         "empty": "De feesten konden niet worden geladen."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "Het synaxarium van de Koptisch-Orthodoxe Kerk: de levens van de heiligen en martelaren voor elke dag van de Koptische kalender.",
         "aboutDescription": "Over Katameros: de gratis app voor het Koptisch-orthodoxe lectionarium — dagelijkse lezingen in 9 talen, op het web en mobiel.",
         "contactDescription": "Neem contact op met het Katameros-team: vragen, suggesties of correcties over de lectionarium-app.",
-        "feastsDescription": "De feesten van de Koptisch-Orthodoxe Kerk: data en lezingen voor elk feest van het liturgische jaar."
+        "feastsDescription": "De feesten en vastentijden van de Koptisch-Orthodoxe Kerk: data, vastenperioden en lezingen voor het hele liturgische jaar."
     }
 }

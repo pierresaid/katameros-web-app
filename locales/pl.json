@@ -53,7 +53,8 @@
         "noResults": "Nie znaleziono wyników"
     },
     "feasts": {
-        "title": "Święta",
+        "title": "Święta i posty",
+        "tab": "Święta",
         "next": "Następne święto",
         "empty": "Nie udało się wczytać świąt."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "Synaksarion Koptyjskiego Kościoła Ortodoksyjnego: żywoty świętych i męczenników na każdy dzień kalendarza koptyjskiego.",
         "aboutDescription": "O Katameros: bezpłatna aplikacja koptyjskiego lekcjonarza — codzienne czytania w 9 językach, w przeglądarce i na telefonie.",
         "contactDescription": "Skontaktuj się z zespołem Katameros: pytania, sugestie lub poprawki dotyczące aplikacji lekcjonarza.",
-        "feastsDescription": "Święta Koptyjskiego Kościoła Ortodoksyjnego: daty i czytania na każde święto roku liturgicznego."
+        "feastsDescription": "Święta i posty Koptyjskiego Kościoła Ortodoksyjnego: daty, okresy postu i czytania na cały rok liturgiczny."
     }
 }

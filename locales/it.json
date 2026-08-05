@@ -53,7 +53,8 @@
         "noResults": "Nessun risultato trovato"
     },
     "feasts": {
-        "title": "Feste",
+        "title": "Feste e digiuni",
+        "tab": "Feste",
         "next": "Prossima festa",
         "empty": "Impossibile caricare le feste."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "Il sinassario della Chiesa copta ortodossa: le vite dei santi e dei martiri per ogni giorno del calendario copto.",
         "aboutDescription": "Informazioni su Katameros: l'app gratuita del lezionario copto ortodosso — letture quotidiane in 9 lingue, sul web e su mobile.",
         "contactDescription": "Contatta il team di Katameros: domande, suggerimenti o correzioni sull'app del lezionario copto.",
-        "feastsDescription": "Le feste della Chiesa copta ortodossa: date e letture di ogni festa dell'anno liturgico."
+        "feastsDescription": "Le feste e i digiuni della Chiesa copta ortodossa: date, periodi di digiuno e letture di tutto l'anno liturgico."
     }
 }

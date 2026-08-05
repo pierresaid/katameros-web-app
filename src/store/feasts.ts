@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import localforage from 'localforage';
 import { http } from '../services/http';
 import { useReadings } from './readings';
-import type { FeastDate } from '@/types/feasts';
+import type { FastPeriod, FeastDate } from '@/types/feasts';
 
 // Separate localforage instance so the readings cache reload
 // (localforage.clear() on version bump) does not wipe the feasts.
@@ -12,8 +12,9 @@ const feastsCache = localforage.createInstance({ name: 'katameros-feasts' });
 export const useFeasts = defineStore('feasts', () => {
     const readings = useReadings();
 
-    // Feast lists keyed by `${year}-${languageId}`
+    // Feast/fast lists keyed by `${year}-${languageId}`
     const loaded = ref<Record<string, FeastDate[]>>({});
+    const loadedFasts = ref<Record<string, FastPeriod[]>>({});
     const inflight = new Map<string, Promise<void>>();
     const loadingKeys = ref<Record<string, boolean>>({});
 
@@ -21,18 +22,22 @@ export const useFeasts = defineStore('feasts', () => {
         return loaded.value[`${year}-${readings.language}`] ?? [];
     }
 
+    function fastsForYear(year: number): FastPeriod[] {
+        return loadedFasts.value[`${year}-${readings.language}`] ?? [];
+    }
+
     function isYearLoading(year: number): boolean {
         return !!loadingKeys.value[`${year}-${readings.language}`];
     }
 
-    // Load a year's feasts for the current language: cached copy first for
-    // offline use, then revalidate from the API in the same call.
+    // Load a year's feasts and fasts for the current language: cached copies
+    // first for offline use, then revalidate from the API in the same call.
     function ensureYear(year: number): Promise<void> {
         if (import.meta.env.SSR)
             return Promise.resolve();
         const languageId = readings.language;
         const key = `${year}-${languageId}`;
-        if (loaded.value[key])
+        if (loaded.value[key] && loadedFasts.value[key])
             return Promise.resolve();
         const pending = inflight.get(key);
         if (pending)
@@ -41,23 +46,41 @@ export const useFeasts = defineStore('feasts', () => {
         loadingKeys.value[key] = true;
         const load = (async () => {
             try {
-                const cached = await feastsCache.getItem<FeastDate[]>(key);
-                if (cached?.length && !loaded.value[key]) {
-                    loaded.value[key] = cached;
-                }
+                const [cachedFeasts, cachedFasts] = await Promise.all([
+                    feastsCache.getItem<FeastDate[]>(key),
+                    feastsCache.getItem<FastPeriod[]>(`fasts-${key}`),
+                ]);
+                if (cachedFeasts?.length && !loaded.value[key])
+                    loaded.value[key] = cachedFeasts;
+                if (cachedFasts?.length && !loadedFasts.value[key])
+                    loadedFasts.value[key] = cachedFasts;
             } catch { }
-            try {
-                const fresh = await http.get<FeastDate[]>(`/feasts/${year}/${languageId}`);
-                if (fresh?.length) {
-                    loaded.value[key] = fresh;
-                    await feastsCache.setItem(key, fresh);
-                }
-            } catch {
-                // Offline or API error - keep whatever the cache had
-            } finally {
-                inflight.delete(key);
-                delete loadingKeys.value[key];
-            }
+            await Promise.all([
+                (async () => {
+                    try {
+                        const fresh = await http.get<FeastDate[]>(`/feasts/${year}/${languageId}`);
+                        if (fresh?.length) {
+                            loaded.value[key] = fresh;
+                            await feastsCache.setItem(key, fresh);
+                        }
+                    } catch {
+                        // Offline or API error - keep whatever the cache had
+                    }
+                })(),
+                (async () => {
+                    try {
+                        const fresh = await http.get<FastPeriod[]>(`/fasts/${year}/${languageId}`);
+                        if (fresh?.length) {
+                            loadedFasts.value[key] = fresh;
+                            await feastsCache.setItem(`fasts-${key}`, fresh);
+                        }
+                    } catch {
+                        // Older API without /fasts, offline - keep cache if any
+                    }
+                })(),
+            ]);
+            inflight.delete(key);
+            delete loadingKeys.value[key];
         })();
         inflight.set(key, load);
         return load;
@@ -71,5 +94,5 @@ export const useFeasts = defineStore('feasts', () => {
         ensureYear(year + 1);
     }
 
-    return { feastsForYear, isYearLoading, ensureYear, ensureYearsAround };
+    return { feastsForYear, fastsForYear, isYearLoading, ensureYear, ensureYearsAround };
 });

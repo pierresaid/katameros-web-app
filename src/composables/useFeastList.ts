@@ -15,13 +15,25 @@ export interface FeastListItem {
     isNext: boolean;
 }
 
+export interface FastListItem {
+    id: number;
+    start: Date;
+    end: Date;
+    name: string;
+    days: number;
+    isPast: boolean;
+    isCurrent: boolean;
+}
+
 export interface FeastMonthGroup {
     month: number;
     label: string;
     feasts: FeastListItem[];
 }
 
-// Year-browsable feast list for the displayed year, shared by the
+const DAY_MS = 86400000;
+
+// Year-browsable feast and fast lists for the displayed year, shared by the
 // calendar dialog tab and the feasts page.
 export function useFeastList() {
     const feastsStore = useFeasts();
@@ -35,7 +47,12 @@ export function useFeastList() {
     const currentYear = today.getFullYear();
     const year = ref(currentYear);
 
-    watch([year, () => readings.language], () => { feastsStore.ensureYear(year.value) }, { immediate: true });
+    watch([year, () => readings.language], () => {
+        feastsStore.ensureYear(year.value);
+        // The fast running today may have started the previous year (Nativity)
+        if (year.value === currentYear)
+            feastsStore.ensureYear(currentYear - 1);
+    }, { immediate: true });
 
     const loading = computed(() => feastsStore.isYearLoading(year.value));
 
@@ -62,6 +79,45 @@ export function useFeastList() {
 
     const nextFeast = computed(() => feasts.value.find(f => f.isNext) ?? null);
 
+    function toFastItem(f: { id: number, start: string, end: string, name: string | null }): FastListItem {
+        const start = new Date(f.start);
+        const end = new Date(f.end);
+        return {
+            id: f.id,
+            start,
+            end,
+            name: f.name as string,
+            days: Math.round((+end - +start) / DAY_MS) + 1,
+            isPast: end < today,
+            isCurrent: +start <= +today && +today <= +end,
+        };
+    }
+
+    const fasts = computed<FastListItem[]>(() =>
+        feastsStore.fastsForYear(year.value)
+            .filter(f => !!f.name)
+            .map(toFastItem)
+            .sort((a, b) => +a.start - +b.start));
+
+    // The fast running today, wherever it started (the Nativity fast crosses
+    // the year boundary, so January falls under the previous year's entry)
+    const currentFast = computed<FastListItem | null>(() => {
+        for (const y of [currentYear, currentYear - 1]) {
+            const found = feastsStore.fastsForYear(y).filter(f => !!f.name).map(toFastItem).find(f => f.isCurrent);
+            if (found)
+                return found;
+        }
+        return null;
+    });
+
+    const currentFastProgress = computed(() => {
+        const fast = currentFast.value;
+        if (!fast)
+            return 0;
+        const done = Math.round((+today - +fast.start) / DAY_MS) + 1;
+        return Math.min(1, Math.max(0, done / fast.days));
+    });
+
     const monthGroups = computed<FeastMonthGroup[]>(() => {
         const format = new Intl.DateTimeFormat(readings.languageCode, { month: 'long' });
         const groups: FeastMonthGroup[] = [];
@@ -78,6 +134,25 @@ export function useFeastList() {
         return new Intl.DateTimeFormat(readings.languageCode, options).format(feast.date);
     }
 
+    // "in 14 days" / "tomorrow" / "today", pluralized per locale
+    function formatDaysUntil(feast: FeastListItem) {
+        const days = Math.round((+feast.date - +today) / DAY_MS);
+        return new Intl.RelativeTimeFormat(readings.languageCode, { numeric: 'auto' }).format(days, 'day');
+    }
+
+    function formatFastRange(fast: FastListItem) {
+        // formatRange is missing from the project's TS lib version but is
+        // available in every runtime the app targets
+        const format = new Intl.DateTimeFormat(readings.languageCode, { day: 'numeric', month: 'short' }) as
+            Intl.DateTimeFormat & { formatRange(start: Date, end: Date): string };
+        return format.formatRange(fast.start, fast.end);
+    }
+
+    function formatFastDuration(fast: FastListItem) {
+        return new Intl.NumberFormat(readings.languageCode, { style: 'unit', unit: 'day', unitDisplay: 'long' })
+            .format(fast.days);
+    }
+
     function copticDateOf(feast: FeastListItem) {
         const [day, month] = feast.date
             .toLocaleDateString('fr-FR-u-ca-coptic', { day: 'numeric', month: 'numeric' })
@@ -85,15 +160,26 @@ export function useFeastList() {
         return `${Number(day)} ${getCopticMonth(Number(month))}`;
     }
 
-    // Open the day's readings for a feast: works from the dialog (closes it)
-    // and from the feasts page (navigates back home)
-    function openFeast(feast: FeastListItem) {
-        readings.date = new Date(feast.date);
+    function goToDate(date: Date) {
+        readings.date = new Date(date);
         readings.getReadings();
         menu.dateDialog = false;
         if (route.name !== 'home')
             router.push({ name: 'home', params: { lang: route.params.lang } });
     }
 
-    return { year, currentYear, loading, feasts, nextFeast, monthGroups, formatFeastDate, copticDateOf, openFeast };
+    // Open the day's readings for a feast: works from the dialog (closes it)
+    // and from the feasts page (navigates back home)
+    function openFeast(feast: FeastListItem) {
+        goToDate(feast.date);
+    }
+
+    function openFast(fast: FastListItem) {
+        goToDate(fast.isCurrent ? today : fast.start);
+    }
+
+    return {
+        year, currentYear, loading, feasts, nextFeast, fasts, currentFast, currentFastProgress,
+        monthGroups, formatFeastDate, formatDaysUntil, formatFastRange, formatFastDuration, copticDateOf, openFeast, openFast,
+    };
 }

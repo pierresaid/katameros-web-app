@@ -53,7 +53,8 @@
         "noResults": "Aucun résultat trouvé"
     },
     "feasts": {
-        "title": "Fêtes",
+        "title": "Fêtes et jeûnes",
+        "tab": "Fêtes",
         "next": "Prochaine fête",
         "empty": "Impossible de charger les fêtes."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "Le synaxaire de l'Église copte orthodoxe : la vie des saints et des martyrs pour chaque jour du calendrier copte.",
         "aboutDescription": "À propos de Katameros : l'application gratuite du lectionnaire copte orthodoxe — lectures quotidiennes en 9 langues, sur le web et sur mobile.",
         "contactDescription": "Contactez l'équipe de Katameros : questions, suggestions ou corrections concernant l'application du lectionnaire copte.",
-        "feastsDescription": "Les fêtes de l'Église copte orthodoxe : dates et lectures de chaque fête de l'année liturgique."
+        "feastsDescription": "Les fêtes et les jeûnes de l'Église copte orthodoxe : dates, périodes de jeûne et lectures de toute l'année liturgique."
     }
 }

@@ -1,7 +1,6 @@
 <template>
   <v-container class="feasts-page">
-    <h1 class="text-h4 mb-2">{{ $t('feasts.title') }}</h1>
-    <p class="text-body-2 text-medium-emphasis mb-4">{{ $t('seo.feastsDescription') }}</p>
+    <h1 class="d-sr-only">{{ $t('feasts.title') }}</h1>
 
     <ClientOnly>
       <template #placeholder>
@@ -18,13 +17,29 @@
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
         @click="openFeast(nextFeast)">
-        <div class="next-feast-overline">{{ $t('feasts.next') }}</div>
+        <div class="next-feast-overline">{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</div>
         <div class="next-feast-name">{{ nextFeast.name }}</div>
         <div class="next-feast-date">
           {{ formatFeastDate(nextFeast, { weekday: 'long', day: 'numeric', month: 'long' }) }}
           · {{ copticDateOf(nextFeast) }}
         </div>
       </button>
+
+      <!-- The fasting seasons of the year, as a band above the day timeline -->
+      <div v-if="fasts.length" class="fasts-strip">
+        <button v-for="fast in fasts" :key="fast.id" type="button" class="fast-card"
+          :class="{
+            'fast-card--past': fast.isPast && year === currentYear,
+            'fast-card--current': fast.isCurrent,
+          }"
+          @click="openFast(fast)">
+          <span class="fast-card-name">{{ fast.name }}</span>
+          <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
+          <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
+            <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
+          </span>
+        </button>
+      </div>
 
       <template v-if="feasts.length">
         <section v-for="group in monthGroups" :key="group.month" class="feasts-month">
@@ -45,7 +60,6 @@
               <span class="feast-item-name">{{ feast.name }}</span>
               <span class="feast-item-coptic">{{ copticDateOf(feast) }}</span>
             </span>
-            <v-icon class="feast-item-chevron" icon="mdi-chevron-right" size="small" />
           </button>
         </section>
       </template>
@@ -80,10 +94,16 @@ const {
   loading,
   feasts,
   nextFeast,
+  fasts,
+  currentFastProgress,
   monthGroups,
   formatFeastDate,
+  formatDaysUntil,
+  formatFastRange,
+  formatFastDuration,
   copticDateOf,
   openFeast,
+  openFast,
 } = useFeastList();
 
 // On first load of the current year, jump the timeline to the next upcoming
@@ -141,7 +161,7 @@ onMounted(() => {
   text-align: start;
   padding: 16px 20px;
   border-radius: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
   background-color: rgba(var(--v-theme-primary), 0.14);
   border: 1px solid rgba(var(--v-theme-primary), 0.35);
   transition: background-color 0.15s;
@@ -171,14 +191,77 @@ onMounted(() => {
   color: rgba(var(--v-theme-on-surface), 0.75);
 }
 
+/* The year's fasting seasons */
+.fasts-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.fast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  text-align: start;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background-color: var(--fast-accent-soft);
+  border: 1px solid transparent;
+  transition: background-color 0.15s;
+}
+
+.fast-card:hover,
+.fast-card:focus-visible {
+  background-color: var(--fast-accent-hover);
+}
+
+.fast-card-name {
+  font-weight: 500;
+  font-size: 0.92em;
+  line-height: 1.3;
+}
+
+.fast-card-meta {
+  font-size: 0.76em;
+  color: rgba(var(--v-theme-on-surface), 0.6);
+}
+
+.fast-card--current {
+  border-color: var(--fast-accent-border);
+}
+
+.fast-card-track {
+  margin-top: 7px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: rgba(var(--v-theme-on-surface), 0.12);
+  overflow: hidden;
+}
+
+.fast-card-progress {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background-color: var(--fast-accent);
+}
+
+.fast-card--past {
+  opacity: 0.78;
+}
+
 .feasts-month {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .feasts-month-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 0.78em;
   font-weight: 500;
   text-transform: uppercase;
@@ -188,13 +271,20 @@ onMounted(() => {
   padding-inline-start: 12px;
 }
 
+.feasts-month-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: rgba(var(--v-theme-on-surface), 0.08);
+}
+
 .feast-item {
   display: flex;
   align-items: center;
   gap: 14px;
   width: 100%;
   text-align: start;
-  padding: 9px 12px;
+  padding: 10px 12px;
   border-radius: 12px;
   transition: background-color 0.15s;
 }
@@ -216,6 +306,7 @@ onMounted(() => {
   font-family: 'Suez one';
   font-size: 1.35em;
   line-height: 1.15;
+  color: var(--feast-accent);
 }
 
 .feast-item-weekday {
@@ -240,25 +331,8 @@ onMounted(() => {
   color: rgba(var(--v-theme-on-surface), 0.55);
 }
 
-.feast-item-chevron {
-  margin-inline-start: auto;
-  color: rgba(var(--v-theme-on-surface), 0.4);
-}
-
-[dir='rtl'] .feast-item-chevron {
-  transform: scaleX(-1);
-}
-
 .feast-item--past {
-  opacity: 0.55;
-}
-
-.feast-item--next {
-  background-color: var(--feast-accent-soft);
-}
-
-.feast-item--next .feast-item-day {
-  color: var(--feast-accent);
+  opacity: 0.78;
 }
 
 .feast-item--today {

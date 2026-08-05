@@ -53,7 +53,8 @@
         "noResults": "Keine Ergebnisse gefunden"
     },
     "feasts": {
-        "title": "Feste",
+        "title": "Feste und Fastenzeiten",
+        "tab": "Feste",
         "next": "Nächstes Fest",
         "empty": "Die Feste konnten nicht geladen werden."
     },
@@ -70,6 +71,6 @@
         "synaxariumDescription": "Das Synaxarium der koptisch-orthodoxen Kirche: das Leben der Heiligen und Märtyrer für jeden Tag des koptischen Kalenders.",
         "aboutDescription": "Über Katameros: die kostenlose App für das koptisch-orthodoxe Lektionar — tägliche Lesungen in 9 Sprachen, im Web und auf dem Smartphone.",
         "contactDescription": "Kontaktieren Sie das Katameros-Team: Fragen, Vorschläge oder Korrekturen zur Lektionar-App.",
-        "feastsDescription": "Die Feste der koptisch-orthodoxen Kirche: Termine und Lesungen für jedes Fest des liturgischen Jahres."
+        "feastsDescription": "Die Feste und Fastenzeiten der koptisch-orthodoxen Kirche: Termine, Fastenperioden und Lesungen für das ganze liturgische Jahr."
     }
 }
