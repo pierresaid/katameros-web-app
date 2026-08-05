@@ -86,6 +86,14 @@ onMounted(() => {
 </template>
 
 <style>
+/* Body font shortlist (swap the family in .v-application below + this root size):
+   - "Source Sans 3"              -> html 106.25%  (saved option: liked)
+   - "Atkinson Hyperlegible Next" -> html 100%     (active)
+   - Serifs tried and not picked: Literata, Source Serif 4, Gentium Book Plus */
+html {
+  font-size: 100%;
+}
+
 :root {
   --primary-color: #FFC107;
   /* Warm neutral (taupe) for the feast markers, lists and page,
@@ -124,6 +132,91 @@ onMounted(() => {
   src: url("/fonts/ScheherazadeNew-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/fonts/SourceSans3-Latin.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/fonts/SourceSans3-LatinExt.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/fonts/SourceSans3-Italic-Latin.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/fonts/SourceSans3-Italic-LatinExt.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/fonts/AtkinsonNext-Latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/fonts/AtkinsonNext-LatinExt.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/fonts/AtkinsonNext-Italic-Latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/fonts/AtkinsonNext-Italic-LatinExt.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* Atkinson's slashed zero is baked in (no OpenType alternate), so serve the
+   plain zero from Source Sans 3: a later face with a narrow unicode-range
+   overrides just that one glyph. size-adjust matches Atkinson's digit height. */
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("/fonts/SourceSans3-Latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+  size-adjust: 106%;
+  unicode-range: U+0030;
+}
+
 .coptic {
   font-family: "Avva Shenouda";
 }
@@ -138,6 +231,22 @@ onMounted(() => {
 
 a { text-decoration: none;
 color: inherit;
+}
+
+/* Literata is the app-wide body face, on every page. Arabic glyphs fall
+   through to ScheherazadeNew; the RTL overrides below still win through
+   their !important. Display faces (Suez One, Avva Shenouda) and the mdi
+   icon font set their own family on more specific selectors. */
+.v-application {
+  font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
+}
+
+/* Vuetify's typography utility classes hardcode Roboto and would otherwise
+   override the inherited app font (e.g. the synaxarium title/description) */
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6,
+.text-subtitle-1, .text-subtitle-2, .text-body-1, .text-body-2,
+.text-button, .text-caption, .text-overline {
+  font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
 }
 
 .v-locale--is-rtl .subSection-introduction,
