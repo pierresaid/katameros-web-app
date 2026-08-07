@@ -77,7 +77,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue';
 import { useSeo } from '@/composables/useSeo';
 import { useFeastList } from '@/composables/useFeastList';
 import { useFeasts } from '@/store/feasts';
@@ -105,33 +104,6 @@ const {
   openFeast,
   openFast,
 } = useFeastList();
-
-// On first load of the current year, jump the timeline to the next upcoming
-// feast so the past (dimmed) feasts don't have to be scrolled past. Offset
-// clears the fixed app bar and shows a little context above.
-let didAutoScroll = false;
-function attemptScroll(retries = 60) {
-  if (typeof window === 'undefined' || didAutoScroll) return;
-  if (year.value === currentYear && nextFeast.value) {
-    const el = document.querySelector<HTMLElement>('.feast-item--next');
-    if (el) {
-      didAutoScroll = true;
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
-      window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
-      return;
-    }
-  }
-  // The list is behind <ClientOnly> and its data may arrive after a fetch, so
-  // keep retrying until the target row is actually in the DOM. setTimeout
-  // (not requestAnimationFrame) so it still fires when the tab is backgrounded.
-  if (retries > 0) setTimeout(() => attemptScroll(retries - 1), 50);
-}
-
-onMounted(() => {
-  attemptScroll();
-  // Re-arm when a later fetch first populates the list.
-  watch([nextFeast, feasts], () => attemptScroll());
-});
 </script>
 
 <style scoped>
