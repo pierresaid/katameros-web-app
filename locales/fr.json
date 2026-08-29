@@ -55,6 +55,8 @@
     "feasts": {
         "title": "Fêtes et jeûnes",
         "tab": "Fêtes",
+        "fasts": "Jeûnes",
+        "feasts": "Fêtes",
         "next": "Prochaine fête",
         "empty": "Impossible de charger les fêtes."
     },

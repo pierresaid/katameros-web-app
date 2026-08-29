@@ -26,23 +26,27 @@
       </button>
 
       <!-- The fasting seasons of the year, as a band above the day timeline -->
-      <div v-if="fasts.length" class="fasts-strip">
-        <div v-for="fast in fasts" :key="fast.id" class="fast-card"
-          :class="{
-            'fast-card--past': fast.isPast && year === currentYear,
-            'fast-card--current': fast.isCurrent,
-          }">
-          <span class="fast-card-name">{{ fast.name }}</span>
-          <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
-          <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
-            <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
-          </span>
+      <template v-if="fasts.length">
+        <h2 class="feasts-section-label">{{ $t('feasts.fasts') }}</h2>
+        <div class="fasts-strip">
+          <div v-for="fast in fasts" :key="fast.id" class="fast-card"
+            :class="{
+              'fast-card--past': fast.isPast && year === currentYear,
+              'fast-card--current': fast.isCurrent,
+            }">
+            <span class="fast-card-name">{{ fast.name }}</span>
+            <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
+            <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
+              <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
+            </span>
+          </div>
         </div>
-      </div>
+      </template>
 
       <template v-if="feasts.length">
+        <h2 class="feasts-section-label">{{ $t('feasts.feasts') }}</h2>
         <section v-for="group in monthGroups" :key="group.month" class="feasts-month">
-          <h2 class="feasts-month-label">{{ group.label }}</h2>
+          <h3 class="feasts-month-label">{{ group.label }}</h3>
           <button v-for="feast in group.feasts" :key="`${feast.id}-${+feast.date}`" type="button"
             class="feast-item"
             :class="{
@@ -159,6 +163,17 @@ const {
 .next-feast-date {
   margin-top: 2px;
   color: rgba(var(--v-theme-on-surface), 0.75);
+}
+
+/* Quiet section headers above the fasts band and the feast list */
+.feasts-section-label {
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(var(--v-theme-on-surface), 0.45);
+  margin: 0 0 8px;
+  padding-inline-start: 12px;
 }
 
 /* The year's fasting seasons */

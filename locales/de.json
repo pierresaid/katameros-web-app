@@ -55,6 +55,8 @@
     "feasts": {
         "title": "Feste und Fastenzeiten",
         "tab": "Feste",
+        "fasts": "Fastenzeiten",
+        "feasts": "Feste",
         "next": "Nächstes Fest",
         "empty": "Die Feste konnten nicht geladen werden."
     },

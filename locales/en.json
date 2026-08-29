@@ -55,6 +55,8 @@
     "feasts": {
         "title": "Feasts & fasts",
         "tab": "Feasts",
+        "fasts": "Fasts",
+        "feasts": "Feasts",
         "next": "Next feast",
         "empty": "The feasts could not be loaded."
     },
