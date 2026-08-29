@@ -95,7 +95,7 @@ const items = computed(() => {
 
 /* Settings live in soft grouped cards with hairlines between rows */
 .drawer-card {
-    border-radius: 14px;
+    border-radius: 10px;
     background-color: rgba(var(--v-theme-on-surface), 0.03);
     border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
     margin-bottom: 12px;
