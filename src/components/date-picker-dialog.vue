@@ -244,10 +244,6 @@ function onSave() {
     opacity: 0.55;
 }
 
-.feast-row--next {
-    background-color: var(--feast-accent-soft);
-}
-
 .feast-row--next .feast-row-name::before {
     content: '';
     display: inline-block;
