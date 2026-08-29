@@ -33,44 +33,79 @@ const items = computed(() => {
 
 
 <template>
-    <v-navigation-drawer v-model="menu.navOpen" order="2">
-        <v-list nav role="navigation">
-            <v-list-item v-for="item in items" :key="item.name"
-                :to="{ name: item.name, params: { lang } }"
-                :title="$t(item.title)" role="link"
-                :prepend-icon="item.icon" />
-        </v-list>
+    <v-navigation-drawer v-model="menu.navOpen" order="2" width="290">
+        <div class="drawer-body">
+            <v-list nav role="navigation" class="drawer-nav pa-0">
+                <v-list-item v-for="item in items" :key="item.name"
+                    :to="{ name: item.name, params: { lang } }"
+                    :title="$t(item.title)" role="link"
+                    :prepend-icon="item.icon" rounded="lg" />
+            </v-list>
 
-        <v-divider />
+            <div role="group" :aria-label="t('aria.settings')">
+                <h2 class="drawer-section-label">{{ t('settings') }}</h2>
 
-        <v-list role="group" :aria-label="t('aria.settings')">
-            <v-list-item role="none">
-                <lang-picker />
-            </v-list-item>
-            <v-divider />
-            <v-list-item role="none">
-                <bible-picker />
-            </v-list-item>
-            <v-divider />
-            <v-list-item role="none">
-                <second-lang-picker />
-            </v-list-item>
-            <v-list-item v-if="readings.secondLanguage !== null" role="none">
-                <second-lang-display-mode />
-            </v-list-item>
-            <v-divider />
-            <v-list-item role="none">
-                <zoom-picker />
-            </v-list-item>
-            <v-list-item role="none">
-                <theme-picker />
-            </v-list-item>
-            <v-divider />
-            <v-list-item role="none">
-                <space-picker />
-            </v-list-item>
-        </v-list>
+                <div class="drawer-card">
+                    <div class="drawer-card-row">
+                        <lang-picker />
+                    </div>
+                    <div class="drawer-card-row">
+                        <bible-picker />
+                    </div>
+                    <div class="drawer-card-row">
+                        <second-lang-picker />
+                        <second-lang-display-mode v-if="readings.secondLanguage !== null" class="mt-4" />
+                    </div>
+                </div>
 
-        <v-divider />
+                <div class="drawer-card">
+                    <div class="drawer-card-row">
+                        <theme-picker />
+                    </div>
+                    <div class="drawer-card-row">
+                        <zoom-picker />
+                    </div>
+                    <div class="drawer-card-row">
+                        <space-picker />
+                    </div>
+                </div>
+            </div>
+        </div>
     </v-navigation-drawer>
 </template>
+
+<style scoped>
+.drawer-body {
+    padding: 12px 14px 28px;
+}
+
+.drawer-nav {
+    margin-bottom: 18px;
+}
+
+.drawer-section-label {
+    font-size: 0.72em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(var(--v-theme-on-surface), 0.45);
+    margin: 0 0 8px;
+    padding-inline-start: 6px;
+}
+
+/* Settings live in soft grouped cards with hairlines between rows */
+.drawer-card {
+    border-radius: 14px;
+    background-color: rgba(var(--v-theme-on-surface), 0.03);
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+    margin-bottom: 12px;
+}
+
+.drawer-card-row {
+    padding: 12px 14px;
+}
+
+.drawer-card-row+.drawer-card-row {
+    border-top: 1px solid rgba(var(--v-theme-on-surface), 0.07);
+}
+</style>

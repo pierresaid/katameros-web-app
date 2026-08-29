@@ -20,11 +20,7 @@ function onInput(id: number) {
 
 
 <template>
-    <div>
-        <div class="font-weight-bold my-2">{{ $t('language') }}</div>
-        <v-select density="compact" variant="underlined" style="height:46px;" @update:model-value="onInput"
-            v-bind:model-value="readings.language" prepend-icon=" mdi-translate" :items="Object.values(LANGUAGES)"
-            item-title="name" item-value="id" autocomplete="off">
-        </v-select>
-    </div>
+    <v-select density="compact" variant="underlined" :label="$t('language')" hide-details
+        @update:model-value="onInput" :model-value="readings.language"
+        :items="Object.values(LANGUAGES)" item-title="name" item-value="id" autocomplete="off" />
 </template>

@@ -7,7 +7,6 @@ const LINEMODE_LOCAL_STORAGE = "LINEMODE_LOCAL_STORAGE";
 
 export const useMenu = defineStore('menu', () => {
     const navOpen = ref(false)
-    const configOpen = ref(false)
     const prefersDark = typeof window !== 'undefined'
         && typeof window.matchMedia === 'function'
         && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -18,5 +17,5 @@ export const useMenu = defineStore('menu', () => {
 
     const dateDialog = ref(false)
 
-    return { navOpen, configOpen, theme, spacing, dateDialog, zoom }
+    return { navOpen, theme, spacing, dateDialog, zoom }
 })

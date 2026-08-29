@@ -37,8 +37,8 @@ function getDisplayName(item: any) {
 
 <template>
     <div>
-        <div class="font-weight-bold my-2">{{ $t('secondLanguage') }}</div>
-        <v-select density="compact" variant="underlined" style="height:46px;" :disabled="readings.loading" persistent-clear
+        <v-select density="compact" variant="underlined" :label="$t('secondLanguage')" hide-details
+            :disabled="readings.loading" persistent-clear
             @update:model-value="onInput" :model-value="readings.secondLanguage"
             :items="availableLanguages" item-title="name" item-value="id" clearable :placeholder="$t('none')"
             autocomplete="off">
@@ -46,8 +46,16 @@ function getDisplayName(item: any) {
                 {{ getDisplayName(item) }}
             </template>
         </v-select>
-        <div v-if="readings.secondBible" class="text-caption mt-1" style="opacity: 0.7;">
+        <div v-if="readings.secondBible" class="second-bible-name">
             {{ readings.secondBible.name }}
         </div>
     </div>
 </template>
+
+<style scoped>
+.second-bible-name {
+    font-size: 0.75em;
+    color: rgba(var(--v-theme-on-surface), 0.6);
+    margin-top: 6px;
+}
+</style>
