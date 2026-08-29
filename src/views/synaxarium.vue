@@ -1,18 +1,18 @@
 <template>
-  <v-container>
+  <v-container class="synax-page">
     <v-row>
       <v-col>
-        <h1 class="text-h4 mb-2">{{ $t('synaxarium.title') }}</h1>
-        <p class="text-body-2 text-medium-emphasis mb-4">{{ $t('seo.synaxariumDescription') }}</p>
+        <h1 class="synax-heading">{{ $t('synaxarium.title') }}</h1>
+        <p class="synax-description">{{ $t('seo.synaxariumDescription') }}</p>
 
         <v-text-field
           v-model="synaxStore.searchQuery"
           :label="$t('synaxarium.search')"
-          prepend-icon="mdi-magnify"
+          prepend-inner-icon="mdi-magnify"
           clearable
           variant="outlined"
           @click:clear="synaxStore.searchQuery = ''"
-          class="mb-4"
+          class="mb-2"
           :disabled="isLoadingReadings"
         />
 
@@ -190,6 +190,28 @@ const escapeRegex = (str: string): string => {
 </script>
 
 <style scoped>
+.synax-page {
+  max-width: 640px;
+}
+
+.synax-heading {
+  font-family: 'Suez one';
+  font-weight: 400;
+  font-size: 1.8em;
+  line-height: 1.2;
+  text-align: center;
+  margin: 8px 0 6px;
+}
+
+.synax-description {
+  text-align: center;
+  font-size: 0.88em;
+  line-height: 1.55;
+  color: rgba(var(--v-theme-on-surface), 0.65);
+  max-width: 46ch;
+  margin: 0 auto 24px;
+}
+
 .synax-item {
   min-height: 80px;
 }
