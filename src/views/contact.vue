@@ -43,7 +43,6 @@ async function onsubmit() {
             <h1 class="contact-heading">
                 {{ t('contact.contact') }}
             </h1>
-            <p class="contact-description">{{ t('seo.contactDescription') }}</p>
             <Form v-slot="{ handleSubmit }">
                 <Field v-slot="{ field, errorMessage }" name="name" rules="required">
                     <v-text-field v-model="name" :error-messages="errorMessage" autocomplete="name" v-bind="field"
@@ -97,16 +96,7 @@ async function onsubmit() {
     font-size: 1.8em;
     line-height: 1.2;
     text-align: center;
-    margin: 8px 0 6px;
-}
-
-.contact-description {
-    text-align: center;
-    font-size: 0.88em;
-    line-height: 1.55;
-    color: rgba(var(--v-theme-on-surface), 0.65);
-    max-width: 46ch;
-    margin: 0 auto 24px;
+    margin: 8px 0 20px;
 }
 
 .contact-actions {
