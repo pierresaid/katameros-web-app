@@ -244,17 +244,6 @@ function onSave() {
     opacity: 0.55;
 }
 
-.feast-row--next .feast-row-name::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--feast-accent);
-    margin-inline-end: 6px;
-    vertical-align: 2px;
-}
-
 .feast-row--today {
     background-color: rgba(var(--v-theme-primary), 0.15);
 }
