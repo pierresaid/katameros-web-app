@@ -27,18 +27,17 @@
 
       <!-- The fasting seasons of the year, as a band above the day timeline -->
       <div v-if="fasts.length" class="fasts-strip">
-        <button v-for="fast in fasts" :key="fast.id" type="button" class="fast-card"
+        <div v-for="fast in fasts" :key="fast.id" class="fast-card"
           :class="{
             'fast-card--past': fast.isPast && year === currentYear,
             'fast-card--current': fast.isCurrent,
-          }"
-          @click="openFast(fast)">
+          }">
           <span class="fast-card-name">{{ fast.name }}</span>
           <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
           <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
             <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
           </span>
-        </button>
+        </div>
       </div>
 
       <template v-if="feasts.length">
@@ -102,7 +101,6 @@ const {
   formatFastDuration,
   copticDateOf,
   openFeast,
-  openFast,
 } = useFeastList();
 </script>
 
@@ -181,12 +179,6 @@ const {
   border-radius: 12px;
   background-color: var(--fast-accent-soft);
   border: 1px solid transparent;
-  transition: background-color 0.15s;
-}
-
-.fast-card:hover,
-.fast-card:focus-visible {
-  background-color: var(--fast-accent-hover);
 }
 
 .fast-card-name {

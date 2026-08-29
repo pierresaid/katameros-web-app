@@ -174,12 +174,8 @@ export function useFeastList() {
         goToDate(feast.date);
     }
 
-    function openFast(fast: FastListItem) {
-        goToDate(fast.isCurrent ? today : fast.start);
-    }
-
     return {
         year, currentYear, loading, feasts, nextFeast, fasts, currentFast, currentFastProgress,
-        monthGroups, formatFeastDate, formatDaysUntil, formatFastRange, formatFastDuration, copticDateOf, openFeast, openFast,
+        monthGroups, formatFeastDate, formatDaysUntil, formatFastRange, formatFastDuration, copticDateOf, openFeast,
     };
 }
