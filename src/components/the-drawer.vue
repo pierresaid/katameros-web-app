@@ -60,10 +60,10 @@ const items = computed(() => {
 
                 <div class="drawer-card">
                     <div class="drawer-card-row">
-                        <theme-picker />
+                        <zoom-picker />
                     </div>
                     <div class="drawer-card-row">
-                        <zoom-picker />
+                        <theme-picker />
                     </div>
                     <div class="drawer-card-row">
                         <space-picker />
