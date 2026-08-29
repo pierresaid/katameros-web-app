@@ -236,19 +236,24 @@ a { text-decoration: none;
 color: inherit;
 }
 
-/* Literata is the app-wide body face, on every page. Arabic glyphs fall
-   through to ScheherazadeNew; the RTL overrides below still win through
-   their !important. Display faces (Suez One, Avva Shenouda) and the mdi
-   icon font set their own family on more specific selectors. */
-.v-application {
+/* The app-wide body face, on every page. Vuetify says Roboto on html, and
+   the overlay container (dialogs, menus, snackbars) mounts OUTSIDE
+   .v-application, so all three roots must carry the family. Arabic glyphs
+   fall through to ScheherazadeNew; the RTL overrides below still win
+   through their !important. Display faces (Suez One, Avva Shenouda) and
+   the mdi icon font set their own family on more specific selectors. */
+html,
+.v-application,
+.v-overlay-container {
   font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
 }
 
-/* Vuetify's typography utility classes hardcode Roboto and would otherwise
-   override the inherited app font (e.g. the synaxarium title/description) */
-.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6,
-.text-subtitle-1, .text-subtitle-2, .text-body-1, .text-body-2,
-.text-button, .text-caption, .text-overline {
+/* Vuetify's typography utility classes (e.g. the synaxarium
+   title/description) hardcode Roboto directly on the element, which beats
+   the inherited app font */
+:is(.v-application, .v-overlay-container) :is(.text-h1, .text-h2, .text-h3,
+.text-h4, .text-h5, .text-h6, .text-subtitle-1, .text-subtitle-2,
+.text-body-1, .text-body-2, .text-button, .text-caption, .text-overline) {
   font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
 }
 
