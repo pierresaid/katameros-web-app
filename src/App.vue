@@ -236,6 +236,14 @@ a { text-decoration: none;
 color: inherit;
 }
 
+/* iOS reads two fast taps on the same control (e.g. the zoom stepper) as
+   the double-tap page-zoom gesture, even with user-scalable=no. This
+   disables only that gesture on controls; pinch zoom and double-tap zoom
+   on reading content stay available. */
+button, a, input, textarea, select, [role="button"] {
+  touch-action: manipulation;
+}
+
 /* The app-wide body face, on every page. Vuetify says Roboto on html, and
    the overlay container (dialogs, menus, snackbars) mounts OUTSIDE
    .v-application, so all three roots must carry the family. Arabic glyphs
