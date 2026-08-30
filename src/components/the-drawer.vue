@@ -43,8 +43,6 @@ const items = computed(() => {
             </v-list>
 
             <div role="group" :aria-label="t('aria.settings')">
-                <h2 class="drawer-section-label">{{ t('settings') }}</h2>
-
                 <div class="drawer-card">
                     <div class="drawer-card-row">
                         <lang-picker />
@@ -81,16 +79,6 @@ const items = computed(() => {
 
 .drawer-nav {
     margin-bottom: 18px;
-}
-
-.drawer-section-label {
-    font-size: 0.72em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(var(--v-theme-on-surface), 0.45);
-    margin: 0 0 8px;
-    padding-inline-start: 6px;
 }
 
 /* Settings live in soft grouped cards with hairlines between rows */
