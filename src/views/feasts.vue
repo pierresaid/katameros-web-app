@@ -12,8 +12,11 @@
           <v-btn icon="mdi-chevron-left" variant="text" :aria-label="$t('aria.prevYear')" @click="year--" />
           <span class="feasts-year-label">{{ year }}</span>
           <v-btn icon="mdi-chevron-right" variant="text" :aria-label="$t('aria.nextYear')" @click="year++" />
+          <v-btn icon="mdi-calendar" variant="text" class="feasts-calendar-btn"
+            :aria-label="$t('aria.openDatePicker')" @click="menu.dateDialog = true" />
         </div>
       </v-locale-provider>
+      <DatePickerDialog v-model="menu.dateDialog" />
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
         @click="openFeast(nextFeast)">
@@ -83,6 +86,8 @@
 import { useSeo } from '@/composables/useSeo';
 import { useFeastList } from '@/composables/useFeastList';
 import { useFeasts } from '@/store/feasts';
+import { useMenu } from '@/store/menu';
+import DatePickerDialog from '@/components/date-picker-dialog.vue';
 
 useSeo({
   titleKey: 'feasts.title',
@@ -90,6 +95,7 @@ useSeo({
 });
 
 const feastsStore = useFeasts();
+const menu = useMenu();
 const {
   year,
   currentYear,
@@ -114,11 +120,19 @@ const {
 }
 
 .feasts-year-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
+}
+
+/* Calendar shortcut sits at the edge so the year stays centered */
+.feasts-calendar-btn {
+  position: absolute;
+  right: 0;
+  opacity: 0.75;
 }
 
 .feasts-year-label {
