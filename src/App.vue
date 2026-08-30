@@ -98,21 +98,21 @@ onMounted(() => {
      so the amber primary stays the only real accent */
   --feast-accent: #79695c;
   --feast-accent-soft: rgba(121, 105, 92, 0.09);
-  /* Fasting periods use the same neutral at a quieter register:
-     feasts are marked by dots and day numbers, fasts by soft washes */
-  --fast-accent: #79695c;
-  --fast-accent-soft: rgba(121, 105, 92, 0.08);
-  --fast-accent-hover: rgba(121, 105, 92, 0.14);
-  --fast-accent-border: rgba(121, 105, 92, 0.32);
+  /* Fasting periods get their own muted liturgical violet so a fast wash
+     is distinguishable from the taupe feast marks at a glance */
+  --fast-accent: #6d5a80;
+  --fast-accent-soft: rgba(109, 90, 128, 0.10);
+  --fast-accent-hover: rgba(109, 90, 128, 0.16);
+  --fast-accent-border: rgba(109, 90, 128, 0.35);
 }
 
 .v-theme--dark {
   --feast-accent: #b3a08f;
   --feast-accent-soft: rgba(179, 160, 143, 0.13);
-  --fast-accent: #b3a08f;
-  --fast-accent-soft: rgba(179, 160, 143, 0.11);
-  --fast-accent-hover: rgba(179, 160, 143, 0.20);
-  --fast-accent-border: rgba(179, 160, 143, 0.40);
+  --fast-accent: #a795bd;
+  --fast-accent-soft: rgba(167, 149, 189, 0.14);
+  --fast-accent-hover: rgba(167, 149, 189, 0.22);
+  --fast-accent-border: rgba(167, 149, 189, 0.42);
 }
 
 @font-face {
