@@ -7,36 +7,39 @@
 
         <v-text-field
           v-model="synaxStore.searchQuery"
-          :label="$t('synaxarium.search')"
+          :placeholder="$t('synaxarium.search')"
+          :aria-label="$t('synaxarium.search')"
           prepend-inner-icon="mdi-magnify"
           clearable
-          variant="outlined"
+          variant="solo-filled"
+          flat
+          rounded="pill"
+          density="comfortable"
+          hide-details
           @click:clear="synaxStore.searchQuery = ''"
-          class="mb-2"
+          class="mb-4"
           :disabled="isLoadingReadings"
         />
 
         <v-virtual-scroll
           v-if="!isLoadingReadings"
           :items="synaxStore.filteredEntries"
-          height="calc(100vh - 300px)"
-          item-height="80"
+          height="calc(100dvh - 290px)"
+          item-height="76"
         >
           <template v-slot:default="{ item, index }">
-            <v-list-item
+            <button
               :key="`${item.Month}-${item.Day}-${index}`"
+              type="button"
+              class="synax-row"
               @click="handleEntryClick(item)"
-              class="synax-item"
             >
-              <template v-slot:title>
-                <div class="synax-date">
-                  <strong>{{ $t('synaxarium.day') }} {{ item.Day }} {{ $t('synaxarium.of') }} {{ getCopticMonth(item.Month) }}</strong>
-                </div>
-              </template>
-              <template v-slot:subtitle>
-                <div class="synax-title" v-html="highlightSearchText(item.Title)"></div>
-              </template>
-            </v-list-item>
+              <span class="synax-row-date">
+                <span class="synax-row-day">{{ item.Day }}</span>
+                <span class="synax-row-month">{{ getCopticMonth(item.Month) }}</span>
+              </span>
+              <span class="synax-row-title" v-html="highlightSearchText(item.Title)"></span>
+            </button>
           </template>
         </v-virtual-scroll>
 
@@ -212,24 +215,66 @@ const escapeRegex = (str: string): string => {
   margin: 0 auto 24px;
 }
 
-.synax-item {
-  min-height: 80px;
+.synax-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  height: 72px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-align: start;
+  transition: background-color 0.15s;
 }
 
-.synax-date {
-  margin-bottom: 4px;
+.synax-row:hover,
+.synax-row:focus-visible {
+  background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
-.synax-title {
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.4;
+.synax-row-date {
+  flex: none;
+  width: 4.4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.synax-title :deep(b) {
+.synax-row-day {
+  font-family: 'Suez one';
+  font-size: 1.35em;
+  line-height: 1.15;
+  color: var(--feast-accent);
+}
+
+.synax-row-month {
+  max-width: 100%;
+  font-size: 0.66em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(var(--v-theme-on-surface), 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.synax-row-title {
+  min-width: 0;
+  line-height: 1.35;
+  /* a hair under two line-heights: the third line's highlight background
+     otherwise peeks through the clip as an amber sliver */
+  max-height: 2.6em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.synax-row-title :deep(b) {
   font-weight: 700;
   background-color: rgba(255, 193, 7, 0.3);
   padding: 0 2px;
+  border-radius: 3px;
 }
 </style>
