@@ -87,10 +87,9 @@ onMounted(() => {
 
 <style>
 /* Body font shortlist:
-   - "Atkinson Hyperlegible Next" (active). Sized up via size-adjust: 106% on
+   - "Atkinson Hyperlegible Next" (active). Sized up via size-adjust: 108% on
      its @font-face blocks: the glyphs render larger everywhere (verses, titles,
      UI) while every CSS font-size and the other faces stay untouched.
-     The borrowed zero face compensates at 112% (1.06 digit match x 1.06 bump).
    - "Source Sans 3" (saved option: liked)
    - Serifs tried and not picked: Literata, Source Serif 4, Gentium Book Plus */
 :root {
@@ -207,18 +206,6 @@ onMounted(() => {
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-
-/* Atkinson's slashed zero is baked in (no OpenType alternate), so serve the
-   plain zero from Source Sans 3: a later face with a narrow unicode-range
-   overrides just that one glyph. size-adjust matches Atkinson's digit height. */
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/SourceSans3-Latin.woff2") format("woff2");
-  font-weight: 200 800;
-  font-display: swap;
-  size-adjust: 112%;
-  unicode-range: U+0030;
-}
 
 .coptic {
   font-family: "Avva Shenouda";
