@@ -74,9 +74,13 @@ watch(tab, async (value) => {
     if (value !== 'feasts')
         return;
     await nextTick();
-    const next = feastListEl.value?.querySelector('.feast-row--next');
-    if (next)
-        next.scrollIntoView({ block: 'center' });
+    const list = feastListEl.value;
+    const next = list?.querySelector<HTMLElement>('.feast-row--next');
+    // Scroll only the list, vertically: scrollIntoView also scrolled ancestor
+    // containers (horizontally too), clipping the date column and jolting the
+    // dialog while the tab transition ran.
+    if (list && next)
+        list.scrollTop = next.offsetTop - (list.clientHeight - next.offsetHeight) / 2;
 })
 
 const copticDate = ref<[number, number, number]>([0, 0, 0])
@@ -202,8 +206,10 @@ function onSave() {
 }
 
 .feasts-tab-list {
+    position: relative;
     max-height: 330px;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -228,7 +234,8 @@ function onSave() {
 
 .feast-row-date {
     flex: none;
-    width: 4.2em;
+    width: 4.9em;
+    white-space: nowrap;
     font-size: 0.78em;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -238,6 +245,7 @@ function onSave() {
 
 .feast-row-name {
     line-height: 1.3;
+    padding-inline-end: 2px;
 }
 
 .feast-row--past {
