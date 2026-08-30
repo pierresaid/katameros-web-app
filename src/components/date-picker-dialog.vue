@@ -8,6 +8,7 @@ import CopticDatePicker from './coptic-date-picker.vue';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { useFeasts } from '../store/feasts';
 import { useFeastList } from '@/composables/useFeastList';
+import { feastColor } from '@/consts/feastCategories';
 
 const readings = useReadings();
 
@@ -40,11 +41,12 @@ const markers = computed<DatePickerMarker[]>(() => {
             if (!feast.name)
                 continue;
             const day = feast.date.slice(0, 10);
+            const color = feastColor(feast.id);
             const existing = byDay.get(day);
             if (existing)
-                existing.tooltip?.push({ text: feast.name });
+                existing.tooltip?.push({ text: feast.name, color });
             else
-                byDay.set(day, { date: new Date(feast.date), type: 'dot', tooltip: [{ text: feast.name }] });
+                byDay.set(day, { date: new Date(feast.date), type: 'dot', color, tooltip: [{ text: feast.name, color }] });
         }
     }
     return [...byDay.values()];
@@ -67,7 +69,7 @@ const highlighted = computed(() => {
 // need hover, so touch users otherwise cannot tell what a mark means
 const monthFeasts = computed(() => feasts.feastsForYear(viewedYear.value)
     .filter(f => !!f.name && new Date(f.date).getMonth() === viewedMonth.value)
-    .map(f => ({ id: f.id, day: new Date(f.date).getDate(), name: f.name as string }))
+    .map(f => ({ id: f.id, day: new Date(f.date).getDate(), name: f.name as string, color: feastColor(f.id) }))
     .sort((a, b) => a.day - b.day))
 
 // A fast can start the previous year (Nativity), so look in both lists
@@ -147,7 +149,7 @@ function onSave() {
                         </Datepicker>
                         <div v-if="monthFeasts.length || monthFasts.length" class="dp-legend">
                             <span v-for="feast in monthFeasts" :key="`feast-${feast.id}-${feast.day}`" class="dp-legend-item">
-                                <span class="dp-legend-dot" role="presentation" />
+                                <span class="dp-legend-dot" role="presentation" :style="{ backgroundColor: feast.color }" />
                                 <span><span class="dp-legend-day">{{ feast.day }}</span> {{ feast.name }}</span>
                             </span>
                             <span v-for="fast in monthFasts" :key="`fast-${fast.id}`" class="dp-legend-item">
@@ -221,6 +223,11 @@ function onSave() {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
     --dp-highlight-color: var(--fast-accent-soft);
+}
+
+.dp__marker_dot {
+    width: 6px;
+    height: 6px;
 }
 
 /* width:0 + min-width:100% tracks the datepicker's width without letting
