@@ -16,13 +16,18 @@ const tab = ref('date')
 
 const feasts = useFeasts();
 const viewedYear = ref(readings.date.getFullYear());
+const viewedMonth = ref(readings.date.getMonth());
 
 watch([() => menu.dateDialog, () => readings.language], ([open]) => {
-    if (open)
+    if (open) {
+        viewedYear.value = readings.date.getFullYear();
+        viewedMonth.value = readings.date.getMonth();
         feasts.ensureYearsAround(viewedYear.value);
+    }
 })
 
-function onMonthYearUpdate({ year }: { instance: number, month: number, year: number }) {
+function onMonthYearUpdate({ month, year }: { instance: number, month: number, year: number }) {
+    viewedMonth.value = month;
     viewedYear.value = year;
     feasts.ensureYearsAround(year);
 }
@@ -56,6 +61,28 @@ const highlighted = computed(() => {
         }
     }
     return { dates };
+})
+
+// Names behind the displayed month's dots and washes: the marker tooltips
+// need hover, so touch users otherwise cannot tell what a mark means
+const monthFeasts = computed(() => feasts.feastsForYear(viewedYear.value)
+    .filter(f => !!f.name && new Date(f.date).getMonth() === viewedMonth.value)
+    .map(f => ({ id: f.id, day: new Date(f.date).getDate(), name: f.name as string }))
+    .sort((a, b) => a.day - b.day))
+
+// A fast can start the previous year (Nativity), so look in both lists
+const monthFasts = computed(() => {
+    const monthStart = new Date(viewedYear.value, viewedMonth.value, 1);
+    const monthEnd = new Date(viewedYear.value, viewedMonth.value + 1, 0);
+    const out: { id: string, name: string }[] = [];
+    for (const year of [viewedYear.value - 1, viewedYear.value]) {
+        for (const fast of feasts.fastsForYear(year)) {
+            if (fast.name && new Date(fast.start) <= monthEnd && new Date(fast.end) >= monthStart
+                && !out.some(o => o.name === fast.name))
+                out.push({ id: `${year}-${fast.id}`, name: fast.name });
+        }
+    }
+    return out;
 })
 
 const {
@@ -118,6 +145,16 @@ function onSave() {
                             :enable-time-picker="false" :dark="menu.theme === 'dark'"
                             :markers="markers" :highlight="highlighted" @update-month-year="onMonthYearUpdate">
                         </Datepicker>
+                        <div v-if="monthFeasts.length || monthFasts.length" class="dp-legend">
+                            <span v-for="feast in monthFeasts" :key="`feast-${feast.id}-${feast.day}`" class="dp-legend-item">
+                                <span class="dp-legend-dot" role="presentation" />
+                                <span><span class="dp-legend-day">{{ feast.day }}</span> {{ feast.name }}</span>
+                            </span>
+                            <span v-for="fast in monthFasts" :key="`fast-${fast.id}`" class="dp-legend-item">
+                                <span class="dp-legend-swatch" role="presentation" />
+                                <span>{{ fast.name }}</span>
+                            </span>
+                        </div>
                     </v-window-item>
                     <v-window-item value="coptic-date">
                         <CopticDatePicker @update="onUpdate" />
@@ -184,6 +221,52 @@ function onSave() {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
     --dp-highlight-color: var(--fast-accent-soft);
+}
+
+/* width:0 + min-width:100% tracks the datepicker's width without letting
+   long names widen the auto-sized dialog */
+.dp-legend {
+    width: 0;
+    min-width: 100%;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    column-gap: 14px;
+    row-gap: 3px;
+    font-size: 0.75em;
+    line-height: 1.35;
+    color: rgba(var(--v-theme-on-surface), 0.75);
+}
+
+.dp-legend-item {
+    display: flex;
+    gap: 6px;
+    max-width: 100%;
+}
+
+.dp-legend-dot {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--feast-accent);
+    margin-top: 0.38em;
+}
+
+.dp-legend-swatch {
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    background-color: var(--fast-accent-soft);
+    border: 1px solid var(--fast-accent-border);
+    margin-top: 0.28em;
+}
+
+.dp-legend-day {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
 }
 
 .feasts-tab {
