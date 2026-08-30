@@ -100,16 +100,17 @@ onMounted(() => {
   --feast-accent-soft: rgba(121, 105, 92, 0.09);
   /* Liturgical feast-category colors (see consts/feastCategories.ts): red
      for the Lord's feasts, blue for the Virgin, green for church
-     celebrations, violet for solemn/fasting days. Both theme sets pass the
-     categorical checks (CVD separation, chroma, contrast) on their surface. */
+     celebrations. Both theme trios pass the categorical checks (CVD
+     separation, chroma, contrast) on their surface. Fasting periods are
+     teal — carried by washes and swatches, never dots, so it does not
+     need dot-level separation from the blue. */
   --feast-lord: #b23c35;
   --feast-marian: #3d6ea5;
   --feast-church: #3f7d45;
-  --feast-solemn: #7050a8;
-  --fast-accent: #7050a8;
-  --fast-accent-soft: rgba(112, 80, 168, 0.18);
-  --fast-accent-hover: rgba(112, 80, 168, 0.24);
-  --fast-accent-border: rgba(112, 80, 168, 0.45);
+  --fast-accent: #11808f;
+  --fast-accent-soft: rgba(17, 128, 143, 0.16);
+  --fast-accent-hover: rgba(17, 128, 143, 0.22);
+  --fast-accent-border: rgba(17, 128, 143, 0.45);
 }
 
 .v-theme--dark {
@@ -118,11 +119,10 @@ onMounted(() => {
   --feast-lord: #d95f53;
   --feast-marian: #5697dd;
   --feast-church: #4aa658;
-  --feast-solemn: #a675d6;
-  --fast-accent: #a675d6;
-  --fast-accent-soft: rgba(166, 117, 214, 0.24);
-  --fast-accent-hover: rgba(166, 117, 214, 0.32);
-  --fast-accent-border: rgba(166, 117, 214, 0.55);
+  --fast-accent: #3fb0bf;
+  --fast-accent-soft: rgba(63, 176, 191, 0.22);
+  --fast-accent-hover: rgba(63, 176, 191, 0.30);
+  --fast-accent-border: rgba(63, 176, 191, 0.55);
 }
 
 @font-face {
