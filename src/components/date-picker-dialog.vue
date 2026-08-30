@@ -15,6 +15,10 @@ const readings = useReadings();
 const menu = useMenu()
 const tab = ref('date')
 
+// The feasts page opens the dialog for the calendar alone: no tab bar,
+// no coptic-date or feasts tab
+defineProps<{ dateOnly?: boolean }>()
+
 const feasts = useFeasts();
 const viewedYear = ref(readings.date.getFullYear());
 const viewedMonth = ref(readings.date.getMonth());
@@ -133,12 +137,14 @@ function onSave() {
 <template>
     <v-dialog v-model="menu.dateDialog" :persistent="false" width="auto">
         <v-card>
-            <v-tabs v-model="tab" color="primary">
-                <v-tab value="date">{{ $t("date") }}</v-tab>
-                <v-tab value="coptic-date">{{ $t("coptic-date") }}</v-tab>
-                <v-tab value="feasts">{{ $t("feasts.tab") }}</v-tab>
-            </v-tabs>
-            <v-divider />
+            <template v-if="!dateOnly">
+                <v-tabs v-model="tab" color="primary">
+                    <v-tab value="date">{{ $t("date") }}</v-tab>
+                    <v-tab value="coptic-date">{{ $t("coptic-date") }}</v-tab>
+                    <v-tab value="feasts">{{ $t("feasts.tab") }}</v-tab>
+                </v-tabs>
+                <v-divider />
+            </template>
             <v-card-text>
                 <v-window v-model="tab" :touch="false">
                     <v-window-item value="date">

@@ -16,7 +16,7 @@
             :aria-label="$t('aria.openDatePicker')" @click="menu.dateDialog = true" />
         </div>
       </v-locale-provider>
-      <DatePickerDialog v-model="menu.dateDialog" />
+      <DatePickerDialog v-model="menu.dateDialog" date-only />
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
         @click="openFeast(nextFeast)">
