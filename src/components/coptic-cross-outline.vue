@@ -27,8 +27,8 @@ function handleClick() {
 </template>
 
 <style>
+/* No pointer: the triple-click glow is an easter egg, not an advertised control */
 .cross-wrapper {
-    cursor: pointer;
     width: 100%;
     height: 100%;
     display: inline-block;
