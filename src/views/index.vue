@@ -45,10 +45,11 @@ function setDate(inc: number) {
             </ClientOnly>
             <v-locale-provider :rtl="false">
                 <div class="date-control">
-                    <v-btn icon="mdi-arrow-left" @click="setDate(-1)" size="small" variant="text"
+                    <v-btn icon="mdi-chevron-left" @click="setDate(-1)" size="small" variant="text"
                          :aria-label="$t('aria.prevDay')" />
-                    <v-btn icon="mdi-calendar" @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
-                    <v-btn icon="mdi-arrow-right" @click="setDate(1)" size="small" variant="text"
+                    <v-btn icon="mdi-calendar" size="small" variant="text" class="date-control-cal"
+                        @click="menu.dateDialog = true" :aria-label="$t('aria.openDatePicker')" />
+                    <v-btn icon="mdi-chevron-right" @click="setDate(1)" size="small" variant="text"
                          :aria-label="$t('aria.nextDay')" />
                     <DatePickerDialog v-model="menu.dateDialog" />
                 </div>
@@ -106,12 +107,23 @@ function setDate(inc: number) {
     margin-right: auto;
 }
 
+/* One quiet pill grouping prev / calendar / next, matching the app's
+   segmented controls; the amber wash marks the calendar as the main action */
 .date-control {
     position: absolute;
     align-items: center;
     display: flex;
     right: 15%;
     width: fit-content;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background-color: rgba(var(--v-theme-on-surface), 0.04);
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+}
+
+.date-control-cal {
+    background-color: rgba(var(--v-theme-primary), 0.28);
 }
 
 /* Mobile: stack date and controls vertically — pure CSS so SSR and client agree */
