@@ -154,14 +154,13 @@ function onSave() {
 
 <template>
     <v-dialog v-model="menu.dateDialog" :persistent="false" width="auto">
-        <v-card>
+        <v-card class="date-dialog-card">
             <template v-if="!dateOnly">
-                <v-tabs v-model="tab" color="primary">
+                <v-tabs v-model="tab" grow density="compact" :show-arrows="false" class="date-dialog-tabs">
                     <v-tab value="date">{{ $t("date") }}</v-tab>
                     <v-tab value="coptic-date">{{ $t("coptic-date") }}</v-tab>
                     <v-tab value="feasts">{{ $t("feasts.tab") }}</v-tab>
                 </v-tabs>
-                <v-divider />
             </template>
             <v-card-text>
                 <v-window v-model="tab" :touch="false">
@@ -237,6 +236,42 @@ function onSave() {
 </template>
 
 <style>
+.v-card.date-dialog-card {
+    border-radius: 16px;
+}
+
+/* The tab bar restyled as the app's segmented pill control (see
+   picker-toggle.vue): soft track, pill segments, amber wash on the
+   active one instead of the stock underline */
+.date-dialog-tabs.v-tabs {
+    margin: 14px 16px 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background-color: rgba(var(--v-theme-on-surface), 0.04);
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+    height: auto;
+}
+
+.date-dialog-tabs .v-tab.v-btn {
+    min-width: 0;
+    height: 34px;
+    border-radius: 999px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 500;
+    color: rgba(var(--v-theme-on-surface), 0.65);
+}
+
+.date-dialog-tabs .v-tab--selected {
+    background-color: rgba(var(--v-theme-primary), 0.28);
+    color: rgb(var(--v-theme-on-surface));
+}
+
+.date-dialog-tabs .v-tab__slider,
+.date-dialog-tabs .v-tab--selected .v-btn__overlay {
+    display: none;
+}
+
 .dp__theme_light {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
