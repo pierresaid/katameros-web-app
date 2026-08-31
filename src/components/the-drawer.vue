@@ -78,7 +78,7 @@ const items = computed(() => {
 }
 
 .drawer-nav {
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 /* Settings live in soft grouped cards with hairlines between rows */
