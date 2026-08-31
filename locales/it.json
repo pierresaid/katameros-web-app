@@ -17,6 +17,7 @@
     "day": "Giorno",
     "month": "Mese",
     "year": "Anno",
+    "viewReadings": "Vedi le letture",
     "aria": {
         "cross": "Croce",
         "prevDay": "Giorno precedente",

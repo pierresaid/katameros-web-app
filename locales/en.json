@@ -17,6 +17,7 @@
     "day": "Day",
     "month": "Month",
     "year": "Year",
+    "viewReadings": "View the readings",
     "aria": {
         "cross": "Cross",
         "prevDay": "Previous day",

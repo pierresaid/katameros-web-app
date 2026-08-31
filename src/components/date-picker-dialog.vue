@@ -140,10 +140,6 @@ function onUpdate(date: [number, number, number]) {
 }
 
 function onSave() {
-    // The coptic picker emits its value on mount, so only apply it when the
-    // user actually confirmed from that tab
-    if (tab.value !== 'coptic-date')
-        return;
     const ds = convertCopticToGregorian(`${copticDate.value[1]}/${copticDate.value[0]}/${copticDate.value[2]}`)
     readings.date = new Date(ds as any)
     readings.getReadings();
@@ -183,6 +179,10 @@ function onSave() {
                     </v-window-item>
                     <v-window-item value="coptic-date">
                         <CopticDatePicker @update="onUpdate" />
+                        <v-btn variant="flat" block class="mt-2 coptic-apply"
+                            @click="onSave(); $emit('update:model-value', false)">
+                            {{ $t('viewReadings') }}
+                        </v-btn>
                     </v-window-item>
                     <v-window-item value="feasts">
                         <div class="feasts-tab">
@@ -224,11 +224,8 @@ function onSave() {
             <v-divider />
             <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary" variant="tonal" @click="() => { onSave(); $emit('update:model-value', false) }">
-                    Ok
-                </v-btn>
                 <v-btn variant="plain" @click="$emit('update:model-value', false)">
-                    {{ $t('cancel') }}
+                    {{ $t('close') }}
                 </v-btn>
             </v-card-actions>
         </v-card>
@@ -270,6 +267,13 @@ function onSave() {
 .date-dialog-tabs .v-tab__slider,
 .date-dialog-tabs .v-tab--selected .v-btn__overlay {
     display: none;
+}
+
+/* amber wash + neutral label, like the segmented controls' active state
+   (color="primary" tonal would put amber text on the amber wash) */
+.coptic-apply.v-btn {
+    background-color: rgba(var(--v-theme-primary), 0.28);
+    color: rgb(var(--v-theme-on-surface));
 }
 
 .dp__theme_light {
