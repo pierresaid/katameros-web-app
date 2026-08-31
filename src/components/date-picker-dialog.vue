@@ -56,18 +56,36 @@ const markers = computed<DatePickerMarker[]>(() => {
     return [...byDay.values()];
 })
 
-// Soft background wash on every day inside a fasting period
-const highlighted = computed(() => {
-    const dates: Date[] = [];
+// Soft wash on every day inside a fasting period, drawn as one continuous
+// band: each day knows whether it sits at a run edge (fast start/end) or a
+// week edge (Monday-first rows), and only those sides get rounded corners
+function fastDayKey(day: Date) {
+    return `${day.getFullYear()}-${day.getMonth()}-${day.getDate()}`;
+}
+
+const fastDays = computed(() => {
+    const map = new Map<string, { left: boolean, right: boolean }>();
     for (const year of [viewedYear.value - 1, viewedYear.value, viewedYear.value + 1]) {
         for (const fast of feasts.fastsForYear(year)) {
-            const end = new Date(fast.end);
-            for (let day = new Date(fast.start); day <= end; day.setDate(day.getDate() + 1))
-                dates.push(new Date(day));
+            const start = +new Date(fast.start);
+            const end = +new Date(fast.end);
+            for (let day = new Date(fast.start); +day <= end; day.setDate(day.getDate() + 1)) {
+                map.set(fastDayKey(day), {
+                    left: +day === start || day.getDay() === 1,
+                    right: +day === end || day.getDay() === 0,
+                });
+            }
         }
     }
-    return { dates };
+    return map;
 })
+
+function fastDayClass(date: Date) {
+    const info = fastDays.value.get(fastDayKey(date));
+    if (!info)
+        return '';
+    return `fast-band${info.left ? ' fast-band--left' : ''}${info.right ? ' fast-band--right' : ''}`;
+}
 
 // Names behind the displayed month's dots and washes: the marker tooltips
 // need hover, so touch users otherwise cannot tell what a mark means
@@ -151,7 +169,7 @@ function onSave() {
                         <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
                             inline :locale="readings.languageCode == 'ar' ? 'en' : readings.languageCode" auto-apply
                             :enable-time-picker="false" :dark="menu.theme === 'dark'"
-                            :markers="markers" :highlight="highlighted" @update-month-year="onMonthYearUpdate">
+                            :markers="markers" :day-class="fastDayClass" @update-month-year="onMonthYearUpdate">
                         </Datepicker>
                         <div v-if="monthFeasts.length || monthFasts.length" class="dp-legend">
                             <span v-for="feast in monthFeasts" :key="`feast-${feast.id}-${feast.day}`" class="dp-legend-item">
@@ -222,18 +240,54 @@ function onSave() {
 .dp__theme_light {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
-    --dp-highlight-color: var(--fast-accent-soft);
 }
 
 .dp__theme_dark {
     --dp-primary-color: var(--primary-color);
     --dp-marker-color: var(--feast-accent);
-    --dp-highlight-color: var(--fast-accent-soft);
 }
 
 .dp__marker_dot {
     width: 6px;
     height: 6px;
+}
+
+/* Fast periods as one continuous band per week row: the wash is painted on
+   the calendar items (which tile edge-to-edge) instead of the day cells, so
+   consecutive days merge with no seams. Corners round only at run and week
+   edges; the selected day's amber pill rides on top of the band. */
+.dp__calendar_item:has(.fast-band) {
+    background-color: var(--fast-accent-soft);
+}
+
+.dp__calendar_item:has(.fast-band--left) {
+    border-top-left-radius: var(--dp-border-radius, 4px);
+    border-bottom-left-radius: var(--dp-border-radius, 4px);
+}
+
+.dp__calendar_item:has(.fast-band--right) {
+    border-top-right-radius: var(--dp-border-radius, 4px);
+    border-bottom-right-radius: var(--dp-border-radius, 4px);
+}
+
+.dp__calendar_item:has(.fast-band:not(.dp__active_date):hover) {
+    background-color: var(--fast-accent-hover);
+}
+
+/* the cell's own grey hover pill would sit as a square patch on the band */
+.fast-band:not(.dp__active_date):hover {
+    background-color: transparent;
+}
+
+/* Browsers without :has() fall back to per-day rounded washes */
+@supports not selector(:has(*)) {
+    .fast-band:not(.dp__active_date) {
+        background-color: var(--fast-accent-soft);
+    }
+
+    .fast-band:not(.dp__active_date):hover {
+        background-color: var(--fast-accent-hover);
+    }
 }
 
 /* width:0 + min-width:100% tracks the datepicker's width without letting
