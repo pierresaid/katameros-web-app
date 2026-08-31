@@ -124,6 +124,10 @@ function setDate(inc: number) {
 }
 
 .date-control-cal {
+    background-color: rgba(var(--v-theme-on-surface), 0.04);
+}
+
+.v-theme--dark .date-control-cal {
     background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
