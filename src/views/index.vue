@@ -108,7 +108,8 @@ function setDate(inc: number) {
 }
 
 /* One quiet pill grouping prev / calendar / next, matching the app's
-   segmented controls; the amber wash marks the calendar as the main action */
+   segmented controls; the calendar gets a slightly deeper neutral wash
+   to read as the main action without shouting */
 .date-control {
     position: absolute;
     align-items: center;
@@ -118,12 +119,12 @@ function setDate(inc: number) {
     gap: 2px;
     padding: 3px;
     border-radius: 999px;
-    background-color: rgba(var(--v-theme-on-surface), 0.04);
-    border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+    background-color: rgba(var(--v-theme-on-surface), 0.03);
+    border: 1px solid rgba(var(--v-theme-on-surface), 0.05);
 }
 
 .date-control-cal {
-    background-color: rgba(var(--v-theme-primary), 0.28);
+    background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
 /* Mobile: stack date and controls vertically — pure CSS so SSR and client agree */
