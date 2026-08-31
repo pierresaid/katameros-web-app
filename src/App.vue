@@ -69,8 +69,18 @@ onMounted(() => {
     track('language-change', { lang: newLang as string })
   })
 
-  theme.change(menu.theme)
-  watch(menu, () => theme.change(menu.theme))
+  // The boot script in index.html stamps v-theme--dark/light on <html> before
+  // hydration to avoid a theme flash; keep that class in sync on runtime
+  // switches too — the cross swap and the :root token overrides key off the
+  // ancestor class, so a stale one leaves dark styling on a light app.
+  function applyTheme() {
+    theme.change(menu.theme)
+    const root = document.documentElement
+    root.classList.remove('v-theme--dark', 'v-theme--light')
+    root.classList.add(`v-theme--${menu.theme}`)
+  }
+  applyTheme()
+  watch(menu, applyTheme)
 })
 </script>
 
