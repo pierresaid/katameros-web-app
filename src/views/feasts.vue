@@ -26,6 +26,7 @@
           {{ formatFeastDate(nextFeast, { weekday: 'long', day: 'numeric', month: 'long' }) }}
           · {{ copticDateOf(nextFeast) }}
         </div>
+        <v-icon class="next-feast-chevron" icon="mdi-chevron-right" />
       </button>
 
       <!-- The fasting seasons of the year, as a band above the day timeline -->
@@ -40,6 +41,7 @@
             @click="showFast(fast)">
             <span class="fast-card-name">{{ fast.name }}</span>
             <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
+            <span v-if="fast.description" class="fast-card-teaser">{{ fast.description }}</span>
             <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
               <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
             </span>
@@ -67,6 +69,7 @@
               <span class="feast-item-name">{{ feast.name }}</span>
               <span class="feast-item-coptic">{{ copticDateOf(feast) }}</span>
             </span>
+            <v-icon class="feast-item-chevron" icon="mdi-chevron-right" size="small" />
           </button>
         </section>
       </template>
@@ -146,10 +149,11 @@ const { showFeast, showFast } = useFeastDetail();
 
 /* Hero card for the closest upcoming feast */
 .next-feast-card {
+  position: relative;
   display: block;
   width: 100%;
   text-align: start;
-  padding: 16px 20px;
+  padding: 16px 44px 16px 20px;
   border-radius: 16px;
   margin-bottom: 10px;
   background-color: rgba(var(--v-theme-primary), 0.14);
@@ -179,6 +183,28 @@ const { showFeast, showFast } = useFeastDetail();
 .next-feast-date {
   margin-top: 2px;
   color: rgba(var(--v-theme-on-surface), 0.75);
+}
+
+/* Disclosure marks: the rows and cards open a detail sheet */
+.next-feast-chevron,
+.feast-item-chevron {
+  color: rgba(var(--v-theme-on-surface), 0.38);
+  flex: none;
+}
+
+.next-feast-chevron {
+  position: absolute;
+  inset-inline-end: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+[dir="rtl"] .next-feast-chevron {
+  transform: translateY(-50%) scaleX(-1);
+}
+
+[dir="rtl"] .feast-item-chevron {
+  transform: scaleX(-1);
 }
 
 /* Quiet section headers above the fasts band and the feast list */
@@ -227,6 +253,19 @@ const { showFeast, showFast } = useFeastDetail();
 .fast-card-meta {
   font-size: 0.76em;
   color: rgba(var(--v-theme-on-surface), 0.6);
+}
+
+/* Two faded lines of the description that trail off: there is more to read */
+.fast-card-teaser {
+  margin-top: 5px;
+  font-size: 0.8em;
+  line-height: 1.4;
+  color: rgba(var(--v-theme-on-surface), 0.62);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .fast-card--current {
@@ -321,6 +360,7 @@ const { showFeast, showFast } = useFeastDetail();
   display: flex;
   flex-direction: column;
   min-width: 0;
+  flex: 1;
 }
 
 .feast-item-name {

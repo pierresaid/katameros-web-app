@@ -204,6 +204,7 @@ function onSave() {
                                         @click="showFeast(feast)">
                                         <span class="feast-row-date">{{ formatFeastDate(feast, { day: 'numeric', month: 'short' }) }}</span>
                                         <span class="feast-row-name">{{ feast.name }}</span>
+                                        <v-icon class="feast-row-chevron" icon="mdi-chevron-right" size="x-small" />
                                     </button>
                                 </template>
                                 <v-skeleton-loader v-else-if="feastsLoading" type="list-item@6" class="bg-transparent" />
@@ -371,6 +372,8 @@ function onSave() {
 
 .feasts-tab {
     width: min(320px, 80vw);
+    /* the dialog caps its own width on narrow phones: never overflow it */
+    max-width: 100%;
 }
 
 .feasts-tab-year {
@@ -427,8 +430,20 @@ function onSave() {
 }
 
 .feast-row-name {
+    flex: 1;
     line-height: 1.3;
     padding-inline-end: 2px;
+}
+
+/* Disclosure mark: the row opens the feast's detail sheet */
+.feast-row-chevron {
+    flex: none;
+    align-self: center;
+    color: rgba(var(--v-theme-on-surface), 0.35);
+}
+
+[dir="rtl"] .feast-row-chevron {
+    transform: scaleX(-1);
 }
 
 .feast-row--past {
