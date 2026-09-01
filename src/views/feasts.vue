@@ -214,7 +214,7 @@ const { showFeast, showFast } = useFeastDetail();
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(var(--v-theme-on-surface), 0.45);
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   padding-inline-start: 12px;
 }
 
@@ -298,15 +298,17 @@ const { showFeast, showFast } = useFeastDetail();
   margin-bottom: 20px;
 }
 
+/* Month chapter marks: the display face in the taupe accent, a clearly
+   different level from the uppercase section eyebrow above the list */
 .feasts-month-label {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.78em;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(var(--v-theme-on-surface), 0.55);
+  font-family: 'Suez one';
+  font-weight: 400;
+  font-size: 1.02em;
+  text-transform: capitalize;
+  color: var(--feast-accent);
   margin: 0 0 6px;
   padding-inline-start: 12px;
 }
