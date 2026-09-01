@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useFeastDetail } from '@/composables/useFeastDetail';
 import { formatCopticDate, formatDateRange, formatDayCount } from '@/composables/useFeastList';
@@ -28,11 +28,15 @@ const dateLine = computed(() => {
     return `${formatDateRange(readings.languageCode, d.item.start, d.item.end)} · ${formatDayCount(readings.languageCode, d.item.days)}`;
 });
 
-// Swipe-to-dismiss: the bottom sheet has no gesture of its own, so the grip
-// (handle, date line and title) drives the card with pointer events. Past
-// the threshold, or on a quick downward flick, the sheet closes; otherwise
-// it springs back.
+// Swipe-to-dismiss: the bottom sheet has no gesture of its own, so pointer
+// events drive the card. The whole sheet is the drag zone while its content
+// fits; when the text overflows, only the grip (handle, date line, title)
+// drags and the text scrolls natively. Mouse users always drag by the grip
+// so the text stays selectable. Past the threshold, or on a quick downward
+// flick, the sheet closes; otherwise it springs back.
 const DISMISS_DISTANCE = 90;
+const cardRef = ref<{ $el: HTMLElement } | null>(null);
+const scrollable = ref(false);
 const DISMISS_VELOCITY = 0.6;
 const dragOffset = ref(0);
 const dragging = ref(false);
@@ -41,8 +45,14 @@ let lastY = 0;
 let lastTime = 0;
 let velocity = 0;
 
-function onGripDown(e: PointerEvent) {
+function onSheetDown(e: PointerEvent) {
     if (e.pointerType === 'mouse' && e.button !== 0)
+        return;
+    const target = e.target as HTMLElement;
+    if (target.closest('button'))
+        return;
+    const inGrip = !!target.closest('.detail-grip');
+    if (!inGrip && (scrollable.value || e.pointerType === 'mouse'))
         return;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     dragging.value = true;
@@ -74,12 +84,16 @@ function onGripUp() {
 }
 
 // The card keeps its dragged offset through the closing animation; reset
-// it when the sheet opens again so it never appears shifted
-watch(open, (value) => {
-    if (value) {
-        dragging.value = false;
-        dragOffset.value = 0;
-    }
+// it when the sheet opens again so it never appears shifted, and measure
+// whether the content overflows to decide how wide the drag zone is
+watch(open, async (value) => {
+    if (!value)
+        return;
+    dragging.value = false;
+    dragOffset.value = 0;
+    await nextTick();
+    const el = cardRef.value?.$el;
+    scrollable.value = !!el && el.scrollHeight > el.clientHeight + 1;
 });
 
 const cardStyle = computed(() => ({
@@ -104,9 +118,10 @@ function openReadings() {
 
 <template>
     <v-bottom-sheet v-model="open" inset>
-        <v-card v-if="detail" class="detail-sheet" :style="cardStyle">
-            <div class="detail-grip" @pointerdown="onGripDown" @pointermove="onGripMove"
-                @pointerup="onGripUp" @pointercancel="onGripUp">
+        <v-card v-if="detail" ref="cardRef" class="detail-sheet" :class="{ 'detail-sheet--swipe': !scrollable }"
+            :style="cardStyle" @pointerdown="onSheetDown" @pointermove="onGripMove"
+            @pointerup="onGripUp" @pointercancel="onGripUp">
+            <div class="detail-grip">
                 <span class="detail-handle" role="presentation" />
                 <div class="detail-eyebrow">
                     <span class="detail-dot" role="presentation" :style="{ backgroundColor: dotColor }" />
@@ -133,7 +148,12 @@ function openReadings() {
     overflow-y: auto;
 }
 
-/* The drag zone: vertical touches here move the sheet instead of scrolling */
+/* While the content fits, a touch anywhere on the sheet drags it */
+.detail-sheet--swipe {
+    touch-action: none;
+}
+
+/* The grip always drags: vertical touches here move the sheet, never scroll */
 .detail-grip {
     touch-action: none;
     cursor: grab;
