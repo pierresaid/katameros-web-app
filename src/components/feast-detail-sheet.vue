@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useFeastDetail } from '@/composables/useFeastDetail';
 import { formatCopticDate, formatDateRange, formatDayCount } from '@/composables/useFeastList';
@@ -28,6 +28,65 @@ const dateLine = computed(() => {
     return `${formatDateRange(readings.languageCode, d.item.start, d.item.end)} · ${formatDayCount(readings.languageCode, d.item.days)}`;
 });
 
+// Swipe-to-dismiss: the bottom sheet has no gesture of its own, so the grip
+// (handle, date line and title) drives the card with pointer events. Past
+// the threshold, or on a quick downward flick, the sheet closes; otherwise
+// it springs back.
+const DISMISS_DISTANCE = 90;
+const DISMISS_VELOCITY = 0.6;
+const dragOffset = ref(0);
+const dragging = ref(false);
+let startY = 0;
+let lastY = 0;
+let lastTime = 0;
+let velocity = 0;
+
+function onGripDown(e: PointerEvent) {
+    if (e.pointerType === 'mouse' && e.button !== 0)
+        return;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    dragging.value = true;
+    startY = lastY = e.clientY;
+    lastTime = e.timeStamp;
+    velocity = 0;
+    dragOffset.value = 0;
+}
+
+function onGripMove(e: PointerEvent) {
+    if (!dragging.value)
+        return;
+    const dt = e.timeStamp - lastTime;
+    if (dt > 0)
+        velocity = (e.clientY - lastY) / dt;
+    lastY = e.clientY;
+    lastTime = e.timeStamp;
+    dragOffset.value = Math.max(0, e.clientY - startY);
+}
+
+function onGripUp() {
+    if (!dragging.value)
+        return;
+    dragging.value = false;
+    if (dragOffset.value > DISMISS_DISTANCE || velocity > DISMISS_VELOCITY)
+        close();
+    else
+        dragOffset.value = 0;
+}
+
+// The card keeps its dragged offset through the closing animation; reset
+// it when the sheet opens again so it never appears shifted
+watch(open, (value) => {
+    if (value) {
+        dragging.value = false;
+        dragOffset.value = 0;
+    }
+});
+
+const cardStyle = computed(() => ({
+    transform: dragOffset.value ? `translateY(${dragOffset.value}px)` : undefined,
+    transition: dragging.value ? 'none' : 'transform 0.2s ease-out',
+}));
+
 // Open the feast day's readings: closes the sheet and, when opened from
 // the calendar dialog, the dialog too
 function openReadings() {
@@ -45,13 +104,16 @@ function openReadings() {
 
 <template>
     <v-bottom-sheet v-model="open" inset>
-        <v-card v-if="detail" class="detail-sheet">
-            <span class="detail-handle" role="presentation" />
-            <div class="detail-eyebrow">
-                <span class="detail-dot" role="presentation" :style="{ backgroundColor: dotColor }" />
-                <span>{{ dateLine }}</span>
+        <v-card v-if="detail" class="detail-sheet" :style="cardStyle">
+            <div class="detail-grip" @pointerdown="onGripDown" @pointermove="onGripMove"
+                @pointerup="onGripUp" @pointercancel="onGripUp">
+                <span class="detail-handle" role="presentation" />
+                <div class="detail-eyebrow">
+                    <span class="detail-dot" role="presentation" :style="{ backgroundColor: dotColor }" />
+                    <span>{{ dateLine }}</span>
+                </div>
+                <h2 class="detail-title">{{ detail.item.name }}</h2>
             </div>
-            <h2 class="detail-title">{{ detail.item.name }}</h2>
             <p v-if="detail.item.description" class="detail-text">{{ detail.item.description }}</p>
             <div class="detail-actions">
                 <v-btn v-if="detail.kind === 'feast'" variant="flat" class="detail-action" @click="openReadings">
@@ -65,8 +127,24 @@ function openReadings() {
 
 <style scoped>
 .detail-sheet {
-    padding: 8px 20px calc(12px + env(safe-area-inset-bottom));
+    padding: 0 20px calc(12px + env(safe-area-inset-bottom));
     border-radius: 20px 20px 0 0 !important;
+    max-height: 85dvh;
+    overflow-y: auto;
+}
+
+/* The drag zone: vertical touches here move the sheet instead of scrolling */
+.detail-grip {
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+    padding-top: 8px;
+    margin: 0 -20px;
+    padding-inline: 20px;
+}
+
+.detail-grip:active {
+    cursor: grabbing;
 }
 
 .detail-handle {
