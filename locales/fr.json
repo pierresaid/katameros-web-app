@@ -59,7 +59,8 @@
         "fasts": "Jeûnes",
         "feasts": "Fêtes",
         "next": "Prochaine fête",
-        "empty": "Impossible de charger les fêtes."
+        "empty": "Impossible de charger les fêtes.",
+        "readings": "Voir les lectures"
     },
     "secondLanguage": "Deuxième langue",
     "displayMode": "Mode d'affichage",

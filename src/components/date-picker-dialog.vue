@@ -8,6 +8,7 @@ import CopticDatePicker from './coptic-date-picker.vue';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { useFeasts } from '../store/feasts';
 import { useFeastList } from '@/composables/useFeastList';
+import { useFeastDetail } from '@/composables/useFeastDetail';
 import { feastColor } from '@/consts/feastCategories';
 
 const readings = useReadings();
@@ -115,8 +116,8 @@ const {
     loading: feastsLoading,
     feasts: feastList,
     formatFeastDate,
-    openFeast,
 } = useFeastList();
+const { showFeast } = useFeastDetail();
 
 const feastListEl = ref<HTMLElement | null>(null);
 
@@ -200,7 +201,7 @@ function onSave() {
                                             'feast-row--next': feast.isNext && feastYear === currentYear,
                                             'feast-row--today': feast.isToday,
                                         }"
-                                        @click="openFeast(feast)">
+                                        @click="showFeast(feast)">
                                         <span class="feast-row-date">{{ formatFeastDate(feast, { day: 'numeric', month: 'short' }) }}</span>
                                         <span class="feast-row-name">{{ feast.name }}</span>
                                     </button>

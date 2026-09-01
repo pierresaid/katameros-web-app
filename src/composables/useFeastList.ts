@@ -9,6 +9,7 @@ export interface FeastListItem {
     id: number;
     date: Date;
     name: string;
+    description: string | null;
     isPast: boolean;
     isToday: boolean;
     // First feast on or after today (only meaningful for the current year)
@@ -20,6 +21,7 @@ export interface FastListItem {
     start: Date;
     end: Date;
     name: string;
+    description: string | null;
     days: number;
     isPast: boolean;
     isCurrent: boolean;
@@ -32,6 +34,25 @@ export interface FeastMonthGroup {
 }
 
 const DAY_MS = 86400000;
+
+export function formatCopticDate(date: Date) {
+    const [day, month] = date
+        .toLocaleDateString('fr-FR-u-ca-coptic', { day: 'numeric', month: 'numeric' })
+        .split('/');
+    return `${Number(day)} ${getCopticMonth(Number(month))}`;
+}
+
+export function formatDateRange(languageCode: string, start: Date, end: Date) {
+    // formatRange is missing from the project's TS lib version but is
+    // available in every runtime the app targets
+    const format = new Intl.DateTimeFormat(languageCode, { day: 'numeric', month: 'short' }) as
+        Intl.DateTimeFormat & { formatRange(start: Date, end: Date): string };
+    return format.formatRange(start, end);
+}
+
+export function formatDayCount(languageCode: string, days: number) {
+    return new Intl.NumberFormat(languageCode, { style: 'unit', unit: 'day', unitDisplay: 'long' }).format(days);
+}
 
 // Year-browsable feast and fast lists for the displayed year, shared by the
 // calendar dialog tab and the feasts page.
@@ -65,6 +86,7 @@ export function useFeastList() {
                     id: f.id,
                     date,
                     name: f.name as string,
+                    description: f.description ?? null,
                     isPast: date < today,
                     isToday: +date === +today,
                     isNext: false,
@@ -79,7 +101,7 @@ export function useFeastList() {
 
     const nextFeast = computed(() => feasts.value.find(f => f.isNext) ?? null);
 
-    function toFastItem(f: { id: number, start: string, end: string, name: string | null }): FastListItem {
+    function toFastItem(f: { id: number, start: string, end: string, name: string | null, description?: string | null }): FastListItem {
         const start = new Date(f.start);
         const end = new Date(f.end);
         return {
@@ -87,6 +109,7 @@ export function useFeastList() {
             start,
             end,
             name: f.name as string,
+            description: f.description ?? null,
             days: Math.round((+end - +start) / DAY_MS) + 1,
             isPast: end < today,
             isCurrent: +start <= +today && +today <= +end,
@@ -141,23 +164,15 @@ export function useFeastList() {
     }
 
     function formatFastRange(fast: FastListItem) {
-        // formatRange is missing from the project's TS lib version but is
-        // available in every runtime the app targets
-        const format = new Intl.DateTimeFormat(readings.languageCode, { day: 'numeric', month: 'short' }) as
-            Intl.DateTimeFormat & { formatRange(start: Date, end: Date): string };
-        return format.formatRange(fast.start, fast.end);
+        return formatDateRange(readings.languageCode, fast.start, fast.end);
     }
 
     function formatFastDuration(fast: FastListItem) {
-        return new Intl.NumberFormat(readings.languageCode, { style: 'unit', unit: 'day', unitDisplay: 'long' })
-            .format(fast.days);
+        return formatDayCount(readings.languageCode, fast.days);
     }
 
     function copticDateOf(feast: FeastListItem) {
-        const [day, month] = feast.date
-            .toLocaleDateString('fr-FR-u-ca-coptic', { day: 'numeric', month: 'numeric' })
-            .split('/');
-        return `${Number(day)} ${getCopticMonth(Number(month))}`;
+        return formatCopticDate(feast.date);
     }
 
     function goToDate(date: Date) {

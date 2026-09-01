@@ -59,7 +59,8 @@
         "fasts": "Vasten",
         "feasts": "Feesten",
         "next": "Volgend feest",
-        "empty": "De feesten konden niet worden geladen."
+        "empty": "De feesten konden niet worden geladen.",
+        "readings": "Lezingen bekijken"
     },
     "secondLanguage": "Tweede taal",
     "displayMode": "Weergavemodus",

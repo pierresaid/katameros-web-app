@@ -59,7 +59,8 @@
         "fasts": "Fasts",
         "feasts": "Feasts",
         "next": "Next feast",
-        "empty": "The feasts could not be loaded."
+        "empty": "The feasts could not be loaded.",
+        "readings": "View the readings"
     },
     "secondLanguage": "Second Language",
     "displayMode": "Display Mode",

@@ -19,7 +19,7 @@
       <DatePickerDialog v-model="menu.dateDialog" date-only />
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
-        @click="openFeast(nextFeast)">
+        @click="showFeast(nextFeast)">
         <div class="next-feast-overline">{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</div>
         <div class="next-feast-name">{{ nextFeast.name }}</div>
         <div class="next-feast-date">
@@ -32,17 +32,18 @@
       <template v-if="fasts.length">
         <h2 class="feasts-section-label">{{ $t('feasts.fasts') }}</h2>
         <div class="fasts-strip">
-          <div v-for="fast in fasts" :key="fast.id" class="fast-card"
+          <button v-for="fast in fasts" :key="fast.id" type="button" class="fast-card"
             :class="{
               'fast-card--past': fast.isPast && year === currentYear,
               'fast-card--current': fast.isCurrent,
-            }">
+            }"
+            @click="showFast(fast)">
             <span class="fast-card-name">{{ fast.name }}</span>
             <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
             <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
               <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
             </span>
-          </div>
+          </button>
         </div>
       </template>
 
@@ -57,7 +58,7 @@
               'feast-item--next': feast.isNext && year === currentYear,
               'feast-item--today': feast.isToday,
             }"
-            @click="openFeast(feast)">
+            @click="showFeast(feast)">
             <span class="feast-item-date">
               <span class="feast-item-day">{{ formatFeastDate(feast, { day: 'numeric' }) }}</span>
               <span class="feast-item-weekday">{{ formatFeastDate(feast, { weekday: 'short' }) }}</span>
@@ -85,6 +86,7 @@
 <script setup lang="ts">
 import { useSeo } from '@/composables/useSeo';
 import { useFeastList } from '@/composables/useFeastList';
+import { useFeastDetail } from '@/composables/useFeastDetail';
 import { useFeasts } from '@/store/feasts';
 import { useMenu } from '@/store/menu';
 import DatePickerDialog from '@/components/date-picker-dialog.vue';
@@ -110,8 +112,8 @@ const {
   formatFastRange,
   formatFastDuration,
   copticDateOf,
-  openFeast,
 } = useFeastList();
+const { showFeast, showFast } = useFeastDetail();
 </script>
 
 <style scoped>
@@ -208,6 +210,12 @@ const {
   border-radius: 12px;
   background-color: var(--fast-accent-soft);
   border: 1px solid transparent;
+  transition: background-color 0.15s;
+}
+
+.fast-card:hover,
+.fast-card:focus-visible {
+  background-color: var(--fast-accent-hover);
 }
 
 .fast-card-name {
