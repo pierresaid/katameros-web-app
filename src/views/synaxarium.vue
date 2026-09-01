@@ -244,7 +244,7 @@ const escapeRegex = (str: string): string => {
   font-family: 'Suez one';
   font-size: 1.35em;
   line-height: 1.15;
-  color: var(--feast-accent);
+  color: rgba(var(--v-theme-on-surface), 0.85);
 }
 
 .synax-row-month {

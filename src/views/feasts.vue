@@ -308,7 +308,7 @@ const { showFeast, showFast } = useFeastDetail();
   font-weight: 400;
   font-size: 1.02em;
   text-transform: capitalize;
-  color: var(--feast-accent);
+  color: rgba(var(--v-theme-on-surface), 0.7);
   margin: 0 0 6px;
   padding-inline-start: 12px;
 }
@@ -348,7 +348,7 @@ const { showFeast, showFast } = useFeastDetail();
   font-family: 'Suez one';
   font-size: 1.35em;
   line-height: 1.15;
-  color: var(--feast-accent);
+  color: rgba(var(--v-theme-on-surface), 0.85);
 }
 
 .feast-item-weekday {
