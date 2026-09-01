@@ -20,7 +20,10 @@
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
         @click="showFeast(nextFeast)">
-        <div class="next-feast-overline">{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</div>
+        <div class="next-feast-overline">
+          <span class="next-feast-dot" role="presentation" :style="{ backgroundColor: feastColor(nextFeast.id) }" />
+          <span>{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</span>
+        </div>
         <div class="next-feast-name">{{ nextFeast.name }}</div>
         <div class="next-feast-date">
           {{ formatFeastDate(nextFeast, { weekday: 'long', day: 'numeric', month: 'long' }) }}
@@ -39,7 +42,7 @@
               'fast-card--current': fast.isCurrent,
             }"
             @click="showFast(fast)">
-            <span class="fast-card-name"><span class="fast-card-swatch" role="presentation" />{{ fast.name }}</span>
+            <span class="fast-card-name">{{ fast.name }}</span>
             <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
             <span v-if="fast.description" class="fast-card-teaser">{{ fast.description }}</span>
             <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
@@ -93,6 +96,7 @@ import { useFeastDetail } from '@/composables/useFeastDetail';
 import { useFeasts } from '@/store/feasts';
 import { useMenu } from '@/store/menu';
 import DatePickerDialog from '@/components/date-picker-dialog.vue';
+import { feastColor } from '@/consts/feastCategories';
 
 useSeo({
   titleKey: 'feasts.title',
@@ -147,31 +151,43 @@ const { showFeast, showFast } = useFeastDetail();
   text-align: center;
 }
 
-/* Hero card for the closest upcoming feast */
+/* Hero card for the closest upcoming feast: the same quiet card as the
+   rest of the page, a step deeper, with size and type carrying the weight */
 .next-feast-card {
   position: relative;
   display: block;
   width: 100%;
   text-align: start;
-  padding: 16px 44px 16px 20px;
+  padding: 18px 44px 18px 20px;
   border-radius: 16px;
   margin-bottom: 10px;
-  background-color: rgba(var(--v-theme-primary), 0.14);
-  border: 1px solid rgba(var(--v-theme-primary), 0.35);
+  background-color: rgba(var(--v-theme-on-surface), 0.045);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.08);
   transition: background-color 0.15s;
 }
 
 .next-feast-card:hover,
 .next-feast-card:focus-visible {
-  background-color: rgba(var(--v-theme-primary), 0.22);
+  background-color: rgba(var(--v-theme-on-surface), 0.075);
 }
 
 .next-feast-overline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.72em;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(var(--v-theme-on-surface), 0.65);
-  margin-bottom: 2px;
+  color: rgba(var(--v-theme-on-surface), 0.6);
+  margin-bottom: 4px;
+}
+
+/* The feast's category colour, as in the calendar legend */
+.next-feast-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }
 
 .next-feast-name {
@@ -245,23 +261,9 @@ const { showFeast, showFast } = useFeastDetail();
 }
 
 .fast-card-name {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
   font-weight: 500;
   font-size: 0.92em;
   line-height: 1.3;
-}
-
-/* Teal stays a mark, not a fill: the same swatch the calendar legend uses */
-.fast-card-swatch {
-  flex: none;
-  width: 9px;
-  height: 9px;
-  border-radius: 3px;
-  margin-top: 0.3em;
-  background-color: var(--fast-accent-soft);
-  border: 1px solid var(--fast-accent-border);
 }
 
 .fast-card-meta {
