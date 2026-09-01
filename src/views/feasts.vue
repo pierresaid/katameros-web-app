@@ -12,8 +12,11 @@
           <v-btn icon="mdi-chevron-left" variant="text" :aria-label="$t('aria.prevYear')" @click="year--" />
           <span class="feasts-year-label">{{ year }}</span>
           <v-btn icon="mdi-chevron-right" variant="text" :aria-label="$t('aria.nextYear')" @click="year++" />
+          <v-btn icon="mdi-calendar" variant="text" class="feasts-calendar-btn"
+            :aria-label="$t('aria.openDatePicker')" @click="menu.dateDialog = true" />
         </div>
       </v-locale-provider>
+      <DatePickerDialog v-model="menu.dateDialog" date-only />
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
         @click="openFeast(nextFeast)">
@@ -26,24 +29,27 @@
       </button>
 
       <!-- The fasting seasons of the year, as a band above the day timeline -->
-      <div v-if="fasts.length" class="fasts-strip">
-        <button v-for="fast in fasts" :key="fast.id" type="button" class="fast-card"
-          :class="{
-            'fast-card--past': fast.isPast && year === currentYear,
-            'fast-card--current': fast.isCurrent,
-          }"
-          @click="openFast(fast)">
-          <span class="fast-card-name">{{ fast.name }}</span>
-          <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
-          <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
-            <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
-          </span>
-        </button>
-      </div>
+      <template v-if="fasts.length">
+        <h2 class="feasts-section-label">{{ $t('feasts.fasts') }}</h2>
+        <div class="fasts-strip">
+          <div v-for="fast in fasts" :key="fast.id" class="fast-card"
+            :class="{
+              'fast-card--past': fast.isPast && year === currentYear,
+              'fast-card--current': fast.isCurrent,
+            }">
+            <span class="fast-card-name">{{ fast.name }}</span>
+            <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
+            <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
+              <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
+            </span>
+          </div>
+        </div>
+      </template>
 
       <template v-if="feasts.length">
+        <h2 class="feasts-section-label">{{ $t('feasts.feasts') }}</h2>
         <section v-for="group in monthGroups" :key="group.month" class="feasts-month">
-          <h2 class="feasts-month-label">{{ group.label }}</h2>
+          <h3 class="feasts-month-label">{{ group.label }}</h3>
           <button v-for="feast in group.feasts" :key="`${feast.id}-${+feast.date}`" type="button"
             class="feast-item"
             :class="{
@@ -80,6 +86,8 @@
 import { useSeo } from '@/composables/useSeo';
 import { useFeastList } from '@/composables/useFeastList';
 import { useFeasts } from '@/store/feasts';
+import { useMenu } from '@/store/menu';
+import DatePickerDialog from '@/components/date-picker-dialog.vue';
 
 useSeo({
   titleKey: 'feasts.title',
@@ -87,6 +95,7 @@ useSeo({
 });
 
 const feastsStore = useFeasts();
+const menu = useMenu();
 const {
   year,
   currentYear,
@@ -102,7 +111,6 @@ const {
   formatFastDuration,
   copticDateOf,
   openFeast,
-  openFast,
 } = useFeastList();
 </script>
 
@@ -112,11 +120,19 @@ const {
 }
 
 .feasts-year-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
+}
+
+/* Calendar shortcut sits at the edge so the year stays centered */
+.feasts-calendar-btn {
+  position: absolute;
+  right: 0;
+  opacity: 0.75;
 }
 
 .feasts-year-label {
@@ -163,6 +179,17 @@ const {
   color: rgba(var(--v-theme-on-surface), 0.75);
 }
 
+/* Quiet section headers above the fasts band and the feast list */
+.feasts-section-label {
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(var(--v-theme-on-surface), 0.45);
+  margin: 0 0 8px;
+  padding-inline-start: 12px;
+}
+
 /* The year's fasting seasons */
 .fasts-strip {
   display: grid;
@@ -181,12 +208,6 @@ const {
   border-radius: 12px;
   background-color: var(--fast-accent-soft);
   border: 1px solid transparent;
-  transition: background-color 0.15s;
-}
-
-.fast-card:hover,
-.fast-card:focus-visible {
-  background-color: var(--fast-accent-hover);
 }
 
 .fast-card-name {

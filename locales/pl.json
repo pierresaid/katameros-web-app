@@ -34,6 +34,7 @@
     "reload": "Przeładuj",
     "save": "Zapisz",
     "spacing": "Rozstaw",
+    "settings": "Ustawienia",
     "theme": "Temat",
     "year": "Rok",
     "contact": {
@@ -55,6 +56,8 @@
     "feasts": {
         "title": "Święta i posty",
         "tab": "Święta",
+        "fasts": "Posty",
+        "feasts": "Święta",
         "next": "Następne święto",
         "empty": "Nie udało się wczytać świąt."
     },

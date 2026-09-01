@@ -2,6 +2,7 @@
     "home": "Inicio",
     "theme": "Tema",
     "spacing": "Espaciado",
+    "settings": "Configuración",
     "language": "Idioma",
     "bible": "Biblia",
     "light": "Claro",
@@ -55,6 +56,8 @@
     "feasts": {
         "title": "Fiestas y ayunos",
         "tab": "Fiestas",
+        "fasts": "Ayunos",
+        "feasts": "Fiestas",
         "next": "Próxima fiesta",
         "empty": "No se pudieron cargar las fiestas."
     },

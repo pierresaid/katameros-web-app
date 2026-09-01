@@ -69,8 +69,18 @@ onMounted(() => {
     track('language-change', { lang: newLang as string })
   })
 
-  theme.change(menu.theme)
-  watch(menu, () => theme.change(menu.theme))
+  // The boot script in index.html stamps v-theme--dark/light on <html> before
+  // hydration to avoid a theme flash; keep that class in sync on runtime
+  // switches too — the cross swap and the :root token overrides key off the
+  // ancestor class, so a stale one leaves dark styling on a light app.
+  function applyTheme() {
+    theme.change(menu.theme)
+    const root = document.documentElement
+    root.classList.remove('v-theme--dark', 'v-theme--light')
+    root.classList.add(`v-theme--${menu.theme}`)
+  }
+  applyTheme()
+  watch(menu, applyTheme)
 })
 </script>
 
@@ -87,10 +97,9 @@ onMounted(() => {
 
 <style>
 /* Body font shortlist:
-   - "Atkinson Hyperlegible Next" (active). Sized up via size-adjust: 106% on
+   - "Atkinson Hyperlegible Next" (active). Sized up via size-adjust: 108% on
      its @font-face blocks: the glyphs render larger everywhere (verses, titles,
      UI) while every CSS font-size and the other faces stay untouched.
-     The borrowed zero face compensates at 112% (1.06 digit match x 1.06 bump).
    - "Source Sans 3" (saved option: liked)
    - Serifs tried and not picked: Literata, Source Serif 4, Gentium Book Plus */
 :root {
@@ -99,21 +108,31 @@ onMounted(() => {
      so the amber primary stays the only real accent */
   --feast-accent: #79695c;
   --feast-accent-soft: rgba(121, 105, 92, 0.09);
-  /* Fasting periods use the same neutral at a quieter register:
-     feasts are marked by dots and day numbers, fasts by soft washes */
-  --fast-accent: #79695c;
-  --fast-accent-soft: rgba(121, 105, 92, 0.08);
-  --fast-accent-hover: rgba(121, 105, 92, 0.14);
-  --fast-accent-border: rgba(121, 105, 92, 0.32);
+  /* Liturgical feast-category colors (see consts/feastCategories.ts): red
+     for the Lord's feasts, blue for the Virgin, green for church
+     celebrations. Both theme trios pass the categorical checks (CVD
+     separation, chroma, contrast) on their surface. Fasting periods are
+     teal — carried by washes and swatches, never dots, so it does not
+     need dot-level separation from the blue. */
+  --feast-lord: #b23c35;
+  --feast-marian: #3d6ea5;
+  --feast-church: #3f7d45;
+  --fast-accent: #11808f;
+  --fast-accent-soft: rgba(17, 128, 143, 0.16);
+  --fast-accent-hover: rgba(17, 128, 143, 0.22);
+  --fast-accent-border: rgba(17, 128, 143, 0.45);
 }
 
 .v-theme--dark {
   --feast-accent: #b3a08f;
   --feast-accent-soft: rgba(179, 160, 143, 0.13);
-  --fast-accent: #b3a08f;
-  --fast-accent-soft: rgba(179, 160, 143, 0.11);
-  --fast-accent-hover: rgba(179, 160, 143, 0.20);
-  --fast-accent-border: rgba(179, 160, 143, 0.40);
+  --feast-lord: #d95f53;
+  --feast-marian: #5697dd;
+  --feast-church: #4aa658;
+  --fast-accent: #3fb0bf;
+  --fast-accent-soft: rgba(63, 176, 191, 0.22);
+  --fast-accent-hover: rgba(63, 176, 191, 0.30);
+  --fast-accent-border: rgba(63, 176, 191, 0.55);
 }
 
 @font-face {
@@ -208,18 +227,6 @@ onMounted(() => {
 }
 
 
-/* Atkinson's slashed zero is baked in (no OpenType alternate), so serve the
-   plain zero from Source Sans 3: a later face with a narrow unicode-range
-   overrides just that one glyph. size-adjust matches Atkinson's digit height. */
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/fonts/SourceSans3-Latin.woff2") format("woff2");
-  font-weight: 200 800;
-  font-display: swap;
-  size-adjust: 112%;
-  unicode-range: U+0030;
-}
-
 .coptic {
   font-family: "Avva Shenouda";
 }
@@ -236,19 +243,32 @@ a { text-decoration: none;
 color: inherit;
 }
 
-/* Literata is the app-wide body face, on every page. Arabic glyphs fall
-   through to ScheherazadeNew; the RTL overrides below still win through
-   their !important. Display faces (Suez One, Avva Shenouda) and the mdi
-   icon font set their own family on more specific selectors. */
-.v-application {
+/* iOS reads two fast taps on the same control (e.g. the zoom stepper) as
+   the double-tap page-zoom gesture, even with user-scalable=no. This
+   disables only that gesture on controls; pinch zoom and double-tap zoom
+   on reading content stay available. */
+button, a, input, textarea, select, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* The app-wide body face, on every page. Vuetify says Roboto on html, and
+   the overlay container (dialogs, menus, snackbars) mounts OUTSIDE
+   .v-application, so all three roots must carry the family. Arabic glyphs
+   fall through to ScheherazadeNew; the RTL overrides below still win
+   through their !important. Display faces (Suez One, Avva Shenouda) and
+   the mdi icon font set their own family on more specific selectors. */
+html,
+.v-application,
+.v-overlay-container {
   font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
 }
 
-/* Vuetify's typography utility classes hardcode Roboto and would otherwise
-   override the inherited app font (e.g. the synaxarium title/description) */
-.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6,
-.text-subtitle-1, .text-subtitle-2, .text-body-1, .text-body-2,
-.text-button, .text-caption, .text-overline {
+/* Vuetify's typography utility classes (e.g. the synaxarium
+   title/description) hardcode Roboto directly on the element, which beats
+   the inherited app font */
+:is(.v-application, .v-overlay-container) :is(.text-h1, .text-h2, .text-h3,
+.text-h4, .text-h5, .text-h6, .text-subtitle-1, .text-subtitle-2,
+.text-body-1, .text-body-2, .text-button, .text-caption, .text-overline) {
   font-family: "Atkinson Hyperlegible Next", "ScheherazadeNew", sans-serif !important;
 }
 

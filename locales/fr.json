@@ -2,6 +2,7 @@
     "home": "Accueil",
     "theme": "Thème",
     "spacing": "Espacement",
+    "settings": "Paramètres",
     "language": "Langue",
     "bible": "Bible",
     "light": "Clair",
@@ -55,6 +56,8 @@
     "feasts": {
         "title": "Fêtes et jeûnes",
         "tab": "Fêtes",
+        "fasts": "Jeûnes",
+        "feasts": "Fêtes",
         "next": "Prochaine fête",
         "empty": "Impossible de charger les fêtes."
     },

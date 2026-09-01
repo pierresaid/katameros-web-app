@@ -17,22 +17,36 @@ function dec() {
 </script>
 
 <template>
-    <div style="width: 100%;">
-        <div class="font-weight-bold my-2">{{ $t('zoom') }}</div>
-        <v-slider v-model="menu.zoom" step="0.1" min="0.5" max="2.5"/>
-        <v-btn-group  density="compact" variant="tonal" class="picker-toggle" style="margin-top: -25px;">
-            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-minus" @click="dec" :aria-label="$t('aria.zoomIn')"/>
-            <v-btn size="x-small" style="padding: 0;" icon="mdi-magnify-plus" @click="inc" :aria-label="$t('aria.zoomOut')"/>
-        </v-btn-group>
+    <div>
+        <div class="zoom-label">
+            <span>{{ $t('zoom') }}</span>
+            <span class="zoom-value">{{ Math.round(menu.zoom * 100) }}%</span>
+        </div>
+        <div class="zoom-row">
+            <v-btn icon="mdi-minus" size="x-small" variant="tonal" @click="dec" :aria-label="$t('aria.zoomOut')" />
+            <v-slider v-model="menu.zoom" step="0.1" min="0.5" max="2.5" hide-details density="compact" />
+            <v-btn icon="mdi-plus" size="x-small" variant="tonal" @click="inc" :aria-label="$t('aria.zoomIn')" />
+        </div>
     </div>
 </template>
 
 <style scoped>
-.picker-toggle.v-btn-group {
-    width: 100%;
+.zoom-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.8em;
+    color: rgba(var(--v-theme-on-surface), 0.6);
+    margin-bottom: 2px;
 }
 
-.picker-toggle.v-btn-group .v-btn {
-    flex: 1;
+.zoom-value {
+    font-variant-numeric: tabular-nums;
+}
+
+.zoom-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 </style>

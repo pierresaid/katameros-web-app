@@ -2,6 +2,7 @@
     "home": "Home",
     "theme": "Tema",
     "spacing": "Spaziatura",
+    "settings": "Impostazioni",
     "language": "Lingua",
     "bible": "Bibbia",
     "light": "Chiaro",
@@ -55,6 +56,8 @@
     "feasts": {
         "title": "Feste e digiuni",
         "tab": "Feste",
+        "fasts": "Digiuni",
+        "feasts": "Feste",
         "next": "Prossima festa",
         "empty": "Impossibile caricare le feste."
     },

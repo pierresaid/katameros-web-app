@@ -2,6 +2,7 @@
     "home": "Home",
     "theme": "Thema",
     "spacing": "Afstand",
+    "settings": "Instellingen",
     "language": "Taal",
     "bible": "Bijbel",
     "light": "Licht",
@@ -55,6 +56,8 @@
     "feasts": {
         "title": "Feesten en vasten",
         "tab": "Feesten",
+        "fasts": "Vasten",
+        "feasts": "Feesten",
         "next": "Volgend feest",
         "empty": "De feesten konden niet worden geladen."
     },
