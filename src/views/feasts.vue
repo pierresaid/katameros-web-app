@@ -39,7 +39,7 @@
               'fast-card--current': fast.isCurrent,
             }"
             @click="showFast(fast)">
-            <span class="fast-card-name">{{ fast.name }}</span>
+            <span class="fast-card-name"><span class="fast-card-swatch" role="presentation" />{{ fast.name }}</span>
             <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
             <span v-if="fast.description" class="fast-card-teaser">{{ fast.description }}</span>
             <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
@@ -234,20 +234,34 @@ const { showFeast, showFast } = useFeastDetail();
   text-align: start;
   padding: 10px 14px;
   border-radius: 12px;
-  background-color: var(--fast-accent-soft);
-  border: 1px solid transparent;
+  background-color: rgba(var(--v-theme-on-surface), 0.03);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
   transition: background-color 0.15s;
 }
 
 .fast-card:hover,
 .fast-card:focus-visible {
-  background-color: var(--fast-accent-hover);
+  background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
 .fast-card-name {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   font-weight: 500;
   font-size: 0.92em;
   line-height: 1.3;
+}
+
+/* Teal stays a mark, not a fill: the same swatch the calendar legend uses */
+.fast-card-swatch {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  margin-top: 0.3em;
+  background-color: var(--fast-accent-soft);
+  border: 1px solid var(--fast-accent-border);
 }
 
 .fast-card-meta {
