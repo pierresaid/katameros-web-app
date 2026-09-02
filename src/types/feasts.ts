@@ -4,6 +4,7 @@ export interface FeastDate {
     // Local ISO datetime from the API, e.g. "2026-01-07T00:00:00"
     date: string;
     name: string | null;
+    description?: string | null;
 }
 
 export interface FastPeriod {
@@ -12,4 +13,5 @@ export interface FastPeriod {
     start: string;
     end: string;
     name: string | null;
+    description?: string | null;
 }

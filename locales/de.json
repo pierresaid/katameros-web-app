@@ -59,7 +59,8 @@
         "fasts": "Fastenzeiten",
         "feasts": "Feste",
         "next": "Nächstes Fest",
-        "empty": "Die Feste konnten nicht geladen werden."
+        "empty": "Die Feste konnten nicht geladen werden.",
+        "readings": "Lesungen anzeigen"
     },
     "secondLanguage": "Zweite Sprache",
     "displayMode": "Anzeigemodus",

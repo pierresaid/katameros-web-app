@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify';
 import Notif from './components/notif.vue';
+import FeastDetailSheet from './components/feast-detail-sheet.vue';
 import TheDrawer from './components/the-drawer.vue';
 import TheHeader from './components/the-header.vue';
 import { useMenu } from './store/menu';
@@ -92,6 +93,7 @@ onMounted(() => {
       <router-view></router-view>
     </v-main>
     <notif />
+    <feast-detail-sheet />
   </v-app>
 </template>
 

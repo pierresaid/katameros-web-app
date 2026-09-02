@@ -27,7 +27,7 @@ const CATEGORY_BY_FEAST_ID: Record<number, FeastCategory> = {
     26: 'lord',   // Circumcision
     27: 'lord',   // Transfiguration
     28: 'lord',   // Thomas Sunday
-    10: 'marian', // Entrance of the Virgin into the Temple
+    10: 'lord',   // Presentation of Christ in the Temple (Amshir 8)
     30: 'marian', // Assumption of St. Mary
     13: 'church', // Feast of the Cross
     14: 'church', // Fast of Ninevah

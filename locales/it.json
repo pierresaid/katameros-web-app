@@ -59,7 +59,8 @@
         "fasts": "Digiuni",
         "feasts": "Feste",
         "next": "Prossima festa",
-        "empty": "Impossibile caricare le feste."
+        "empty": "Impossibile caricare le feste.",
+        "readings": "Vedi le letture"
     },
     "secondLanguage": "Seconda lingua",
     "displayMode": "Modalità di visualizzazione",

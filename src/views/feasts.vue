@@ -19,30 +19,36 @@
       <DatePickerDialog v-model="menu.dateDialog" date-only />
 
       <button v-if="nextFeast && year === currentYear" type="button" class="next-feast-card"
-        @click="openFeast(nextFeast)">
-        <div class="next-feast-overline">{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</div>
+        @click="showFeast(nextFeast)">
+        <div class="next-feast-overline">
+          <span class="next-feast-dot" role="presentation" :style="{ backgroundColor: feastColor(nextFeast.id) }" />
+          <span>{{ $t('feasts.next') }} · {{ formatDaysUntil(nextFeast) }}</span>
+        </div>
         <div class="next-feast-name">{{ nextFeast.name }}</div>
         <div class="next-feast-date">
           {{ formatFeastDate(nextFeast, { weekday: 'long', day: 'numeric', month: 'long' }) }}
           · {{ copticDateOf(nextFeast) }}
         </div>
+        <v-icon class="next-feast-chevron" icon="mdi-chevron-right" />
       </button>
 
       <!-- The fasting seasons of the year, as a band above the day timeline -->
       <template v-if="fasts.length">
         <h2 class="feasts-section-label">{{ $t('feasts.fasts') }}</h2>
         <div class="fasts-strip">
-          <div v-for="fast in fasts" :key="fast.id" class="fast-card"
+          <button v-for="fast in fasts" :key="fast.id" type="button" class="fast-card"
             :class="{
               'fast-card--past': fast.isPast && year === currentYear,
               'fast-card--current': fast.isCurrent,
-            }">
+            }"
+            @click="showFast(fast)">
             <span class="fast-card-name">{{ fast.name }}</span>
             <span class="fast-card-meta">{{ formatFastRange(fast) }} · {{ formatFastDuration(fast) }}</span>
+            <span v-if="fast.description" class="fast-card-teaser">{{ fast.description }}</span>
             <span v-if="fast.isCurrent" class="fast-card-track" role="presentation">
               <span class="fast-card-progress" :style="{ width: `${Math.round(currentFastProgress * 100)}%` }" />
             </span>
-          </div>
+          </button>
         </div>
       </template>
 
@@ -57,7 +63,7 @@
               'feast-item--next': feast.isNext && year === currentYear,
               'feast-item--today': feast.isToday,
             }"
-            @click="openFeast(feast)">
+            @click="showFeast(feast)">
             <span class="feast-item-date">
               <span class="feast-item-day">{{ formatFeastDate(feast, { day: 'numeric' }) }}</span>
               <span class="feast-item-weekday">{{ formatFeastDate(feast, { weekday: 'short' }) }}</span>
@@ -66,6 +72,7 @@
               <span class="feast-item-name">{{ feast.name }}</span>
               <span class="feast-item-coptic">{{ copticDateOf(feast) }}</span>
             </span>
+            <v-icon class="feast-item-chevron" icon="mdi-chevron-right" size="small" />
           </button>
         </section>
       </template>
@@ -85,9 +92,11 @@
 <script setup lang="ts">
 import { useSeo } from '@/composables/useSeo';
 import { useFeastList } from '@/composables/useFeastList';
+import { useFeastDetail } from '@/composables/useFeastDetail';
 import { useFeasts } from '@/store/feasts';
 import { useMenu } from '@/store/menu';
 import DatePickerDialog from '@/components/date-picker-dialog.vue';
+import { feastColor } from '@/consts/feastCategories';
 
 useSeo({
   titleKey: 'feasts.title',
@@ -110,8 +119,8 @@ const {
   formatFastRange,
   formatFastDuration,
   copticDateOf,
-  openFeast,
 } = useFeastList();
+const { showFeast, showFast } = useFeastDetail();
 </script>
 
 <style scoped>
@@ -142,30 +151,43 @@ const {
   text-align: center;
 }
 
-/* Hero card for the closest upcoming feast */
+/* Hero card for the closest upcoming feast: the same quiet card as the
+   rest of the page, a step deeper, with size and type carrying the weight */
 .next-feast-card {
+  position: relative;
   display: block;
   width: 100%;
   text-align: start;
-  padding: 16px 20px;
+  padding: 18px 44px 18px 20px;
   border-radius: 16px;
   margin-bottom: 10px;
-  background-color: rgba(var(--v-theme-primary), 0.14);
-  border: 1px solid rgba(var(--v-theme-primary), 0.35);
+  background-color: rgba(var(--v-theme-on-surface), 0.045);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.08);
   transition: background-color 0.15s;
 }
 
 .next-feast-card:hover,
 .next-feast-card:focus-visible {
-  background-color: rgba(var(--v-theme-primary), 0.22);
+  background-color: rgba(var(--v-theme-on-surface), 0.075);
 }
 
 .next-feast-overline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.72em;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(var(--v-theme-on-surface), 0.65);
-  margin-bottom: 2px;
+  color: rgba(var(--v-theme-on-surface), 0.6);
+  margin-bottom: 4px;
+}
+
+/* The feast's category colour, as in the calendar legend */
+.next-feast-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }
 
 .next-feast-name {
@@ -179,6 +201,28 @@ const {
   color: rgba(var(--v-theme-on-surface), 0.75);
 }
 
+/* Disclosure marks: the rows and cards open a detail sheet */
+.next-feast-chevron,
+.feast-item-chevron {
+  color: rgba(var(--v-theme-on-surface), 0.38);
+  flex: none;
+}
+
+.next-feast-chevron {
+  position: absolute;
+  inset-inline-end: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+[dir="rtl"] .next-feast-chevron {
+  transform: translateY(-50%) scaleX(-1);
+}
+
+[dir="rtl"] .feast-item-chevron {
+  transform: scaleX(-1);
+}
+
 /* Quiet section headers above the fasts band and the feast list */
 .feasts-section-label {
   font-size: 0.78em;
@@ -186,7 +230,7 @@ const {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(var(--v-theme-on-surface), 0.45);
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   padding-inline-start: 12px;
 }
 
@@ -206,8 +250,14 @@ const {
   text-align: start;
   padding: 10px 14px;
   border-radius: 12px;
-  background-color: var(--fast-accent-soft);
-  border: 1px solid transparent;
+  background-color: rgba(var(--v-theme-on-surface), 0.03);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.06);
+  transition: background-color 0.15s;
+}
+
+.fast-card:hover,
+.fast-card:focus-visible {
+  background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
 .fast-card-name {
@@ -219,6 +269,19 @@ const {
 .fast-card-meta {
   font-size: 0.76em;
   color: rgba(var(--v-theme-on-surface), 0.6);
+}
+
+/* Two faded lines of the description that trail off: there is more to read */
+.fast-card-teaser {
+  margin-top: 5px;
+  font-size: 0.8em;
+  line-height: 1.4;
+  color: rgba(var(--v-theme-on-surface), 0.62);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .fast-card--current {
@@ -251,15 +314,17 @@ const {
   margin-bottom: 20px;
 }
 
+/* Month chapter marks: the display face in the taupe accent, a clearly
+   different level from the uppercase section eyebrow above the list */
 .feasts-month-label {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.78em;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(var(--v-theme-on-surface), 0.55);
+  font-family: 'Suez one';
+  font-weight: 400;
+  font-size: 1.02em;
+  text-transform: capitalize;
+  color: rgba(var(--v-theme-on-surface), 0.7);
   margin: 0 0 6px;
   padding-inline-start: 12px;
 }
@@ -299,7 +364,7 @@ const {
   font-family: 'Suez one';
   font-size: 1.35em;
   line-height: 1.15;
-  color: var(--feast-accent);
+  color: rgba(var(--v-theme-on-surface), 0.85);
 }
 
 .feast-item-weekday {
@@ -313,6 +378,7 @@ const {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  flex: 1;
 }
 
 .feast-item-name {

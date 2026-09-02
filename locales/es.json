@@ -59,7 +59,8 @@
         "fasts": "Ayunos",
         "feasts": "Fiestas",
         "next": "Próxima fiesta",
-        "empty": "No se pudieron cargar las fiestas."
+        "empty": "No se pudieron cargar las fiestas.",
+        "readings": "Ver las lecturas"
     },
     "secondLanguage": "Segundo idioma",
     "displayMode": "Modo de visualización",

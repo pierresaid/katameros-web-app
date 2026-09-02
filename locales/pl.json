@@ -59,7 +59,8 @@
         "fasts": "Posty",
         "feasts": "Święta",
         "next": "Następne święto",
-        "empty": "Nie udało się wczytać świąt."
+        "empty": "Nie udało się wczytać świąt.",
+        "readings": "Zobacz czytania"
     },
     "secondLanguage": "Drugi język",
     "displayMode": "Tryb wyświetlania",
