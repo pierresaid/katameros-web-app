@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed, watch } from 'vue';
 import type { SynaxEntry } from '@/types/synaxarium';
 import { useReadings } from './readings';
+import { normalizeSearchText } from '@/helpers/searchText';
 
 // Import all language files
 import synaxDataFr from '../../assets/synax-days-fr.json';
@@ -49,17 +50,6 @@ export const useSynaxarium = defineStore('synaxarium', () => {
   });
 
   // Computed
-  const filteredEntries = computed(() => {
-    if (!searchQuery.value.trim()) {
-      return sortedEntries.value;
-    }
-
-    const query = searchQuery.value.toLowerCase();
-    return sortedEntries.value.filter(entry =>
-      entry.Title.toLowerCase().includes(query)
-    );
-  });
-
   const sortedEntries = computed(() => {
     return [...entries.value].sort((a, b) => {
       if (a.Month !== b.Month) {
@@ -67,6 +57,20 @@ export const useSynaxarium = defineStore('synaxarium', () => {
       }
       return a.Day - b.Day;
     });
+  });
+
+  const searchableTitles = computed(() =>
+    sortedEntries.value.map(entry => normalizeSearchText(entry.Title))
+  );
+
+  const filteredEntries = computed(() => {
+    const query = normalizeSearchText(searchQuery.value.trim());
+    if (!query) {
+      return sortedEntries.value;
+    }
+
+    const titles = searchableTitles.value;
+    return sortedEntries.value.filter((_, idx) => titles[idx]?.includes(query) ?? false);
   });
 
   return {

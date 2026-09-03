@@ -70,6 +70,7 @@ import { useReadings } from '@/store/readings';
 import { useRoute, useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
+import { highlightSearchMatches } from '@/helpers/searchText';
 import { nextTick, ref } from 'vue';
 
 useSeo({
@@ -177,19 +178,8 @@ const handleEntryClick = async (entry: SynaxEntry) => {
   }
 };
 
-const highlightSearchText = (text: string): string => {
-  const query = synaxStore.searchQuery?.trim();
-  if (!query) {
-    return text;
-  }
-
-  const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
-  return text.replace(regex, '<b>$1</b>');
-};
-
-const escapeRegex = (str: string): string => {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-};
+const highlightSearchText = (text: string): string =>
+  highlightSearchMatches(text, synaxStore.searchQuery ?? '');
 </script>
 
 <style scoped>
