@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Navigation bar icons: light on the dark page background. -->
+    <bool name="lightNavigationBar">false</bool>
+
+</resources>

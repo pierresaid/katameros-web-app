@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shows behind the navigation bar, and in the cutout margins in
+         landscape. -->
+    <item android:drawable="@color/appBackground" />
+
+    <!-- Shows behind the status bar. Deliberately taller than any real
+         status bar: the webview is margined off the actual inset, so
+         whatever is left over is covered by the page. -->
+    <item android:gravity="top" android:height="96dp">
+        <color android:color="@color/statusBarBackground" />
+    </item>
+
+</layer-list>

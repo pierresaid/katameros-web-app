@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Painted behind the status bar. Edge-to-edge is mandatory when
+         targeting SDK 36, so the bars are transparent and the webview is
+         margined off the window insets: these colours are what show in the
+         strips the webview no longer covers. Amber keeps the status bar
+         continuous with the app bar. -->
+    <color name="statusBarBackground">#FFC107</color>
+
+    <!-- Behind the navigation bar: the page background, so the bottom strip
+         reads as part of the app rather than as a second app bar. Tracks the
+         in-app theme, which itself defaults to prefers-color-scheme. -->
+    <color name="appBackground">#FFFFFF</color>
+
+</resources>

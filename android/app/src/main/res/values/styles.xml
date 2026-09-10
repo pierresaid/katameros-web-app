@@ -13,7 +13,17 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:background">@null</item>
-        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+        <!-- No android:windowOptOutEdgeToEdgeEnforcement here: Android 16
+             ignores it for apps targeting SDK 36, and Capacitor reads the
+             very same attribute to decide whether adjustMarginsForEdgeToEdge
+             should run. Setting it made Capacitor skip the inset margins
+             while the system still laid the window out edge-to-edge, so the
+             app bar drew under the status bar. Without it the webview is
+             margined off the insets and this window background is what shows
+             behind the transparent bars. -->
+        <item name="android:windowBackground">@drawable/window_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">@bool/lightNavigationBar</item>
     </style>
 
 
