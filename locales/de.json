@@ -68,6 +68,10 @@
     "sideBySide": "Nebeneinander",
     "none": "Keine",
     "about": "Über",
+    "notFound": {
+        "title": "Seite nicht gefunden",
+        "text": "Diese Seite existiert nicht oder wurde verschoben."
+    },
     "seo": {
         "brand": "Katameros - Koptisches Lektionar",
         "tagline": "Das koptische Lektionar. Kirchliche Lesungen für alle Wochentage und Festtage.",

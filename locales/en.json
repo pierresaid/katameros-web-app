@@ -68,6 +68,10 @@
     "sideBySide": "Side by Side",
     "none": "None",
     "about": "About",
+    "notFound": {
+        "title": "Page not found",
+        "text": "This page does not exist or has been moved."
+    },
     "seo": {
         "brand": "Katameros - The Coptic Lectionary",
         "tagline": "The Coptic lectionary. Church readings for all weekdays and feasts.",

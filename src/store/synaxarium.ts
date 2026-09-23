@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
-import { ref, computed, watch } from 'vue';
+import { ref, computed } from 'vue';
 import type { SynaxEntry } from '@/types/synaxarium';
-import { useReadings } from './readings';
 import { normalizeSearchText } from '@/helpers/searchText';
 
 // Import all language files
@@ -21,35 +20,22 @@ const synaxDataMap: Record<string, SynaxEntry[]> = {
 };
 
 export const useSynaxarium = defineStore('synaxarium', () => {
-  const readingsStore = useReadings();
-
   // State
-  const entries = ref<SynaxEntry[]>([]);
   const searchQuery = ref('');
-  const currentLanguage = ref('');
+  // Set by the synaxarium page from the route language: the persisted reading
+  // language is only synced to the route once the app is mounted, so while a
+  // page is prerendered it would still hold the default one.
+  const currentLanguage = ref('fr');
 
-  // Load entries for the current language
-  const loadEntriesForLanguage = (languageCode: string) => {
-    const data = synaxDataMap[languageCode];
-    if (data) {
-      entries.value = data;
-      currentLanguage.value = languageCode;
-    } else {
-      // Fallback to French if language not available
-      entries.value = synaxDataMap['fr'] || [];
-      currentLanguage.value = 'fr';
-    }
+  const setLanguage = (languageCode: string) => {
+    // Fallback to French if language not available
+    currentLanguage.value = synaxDataMap[languageCode] ? languageCode : 'fr';
   };
 
-  // Initialize with current language
-  loadEntriesForLanguage(readingsStore.languageCode);
-
-  // Watch for language changes
-  watch(() => readingsStore.languageCode, (newLang) => {
-    loadEntriesForLanguage(newLang);
-  });
-
   // Computed
+  // Derived rather than stored so the list isn't serialized into the prerendered page
+  const entries = computed(() => synaxDataMap[currentLanguage.value] ?? []);
+
   const sortedEntries = computed(() => {
     return [...entries.value].sort((a, b) => {
       if (a.Month !== b.Month) {
@@ -78,5 +64,6 @@ export const useSynaxarium = defineStore('synaxarium', () => {
     searchQuery,
     filteredEntries,
     currentLanguage,
+    setLanguage,
   };
 });

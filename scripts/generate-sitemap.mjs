@@ -15,31 +15,38 @@ if (!existsSync(distDir)) {
     mkdirSync(distDir, { recursive: true })
 }
 
-// Trailing slash everywhere: Netlify serves the prerendered pages as
-// directories and 301s the slash-less form.
+// Trailing slash everywhere: the pages are prerendered as <path>/index.html,
+// which the host only serves for the trailing-slash URL.
 function urlFor(lang, route) {
     return `${SITE_URL}/${lang}${route}/`
 }
 
-function entryFor(lang, route, langsForRoute) {
+// The bare root sends visitors to their own language, so it is the home
+// page's x-default; the other pages fall back to DEFAULT_LANG (mirrors useSeo.ts).
+const ROOT_URL = `${SITE_URL}/`
+function xDefaultFor(route) {
+    return route === '' ? ROOT_URL : urlFor(DEFAULT_LANG, route)
+}
+
+function entryFor(loc, route, langsForRoute) {
     const alts = langsForRoute
         .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${urlFor(l, route)}" />`)
         .join('\n')
-    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${urlFor(DEFAULT_LANG, route)}" />`
+    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${xDefaultFor(route)}" />`
     return `  <url>
-    <loc>${urlFor(lang, route)}</loc>
+    <loc>${loc}</loc>
 ${alts}
 ${xDefault}
   </url>`
 }
 
-const urls = []
+const urls = [entryFor(ROOT_URL, '', SUPPORTED_LANGS)]
 for (const route of ROUTES) {
     const langs = route === '/synaxarium'
         ? SUPPORTED_LANGS.filter(l => SYNAX_LANGS.has(l))
         : SUPPORTED_LANGS
     for (const lang of langs) {
-        urls.push(entryFor(lang, route, langs))
+        urls.push(entryFor(urlFor(lang, route), route, langs))
     }
 }
 

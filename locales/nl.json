@@ -68,6 +68,10 @@
     "sideBySide": "Naast elkaar",
     "none": "Geen",
     "about": "Over",
+    "notFound": {
+        "title": "Pagina niet gevonden",
+        "text": "Deze pagina bestaat niet of is verplaatst."
+    },
     "seo": {
         "brand": "Katameros - Koptisch lectionarium",
         "tagline": "Het Koptische lectionarium. Kerklezingen voor alle weekdagen en feestdagen.",

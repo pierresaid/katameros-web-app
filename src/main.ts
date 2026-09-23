@@ -52,6 +52,15 @@ export const createApp = ViteSSG(
     const vuetify = createVuetifyInstance(isClient)
     app.use(vuetify)
 
+    // Keep in-app URLs on the trailing-slash form the pages are served at
+    // (first loads are redirected by the inline script in index.html).
+    router.beforeEach((to) => {
+      const last = to.path.slice(to.path.lastIndexOf('/') + 1)
+      if (last && !last.includes('.')) {
+        return { path: `${to.path}/`, query: to.query, hash: to.hash, replace: true }
+      }
+    })
+
     router.beforeEach((to) => {
       const param = to.params.lang
       const lang: SupportedLang = isSupportedLang(param as string)
@@ -68,11 +77,11 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
   return [
     '/',
     ...SUPPORTED_LANGS.flatMap(lang => [
-      `/${lang}`,
-      `/${lang}/feasts`,
-      `/${lang}/about`,
-      `/${lang}/contact`,
-      ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium`] : []),
+      `/${lang}/`,
+      `/${lang}/feasts/`,
+      `/${lang}/about/`,
+      `/${lang}/contact/`,
+      ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium/`] : []),
     ]),
   ]
 }

@@ -71,7 +71,8 @@ import { useRoute, useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
 import { highlightSearchMatches } from '@/helpers/searchText';
-import { nextTick, ref } from 'vue';
+import { useCurrentLang } from '@/composables/useCurrentLang';
+import { nextTick, ref, watch } from 'vue';
 
 useSeo({
   titleKey: 'synaxarium.title',
@@ -80,6 +81,8 @@ useSeo({
 });
 
 const synaxStore = useSynaxarium();
+const lang = useCurrentLang();
+watch(lang, (code) => synaxStore.setLanguage(code), { immediate: true });
 const readings = useReadings();
 const router = useRouter();
 const route = useRoute();

@@ -68,6 +68,10 @@
     "sideBySide": "Côte à côte",
     "none": "Aucun",
     "about": "À propos",
+    "notFound": {
+        "title": "Page introuvable",
+        "text": "Cette page n'existe pas ou a été déplacée."
+    },
     "seo": {
         "brand": "Katameros - Lectionnaire copte",
         "tagline": "Le lectionnaire copte. Lectures de l'Église pour tous les jours et fêtes.",

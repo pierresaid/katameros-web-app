@@ -22,7 +22,7 @@ const items = computed(() => {
     const m: { title: string, name: string, icon: string }[] = [
         { title: 'home', name: 'home', icon: 'mdi-book-open-page-variant' },
     ]
-    if ((SYNAX_LANGS as readonly string[]).includes(readings.languageCode))
+    if (SYNAX_LANGS.includes(lang.value))
         m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
 
     m.push({ title: 'feasts.title', name: 'feasts', icon: 'mdi-calendar-star' })

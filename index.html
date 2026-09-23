@@ -2,6 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <script>
+      // Pages are prerendered as <path>/index.html, which the host only serves for
+      // the trailing-slash URL; the slash-less form gets the root page instead.
+      // Reload on the trailing-slash URL so visitors and crawlers get the right page.
+      (function () {
+        var path = location.pathname;
+        var last = path.slice(path.lastIndexOf('/') + 1);
+        if (last && last.indexOf('.') === -1) {
+          location.replace(path + '/' + location.search + location.hash);
+        }
+      })();
+    </script>
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
 

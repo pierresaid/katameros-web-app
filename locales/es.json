@@ -68,6 +68,10 @@
     "sideBySide": "Lado a lado",
     "none": "Ninguno",
     "about": "Acerca de",
+    "notFound": {
+        "title": "Página no encontrada",
+        "text": "Esta página no existe o ha sido movida."
+    },
     "seo": {
         "brand": "Katameros - Leccionario copto",
         "tagline": "El leccionario copto. Lecturas de la iglesia para todos los días de la semana y festividades.",
