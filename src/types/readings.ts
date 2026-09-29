@@ -23,6 +23,7 @@ export interface Reading {
     conclusion: string;
     passages?: Passage[];
     html: string;
+    storyId?: number | null;
 }
 
 export interface SubSection {

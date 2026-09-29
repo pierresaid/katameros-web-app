@@ -57,6 +57,13 @@ const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined =
     const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
     if (!secondSubSection) return undefined;
 
+    // Synaxarium stories share a storyId across translations, but the languages
+    // don't have the same stories in the same order, so match on it.
+    const storyId = props.subSection.readings[readingIdx]?.storyId;
+    if (storyId != null) {
+        return secondSubSection.readings.find(r => r.storyId === storyId);
+    }
+
     return secondSubSection.readings[readingIdx];
 };
 
