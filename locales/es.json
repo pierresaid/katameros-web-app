@@ -51,7 +51,12 @@
         "search": "Buscar por título",
         "day": "Día",
         "of": "de",
-        "noResults": "No se encontraron resultados"
+        "noResults": "No se encontraron resultados",
+        "goToDay": "Ir a este día",
+        "unavailable": "Este relato no está disponible en este idioma.",
+        "notFound": "Este relato no existe.",
+        "loadError": "No se pudo cargar el relato. Comprueba tu conexión.",
+        "retry": "Reintentar"
     },
     "feasts": {
         "title": "Fiestas y ayunos",

@@ -8,4 +8,8 @@ self.skipWaiting()
 clientsClaim()
 
 cleanupOutdatedCaches()
-precacheAndRoute(self.__WB_MANIFEST)
+// ?story= opens a synaxarium story on the precached page, so ignore it when
+// matching the precache (offline reloads and shared links)
+precacheAndRoute(self.__WB_MANIFEST, {
+    ignoreURLParametersMatching: [/^utm_/, /^fbclid$/, /^story$/],
+})

@@ -13,7 +13,11 @@ import { computed } from 'vue';
 import { useReadings } from '@/store/readings.js';
 import { useCurrentLang } from '@/composables/useCurrentLang';
 import { SYNAX_LANGS } from '@/consts/supportedLangs';
+import { useDisplay } from 'vuetify';
+import { useBackClose } from '@/composables/useBackClose';
 const menu = useMenu()
+const { mobile } = useDisplay()
+useBackClose(() => menu.navOpen && mobile.value, () => { menu.navOpen = false })
 const { t } = useI18n()
 const readings = useReadings();
 const lang = useCurrentLang();

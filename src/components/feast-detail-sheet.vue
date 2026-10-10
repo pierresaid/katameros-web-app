@@ -6,8 +6,10 @@ import { formatCopticDate, formatDateRange, formatDayCount } from '@/composables
 import { useReadings } from '@/store/readings';
 import { useMenu } from '@/store/menu';
 import { feastColor } from '@/consts/feastCategories';
+import { useBackClose } from '@/composables/useBackClose';
 
 const { detail, open, close } = useFeastDetail();
+useBackClose(() => open.value, close);
 const readings = useReadings();
 const menu = useMenu();
 const router = useRouter();

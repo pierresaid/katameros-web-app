@@ -7,15 +7,17 @@ import TheHeader from './components/the-header.vue';
 import { useMenu } from './store/menu';
 import { computed, onMounted, watch } from 'vue';
 import { useReadings } from './store/readings';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { track } from './helpers/track';
 import LANGUAGES from './consts/languages';
 import { useHead } from '@unhead/vue';
 import { useCurrentLang } from './composables/useCurrentLang';
 import { RTL_LANGS } from './consts/supportedLangs';
 import { enableKeepAwake } from './helpers/keepAwake';
+import { setupAndroidBackButton } from './helpers/androidBack';
 
 const route = useRoute()
+const router = useRouter()
 const currentLang = useCurrentLang()
 const currentDir = computed(() => RTL_LANGS.has(currentLang.value) ? 'rtl' : 'ltr')
 
@@ -33,6 +35,9 @@ onMounted(() => {
 
   // Keep the screen awake while the native app is open (no-op on web).
   enableKeepAwake()
+
+  // Android back button: closes sheets, dialogs and the drawer before leaving a page.
+  setupAndroidBackButton(router)
 
   function syncLanguage() {
     const code = route.params.lang as string | undefined

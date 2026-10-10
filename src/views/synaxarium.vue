@@ -27,12 +27,12 @@
           height="calc(100dvh - 290px)"
           item-height="76"
         >
-          <template v-slot:default="{ item, index }">
+          <template v-slot:default="{ item }">
             <button
-              :key="`${item.Month}-${item.Day}-${index}`"
+              :key="item.Slug"
               type="button"
               class="synax-row"
-              @click="handleEntryClick(item)"
+              @click="openStory(item)"
             >
               <span class="synax-row-date">
                 <span class="synax-row-day">{{ item.Day }}</span>
@@ -56,6 +56,19 @@
         </div>
       </v-col>
     </v-row>
+
+    <synax-story-sheet
+      :open="!!storySlug"
+      :day="sheetEntry?.Day ?? null"
+      :month="sheetEntry?.Month ?? null"
+      :title="sheetEntry?.Title ?? ''"
+      :story="story"
+      :status="status"
+      :going-to-day="isLoadingReadings"
+      @close="closeStory"
+      @go-to-day="goToDay"
+      @retry="reload"
+    />
   </v-container>
 </template>
 
@@ -72,7 +85,13 @@ import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
 import { highlightSearchMatches } from '@/helpers/searchText';
 import { useCurrentLang } from '@/composables/useCurrentLang';
-import { nextTick, ref, watch } from 'vue';
+import { useSynaxStory } from '@/composables/useSynaxStory';
+import { useBackClose } from '@/composables/useBackClose';
+import SynaxStorySheet from '@/components/synax-story-sheet.vue';
+import LANGUAGES from '@/consts/languages';
+import { useHead } from '@unhead/vue';
+import { useI18n } from 'vue-i18n';
+import { computed, nextTick, ref, watch } from 'vue';
 
 useSeo({
   titleKey: 'synaxarium.title',
@@ -87,6 +106,49 @@ const readings = useReadings();
 const router = useRouter();
 const route = useRoute();
 const isLoadingReadings = ref(false);
+const { t } = useI18n();
+
+// The open story lives in the URL (?story=<slug>), so a story can be shared
+// and the back button closes the sheet.
+const storySlug = computed(() => {
+  const value = route.query.story;
+  return typeof value === 'string' && value ? value : null;
+});
+// Keeps the last story while the sheet animates closed, so it does not empty mid-way
+const shownSlug = ref<string | null>(storySlug.value);
+// The language the list is in: German, Polish, Spanish and Thai have no
+// synaxarium and show the French list, so their stories load in French too.
+const languageId = computed(() => Object.values(LANGUAGES).find(l => l.code === synaxStore.currentLanguage)?.id ?? 1);
+const sheetEntry = computed(() => synaxStore.entries.find(e => e.Slug === shownSlug.value) ?? null);
+const { story, status, reload } = useSynaxStory(shownSlug, languageId);
+watch(storySlug, (slug) => {
+  if (!slug) return;
+  // Reopening the same story: refresh it (an earlier failure, or newer text)
+  if (slug === shownSlug.value) reload();
+  else shownSlug.value = slug;
+});
+
+const openStory = (entry: SynaxEntry) => {
+  router.push({ query: { ...route.query, story: entry.Slug } });
+};
+
+// When the entry before is the plain list, closing steps back to it, so the
+// history keeps no duplicate. This holds after a remount or a reload too.
+// A story opened from a shared link replaces its entry instead.
+const closeStory = () => {
+  if (!storySlug.value) return;
+  const { story: _story, ...query } = route.query;
+  const listPath = router.resolve({ query }).fullPath;
+  if (router.options.history.state.back === listPath) router.back();
+  else router.replace({ query });
+};
+
+useBackClose(() => !!storySlug.value, closeStory);
+
+useHead(() => {
+  const title = story.value?.title || sheetEntry.value?.Title;
+  return storySlug.value && title ? { title: `${title} - ${t('seo.brand')}` } : {};
+});
 
 // The static synaxarium JSON and the API titles can differ by invisible
 // characters (non-breaking spaces, curly apostrophes) or casing — normalize
@@ -101,7 +163,7 @@ const normalizeTitle = (title: unknown): string => String(title ?? '')
   .replace(/\.+$/, '')
   .toLowerCase();
 
-const findReadingIdx = (subSection: SubSection, entry: SynaxEntry): number => {
+const findReadingIdx = (subSection: SubSection, entry: { Day: number; Month: number; Title: string }): number => {
   // 1. Exact title match
   let idx = subSection.readings.findIndex(r => r.title === entry.Title);
   if (idx !== -1) return idx;
@@ -115,20 +177,30 @@ const findReadingIdx = (subSection: SubSection, entry: SynaxEntry): number => {
   // the same order, so when both have the same count, entry k is reading k.
   const dayEntries = synaxStore.entries.filter(e => e.Day === entry.Day && e.Month === entry.Month);
   if (dayEntries.length === subSection.readings.length) {
-    const pos = dayEntries.indexOf(entry);
+    const pos = dayEntries.findIndex(e => e.Title === entry.Title);
     if (pos !== -1) return pos;
   }
 
   return -1;
 };
 
-const handleEntryClick = async (entry: SynaxEntry) => {
-  // Get current coptic year from the readings store
-  const currentCopticYear = readings.copticDate[2];
+// The day of the open story: from the API answer, or from the list while it loads
+interface StoryTarget { Day: number; Month: number; StoryId: number; Title: string }
 
-  // Convert coptic date to gregorian (format: MM/DD/YYYY)
-  const copticDateStr = `${entry.Month}/${entry.Day}/${currentCopticYear}`;
-  const gregorianDateStr = convertCopticToGregorian(copticDateStr);
+const goToDay = () => {
+  const target: StoryTarget | null = story.value
+    ? { Day: story.value.day, Month: story.value.month, StoryId: story.value.storyId, Title: story.value.title }
+    : sheetEntry.value;
+  if (target) showStoryInReadings(target);
+};
+
+const showStoryInReadings = async (entry: StoryTarget) => {
+  // Convert the Coptic date of the current Coptic year to Gregorian (MM/DD/YYYY).
+  // 6 Nasie only exists in Coptic leap years: then use the next year that has it.
+  const currentCopticYear = readings.copticDate[2] ?? 0;
+  let gregorianDateStr: unknown = false;
+  for (let year = currentCopticYear; year < currentCopticYear + 4 && !gregorianDateStr; year++)
+    gregorianDateStr = convertCopticToGregorian(`${entry.Month}/${entry.Day}/${year}`);
 
   if (gregorianDateStr && typeof gregorianDateStr === 'string') {
     // Parse the gregorian date string (MM/DD/YYYY)
@@ -162,7 +234,10 @@ const handleEntryClick = async (entry: SynaxEntry) => {
           const subSection = subSectionIdx !== -1 ? section.subSections[subSectionIdx] : undefined;
 
           if (subSection) {
-            const readingIdx = findReadingIdx(subSection, entry);
+            // The readings carry the same story id; the title match is a fallback
+            // for readings cached before the ids existed.
+            let readingIdx = subSection.readings.findIndex(r => r.storyId === entry.StoryId);
+            if (readingIdx === -1) readingIdx = findReadingIdx(subSection, entry);
 
             if (readingIdx !== -1) {
               // Found the story - scroll to it

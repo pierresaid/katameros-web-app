@@ -10,10 +10,12 @@ import { useFeasts } from '../store/feasts';
 import { useFeastList } from '@/composables/useFeastList';
 import { useFeastDetail } from '@/composables/useFeastDetail';
 import { feastColor } from '@/consts/feastCategories';
+import { useBackClose } from '@/composables/useBackClose';
 
 const readings = useReadings();
 
 const menu = useMenu()
+useBackClose(() => menu.dateDialog, () => { menu.dateDialog = false });
 const tab = ref('date')
 
 // The feasts page opens the dialog for the calendar alone: no tab bar,

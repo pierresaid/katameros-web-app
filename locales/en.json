@@ -51,7 +51,12 @@
         "search": "Search by title",
         "day": "Day",
         "of": "of",
-        "noResults": "No results found"
+        "noResults": "No results found",
+        "goToDay": "Go to this day",
+        "unavailable": "This story is not available in this language.",
+        "notFound": "This story does not exist.",
+        "loadError": "The story could not be loaded. Check your connection.",
+        "retry": "Try again"
     },
     "feasts": {
         "title": "Feasts & fasts",

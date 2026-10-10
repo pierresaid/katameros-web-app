@@ -51,7 +51,12 @@
         "search": "Szukaj według tytułu",
         "day": "Dzień",
         "of": "z",
-        "noResults": "Nie znaleziono wyników"
+        "noResults": "Nie znaleziono wyników",
+        "goToDay": "Przejdź do tego dnia",
+        "unavailable": "Ta opowieść nie jest dostępna w tym języku.",
+        "notFound": "Ta opowieść nie istnieje.",
+        "loadError": "Nie udało się wczytać opowieści. Sprawdź połączenie.",
+        "retry": "Spróbuj ponownie"
     },
     "feasts": {
         "title": "Święta i posty",

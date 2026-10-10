@@ -51,7 +51,12 @@
         "search": "Suche nach Titel",
         "day": "Tag",
         "of": "von",
-        "noResults": "Keine Ergebnisse gefunden"
+        "noResults": "Keine Ergebnisse gefunden",
+        "goToDay": "Zu diesem Tag",
+        "unavailable": "Diese Erzählung ist in dieser Sprache nicht verfügbar.",
+        "notFound": "Diese Erzählung gibt es nicht.",
+        "loadError": "Die Erzählung konnte nicht geladen werden. Prüfe deine Verbindung.",
+        "retry": "Erneut versuchen"
     },
     "feasts": {
         "title": "Feste und Fastenzeiten",

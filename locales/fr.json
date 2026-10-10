@@ -51,7 +51,12 @@
         "search": "Rechercher par titre",
         "day": "Jour",
         "of": "de",
-        "noResults": "Aucun résultat trouvé"
+        "noResults": "Aucun résultat trouvé",
+        "goToDay": "Aller à ce jour",
+        "unavailable": "Ce récit n'est pas disponible dans cette langue.",
+        "notFound": "Ce récit n'existe pas.",
+        "loadError": "Impossible de charger le récit. Vérifiez votre connexion.",
+        "retry": "Réessayer"
     },
     "feasts": {
         "title": "Fêtes et jeûnes",
