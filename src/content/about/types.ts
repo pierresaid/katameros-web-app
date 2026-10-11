@@ -47,7 +47,10 @@ export interface AboutService {
 }
 
 export interface AboutContent {
+    /** The page's heading (for screen readers), also its title in search results */
     title: string
+    /** For search results and link previews only, not shown on the page (about 150 characters) */
+    description: string
     lead: string
     name: AboutSection
     church: AboutSection

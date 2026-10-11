@@ -2,6 +2,7 @@ import type { AboutContent } from './types'
 
 const content: AboutContent = {
     title: 'Qu’est-ce que le Katameros ?',
+    description: 'Katameros : le lectionnaire de l’Église copte orthodoxe, ses cinq livres, le calendrier copte et comment sont choisies les lectures de chaque jour.',
     lead: 'Le Katameros est le lectionnaire de l’Église copte orthodoxe : le livre qui indique les passages de la Bible lus à l’église lors des offices quotidiens, chaque jour de l’année.',
 
     name: {

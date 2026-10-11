@@ -2,6 +2,7 @@ import type { AboutContent } from './types'
 
 const content: AboutContent = {
     title: 'What is the Katameros?',
+    description: 'What the Katameros is: the lectionary of the Coptic Orthodox Church, its five books, the Coptic calendar, and how each day’s readings are chosen.',
     lead: 'The Katameros is the lectionary of the Coptic Orthodox Church: the book that lists the Bible passages read in church at the daily services, on every day of the year.',
 
     name: {

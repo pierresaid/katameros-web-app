@@ -1,4 +1,5 @@
 import { useHead } from '@unhead/vue'
+import { toValue, type MaybeRefOrGetter } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { DEFAULT_LANG, SUPPORTED_LANGS, type SupportedLang } from '@/consts/supportedLangs'
@@ -18,6 +19,9 @@ function pathWithoutLang(fullPath: string): string {
 interface SeoOptions {
     titleKey?: string
     descriptionKey?: string
+    /** The page's own title and description, for copy kept outside the locale files (e.g. the About page). */
+    title?: MaybeRefOrGetter<string>
+    description?: MaybeRefOrGetter<string>
     isRoot?: boolean
     brandOnly?: boolean
     /** Languages this route actually exists in (defaults to all). */
@@ -36,9 +40,10 @@ export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
 
     useHead(() => {
         const brand = t('seo.brand')
-        const brandOnly = opts.isRoot || opts.brandOnly || !opts.titleKey
-        const fullTitle = brandOnly ? brand : `${t(opts.titleKey!)} - ${brand}`
-        const description = t(opts.descriptionKey ?? 'seo.tagline')
+        const pageTitle = opts.title !== undefined ? toValue(opts.title) : opts.titleKey && t(opts.titleKey)
+        const brandOnly = opts.isRoot || opts.brandOnly || !pageTitle
+        const fullTitle = brandOnly ? brand : `${pageTitle} - ${brand}`
+        const description = opts.description !== undefined ? toValue(opts.description) : t(opts.descriptionKey ?? 'seo.tagline')
         const suffix = pathWithoutLang(route.path)
         const urlFor = (l: SupportedLang) => `${SITE_URL}/${l}${suffix}`
         // The bare root sends visitors to their own language, which is what

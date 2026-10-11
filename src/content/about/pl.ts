@@ -2,6 +2,7 @@ import type { AboutContent } from './types'
 
 const content: AboutContent = {
     title: 'Czym jest Katameros?',
+    description: 'Czym jest Katameros: lekcjonarz Koptyjskiego Kościoła Ortodoksyjnego, jego pięć ksiąg, kalendarz koptyjski i to, jak dobiera się czytania na każdy dzień.',
     lead: 'Katameros to lekcjonarz Koptyjskiego Kościoła Ortodoksyjnego: księga, która na każdy dzień roku podaje fragmenty Biblii czytane w kościele podczas codziennych nabożeństw.',
 
     name: {

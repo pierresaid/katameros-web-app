@@ -9,12 +9,13 @@ import { track } from '@/helpers/track';
 import { ABOUT_CONTENT, ABOUT_LANGS, aboutLang } from '@/content/about';
 import { typeset } from '@/content/about/typeset';
 
-useSeo({ titleKey: 'about', descriptionKey: 'seo.aboutDescription', langs: ABOUT_LANGS });
-
 const lang = useCurrentLang();
 // The copy's own language: English on the Thai page, which has no translation
 const copyLang = computed(() => aboutLang(lang.value));
 const c = computed(() => typeset(ABOUT_CONTENT[copyLang.value], copyLang.value));
+
+// The page's heading is its title in search results ("What is the Katameros? - Katameros")
+useSeo({ title: () => c.value.title, description: () => c.value.description, langs: ABOUT_LANGS });
 
 // Words between asterisks in the copy are foreign terms in Latin letters, set in italics
 // (e.g. *kata meros*). Isolated left to right, so they stay in one piece in Arabic text.

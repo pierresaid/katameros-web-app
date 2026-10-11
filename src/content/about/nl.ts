@@ -2,6 +2,7 @@ import type { AboutContent } from './types'
 
 const content: AboutContent = {
     title: 'Wat is de Katameros?',
+    description: 'Wat de Katameros is: het lectionarium van de Koptisch-Orthodoxe Kerk, de vijf boeken, de Koptische kalender en hoe de lezingen van elke dag worden gekozen.',
     lead: 'De Katameros is het lectionarium van de Koptisch-Orthodoxe Kerk: het boek dat voor elke dag van het jaar aangeeft welke Bijbelgedeelten in de kerk worden gelezen tijdens de dagelijkse diensten.',
 
     name: {
