@@ -7,12 +7,17 @@ import { http } from '../services/http';
 import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
+import { loadSynaxCache } from '../services/synaxCache';
 
-interface CacheVersionInfo {
+export interface CacheVersionInfo {
     CacheVersion: number;
     CacheDataUrl: string;
     CacheBegin: string;
     CacheEnd: string;
+    // The synaxarium stories: a version only, they do not depend on dates.
+    // Absent until the first synaxarium cache is published.
+    SynaxVersion?: number;
+    SynaxDataUrl?: string;
 }
 
 const today = new Date()
@@ -76,21 +81,20 @@ export const useReadings = defineStore('readings', () => {
     const disableCache = import.meta.env.DEV;
     const currentCacheVersion = skipHydrate(useStorage<number>("CURRENT_CACHE_VERSION", 0));
     const cacheVersionInfo = skipHydrate(useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" }));
-    const cacheVersionFetched = ref(false);
+    let cacheVersionRequest: Promise<CacheVersionInfo | null> | null = null;
 
-    async function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
-        if (cacheVersionFetched.value) {
+    // One call per visit, shared by the readings and the synaxarium stories
+    function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
+        cacheVersionRequest ??= (async () => {
+            try {
+                const response = await fetch('https://katemeros-cache-version.psaid.workers.dev/');
+                cacheVersionInfo.value = await response.json();
+            } catch {
+                // offline: keep the last values received
+            }
             return cacheVersionInfo.value;
-        }
-        try {
-            const response = await fetch('https://katemeros-cache-version.psaid.workers.dev/');
-            cacheVersionInfo.value = await response.json();
-            cacheVersionFetched.value = true;
-            return cacheVersionInfo.value;
-        } catch {
-            cacheVersionFetched.value = true;
-            return cacheVersionInfo.value;
-        }
+        })();
+        return cacheVersionRequest;
     }
 
     async function getReadings() {
@@ -182,6 +186,12 @@ export const useReadings = defineStore('readings', () => {
             }
             apiLoading.value = false;
             loading.value = false;
+        }
+
+        // The synaxarium stories download last, once the readings and their
+        // cache are loaded, so they never slow them down
+        if (!disableCache && cacheInfo && !preloading.value) {
+            loadSynaxCache(cacheInfo);
         }
     }
 
@@ -276,5 +286,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles }
+    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo }
 })
