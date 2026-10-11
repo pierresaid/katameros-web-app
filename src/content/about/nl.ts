@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Gelezen in de kerk',
         paragraphs: [
-            'In de kerk ligt de Katameros op de lezenaar (de leesstandaard), opengeslagen bij de lezingen van de dag. Tijdens de diensten van de dag lezen de lectoren, de diakens en de priester de gedeelten die erin staan. Koptisch-orthodoxe kerken over de hele wereld volgen hetzelfde lectionarium.',
+            'In de kerk ligt het lectionarium op de lezenaar (de leesstandaard), opengeslagen bij de lezingen van de dag. Tijdens de diensten van de dag lezen de lectoren, de diakens en de priester de gedeelten die erin staan. Koptisch-orthodoxe kerken over de hele wereld volgen ditzelfde lectionarium.',
         ],
     },
 
     contents: {
         heading: 'Wat erin staat',
-        intro: 'Voor de meeste dagen geeft de Katameros de lezingen van drie diensten. De dag van de Kerk begint bij zonsondergang. Daarom beginnen de lezingen de avond ervoor met het Avond Wierookgebed; de volgende ochtend komen het Ochtend Wierookgebed en daarna de Eucharistieviering (de Goddelijke Liturgie). Het Avond Wierookgebed en het Ochtend Wierookgebed heten ook wel de vespers en de metten.',
+        intro: 'Op de meeste dagen geeft het lectionarium de lezingen van drie diensten. Voor de Kerk begint de liturgische dag bij zonsondergang. Daarom beginnen de lezingen de avond ervoor, met het Avond Wierookgebed. Daarna volgen het Ochtend Wierookgebed en de Eucharistieviering (de Goddelijke Liturgie). De eerste twee diensten heten ook wel de vespers en de metten.',
         services: [
             { name: 'Avond Wierookgebed', when: 'De avond ervoor', parts: ['Het Heilige Evangelie'] },
             { name: 'Ochtend Wierookgebed', when: 'In de ochtend', parts: ['Het Heilige Evangelie'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'Paulinische brieven', text: 'Een gedeelte uit een van de brieven van de heilige Paulus.' },
             { name: 'Katholieke brieven', text: 'Een gedeelte uit de brieven van de heilige Jakobus, Petrus, Johannes of Judas. “Katholiek” betekent algemeen: de meeste van deze brieven zijn gericht aan de hele Kerk en niet aan één plaatselijke kerk.' },
             { name: 'Handelingen van de Apostelen', text: 'Een gedeelte uit het boek Handelingen. Deze lezing heet ook de Praxis, Grieks voor “Handelingen”.' },
-            { name: 'Synaxarium', text: 'Geen lezing uit de Bijbel, maar uit een eigen boek: de levens van de heiligen die op die dag worden herdacht.' },
-            { name: 'Het Heilige Evangelie', text: 'Een psalm en het Evangelie: van de psalm worden een paar verzen gezongen, vlak voor het Evangelie. De psalmen worden gelezen als profetieën over Christus, zo kondigt de psalm het Evangelie aan. Het Evangelie is de belangrijkste lezing van de dag, en de andere lezingen sluiten er meestal bij aan.' },
+            { name: 'Synaxarium', text: 'De levens van de heiligen en martelaren die op die dag worden herdacht, gelezen uit een eigen boek.' },
+            { name: 'Het Heilige Evangelie', text: 'Een psalm en het Evangelie: van de psalm worden een paar verzen gezongen, vlak voor het Evangelie. Het Evangelie is de belangrijkste lezing van de dag, en de andere lezingen sluiten er meestal bij aan.' },
         ],
-        note: 'Lezingen uit de profeten van het Oude Testament worden toegevoegd, vooral in de Grote Vasten en de Goede Week.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'De Katameros volgt de Koptische kalender, de kalender die de Kerk heeft geërfd van het oude Egypte. Het Koptische jaar heeft 13 maanden: 12 maanden van 30 dagen en daarna een korte maand, Nasie, van vijf dagen (zes als de eerstvolgende februari 29 dagen heeft).',
             'De maanden zijn Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra en Nasie. Het jaar begint op 1 Thout, dat is 11 september (12 september als de eerstvolgende februari 29 dagen heeft).',
+            'De Koptische jaren worden geteld vanaf het jaar 284, toen Diocletianus keizer werd. Deze jaartelling heet de era van de martelaren, ter herinnering aan de vele christenen die tijdens zijn vervolging werden gedood.',
         ],
     },
 
     choice: {
         heading: 'Hoe de lezingen worden gekozen',
-        intro: 'De lezingen van een dag zijn niet willekeurig: ze worden gekozen zodat ze passen bij wat de Kerk die dag viert. Drie dingen bepalen die keuze: de heilige of het feest van de dag in de Koptische kalender, de zondag en zijn thema, en de periodes die met Pasen meeschuiven. Als ze op dezelfde dag vallen, hebben de feesten van de Heer (de feesten van Christus, zoals Kerstmis) en die periodes voorrang op de zondag. De zondag heeft voorrang op de heilige van de dag.',
+        intro: 'De lezingen van een dag worden niet willekeurig gekozen. Ze volgen wat de Kerk die dag viert. Drie dingen bepalen de keuze:',
+        factors: [
+            { name: 'De heilige of het feest van de dag in de Koptische kalender' },
+            { name: 'De zondag en zijn thema' },
+            { name: 'De periodes die met Pasen meeschuiven', detail: 'Vasten van Ninevé, Grote Vasten, Goede Week, Heilige Vijftig Dagen' },
+        ],
+        priority: 'Als er meerdere op dezelfde dag vallen, hebben de feesten van de Heer (zoals Kerstmis) en de grote periodes rond Pasen voorrang op de zondag. De zondag heeft voorrang op de heilige van de dag.',
 
         weekdays: {
             heading: 'Weekdagen: de heiligen van de dag',
+            intro: 'Van maandag tot en met zaterdag passen de lezingen bij de heilige of het feest dat op die Koptische datum in het Synaxarium wordt herdacht. Vaak laat het Evangelie alleen al zien wiens dag het is:',
+            gospels: [
+                { name: 'Voor een profeet', text: 'De profeten die werden gedood', ref: 'Mattheüs 23', passage: 'prophets' },
+                { name: 'Voor een martelaar', text: 'Vervolging', ref: 'Lukas 21', passage: 'persecution' },
+                { name: 'Voor een paus of een patriarch', text: 'De Goede Herder', ref: 'Johannes 10', passage: 'shepherd' },
+                { name: 'Voor een heilige vrouw', text: 'De wijze maagden', ref: 'Mattheüs 25', passage: 'virgins' },
+            ],
+            openLabel: 'Lees',
             paragraphs: [
-                'Van maandag tot en met zaterdag passen de lezingen bij de heilige of het feest dat op die Koptische datum in het Synaxarium wordt herdacht. Vaak laat het Evangelie alleen al zien wiens dag het is: de profeten die werden gedood (Mattheüs 23) voor een profeet, vervolging (Lukas 21) voor een martelaar, de Goede Herder (Johannes 10) voor een paus of een patriarch, de wijze maagden (Mattheüs 25) voor een heilige vrouw.',
-                'Maar het boek Weekdagen heeft niet voor elke dag van het jaar andere lezingen. Alleen voor ongeveer 70 data zijn er eigen lezingen. Alle andere data nemen de lezingen over van een van deze data, met een heilige van dezelfde soort: een martelaar krijgt de lezingen van een andere martelaar, een bisschop die van een andere bisschop, een monnik die van een grote monnik. Daarom komen dezelfde lezingen meerdere keren per jaar terug.',
-                'Een voorbeeld: de lezingen voor de heilige Antonius de Grote, de vader van de monniken, op 22 Toubah worden op acht andere data opnieuw gebruikt, meestal voor feesten van monniken.',
+                'Het boek Weekdagen heeft niet voor elke dag van het jaar andere lezingen: alleen voor ongeveer 70 data zijn er eigen lezingen. Alle andere data nemen de lezingen over van een heilige van dezelfde soort die op een van die data wordt herdacht: een martelaar krijgt de lezingen van een andere martelaar, een bisschop die van een andere bisschop, een monnik die van een grote monnik. Daarom komen dezelfde lezingen meerdere keren per jaar terug.',
+                'Een voorbeeld: de heilige Antonius de Grote, de vader van de monniken, wordt herdacht op 22 Toubah. Zijn lezingen komen op acht andere data terug, meestal op feesten van monniken.',
             ],
         },
 
         sundays: {
             heading: 'Zondagen: het werk van de Heilige Drie-eenheid',
             paragraphs: [
-                'De zondagen volgen niet de heilige van de dag. Na elkaar gelezen vertellen de zondagslezingen van het jaar één verhaal: het werk van de Heilige Drie-eenheid voor onze redding. Elke Koptische maand geeft zijn zondagen een thema binnen dat verhaal. In Kiahk, de maand die naar Kerstmis toe leidt, vertellen de vier zondagsevangeliën bijvoorbeeld over de Menswording: de aankondiging aan Zacharias, de Aankondiging aan Maria, het bezoek van Maria aan Elisabet en de geboorte van Johannes de Doper.',
+                'Op zondag volgen de lezingen niet de heilige van de dag, maar het thema van de Koptische maand.',
+                'Het hele jaar door draaien de zondagslezingen om één onderwerp: het werk van de Heilige Drie-eenheid voor onze redding. Elke Koptische maand laat er één aspect van zien.',
+                'Een voorbeeld: Kiahk is de maand die naar Kerstmis toe leidt. Het thema is de Menswording. De Evangeliën van de vier zondagen vertellen over de aankondiging aan Zacharias, de Aankondiging aan Maria, het bezoek van Maria aan Elisabet en de geboorte van Johannes de Doper.',
             ],
             more: {
                 title: 'De zondagen, maand voor maand',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'Op een vijfde zondag wordt de spijziging van de vijfduizend gelezen: van Thout tot en met Amshir de lezingen van de tweede zondag van Amshir (Johannes 6:5–14), en van Baramhat tot en met Misra eigen lezingen (Lukas 9:12–17). Er zijn uitzonderingen, met name op de 29e van een maand buiten Toubah en Amshir, of op 30 Kiahk.',
-                    'In Babah, Hatour en van Bashans tot en met Misra is het Evangelie van het Ochtend Wierookgebed op zondag het verhaal van de Opstanding, achtereenvolgens verteld door Mattheüs, Markus, Lukas en Johannes.',
-                ],
             },
         },
 
@@ -172,12 +183,16 @@ const content: AboutContent = {
                 'De Koptische kalender ligt vast, maar Pasen niet: de datum wordt elk jaar berekend en valt tussen 4 april en 8 mei. Meerdere periodes worden vanaf Pasen geteld, zodat ze elk jaar met Pasen meeschuiven:',
             ],
             items: [
-                { name: 'Vasten van Ninevé', text: 'Drie dagen, twee weken vóór de Grote Vasten.' },
-                { name: 'Grote Vasten', text: 'De voorbereidingsweek en de Veertig Dagen. Ze begint tussen begin februari en half maart.' },
+                { name: 'Vasten van Ninevé', text: 'Drie dagen vasten, twee weken vóór het begin van de Grote Vasten.' },
+                { name: 'Grote Vasten', text: 'Een voorbereidingsweek, daarna de Veertig Dagen. Ze begint tussen begin februari en half maart.' },
                 { name: 'Goede Week', text: 'De week vóór Pasen.' },
                 { name: 'Heilige Vijftig Dagen', text: 'Van Pasen tot Pinksteren, dat tussen 23 mei en 26 juni valt.' },
             ],
-            note: 'In deze weken, ongeveer 15 per jaar, komen de lezingen uit de boeken van deze periodes, per week en per dag, in plaats van uit de boeken Weekdagen en Zondagen. De lezingen volgen de periode: in de Grote Vasten worden op de zondagen de verzoeking van Christus, de verloren zoon en de Samaritaanse vrouw gelezen; de Goede Week volgt de laatste dagen van Christus, dag voor dag. Slechts enkele feesten van de Heer, zoals het Feest van het Kruis op 10 Baramhat, behouden hun eigen lezingen.',
+            after: [
+                'In deze weken, ongeveer 15 per jaar, komen de lezingen uit de boeken van deze periodes, per week en per dag, in plaats van uit de boeken Weekdagen en Zondagen.',
+                'De lezingen volgen de periode. In de Grote Vasten worden op de zondagen de verzoeking van Christus, de verloren zoon en de Samaritaanse vrouw gelezen. De Goede Week volgt de laatste dagen van Christus, dag voor dag.',
+                'Slechts enkele feesten van de Heer, zoals het Feest van het Kruis op 10 Baramhat, behouden hun eigen lezingen.',
+            ],
             more: {
                 title: 'Wat er in deze periodes wordt gelezen',
                 items: [
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Palmzondag', text: 'De intocht in Jeruzalem, gelezen uit alle vier de Evangeliën.' },
                     { name: 'Goede Week', text: 'Lezingen voor elk gebedsuur van de dag en van de nacht: het Eerste, Derde, Zesde, Negende en Elfde Uur, met op vrijdag ook een Twaalfde Uur. Elk uur begint met het Oude Testament.' },
                     {
+                        joined: true,
                         name: 'Dag voor dag',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'Pinksteren, op de 50e dag: de komst van de Trooster (Johannes 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'De Samaritaanse vrouw is het Evangelie van twee zondagen: in de Grote Vasten met een psalm over het zoeken van de Heer (Psalm 105), en na Pasen met een psalm over de zegen van de Heer (Psalm 115).',
                 ],
             },
         },

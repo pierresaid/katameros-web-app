@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Se lee en la iglesia',
         paragraphs: [
-            'En la iglesia, el Katameros está sobre el facistol (el atril de lectura), abierto en las lecturas del día. En los oficios del día, los lectores, los diáconos y el sacerdote leen los pasajes que indica. Las iglesias coptas ortodoxas de todo el mundo siguen el mismo leccionario.',
+            'En la iglesia, el leccionario está sobre el facistol (el atril de lectura), abierto en las lecturas del día. En los oficios del día, los lectores, los diáconos y el sacerdote leen los pasajes que indica. Las iglesias coptas ortodoxas de todo el mundo siguen este mismo leccionario.',
         ],
     },
 
     contents: {
         heading: 'Qué contiene',
-        intro: 'Para la mayoría de los días, el Katameros da las lecturas de tres oficios. Para la Iglesia, el día empieza a la puesta del sol. Por eso las lecturas comienzan la tarde anterior con el Oficio de la Vigilancia, siguen por la mañana con el Oficio del Mañana y después con la Misa (la Eucaristía). El Oficio de la Vigilancia y el Oficio del Mañana son las vísperas y los maitines, también llamados ofrendas del incienso de la tarde y de la mañana.',
+        intro: 'La mayoría de los días, el leccionario da las lecturas de tres oficios. Para la Iglesia, el día litúrgico empieza a la puesta del sol. Por eso las lecturas comienzan la tarde anterior, con el Oficio de la Vigilancia. Después vienen el Oficio del Mañana y la Misa (la Eucaristía). Los dos primeros oficios son las vísperas y los maitines, también llamados ofrendas del incienso de la tarde y de la mañana.',
         services: [
             { name: 'Oficio de la Vigilancia', when: 'La tarde anterior', parts: ['Salmo y Evangelio'] },
             { name: 'Oficio del Mañana', when: 'Por la mañana', parts: ['Salmo y Evangelio'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'Epístola de San Pablo', text: 'Un pasaje de una de las cartas de San Pablo.' },
             { name: 'Epístola universal', text: 'Un pasaje de las cartas de Santiago, San Pedro, San Juan o San Judas. También se llaman «católicas», palabra que significa «universales»: la mayoría de estas cartas se dirigen a toda la Iglesia y no a una sola iglesia local.' },
             { name: 'Hechos de los Apóstoles', text: 'Un pasaje del libro de los Hechos. Esta lectura también se llama Praxis, que en griego significa «Hechos».' },
-            { name: 'Sinaxario', text: 'No es una lectura bíblica y se lee en su propio libro: las vidas de los santos que se conmemoran ese día.' },
-            { name: 'Salmo y Evangelio', text: 'Unos versículos de un salmo, cantados justo antes del Evangelio. Los salmos se leen como profecías sobre Cristo, así que el salmo anuncia el Evangelio. El Evangelio es la lectura principal del día, y las demás lecturas suelen estar relacionadas con él.' },
+            { name: 'Sinaxario', text: 'Las vidas de los santos y mártires que se conmemoran ese día, leídas en un libro propio.' },
+            { name: 'Salmo y Evangelio', text: 'Unos versículos de un salmo, cantados justo antes del Evangelio. El Evangelio es la lectura principal del día, y las demás lecturas suelen estar relacionadas con él.' },
         ],
-        note: 'Se añaden lecturas de los profetas del Antiguo Testamento, principalmente en la Gran Cuaresma y la Semana Santa.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'El Katameros sigue el calendario copto, el calendario de la Iglesia heredado del antiguo Egipto. El año copto tiene 13 meses: 12 meses de 30 días y luego un mes corto llamado Nasie, de cinco días (seis cuando el febrero siguiente tiene 29 días).',
             'Los meses son Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra y Nasie. El año empieza el 1 de Thout, que corresponde al 11 de septiembre (al 12 de septiembre cuando el febrero siguiente tiene 29 días).',
+            'Los años coptos se cuentan desde el año 284, cuando Diocleciano se convirtió en emperador. Esta cuenta se llama era de los mártires, en recuerdo de los numerosos cristianos asesinados durante su persecución.',
         ],
     },
 
     choice: {
         heading: 'Cómo se eligen las lecturas',
-        intro: 'Las lecturas de un día no se eligen al azar, sino según lo que la Iglesia celebra ese día. Tres cosas lo deciden: el santo o la fiesta del día en el calendario copto, el domingo y su tema, y los tiempos que se mueven con la Pascua. Cuando caen el mismo día, las fiestas del Señor (las fiestas de Cristo, como la Navidad) y esos tiempos tienen prioridad sobre el domingo. El domingo tiene prioridad sobre el santo del día.',
+        intro: 'Las lecturas de un día no se eligen al azar, sino según lo que la Iglesia celebra ese día. Tres cosas las determinan:',
+        factors: [
+            { name: 'El santo o la fiesta del día en el calendario copto' },
+            { name: 'El domingo y su tema' },
+            { name: 'Los tiempos que se mueven con la Pascua', detail: 'Ayuno de Nínive, Gran Cuaresma, Semana Santa, Santos Cincuenta Días' },
+        ],
+        priority: 'Cuando varias de ellas caen el mismo día, las fiestas del Señor (como la Navidad) y los grandes tiempos en torno a la Pascua tienen prioridad sobre el domingo. El domingo tiene prioridad sobre el santo del día.',
 
         weekdays: {
             heading: 'Días de semana: los santos del día',
+            intro: 'De lunes a sábado, las lecturas corresponden al santo o a la fiesta que el Sinaxario conmemora en la fecha copta del día. A menudo basta el Evangelio para saber de quién es el día:',
+            gospels: [
+                { name: 'Para un profeta', text: 'Los profetas asesinados', ref: 'Mateo 23', passage: 'prophets' },
+                { name: 'Para un mártir', text: 'La persecución', ref: 'Lucas 21', passage: 'persecution' },
+                { name: 'Para un papa o un patriarca', text: 'El Buen Pastor', ref: 'Juan 10', passage: 'shepherd' },
+                { name: 'Para una santa', text: 'Las vírgenes prudentes', ref: 'Mateo 25', passage: 'virgins' },
+            ],
+            openLabel: 'Leer',
             paragraphs: [
-                'De lunes a sábado, las lecturas corresponden al santo o a la fiesta que el Sinaxario conmemora en esa fecha copta. A menudo basta el Evangelio para saber de quién es el día: los profetas asesinados (Mateo 23) para un profeta, la persecución (Lucas 21) para un mártir, el Buen Pastor (Juan 10) para un papa o un patriarca, las vírgenes prudentes (Mateo 25) para una santa.',
-                'Pero el libro de los días de semana no tiene lecturas distintas para cada día del año. Solo unas 70 fechas tienen lecturas propias. Todas las demás fechas reutilizan las lecturas de una de ellas, elegida porque su santo es de la misma categoría: un mártir toma las lecturas de otro mártir, un obispo las de otro obispo, un monje las de un gran monje. Por eso las mismas lecturas se repiten varias veces al año.',
-                'Por ejemplo, las lecturas del 22 de Toubah, día de San Antonio, padre de los monjes, se reutilizan en otras ocho fechas, en su mayoría fiestas de monjes.',
+                'El libro de los días de semana no tiene lecturas distintas para cada día del año: solo unas 70 fechas tienen lecturas propias. En todas las demás fechas se reutilizan las lecturas de un santo de la misma categoría, celebrado en una de esas fechas: un mártir toma las lecturas de otro mártir, un obispo las de otro obispo, un monje las de un gran monje. Por eso las mismas lecturas se repiten varias veces al año.',
+                'Por ejemplo, San Antonio, padre de los monjes, se conmemora el 22 de Toubah. Sus lecturas se repiten en otras ocho fechas, en su mayoría fiestas de monjes.',
             ],
         },
 
         sundays: {
             heading: 'Domingos: la obra de la Santísima Trinidad',
             paragraphs: [
-                'Los domingos no siguen al santo del día. Leídas una tras otra, las lecturas dominicales del año cuentan una sola historia: la obra de la Santísima Trinidad para nuestra salvación. Cada mes copto da a sus domingos un tema dentro de esa historia. En Kiahk, por ejemplo, el mes que conduce a la Navidad, los Evangelios de sus cuatro domingos narran la Encarnación: el anuncio a Zacarías, la Anunciación a María, la Visitación y el nacimiento de Juan el Bautista.',
+                'Los domingos, las lecturas no siguen al santo del día, sino el tema del mes copto.',
+                'A lo largo de los domingos del año, las lecturas giran en torno a un solo asunto: la obra de la Santísima Trinidad para nuestra salvación. Cada mes copto muestra un aspecto de esta obra.',
+                'Por ejemplo, Kiahk es el mes que conduce a la Navidad. Su tema es la Encarnación. Los Evangelios de sus cuatro domingos narran el anuncio a Zacarías, la Anunciación a María, la Visitación y el nacimiento de Juan el Bautista.',
             ],
             more: {
                 title: 'Los domingos, mes a mes',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'Cuando hay un quinto domingo, se lee la multiplicación de los panes para los cinco mil: de Thout a Amshir, con las lecturas del segundo domingo de Amshir (Juan 6:5–14), y de Baramhat a Misra, con lecturas propias (Lucas 9:12–17). Hay excepciones, en particular el día 29 de un mes que no sea Toubah ni Amshir, o el 30 de Kiahk.',
-                    'En Babah, Hatour y de Bashans a Misra, el Evangelio del domingo en el Oficio del Mañana es la Resurrección, narrada por Mateo, Marcos, Lucas y Juan, uno tras otro.',
-                ],
             },
         },
 
@@ -172,12 +183,16 @@ const content: AboutContent = {
                 'El calendario copto es fijo, pero la Pascua no: su fecha se calcula cada año y cae entre el 4 de abril y el 8 de mayo. Varios periodos se cuentan a partir de la Pascua, así que se mueven con ella cada año:',
             ],
             items: [
-                { name: 'Ayuno de Nínive', text: 'Tres días, dos semanas antes de la Gran Cuaresma.' },
-                { name: 'Gran Cuaresma', text: 'La semana de preparación y los Cuarenta Días. Empieza entre principios de febrero y mediados de marzo.' },
+                { name: 'Ayuno de Nínive', text: 'Tres días de ayuno, dos semanas antes del comienzo de la Gran Cuaresma.' },
+                { name: 'Gran Cuaresma', text: 'Una semana de preparación y luego los Cuarenta Días. Empieza entre principios de febrero y mediados de marzo.' },
                 { name: 'Semana Santa', text: 'La semana antes de Pascua.' },
                 { name: 'Santos Cincuenta Días', text: 'De Pascua a Pentecostés, que cae entre el 23 de mayo y el 26 de junio.' },
             ],
-            note: 'Durante estas semanas, unas 15 al año, las lecturas proceden de los libros de estos tiempos, por semana y por día, en lugar de los libros de los días de semana y de los domingos. Las lecturas siguen el tiempo litúrgico: en la Gran Cuaresma, los domingos se leen la tentación de Cristo, el hijo pródigo y la samaritana; la Semana Santa sigue los últimos días de Cristo, día a día. Solo unas pocas fiestas del Señor, como la Fiesta de la Cruz del 10 de Baramhat, conservan sus propias lecturas.',
+            after: [
+                'Durante estas semanas, unas 15 al año, las lecturas proceden de los libros de estos tiempos, por semana y por día, en lugar de los libros de los días de semana y de los domingos.',
+                'Las lecturas siguen el tiempo litúrgico. En la Gran Cuaresma, los domingos se leen la tentación de Cristo, el hijo pródigo y la samaritana. La Semana Santa sigue los últimos días de Cristo, día a día.',
+                'Solo unas pocas fiestas del Señor, como la Fiesta de la Cruz del 10 de Baramhat, conservan sus propias lecturas.',
+            ],
             more: {
                 title: 'Qué se lee en estos tiempos',
                 items: [
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Domingo de Ramos', text: 'La entrada en Jerusalén, leída en los cuatro Evangelios.' },
                     { name: 'Semana Santa', text: 'Lecturas para cada hora de oración del día y de la noche: la Primera, la Tercera, la Sexta, la Novena y la Undécima Hora, con una Duodécima Hora el viernes. Cada hora empieza con el Antiguo Testamento.' },
                     {
+                        joined: true,
                         name: 'Día a día',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'Pentecostés, el día 50: la venida del Consolador (Juan 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'La samaritana es el Evangelio de dos domingos: en la Gran Cuaresma, con un salmo que habla de buscar al Señor (Salmo 105), y después de Pascua, con un salmo que habla de la bendición del Señor (Salmo 115).',
                 ],
             },
         },

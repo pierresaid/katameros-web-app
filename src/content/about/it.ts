@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Un libro letto in chiesa',
         paragraphs: [
-            'In chiesa, il Katameros è posto sul leggio (il supporto per la lettura), aperto alla pagina delle letture del giorno. Nelle celebrazioni del giorno, i lettori, i diaconi e il sacerdote leggono i brani che vi sono indicati. Le chiese copte ortodosse di tutto il mondo seguono lo stesso lezionario.',
+            'In chiesa, il lezionario è posto sul leggio (il supporto per la lettura), aperto alla pagina delle letture del giorno. Nelle celebrazioni del giorno, i lettori, i diaconi e il sacerdote leggono i brani che vi sono indicati. Le chiese copte ortodosse di tutto il mondo seguono questo stesso lezionario.',
         ],
     },
 
     contents: {
         heading: 'Che cosa contiene',
-        intro: 'Per la maggior parte dei giorni, il Katameros riporta le letture di tre celebrazioni. Per la Chiesa il giorno comincia al tramonto: per questo le letture iniziano la sera prima con l’Incenso, proseguono la mattina con la celebrazione del Mattino e poi con la Messa (l’Eucaristia). L’Incenso e il Mattino, detti anche Vespri e Mattutino, sono rispettivamente l’offerta dell’incenso della sera e quella del mattino.',
+        intro: 'Nella maggior parte dei giorni, il lezionario riporta le letture di tre celebrazioni. Per la Chiesa, il giorno liturgico comincia al tramonto. Le letture iniziano quindi la sera prima, con l’Incenso. Seguono la celebrazione del Mattino e la Messa (l’Eucaristia). Le prime due celebrazioni, dette anche Vespri e Mattutino, sono l’offerta dell’incenso della sera e quella del mattino.',
         services: [
             { name: 'Incenso', when: 'La sera prima', parts: ['Salmo e Vangelo'] },
             { name: 'Mattino', when: 'Al mattino', parts: ['Salmo e Vangelo'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'San Paolo', text: 'Un brano di una delle lettere di san Paolo.' },
             { name: 'Katholicon', text: 'Un brano delle lettere di san Giacomo, san Pietro, san Giovanni o san Giuda, dette lettere cattoliche. «Cattolico» significa universale: la maggior parte di queste lettere è indirizzata a tutta la Chiesa e non a una sola Chiesa locale.' },
             { name: 'Atti degli Apostoli', text: 'Un brano del libro degli Atti. Questa lettura si chiama anche Praxis, che in greco significa «Atti».' },
-            { name: 'Sinassario', text: 'Non è una lettura biblica e si legge da un libro a parte: le vite dei santi commemorati quel giorno.' },
-            { name: 'Salmo e Vangelo', text: 'Alcuni versetti di un salmo, cantati subito prima del Vangelo. I salmi sono letti come profezie su Cristo: per questo il salmo annuncia il Vangelo. Il Vangelo è la lettura principale del giorno, e di solito le altre letture vi si ricollegano.' },
+            { name: 'Sinassario', text: 'Le vite dei santi e dei martiri commemorati quel giorno, lette da un libro a parte.' },
+            { name: 'Salmo e Vangelo', text: 'Alcuni versetti di un salmo, cantati subito prima del Vangelo. Il Vangelo è la lettura principale del giorno, e di solito le altre letture vi si ricollegano.' },
         ],
-        note: 'Si aggiungono letture dei profeti dell’Antico Testamento, soprattutto nella Grande Quaresima e nella Settimana Santa.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'Il Katameros segue il calendario copto, il calendario della Chiesa ereditato dall’antico Egitto. L’anno copto ha 13 mesi: 12 mesi di 30 giorni, poi un mese breve chiamato Nasie, di cinque giorni (sei quando il febbraio successivo ha 29 giorni).',
             'I mesi sono Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra e Nasie. L’anno comincia il 1º Thout, che corrisponde all’11 settembre (il 12 settembre quando il febbraio successivo ha 29 giorni).',
+            'Gli anni copti si contano dal 284, quando Diocleziano divenne imperatore. Questo computo si chiama era dei martiri, in ricordo dei tanti cristiani uccisi durante la sua persecuzione.',
         ],
     },
 
     choice: {
         heading: 'Come vengono scelte le letture',
-        intro: 'Le letture di un giorno non sono casuali: sono scelte in base a ciò che la Chiesa celebra quel giorno. A deciderle sono tre elementi: il santo o la festa del giorno nel calendario copto, la domenica e il suo tema, e i periodi che si spostano con la Pasqua. Quando cadono nello stesso giorno, le feste del Signore (le feste di Cristo, come il Natale) e questi periodi hanno la precedenza sulla domenica. La domenica ha la precedenza sul santo del giorno.',
+        intro: 'Le letture di un giorno non sono scelte a caso. Seguono ciò che la Chiesa celebra quel giorno. A deciderle sono tre elementi:',
+        factors: [
+            { name: 'Il santo o la festa del giorno nel calendario copto' },
+            { name: 'La domenica e il suo tema' },
+            { name: 'I periodi che si spostano con la Pasqua', detail: 'Digiuno di Giona, Grande Quaresima, Settimana Santa, Cinquanta giorni santi' },
+        ],
+        priority: 'Quando ne cade più di uno nello stesso giorno, le feste del Signore (come il Natale) e i grandi periodi intorno alla Pasqua hanno la precedenza sulla domenica. La domenica ha la precedenza sul santo del giorno.',
 
         weekdays: {
             heading: 'I giorni feriali: i santi del giorno',
+            intro: 'Dal lunedì al sabato, le letture corrispondono al santo o alla festa che il Sinassario ricorda in quella data copta. Spesso basta il Vangelo a far capire chi si commemora quel giorno:',
+            gospels: [
+                { name: 'Per un profeta', text: 'I profeti uccisi', ref: 'Matteo 23', passage: 'prophets' },
+                { name: 'Per un martire', text: 'La persecuzione', ref: 'Luca 21', passage: 'persecution' },
+                { name: 'Per un papa o un patriarca', text: 'Il Buon Pastore', ref: 'Giovanni 10', passage: 'shepherd' },
+                { name: 'Per una santa', text: 'Le vergini sagge', ref: 'Matteo 25', passage: 'virgins' },
+            ],
+            openLabel: 'Leggi',
             paragraphs: [
-                'Dal lunedì al sabato, le letture corrispondono al santo o alla festa che il Sinassario ricorda in quella data copta. Spesso basta il Vangelo a far capire chi si commemora quel giorno: i profeti uccisi (Matteo 23) per un profeta, la persecuzione (Luca 21) per un martire, il Buon Pastore (Giovanni 10) per un papa o un patriarca, le vergini sagge (Matteo 25) per una santa.',
-                'Ma il libro dei Giorni feriali non ha letture diverse per ogni giorno dell’anno. Solo circa 70 date hanno letture proprie. Tutte le altre date riprendono le letture di una di queste, scelta perché ricorda un santo dello stesso tipo: un martire prende le letture di un altro martire, un vescovo quelle di un altro vescovo, un monaco quelle di un grande monaco. Per questo le stesse letture si ripetono più volte all’anno.',
-                'Per esempio, le letture del 22 Toubah per sant’Antonio il Grande, padre dei monaci, sono riprese in altre otto date, per lo più feste di monaci.',
+                'Il libro dei Giorni feriali non ha letture diverse per ogni giorno dell’anno: solo 70 date circa hanno letture proprie. Tutte le altre date riprendono le letture di un santo dello stesso tipo, festeggiato in una di quelle date: un martire prende le letture di un altro martire, un vescovo quelle di un altro vescovo, un monaco quelle di un grande monaco. Per questo le stesse letture tornano più volte all’anno.',
+                'Per esempio, sant’Antonio il Grande, padre dei monaci, si commemora il 22 Toubah. Le sue letture tornano in altre otto date, per lo più feste di monaci.',
             ],
         },
 
         sundays: {
             heading: 'Le domeniche: l’opera della Santa Trinità',
             paragraphs: [
-                'Le domeniche non seguono il santo del giorno. Prese una dopo l’altra, le letture domenicali dell’anno raccontano un’unica storia: l’opera della Santa Trinità per la nostra salvezza. Ogni mese copto dà alle sue domeniche un tema all’interno di questa storia. In Kiahk, per esempio, il mese che porta al Natale, i Vangeli delle quattro domeniche raccontano l’Incarnazione: l’annuncio a Zaccaria, l’Annunciazione a Maria, la Visitazione e la nascita di Giovanni Battista.',
+                'La domenica, le letture non seguono il santo del giorno, ma il tema del mese copto.',
+                'Nel corso delle domeniche dell’anno, le letture ruotano attorno a un unico argomento: l’opera della Santa Trinità per la nostra salvezza. Ogni mese copto ne mostra un aspetto.',
+                'Per esempio, Kiahk è il mese che porta al Natale. Il suo tema è l’Incarnazione. I Vangeli delle sue quattro domeniche raccontano l’annuncio a Zaccaria, l’Annunciazione a Maria, la Visitazione e la nascita di Giovanni Battista.',
             ],
             more: {
                 title: 'Le domeniche, mese per mese',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'La quinta domenica del mese si legge la moltiplicazione dei pani per cinquemila persone: da Thout ad Amshir, con le letture della seconda domenica di Amshir (Giovanni 6:5–14), e da Baramhat a Misra, con letture proprie (Luca 9:12–17). Ci sono eccezioni, in particolare quando cade il 29 di un mese diverso da Toubah e Amshir, o il 30 Kiahk.',
-                    'In Babah, in Hatour e da Bashans a Misra, il Vangelo del Mattino della domenica è la Risurrezione, raccontata da Matteo, Marco, Luca e Giovanni, uno dopo l’altro.',
-                ],
             },
         },
 
@@ -172,12 +183,16 @@ const content: AboutContent = {
                 'Il calendario copto è fisso, ma la Pasqua no: la sua data si calcola ogni anno e cade tra il 4 aprile e l’8 maggio. Diversi periodi si contano a partire dalla Pasqua, quindi ogni anno si spostano con essa:',
             ],
             items: [
-                { name: 'Digiuno di Giona', text: 'Tre giorni, due settimane prima della Grande Quaresima.' },
-                { name: 'Grande Quaresima', text: 'La settimana di preparazione e i Quaranta giorni. Comincia tra l’inizio di febbraio e la metà di marzo.' },
+                { name: 'Digiuno di Giona', text: 'Tre giorni di digiuno, due settimane prima dell’inizio della Grande Quaresima.' },
+                { name: 'Grande Quaresima', text: 'Una settimana di preparazione, poi i Quaranta giorni. Comincia tra l’inizio di febbraio e la metà di marzo.' },
                 { name: 'Settimana Santa', text: 'La settimana prima di Pasqua.' },
                 { name: 'Cinquanta giorni santi', text: 'Da Pasqua a Pentecoste, che cade tra il 23 maggio e il 26 giugno.' },
             ],
-            note: 'In queste settimane, circa 15 all’anno, le letture sono tratte dai libri di questi periodi, settimana per settimana e giorno per giorno, invece che dai libri dei Giorni feriali e delle Domeniche. Le letture seguono il periodo: nella Grande Quaresima, la domenica si leggono le tentazioni di Cristo, il figliol prodigo e la samaritana; la Settimana Santa segue gli ultimi giorni di Cristo, giorno per giorno. Solo poche feste del Signore, come la festa della Croce il 10 Baramhat, mantengono le proprie letture.',
+            after: [
+                'In queste settimane, circa 15 all’anno, le letture sono tratte dai libri di questi periodi, settimana per settimana e giorno per giorno, invece che dai libri dei Giorni feriali e delle Domeniche.',
+                'Le letture seguono il periodo. Nella Grande Quaresima, la domenica si leggono le tentazioni di Cristo, il figliol prodigo e la samaritana. La Settimana Santa segue gli ultimi giorni di Cristo, giorno per giorno.',
+                'Solo poche feste del Signore, come la festa della Croce il 10 Baramhat, mantengono le proprie letture.',
+            ],
             more: {
                 title: 'Che cosa si legge in questi periodi',
                 items: [
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Domenica delle Palme', text: 'L’ingresso in Gerusalemme, letto in tutti e quattro i Vangeli.' },
                     { name: 'Settimana Santa', text: 'Letture per ogni ora di preghiera del giorno e della notte: la Prima, la Terza, la Sesta, la Nona e l’Undicesima ora, e il venerdì anche una Dodicesima ora. Ogni ora comincia con l’Antico Testamento.' },
                     {
+                        joined: true,
                         name: 'Giorno per giorno',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'La Pentecoste, il 50º giorno: la venuta del Consolatore (Giovanni 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'Il Vangelo della samaritana si legge in due domeniche: nella Grande Quaresima con un salmo che parla di cercare il Signore (Salmo 105), e dopo Pasqua con un salmo sulla benedizione del Signore (Salmo 115).',
                 ],
             },
         },

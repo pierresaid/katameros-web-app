@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, shallowRef } from 'vue';
 import { Capacitor } from '@capacitor/core';
 import CopticCrossOutline from '@/components/coptic-cross-outline.vue';
 import AboutMore from '@/components/about-more.vue';
+import AboutPassageSheet from '@/components/about-passage-sheet.vue';
 import { useSeo } from '@/composables/useSeo';
 import { useCurrentLang } from '@/composables/useCurrentLang';
 import { track } from '@/helpers/track';
 import { ABOUT_CONTENT, ABOUT_LANGS, aboutLang } from '@/content/about';
 import { typeset } from '@/content/about/typeset';
+import { splitRefs } from '@/content/about/refs';
+import type { AboutPassages } from '@/content/about/types';
 
 const lang = useCurrentLang();
 // The copy's own language: English on the Thai page, which has no translation
@@ -21,6 +24,29 @@ useSeo({ title: () => c.value.title, description: () => c.value.description, lan
 // (e.g. *kata meros*). Isolated left to right, so they stay in one piece in Arabic text.
 const withItalics = (text: string) =>
     text.split(/\*([^*]+)\*/).map((part, i) => ({ text: part, italic: i % 2 === 1 }));
+
+// The Gospels of the weekdays list and the references of the Sundays and seasons panels
+// open in a sheet. Their texts load on the first opening only (one file per group and language),
+// so they cost nothing to the page.
+type PassageGroup = 'weekdays' | 'sundays' | 'seasons';
+const passageFiles = import.meta.glob<AboutPassages>('@/content/about/passages/*.json', { import: 'default' });
+const loadedPassages = shallowRef<Record<string, AboutPassages>>({});
+const opened = ref<{ group: PassageGroup, key: string, eyebrow: string } | null>(null);
+
+async function openPassage(group: PassageGroup, key: string, eyebrow: string) {
+    opened.value = { group, key, eyebrow };
+    track('about-passage', { passage: key });
+    const file = `${group}-${copyLang.value}`;
+    if (loadedPassages.value[file])
+        return;
+    const load = Object.entries(passageFiles).find(([path]) => path.endsWith(`/${file}.json`))?.[1];
+    const data = load ? await load() : null;
+    if (data)
+        loadedPassages.value = { ...loadedPassages.value, [file]: data };
+}
+const openedFile = computed(() => (opened.value ? loadedPassages.value[`${opened.value.group}-${copyLang.value}`] : undefined));
+const openedPassage = computed(() => (opened.value && openedFile.value?.passages[opened.value.key]) || null);
+const refsIn = (text: string) => splitRefs(text, copyLang.value);
 
 // Store links only make sense on the web: hidden in the native apps, and in
 // the prerendered HTML until the page knows where it runs.
@@ -72,7 +98,6 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
                     <dd class="about-list-text">{{ r.text }}</dd>
                 </div>
             </dl>
-            <p class="about-text about-note">{{ c.contents.note }}</p>
         </section>
 
         <section class="about-section" aria-labelledby="about-books">
@@ -95,13 +120,39 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
         <section class="about-section" aria-labelledby="about-choice">
             <h2 id="about-choice" class="about-heading">{{ c.choice.heading }}</h2>
             <p class="about-text">{{ c.choice.intro }}</p>
+            <ul class="about-list about-factors" role="list">
+                <li v-for="f in c.choice.factors" :key="f.name" class="about-list-row about-factor">
+                    <span>
+                        {{ f.name }}
+                        <span v-if="f.detail" class="about-factor-detail">({{ f.detail }})</span>
+                    </span>
+                </li>
+            </ul>
+            <p class="about-text about-after-list">{{ c.choice.priority }}</p>
 
             <h3 class="about-subheading">{{ c.choice.weekdays.heading }}</h3>
-            <p v-for="(p, i) in c.choice.weekdays.paragraphs" :key="i" class="about-text">{{ p }}</p>
+            <p class="about-text">{{ c.choice.weekdays.intro }}</p>
+            <!-- Each Gospel opens its text: the reference is the button, and it covers the whole row -->
+            <dl class="about-list">
+                <div v-for="g in c.choice.weekdays.gospels" :key="g.passage" class="about-list-row about-gospel-row">
+                    <dt class="about-list-term">{{ g.name }}</dt>
+                    <dd class="about-list-text">
+                        {{ g.text }}
+                        <button type="button" class="about-ref" :aria-label="`${c.choice.weekdays.openLabel} ${g.ref}`"
+                            @click="openPassage('weekdays', g.passage, g.name)">
+                            <v-icon icon="mdi-book-open-variant" size="14" class="about-ref-icon" aria-hidden="true" />
+                            <span class="about-ref-text">{{ g.ref }}</span>
+                        </button>
+                    </dd>
+                </div>
+            </dl>
+            <p v-for="(p, i) in c.choice.weekdays.paragraphs" :key="i" class="about-text"
+                :class="{ 'about-after-list': i === 0 }">{{ p }}</p>
 
             <h3 class="about-subheading">{{ c.choice.sundays.heading }}</h3>
             <p v-for="(p, i) in c.choice.sundays.paragraphs" :key="i" class="about-text">{{ p }}</p>
-            <AboutMore :more="c.choice.sundays.more" />
+            <AboutMore :more="c.choice.sundays.more" :refs="refsIn" :open-label="c.choice.weekdays.openLabel"
+                @open-ref="(key, eyebrow) => openPassage('sundays', key, eyebrow)" />
 
             <h3 class="about-subheading">{{ c.choice.seasons.heading }}</h3>
             <p v-for="(p, i) in c.choice.seasons.paragraphs" :key="i" class="about-text">{{ p }}</p>
@@ -111,9 +162,15 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
                     <dd class="about-list-text">{{ item.text }}</dd>
                 </div>
             </dl>
-            <p class="about-text about-note">{{ c.choice.seasons.note }}</p>
-            <AboutMore :more="c.choice.seasons.more" />
+            <p v-for="(p, i) in c.choice.seasons.after" :key="i" class="about-text"
+                :class="{ 'about-after-list': i === 0 }">{{ p }}</p>
+            <AboutMore :more="c.choice.seasons.more" :refs="refsIn" :open-label="c.choice.weekdays.openLabel"
+                @open-ref="(key, eyebrow) => openPassage('seasons', key, eyebrow)" />
         </section>
+
+        <!-- The Gospel texts the page can open (weekdays list, Sundays panel) -->
+        <AboutPassageSheet :open="!!opened" :eyebrow="opened?.eyebrow ?? ''" :passage="openedPassage"
+            :bible="openedFile?.bible ?? ''" @close="opened = null" />
 
         <!-- The page's closing actions -->
         <footer class="about-footer">
@@ -229,18 +286,6 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
     text-wrap: pretty;
 }
 
-.about-note {
-    font-size: 0.9em;
-    line-height: 1.6;
-    color: rgba(var(--v-theme-on-surface), 0.7);
-    margin-top: 12px;
-}
-
-/* A list is followed by its note: a little air above the note */
-.about-list + .about-note {
-    margin-top: 14px;
-}
-
 /* Term / description rows: the five books */
 .about-list {
     margin: 0;
@@ -332,6 +377,88 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
     margin-inline-start: 6px;
     font-weight: 400;
     color: rgba(var(--v-theme-on-surface), 0.45);
+}
+
+/* The three things that decide the readings: short items in the hairline rows of the lists */
+.about-factors {
+    list-style: none;
+    padding: 0;
+}
+
+.about-factors .about-list-row {
+    grid-template-columns: 1fr;
+}
+
+.about-factor {
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.about-factor-detail {
+    font-weight: 400;
+    color: rgba(var(--v-theme-on-surface), 0.78);
+}
+
+/* A list followed by prose: the same air as before a list's note */
+.about-after-list {
+    margin-top: 14px;
+}
+
+/* A Gospel reference that opens its text: reads as part of the line, with a small
+   book and a soft underline saying it can be opened */
+.about-ref {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-inline-start: 4px;
+    padding: 0 2px;
+    color: rgba(var(--v-theme-on-surface), 0.87);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* The whole row opens the text: the button's ::after is stretched over the row
+   (the button itself has no position), so the list keeps one real button per row */
+.about-gospel-row {
+    position: relative;
+}
+
+.about-ref::after {
+    content: '';
+    position: absolute;
+    inset: 1px -8px;
+    border-radius: 8px;
+    transition: background-color 0.15s;
+}
+
+.about-ref-icon {
+    align-self: center;
+    color: rgba(var(--v-theme-on-surface), 0.55);
+}
+
+.about-ref-text {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(var(--v-theme-on-surface), 0.45);
+}
+
+.about-ref:hover::after {
+    background-color: rgba(var(--v-theme-on-surface), 0.04);
+}
+
+.about-ref:hover .about-ref-text {
+    text-decoration-color: rgba(var(--v-theme-on-surface), 0.8);
+}
+
+/* The focus ring goes around the row it opens */
+.about-ref:focus-visible {
+    outline: none;
+}
+
+.about-ref:focus-visible::after {
+    outline: 2px solid rgba(var(--v-theme-on-surface), 0.87);
 }
 
 /* After the last section, with the same air as between sections */

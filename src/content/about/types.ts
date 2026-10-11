@@ -20,6 +20,8 @@ export interface AboutMoreItem {
     text: string | string[]
     /** The lines are list items (one per day, per Sunday…): wrapped lines get indented. */
     list?: boolean
+    /** Continues the row above (e.g. Holy Week, then its days): no separator line between them */
+    joined?: boolean
 }
 
 /** Details the reader can open: term / description rows framed by an intro and notes. */
@@ -35,7 +37,8 @@ export interface AboutMore {
 /** A section whose paragraphs lead into term / description rows. */
 export interface AboutListSection extends AboutSection {
     items: AboutLabeledText[]
-    note: string
+    /** Short paragraphs after the rows */
+    after: string[]
 }
 
 /** A service of the day, with the readings the Katameros gives for it. */
@@ -44,6 +47,34 @@ export interface AboutService {
     when: string
     /** The readings in order, under the titles the app uses. */
     parts: string[]
+}
+
+/** The Gospels of the weekdays list (texts in passages/weekdays-<lang>.json) */
+export type AboutPassageKey = 'prophets' | 'persecution' | 'shepherd' | 'virgins'
+
+/** A Gospel passage in the reader's language, with its verses as [number, text] */
+export interface AboutPassage {
+    ref: string
+    /** The verse label is its number, or "16:1" in the second chapter of a passage across two */
+    verses: [number | string, string][]
+}
+
+/** passages/<group>-<lang>.json: passages in that language's default Bible in the app,
+    keyed by AboutPassageKey (weekdays) or by reference, as "42.7:28-35" (sundays) */
+export interface AboutPassages {
+    bible: string
+    passages: Record<string, AboutPassage>
+}
+
+/** A Gospel the Katameros reads for one kind of saint */
+export interface AboutGospel {
+    /** Who it is read for ("For a prophet") */
+    name: string
+    /** What it tells ("The prophets who were killed") */
+    text: string
+    /** The short reference on the page ("Matthew 23"); the passage itself is more precise */
+    ref: string
+    passage: AboutPassageKey
 }
 
 export interface AboutContent {
@@ -60,7 +91,6 @@ export interface AboutContent {
         services: AboutService[]
         readingsLabel: string
         readings: AboutLabeledText[]
-        note: string
     }
     books: {
         heading: string
@@ -70,8 +100,22 @@ export interface AboutContent {
     calendar: AboutSection
     choice: {
         heading: string
+        /** Leads into the list of the three things that decide a day's readings */
         intro: string
-        weekdays: AboutSection
+        /** One row each, in the order of the subsections that explain them */
+        factors: { name: string, detail?: string }[]
+        /** Which one wins when they fall on the same day */
+        priority: string
+        weekdays: {
+            heading: string
+            /** Leads into the Gospels list */
+            intro: string
+            gospels: AboutGospel[]
+            /** The button that opens a Gospel's text */
+            openLabel: string
+            /** After the list */
+            paragraphs: string[]
+        }
         sundays: AboutSection & { more: AboutMore }
         seasons: AboutListSection & { more: AboutMore }
     }

@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import type { AboutMore } from '@/content/about/types';
+import type { AboutTextPart } from '@/content/about/refs';
 
 // A closed panel of details on the About page. A native <details>, so it opens
 // without JavaScript and its content stays in the prerendered HTML.
-defineProps<{ more: AboutMore }>();
+const props = defineProps<{
+    more: AboutMore,
+    // When given, the Gospel references it finds in the text can be opened
+    refs?: (text: string) => AboutTextPart[],
+    // The button's verb, before the reference ("Lire Luc 7:28–35")
+    openLabel?: string,
+}>();
+
+// The passage's key, and who or when it is read for (the row's name, or the panel's title)
+const emit = defineEmits<{ (e: 'open-ref', key: string, eyebrow: string): void }>();
 
 const lines = (text: string | string[]) => (Array.isArray(text) ? text : [text]);
+const parts = (text: string): AboutTextPart[] => (props.refs ? props.refs(text) : [text]);
 </script>
 
 <template>
@@ -17,15 +28,30 @@ const lines = (text: string | string[]) => (Array.isArray(text) ? text : [text])
         <div class="about-more-body">
             <p v-if="more.intro" class="about-more-intro">{{ more.intro }}</p>
             <dl class="about-more-list" :class="{ 'about-more-list--stacked': more.stacked }">
-                <div v-for="item in more.items" :key="item.name" class="about-more-row">
+                <div v-for="item in more.items" :key="item.name" class="about-more-row"
+                    :class="{ 'about-more-row--joined': item.joined }">
                     <dt class="about-more-term">{{ item.name }}</dt>
                     <dd class="about-more-text" :class="{ 'about-more-text--list': item.list }">
                         <p v-if="item.lead" class="about-more-line about-more-lead">{{ item.lead }}</p>
-                        <p v-for="(line, i) in lines(item.text)" :key="i" class="about-more-line">{{ line }}</p>
+                        <p v-for="(line, i) in lines(item.text)" :key="i" class="about-more-line">
+                            <template v-for="(part, j) in parts(line)" :key="j">
+                                <template v-if="typeof part === 'string'">{{ part }}</template>
+                                <span v-else class="about-more-ref-unit">{{ part.before }}<button type="button"
+                                        class="about-more-ref" :aria-label="`${openLabel} ${part.ref}`"
+                                        @click="emit('open-ref', part.key, item.name)">{{ part.ref }}</button>{{ part.after }}</span>
+                            </template>
+                        </p>
                     </dd>
                 </div>
             </dl>
-            <p v-for="(note, i) in more.notes" :key="i" class="about-more-note">{{ note }}</p>
+            <p v-for="(note, i) in more.notes" :key="i" class="about-more-note">
+                <template v-for="(part, j) in parts(note)" :key="j">
+                    <template v-if="typeof part === 'string'">{{ part }}</template>
+                    <span v-else class="about-more-ref-unit">{{ part.before }}<button type="button"
+                            class="about-more-ref" :aria-label="`${openLabel} ${part.ref}`"
+                            @click="emit('open-ref', part.key, more.title)">{{ part.ref }}</button>{{ part.after }}</span>
+                </template>
+            </p>
         </div>
     </details>
 </template>
@@ -111,6 +137,12 @@ const lines = (text: string | string[]) => (Array.isArray(text) ? text : [text])
     border-top: 1px solid rgba(var(--v-theme-on-surface), 0.08);
 }
 
+/* A row that continues the one above: no line between them, and less air */
+.about-more-row--joined {
+    border-top: none;
+    padding-top: 0;
+}
+
 /* Phones, and long terms such as questions: the term above its description */
 @media (max-width: 479px) {
     .about-more-row {
@@ -164,5 +196,35 @@ const lines = (text: string | string[]) => (Array.isArray(text) ? text : [text])
     line-height: 1.55;
     color: rgba(var(--v-theme-on-surface), 0.7);
     text-wrap: pretty;
+}
+
+/* A button breaks a line like a word: the reference stays with its brackets */
+.about-more-ref-unit {
+    white-space: nowrap;
+}
+
+/* A reference that opens its text: the quiet dotted link of the weekdays Gospels,
+   without the book (several of them share a line) */
+.about-more-ref {
+    color: inherit;
+    padding: 0 1px;
+    border-radius: 3px;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(var(--v-theme-on-surface), 0.45);
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.about-more-ref:hover {
+    background-color: rgba(var(--v-theme-on-surface), 0.06);
+    text-decoration-color: rgba(var(--v-theme-on-surface), 0.8);
+}
+
+.about-more-ref:focus-visible {
+    outline: 2px solid rgba(var(--v-theme-on-surface), 0.87);
+    outline-offset: 1px;
 }
 </style>

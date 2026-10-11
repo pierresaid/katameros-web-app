@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Lu à l’église',
         paragraphs: [
-            'À l’église, le Katameros est posé sur le lutrin (le pupitre de lecture), ouvert à la page des lectures du jour. Pendant les offices du jour, les lecteurs, les diacres et le prêtre lisent les passages qu’il indique. Les églises coptes orthodoxes du monde entier suivent le même lectionnaire.',
+            'À l’église, le lectionnaire est posé sur le lutrin (le pupitre de lecture), ouvert à la page des lectures du jour. Pendant les offices du jour, les lecteurs, les diacres et le prêtre lisent les passages qu’il indique. Les églises coptes orthodoxes du monde entier suivent ce même lectionnaire.',
         ],
     },
 
     contents: {
         heading: 'Ce qu’il contient',
-        intro: 'Pour la plupart des jours, le Katameros donne les lectures de trois offices. Pour l’Église, le jour commence au coucher du soleil : les lectures débutent donc le soir précédent avec l’Office de la Veille, puis viennent l’Office du Matin et enfin la Messe (l’Eucharistie). Ces deux premiers offices sont aussi appelés Vêpres et Matines, ou élévation de l’encens du soir et du matin.',
+        intro: 'La plupart des jours, le lectionnaire donne les lectures de trois offices. Pour l’Église, le jour liturgique commence au coucher du soleil. Les lectures débutent donc la veille au soir, par l’Office de la Veille. Puis viennent l’Office du Matin et la Messe (l’Eucharistie). Les deux premiers offices s’appellent aussi offices de l’encens du soir et du matin.',
         services: [
             { name: 'Office de la Veille', when: 'La veille au soir', parts: ['Psaume et Évangile'] },
             { name: 'Office du Matin', when: 'Le matin', parts: ['Psaume et Évangile'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'Épitre de Saint Paul', text: 'Un passage de l’une des lettres de saint Paul.' },
             { name: 'Épitre universelle', text: 'Un passage des lettres de saint Jacques, saint Pierre, saint Jean ou saint Jude. Ces lettres sont dites universelles, ou catholiques (« catholique » veut dire universel) : la plupart d’entre elles s’adressent à toute l’Église plutôt qu’à une seule Église locale.' },
             { name: 'Actes des Apôtres', text: 'Un passage du livre des Actes. Cette lecture est aussi appelée Praxis, mot grec qui veut dire « actes ».' },
-            { name: 'Synaxaire', text: 'Une lecture qui ne vient pas de la Bible et se lit dans un livre à part : la vie des saints commémorés ce jour-là.' },
-            { name: 'Psaume et Évangile', text: 'Quelques versets d’un psaume, chantés juste avant l’Évangile. Les psaumes sont lus comme des prophéties sur le Christ : le psaume annonce donc l’Évangile. L’Évangile est la lecture principale du jour, et les autres lectures s’y rattachent généralement.' },
+            { name: 'Synaxaire', text: 'La vie des saints et martyrs commémorés ce jour-là, lue dans un livre à part.' },
+            { name: 'Psaume et Évangile', text: 'Quelques versets d’un psaume, chantés juste avant l’Évangile. L’Évangile est la lecture principale du jour. Les autres lectures sont en général liées à lui.' },
         ],
-        note: 'Des lectures tirées des prophètes de l’Ancien Testament sont ajoutées, principalement pendant le Grand Carême et la Semaine sainte.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'Le Katameros suit le calendrier copte, le calendrier de l’Église hérité de l’Égypte ancienne. L’année copte compte 13 mois : 12 mois de 30 jours, puis un mois court appelé Nasie, de cinq jours (six quand le mois de février suivant compte 29 jours).',
             'Les mois sont Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra et Nasie. L’année commence le 1er Thout, qui correspond au 11 septembre (au 12 septembre quand le mois de février suivant compte 29 jours).',
+            'Les années coptes sont comptées depuis l’an 284, quand Dioclétien est devenu empereur. On l’appelle l’ère des Martyrs, en souvenir des nombreux chrétiens tués pendant sa persécution.',
         ],
     },
 
     choice: {
         heading: 'Comment les lectures sont choisies',
-        intro: 'Les lectures d’un jour ne sont pas choisies au hasard : elles correspondent à ce que l’Église célèbre ce jour-là. Le choix dépend de trois éléments : le saint ou la fête du jour dans le calendrier copte, le dimanche et son thème, et les périodes qui se déplacent avec Pâques. Quand ils tombent le même jour, les fêtes du Seigneur (les fêtes du Christ, comme la Nativité) et ces périodes l’emportent sur le dimanche. Le dimanche l’emporte sur le saint du jour.',
+        intro: 'Les lectures d’un jour ne sont pas choisies au hasard. Elles suivent ce que l’Église célèbre ce jour-là. Le choix dépend de trois choses :',
+        factors: [
+            { name: 'Le saint ou la fête du jour dans le calendrier copte' },
+            { name: 'Le dimanche et son thème' },
+            { name: 'Les périodes qui se déplacent avec Pâques', detail: 'Jeûne de Ninive, Grand Carême, Semaine sainte, Cinquante Jours saints' },
+        ],
+        priority: 'Quand plusieurs d’entre elles tombent le même jour, les fêtes du Seigneur (comme la Nativité) et les grandes périodes autour de Pâques l’emportent sur le dimanche. Le dimanche l’emporte sur le saint du jour.',
 
         weekdays: {
             heading: 'En semaine : les saints du jour',
+            intro: 'Du lundi au samedi, les lectures correspondent au saint ou à la fête que le Synaxaire commémore à la date copte du jour. Souvent, l’Évangile suffit à montrer qui l’on fête :',
+            gospels: [
+                { name: 'Pour un prophète', text: 'Les prophètes mis à mort', ref: 'Matthieu 23', passage: 'prophets' },
+                { name: 'Pour un martyr', text: 'La persécution', ref: 'Luc 21', passage: 'persecution' },
+                { name: 'Pour un pape ou un patriarche', text: 'Le Bon Pasteur', ref: 'Jean 10', passage: 'shepherd' },
+                { name: 'Pour une sainte', text: 'Les vierges sages', ref: 'Matthieu 25', passage: 'virgins' },
+            ],
+            openLabel: 'Lire',
             paragraphs: [
-                'Du lundi au samedi, les lectures correspondent au saint ou à la fête que le Synaxaire commémore à cette date copte. Souvent, l’Évangile suffit à montrer de qui l’on fait mémoire : les prophètes mis à mort (Matthieu 23) pour un prophète, la persécution (Luc 21) pour un martyr, le Bon Pasteur (Jean 10) pour un pape ou un patriarche, les vierges sages (Matthieu 25) pour une sainte.',
-                'Mais le livre des Jours de semaine ne prévoit pas de lectures différentes pour chaque jour de l’année. Seules 70 dates environ ont des lectures qui leur sont propres. Toutes les autres dates reprennent les lectures de l’une de ces dates, celle d’un saint de la même catégorie : un martyr reçoit les lectures d’un autre martyr, un évêque celles d’un autre évêque, un moine celles d’un grand moine. C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année.',
-                'Par exemple, les lectures de saint Antoine, le père des moines, fêté le 22 Toubah, sont reprises à huit autres dates, surtout des fêtes de moines.',
+                'Le livre des Jours de semaine ne donne pas de lectures différentes pour chaque jour de l’année : seules 70 dates environ ont leurs propres lectures. Aux autres dates, on reprend les lectures d’un saint de la même catégorie, fêté à l’une de ces dates : un martyr reçoit les lectures d’un autre martyr, un évêque celles d’un autre évêque, un moine celles d’un grand moine. C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année.',
+                'Par exemple, saint Antoine, le père des moines, est fêté le 22 Toubah. Ses lectures reviennent à huit autres dates, surtout pour des fêtes de moines.',
             ],
         },
 
         sundays: {
             heading: 'Le dimanche : l’œuvre de la Sainte Trinité',
             paragraphs: [
-                'Les dimanches ne suivent pas le saint du jour. Lues l’une après l’autre, les lectures des dimanches de l’année racontent une seule histoire : l’œuvre de la Sainte Trinité pour notre salut. Chaque mois copte donne à ses dimanches un thème tiré de cette histoire. Par exemple, au mois de Kiahk, qui mène à la Nativité, les Évangiles des quatre dimanches racontent l’Incarnation : l’annonce faite à Zacharie, l’Annonciation faite à Marie, la Visitation et la naissance de Jean-Baptiste.',
+                'Le dimanche, les lectures ne suivent pas le saint du jour, mais le thème du mois copte.',
+                'Au fil des dimanches de l’année, les lectures tournent autour d’un seul sujet : l’œuvre de la Sainte Trinité pour notre salut. Chaque mois copte en montre un aspect.',
+                'Par exemple, Kiahk est le mois qui mène à la Nativité. Son thème est l’Incarnation. Les Évangiles de ses quatre dimanches racontent l’annonce faite à Zacharie, l’Annonciation faite à Marie, la Visitation et la naissance de Jean-Baptiste.',
             ],
             more: {
                 title: 'Les dimanches, mois par mois',
@@ -159,30 +174,30 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'Le cinquième dimanche d’un mois, on lit la multiplication des pains pour cinq mille hommes : de Thout à Amshir, les lectures du deuxième dimanche d’Amshir (Jean 6:5–14), et de Baramhat à Misra, des lectures propres (Luc 9:12–17). Il y a des exceptions, notamment le 29 d’un mois en dehors de Toubah et d’Amshir, ou le 30 Kiahk.',
-                    'En Babah, en Hatour et de Bashans à Misra, l’Évangile de l’Office du Matin, le dimanche, est celui de la Résurrection, racontée tour à tour par Matthieu, Marc, Luc et Jean.',
-                ],
             },
         },
 
         seasons: {
             heading: 'Les périodes qui se déplacent avec Pâques',
             paragraphs: [
-                'Le calendrier copte est fixe, mais Pâques ne l’est pas : sa date est calculée chaque année, et elle tombe entre le 4 avril et le 8 mai. Plusieurs périodes sont comptées à partir de Pâques ; elles se déplacent donc avec Pâques chaque année :',
+                'Le calendrier copte est fixe, mais Pâques ne l’est pas : sa date est calculée chaque année, et elle tombe entre le 4 avril et le 8 mai. Plusieurs périodes sont comptées à partir de Pâques. Elles se déplacent donc avec Pâques chaque année :',
             ],
             items: [
-                { name: 'Jeûne de Ninive', text: 'Trois jours, deux semaines avant le Grand Carême.' },
-                { name: 'Grand Carême', text: 'La semaine de préparation et les Quarante Jours. Il commence entre début février et mi-mars.' },
+                { name: 'Jeûne de Ninive', text: 'Trois jours de jeûne, deux semaines avant le début du Grand Carême.' },
+                { name: 'Grand Carême', text: 'Une semaine de préparation, puis les Quarante Jours. Il commence entre début février et mi-mars.' },
                 { name: 'Semaine sainte', text: 'La semaine qui précède Pâques.' },
                 { name: 'Cinquante Jours saints', text: 'De Pâques à la Pentecôte, qui tombe entre le 23 mai et le 26 juin.' },
             ],
-            note: 'Pendant ces semaines, environ 15 par an, les lectures sont tirées des livres de ces périodes, semaine par semaine et jour par jour, au lieu des livres des Jours de semaine et des Dimanches. Les lectures suivent la période : pendant le Grand Carême, on lit le dimanche la tentation du Christ, le fils prodigue et la Samaritaine ; la Semaine sainte suit les derniers jours du Christ, jour après jour. Seules quelques fêtes du Seigneur, comme la fête de la Croix le 10 Baramhat, gardent leurs propres lectures.',
+            after: [
+                'Pendant ces semaines, environ 15 par an, les lectures sont tirées des livres de ces périodes, semaine par semaine et jour par jour, au lieu des livres des Jours de semaine et des Dimanches.',
+                'Les lectures suivent la période. Pendant le Grand Carême, on lit le dimanche la tentation du Christ, le fils prodigue et la Samaritaine. La Semaine sainte suit les derniers jours du Christ, jour après jour.',
+                'Seules quelques fêtes du Seigneur, comme la fête de la Croix le 10 Baramhat, gardent leurs propres lectures.',
+            ],
             more: {
                 title: 'Ce qu’on lit pendant ces périodes',
                 items: [
                     { name: 'Jeûne de Ninive', text: 'Le livre de Jonas, lu au cours des trois jours.' },
-                    { name: 'Jours de semaine du Grand Carême', text: 'Du lundi au vendredi, il n’y a pas d’élévation de l’encens du soir, et à l’Office du Matin, des lectures des prophètes de l’Ancien Testament précèdent l’Évangile.' },
+                    { name: 'Jours de semaine du Grand Carême', text: 'Du lundi au vendredi, il n’y a pas d’office de l’encens du soir, et à l’Office du Matin, des lectures des prophètes de l’Ancien Testament précèdent l’Évangile.' },
                     {
                         name: 'Dimanches du Grand Carême',
                         list: true,
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Dimanche des Rameaux', text: 'L’entrée à Jérusalem, lue dans les quatre Évangiles.' },
                     { name: 'Semaine sainte', text: 'Des lectures pour chaque heure de prière du jour et de la nuit : les Première, Troisième, Sixième, Neuvième et Onzième Heures, avec une Douzième Heure le vendredi. Chaque heure commence par l’Ancien Testament.' },
                     {
+                        joined: true,
                         name: 'Jour après jour',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'La Pentecôte, le 50e jour : la venue du Consolateur (Jean 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'L’Évangile de la Samaritaine est lu deux dimanches : pendant le Grand Carême, avec un psaume qui parle de chercher le Seigneur (Psaume 105), et après Pâques, avec un psaume qui parle de la bénédiction du Seigneur (Psaume 115).',
                 ],
             },
         },

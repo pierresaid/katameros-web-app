@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Read in church',
         paragraphs: [
-            'In church, the Katameros sits on the lectern (the reading stand), open at the day’s readings. At the day’s services, the readers, the deacons and the priest read the passages it lists. Coptic Orthodox churches around the world follow the same lectionary.',
+            'In church, the lectionary sits on the lectern (the reading stand), open at the day’s readings. At the day’s services, the readers, the deacons and the priest read the passages it lists. Coptic Orthodox churches around the world follow this same lectionary.',
         ],
     },
 
     contents: {
         heading: 'What it contains',
-        intro: 'For most days, the Katameros gives the readings of three services. The Church’s day begins at sunset, so the readings start with Vespers the evening before, then Matins in the morning, and then the Liturgy (the Eucharist). Vespers and Matins are also called the evening and morning Raising of Incense.',
+        intro: 'On most days, the lectionary gives the readings of three services. For the Church, the liturgical day begins at sunset. So the readings start the evening before, with Vespers. Then come Matins and the Liturgy (the Eucharist). Vespers and Matins are also called the evening and morning Raising of Incense.',
         services: [
             { name: 'Vespers', when: 'The evening before', parts: ['Psalm & Gospel'] },
             { name: 'Matins', when: 'In the morning', parts: ['Psalm & Gospel'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'Pauline Epistle', text: 'A passage from one of the letters of St. Paul.' },
             { name: 'Catholic Epistle', text: 'A passage from the letters of St. James, St. Peter, St. John or St. Jude. “Catholic” means universal: most of these letters are addressed to the whole Church rather than to one local church.' },
             { name: 'Acts of the Apostles', text: 'A passage from the book of Acts. This reading is also called the Praxis, Greek for “Acts”.' },
-            { name: 'Synaxarium', text: 'Not a Bible reading, and read from its own book: the lives of the saints commemorated that day.' },
-            { name: 'Psalm & Gospel', text: 'A few verses of a psalm, chanted just before the Gospel. The psalms are read as prophecies about Christ, so the psalm announces the Gospel. The Gospel is the main reading of the day, and the other readings usually relate to it.' },
+            { name: 'Synaxarium', text: 'The lives of the saints and martyrs commemorated that day, read from a book of its own.' },
+            { name: 'Psalm & Gospel', text: 'A few verses of a psalm, chanted just before the Gospel. The Gospel is the main reading of the day, and the other readings usually relate to it.' },
         ],
-        note: 'Readings from the Old Testament prophets are added, mainly in Great Lent and Holy Week.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'The Katameros follows the Coptic calendar, the Church’s calendar inherited from ancient Egypt. The Coptic year has 13 months: 12 months of 30 days, then a short month called Nasie, with five days (six when the next February has 29 days).',
             'The months are Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra and Nasie. The year begins on 1 Thout, which is September 11 (September 12 when the next February has 29 days).',
+            'Coptic years are counted from 284, when Diocletian became emperor. This era is called the Era of the Martyrs, in memory of the many Christians killed in his persecution.',
         ],
     },
 
     choice: {
         heading: 'How the readings are chosen',
-        intro: 'The readings of a day are not random: they are chosen to match what the Church celebrates that day. Three things decide it: the saint or feast of the day in the Coptic calendar, the Sunday and its theme, and the seasons that move with Easter. When they fall on the same day, the feasts of the Lord (the feasts of Christ, such as the Nativity) and those seasons have priority over Sunday. Sunday has priority over the saint of the day.',
+        intro: 'The readings of a day are not chosen at random. They follow what the Church celebrates that day. Three things decide them:',
+        factors: [
+            { name: 'The saint or feast of the day in the Coptic calendar' },
+            { name: 'The Sunday and its theme' },
+            { name: 'The seasons that move with Easter', detail: 'the Fast of Nineveh, Great Lent, Holy Week, the Holy Fifty Days' },
+        ],
+        priority: 'When several fall on the same day, the feasts of the Lord (such as the Nativity) and the great seasons around Easter take priority over the Sunday. The Sunday takes priority over the saint of the day.',
 
         weekdays: {
             heading: 'Weekdays: the saints of the day',
+            intro: 'From Monday to Saturday, the readings match the saint or feast that the Synaxarium commemorates on that Coptic date. Often, the Gospel alone shows whose day it is:',
+            gospels: [
+                { name: 'For a prophet', text: 'The prophets who were killed', ref: 'Matthew 23', passage: 'prophets' },
+                { name: 'For a martyr', text: 'Persecution', ref: 'Luke 21', passage: 'persecution' },
+                { name: 'For a pope or a patriarch', text: 'The Good Shepherd', ref: 'John 10', passage: 'shepherd' },
+                { name: 'For a holy woman', text: 'The wise virgins', ref: 'Matthew 25', passage: 'virgins' },
+            ],
+            openLabel: 'Read',
             paragraphs: [
-                'From Monday to Saturday, the readings match the saint or feast commemorated on that Coptic date in the Synaxarium. Often the Gospel alone shows whose day it is: the prophets who were killed (Matthew 23) for a prophet, persecution (Luke 21) for a martyr, the Good Shepherd (John 10) for a pope or a patriarch, the wise virgins (Matthew 25) for a holy woman.',
-                'But the Weekdays book does not have different readings for every day of the year. Only about 70 dates have readings written for them. All the other dates reuse the readings of one of these dates, chosen for a saint of the same kind: a martyr takes the readings of another martyr, a bishop those of another bishop, a monk those of a great monk. This is why the same readings are repeated several times a year.',
-                'For example, the readings for St. Anthony, the father of monks, on 22 Toubah are reused on eight other dates, mostly feasts of monks.',
+                'The Weekdays book does not have different readings for every day of the year: only about 70 dates have readings of their own. Every other date reuses the readings of a saint of the same kind whose feast is on one of those dates: a martyr takes the readings of another martyr, a bishop those of another bishop, a monk those of a great monk. This is why the same readings come back several times a year.',
+                'For example, St. Anthony, the father of monks, is commemorated on 22 Toubah. His readings come back on eight other dates, mostly feasts of monks.',
             ],
         },
 
         sundays: {
             heading: 'Sundays: the work of the Holy Trinity',
             paragraphs: [
-                'Sundays do not follow the saint of the day. Read one after the other, the Sunday readings of the year tell a single story: the work of the Holy Trinity for our salvation. Each Coptic month gives its Sundays a theme within that story. In Kiahk, for example, the month that leads to the Nativity, the four Sunday Gospels tell of the Incarnation: the annunciation to Zechariah, the Annunciation to Mary, the Visitation and the birth of John the Baptist.',
+                'On Sundays, the readings do not follow the saint of the day, but the theme of the Coptic month.',
+                'Through the Sundays of the year, the readings revolve around a single subject: the work of the Holy Trinity for our salvation. Each Coptic month shows one aspect of it.',
+                'For example, Kiahk is the month that leads to the Nativity. Its theme is the Incarnation. The Gospels of its four Sundays tell of the annunciation to Zechariah, the Annunciation to Mary, the Visitation and the birth of John the Baptist.',
             ],
             more: {
                 title: 'The Sundays, month by month',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'A fifth Sunday reads the feeding of the five thousand: from Thout to Amshir, the readings of the second Sunday of Amshir (John 6:5–14), and from Baramhat to Misra, readings of its own (Luke 9:12–17). There are exceptions, notably on the 29th of a month outside Toubah and Amshir, or on 30 Kiahk.',
-                    'In Babah, Hatour and from Bashans to Misra, the Gospel of Sunday Matins is the Resurrection, told by Matthew, Mark, Luke and John, one after the other.',
-                ],
             },
         },
 
@@ -172,12 +183,16 @@ const content: AboutContent = {
                 'The Coptic calendar is fixed, but Easter is not: its date is calculated each year, and it falls between April 4 and May 8. Several periods are counted from Easter, so they move with it every year:',
             ],
             items: [
-                { name: 'Fast of Nineveh', text: 'Three days, two weeks before Great Lent.' },
-                { name: 'Great Lent', text: 'The preparation week and the Forty Days. It begins between early February and mid-March.' },
+                { name: 'Fast of Nineveh', text: 'Three days of fasting, two weeks before the start of Great Lent.' },
+                { name: 'Great Lent', text: 'A preparation week, then the Forty Days. It begins between early February and mid-March.' },
                 { name: 'Holy Week', text: 'The week before Easter.' },
                 { name: 'Holy Fifty Days', text: 'From Easter to Pentecost, which falls between May 23 and June 26.' },
             ],
-            note: 'During these weeks, about 15 in the year, the readings come from the books of these seasons, by week and by day, instead of the Weekdays and Sundays books. The readings follow the season: in Great Lent, the Sundays read the temptation of Christ, the prodigal son and the Samaritan woman; Holy Week follows Christ’s last days, day by day. Only a few feasts of the Lord, such as the Feast of the Cross on 10 Baramhat, keep their own readings.',
+            after: [
+                'During these weeks, about 15 in the year, the readings come from the books of these seasons, by week and by day, instead of the Weekdays and Sundays books.',
+                'The readings follow the season. In Great Lent, the Sundays read the temptation of Christ, the prodigal son and the Samaritan woman. Holy Week follows Christ’s last days, day by day.',
+                'Only a few feasts of the Lord, such as the Feast of the Cross on 10 Baramhat, keep their own readings.',
+            ],
             more: {
                 title: 'What these seasons read',
                 items: [
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Palm Sunday', text: 'The entry into Jerusalem, read from all four Gospels.' },
                     { name: 'Holy Week', text: 'Readings for each prayer hour of the day and of the night: the First, Third, Sixth, Ninth and Eleventh Hours, with a Twelfth Hour on Friday. Each hour begins with the Old Testament.' },
                     {
+                        joined: true,
                         name: 'Day by day',
                         list: true,
                         text: [
@@ -234,8 +250,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'The Samaritan woman is the Gospel of two Sundays: in Great Lent with a psalm about seeking the Lord (Psalm 105), and after Easter with a psalm of the Lord’s blessing (Psalm 115).',                ],
             },
         },
     },

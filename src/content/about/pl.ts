@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'Czytany w kościele',
         paragraphs: [
-            'W kościele Katameros leży na analogionie (pulpicie do czytania), otwarty na czytaniach danego dnia. Podczas nabożeństw tego dnia lektorzy, diakoni i kapłan czytają wskazane w nim fragmenty. Parafie Koptyjskiego Kościoła Ortodoksyjnego na całym świecie posługują się tym samym lekcjonarzem.',
+            'W kościele lekcjonarz leży na analogionie (pulpicie do czytania), otwarty na czytaniach danego dnia. Podczas nabożeństw tego dnia lektorzy, diakoni i kapłan czytają wskazane w nim fragmenty. Parafie Koptyjskiego Kościoła Ortodoksyjnego na całym świecie posługują się tym samym lekcjonarzem.',
         ],
     },
 
     contents: {
         heading: 'Zawartość',
-        intro: 'Na większość dni Katameros podaje czytania na trzy nabożeństwa. W Kościele dzień rozpoczyna się o zachodzie słońca, dlatego czytania zaczynają się od Nieszporów poprzedniego wieczoru, potem rano jest Jutrznia, a po niej Liturgia (Eucharystia). Nieszpory i Jutrznia nazywane są też wieczornym i porannym Ofiarowaniem Kadzidła.',
+        intro: 'Na większość dni lekcjonarz podaje czytania trzech nabożeństw. W Kościele dzień liturgiczny rozpoczyna się o zachodzie słońca. Dlatego czytania zaczynają się poprzedniego wieczoru, od Nieszporów. Potem następują Jutrznia i Liturgia (Eucharystia). Nieszpory i Jutrznia nazywane są też wieczornym i porannym ofiarowaniem kadzidła.',
         services: [
             { name: 'Nieszpory', when: 'Poprzedniego wieczoru', parts: ['Psalm i Ewangelia'] },
             { name: 'Jutrznia', when: 'Rano', parts: ['Psalm i Ewangelia'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'List Świętego Pawła', text: 'Fragment jednego z listów św. Pawła.' },
             { name: 'List powszechny', text: 'Fragment listów św. Jakuba, św. Piotra, św. Jana lub św. Judy. Nazywa się je powszechnymi lub katolickimi („katolicki” znaczy „powszechny”): większość z nich jest skierowana do całego Kościoła, a nie do jednego Kościoła lokalnego.' },
             { name: 'Dzieje Apostolskie', text: 'Fragment Dziejów Apostolskich. To czytanie nazywa się też Praxis, co po grecku znaczy „Dzieje”.' },
-            { name: 'Synaksarion', text: 'Nie jest to czytanie z Biblii, lecz z osobnej księgi: żywoty świętych wspominanych tego dnia.' },
-            { name: 'Psalm i Ewangelia', text: 'Kilka wersetów psalmu, śpiewanych tuż przed Ewangelią. Psalmy czyta się jako proroctwa o Chrystusie, dlatego psalm zapowiada Ewangelię. Ewangelia jest głównym czytaniem dnia, a pozostałe czytania zwykle do niej nawiązują.' },
+            { name: 'Synaksarion', text: 'Żywoty świętych i męczenników wspominanych tego dnia, czytane z osobnej księgi.' },
+            { name: 'Psalm i Ewangelia', text: 'Kilka wersetów psalmu, śpiewanych tuż przed Ewangelią. Ewangelia jest głównym czytaniem dnia, a pozostałe czytania zwykle do niej nawiązują.' },
         ],
-        note: 'Dodaje się czytania z proroków Starego Testamentu, głównie w Wielkim Poście i w Wielkim Tygodniu.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'Katameros opiera się na kalendarzu koptyjskim, czyli kalendarzu Kościoła odziedziczonym po starożytnym Egipcie. Rok koptyjski ma 13 miesięcy: 12 miesięcy po 30 dni, a potem krótki miesiąc zwany Nasie, który ma pięć dni (sześć, gdy następny luty ma 29 dni).',
             'Miesiące to: Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra i Nasie. Rok zaczyna się 1 Thout, czyli 11 września (12 września, gdy następny luty ma 29 dni).',
+            'Lata koptyjskie liczy się od roku 284, kiedy Dioklecjan został cesarzem. Tę rachubę lat nazywa się erą męczenników, na pamiątkę wielu chrześcijan zabitych w czasie jego prześladowań.',
         ],
     },
 
     choice: {
         heading: 'Jak dobiera się czytania',
-        intro: 'Czytania danego dnia nie są przypadkowe: dobiera się je tak, by odpowiadały temu, co Kościół tego dnia obchodzi. Decydują o tym trzy czynniki: wspomnienie świętego lub święto danego dnia w kalendarzu koptyjskim, niedziela i jej temat oraz okresy, które przesuwają się razem z Wielkanocą. Gdy przypadają na ten sam dzień, święta Pańskie (święta Chrystusa, takie jak Boże Narodzenie) i te okresy mają pierwszeństwo przed niedzielą. Niedziela ma pierwszeństwo przed wspomnieniem świętego danego dnia.',
+        intro: 'Czytań danego dnia nie dobiera się przypadkowo. Odpowiadają one temu, co Kościół tego dnia obchodzi. Decydują o nich trzy czynniki:',
+        factors: [
+            { name: 'Wspomnienie świętego lub święto danego dnia w kalendarzu koptyjskim' },
+            { name: 'Niedziela i jej temat' },
+            { name: 'Okresy, które przesuwają się z Wielkanocą', detail: 'Post Niniwy, Wielki Post, Wielki Tydzień, Święte Pięćdziesiąt Dni' },
+        ],
+        priority: 'Gdy kilka z nich przypada na ten sam dzień, święta Pańskie (takie jak Boże Narodzenie) i wielkie okresy wokół Wielkanocy mają pierwszeństwo przed niedzielą. Niedziela ma pierwszeństwo przed wspomnieniem świętego danego dnia.',
 
         weekdays: {
             heading: 'Dni powszednie: święci danego dnia',
+            intro: 'Od poniedziałku do soboty czytania odpowiadają wspomnieniu świętego lub świętu, które Synaksarion podaje pod daną datą koptyjską. Często już sama Ewangelia pokazuje, czyj to dzień:',
+            gospels: [
+                { name: 'Na dzień proroka', text: 'Zabici prorocy', ref: 'Mateusza 23', passage: 'prophets' },
+                { name: 'Na dzień męczennika', text: 'Prześladowania', ref: 'Łukasza 21', passage: 'persecution' },
+                { name: 'Na dzień papieża lub patriarchy', text: 'Dobry Pasterz', ref: 'Jana 10', passage: 'shepherd' },
+                { name: 'Na dzień świętej kobiety', text: 'Mądre panny', ref: 'Mateusza 25', passage: 'virgins' },
+            ],
+            openLabel: 'Czytaj',
             paragraphs: [
-                'Od poniedziałku do soboty czytania odpowiadają wspomnieniu świętego lub świętu, które Synaksarion podaje pod tą datą koptyjską. Często już sama Ewangelia pokazuje, czyj to dzień: zabici prorocy (Mateusza 23) na dzień proroka, prześladowania (Łukasza 21) na dzień męczennika, Dobry Pasterz (Jana 10) na dzień papieża lub patriarchy, mądre panny (Mateusza 25) na dzień świętej kobiety.',
-                'Księga na dni powszednie nie ma jednak osobnych czytań na każdy dzień roku. Własne czytania ułożono tylko dla około 70 dat. Wszystkie pozostałe daty przejmują czytania jednej z nich, której święty jest tego samego rodzaju: męczennik dostaje czytania innego męczennika, biskup czytania innego biskupa, a mnich czytania wielkiego mnicha. Dlatego te same czytania powtarzają się kilka razy w roku.',
-                'Na przykład czytania z 22 Toubah, na wspomnienie św. Antoniego, ojca mnichów, powtarzają się pod ośmioma innymi datami, przeważnie w dni wspomnień mnichów.',
+                'Księga na dni powszednie nie ma osobnych czytań na każdy dzień roku: tylko około 70 dat ma własne czytania. Wszystkie pozostałe daty przejmują czytania świętego tego samego rodzaju, którego wspomnienie przypada na jedną z tych dat: męczennik dostaje czytania innego męczennika, biskup czytania innego biskupa, a mnich czytania wielkiego mnicha. Dlatego te same czytania powtarzają się kilka razy w roku.',
+                'Na przykład św. Antoniego, ojca mnichów, wspomina się 22 Toubah. Jego czytania powtarzają się pod ośmioma innymi datami, przeważnie w dni wspomnień mnichów.',
             ],
         },
 
         sundays: {
             heading: 'Niedziele: dzieło Trójcy Świętej',
             paragraphs: [
-                'Niedziele nie są związane ze świętym danego dnia. Kolejne niedzielne czytania całego roku opowiadają jedną historię: dzieło Trójcy Świętej dla naszego zbawienia. Każdy miesiąc koptyjski nadaje swoim niedzielom temat w ramach tej historii. Na przykład w miesiącu Kiahk, który prowadzi do Bożego Narodzenia, cztery niedzielne Ewangelie opowiadają o Wcieleniu: o zwiastowaniu Zachariaszowi, Zwiastowaniu Maryi, Nawiedzeniu i narodzeniu Jana Chrzciciela.',
+                'W niedziele czytania nie są związane ze świętym danego dnia, lecz z tematem miesiąca koptyjskiego.',
+                'Przez kolejne niedziele roku czytania skupiają się wokół jednego tematu: dzieła Trójcy Świętej dla naszego zbawienia. Każdy miesiąc koptyjski ukazuje jeden aspekt tego dzieła.',
+                'Na przykład Kiahk to miesiąc, który prowadzi do Bożego Narodzenia. Jego tematem jest Wcielenie. Ewangelie czterech niedziel tego miesiąca opowiadają o zwiastowaniu Zachariaszowi, Zwiastowaniu Maryi, Nawiedzeniu i narodzeniu Jana Chrzciciela.',
             ],
             more: {
                 title: 'Niedziele miesiąc po miesiącu',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'W piątą niedzielę miesiąca czyta się o nakarmieniu pięciu tysięcy ludzi: od Thout do Amshir są to czytania z drugiej niedzieli miesiąca Amshir (Jana 6:5–14), a od Baramhat do Misra własne czytania (Łukasza 9:12–17). Zdarzają się wyjątki, zwłaszcza 29. dnia miesiąca (poza Toubah i Amshir) albo 30 Kiahk.',
-                    'W miesiącach Babah i Hatour oraz od Bashans do Misra Ewangelia niedzielnej Jutrzni mówi o Zmartwychwstaniu, kolejno według Mateusza, Marka, Łukasza i Jana.',
-                ],
             },
         },
 
@@ -172,17 +183,21 @@ const content: AboutContent = {
                 'Kalendarz koptyjski jest stały, ale Wielkanoc nie: jej datę oblicza się co roku i przypada ona między 4 kwietnia a 8 maja. Kilka okresów liczy się od Wielkanocy, dlatego co roku przesuwają się razem z nią:',
             ],
             items: [
-                { name: 'Post Niniwy', text: 'Trzy dni, dwa tygodnie przed Wielkim Postem.' },
-                { name: 'Wielki Post', text: 'Tydzień przygotowawczy i czterdzieści dni postu. Zaczyna się między początkiem lutego a połową marca.' },
+                { name: 'Post Niniwy', text: 'Trzy dni postu, dwa tygodnie przed rozpoczęciem Wielkiego Postu.' },
+                { name: 'Wielki Post', text: 'Tydzień przygotowawczy, a potem czterdzieści dni postu. Zaczyna się między początkiem lutego a połową marca.' },
                 { name: 'Wielki Tydzień', text: 'Tydzień przed Wielkanocą.' },
                 { name: 'Święte Pięćdziesiąt Dni', text: 'Od Wielkanocy do Pięćdziesiątnicy, która przypada między 23 maja a 26 czerwca.' },
             ],
-            note: 'W tych tygodniach (jest ich w roku około 15) czytania pochodzą nie z ksiąg na dni powszednie i na niedziele, lecz z ksiąg tych okresów, które podają je na każdy tydzień i dzień. Czytania odpowiadają okresowi: w Wielkim Poście w niedziele czyta się o kuszeniu Chrystusa, o synu marnotrawnym i o Samarytance; Wielki Tydzień dzień po dniu przedstawia ostatnie dni Chrystusa. Tylko kilka świąt Pańskich, takich jak Święto Krzyża obchodzone 10 Baramhat, zachowuje własne czytania.',
+            after: [
+                'W tych tygodniach (jest ich w roku około 15) czytania pochodzą nie z ksiąg na dni powszednie i na niedziele, lecz z ksiąg tych okresów, które podają je na każdy tydzień i dzień.',
+                'Czytania odpowiadają okresowi. W Wielkim Poście w niedziele czyta się o kuszeniu Chrystusa, o synu marnotrawnym i o Samarytance. Wielki Tydzień dzień po dniu przedstawia ostatnie dni Chrystusa.',
+                'Tylko kilka świąt Pańskich, takich jak Święto Krzyża obchodzone 10 Baramhat, zachowuje własne czytania.',
+            ],
             more: {
                 title: 'Co się czyta w tych okresach',
                 items: [
                     { name: 'Post Niniwy', text: 'Księga Jonasza, czytana w ciągu tych trzech dni.' },
-                    { name: 'Dni powszednie Wielkiego Postu', text: 'Od poniedziałku do piątku nie ma wieczornego Ofiarowania Kadzidła, a na Jutrzni Ewangelię poprzedzają czytania z proroków Starego Testamentu.' },
+                    { name: 'Dni powszednie Wielkiego Postu', text: 'Od poniedziałku do piątku nie ma wieczornego ofiarowania kadzidła, a na Jutrzni Ewangelię poprzedzają czytania z proroków Starego Testamentu.' },
                     {
                         name: 'Niedziele Wielkiego Postu',
                         list: true,
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Niedziela Palmowa', text: 'Wjazd do Jerozolimy, czytany według wszystkich czterech Ewangelii.' },
                     { name: 'Wielki Tydzień', text: 'Czytania na każdą godzinę modlitwy dnia i nocy: Pierwszą, Trzecią, Szóstą, Dziewiątą i Jedenastą Godzinę, a w piątek także Dwunastą. Każda godzina zaczyna się od czytań ze Starego Testamentu.' },
                     {
+                        joined: true,
                         name: 'Dzień po dniu',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'Pięćdziesiątnica, 50. dnia: przyjście Pocieszyciela (Jana 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'Samarytanka to Ewangelia dwóch niedziel: w Wielkim Poście z psalmem o szukaniu Pana (Psalm 105), a po Wielkanocy z psalmem o błogosławieństwie Pana (Psalm 115).',
                 ],
             },
         },

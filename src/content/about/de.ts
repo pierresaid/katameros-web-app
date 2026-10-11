@@ -15,13 +15,13 @@ const content: AboutContent = {
     church: {
         heading: 'In der Kirche gelesen',
         paragraphs: [
-            'In der Kirche liegt der Katameros auf dem Lesepult, aufgeschlagen bei den Lesungen des Tages. In den Gottesdiensten des Tages lesen die Lektoren, die Diakone und der Priester die Abschnitte, die der Katameros angibt. Die koptisch-orthodoxen Gemeinden in aller Welt folgen demselben Lektionar.',
+            'In der Kirche liegt das Lektionar auf dem Lesepult, aufgeschlagen bei den Lesungen des Tages. In den Gottesdiensten des Tages lesen die Lektoren, die Diakone und der Priester die Abschnitte, die es angibt. Die koptisch-orthodoxen Gemeinden in aller Welt folgen demselben Lektionar.',
         ],
     },
 
     contents: {
-        heading: 'Was der Katameros enthält',
-        intro: 'Für die meisten Tage gibt der Katameros die Lesungen von drei Gottesdiensten an. Der liturgische Tag beginnt bei Sonnenuntergang. Deshalb beginnen die Lesungen am Vorabend mit dem Abendweihrauchopfer, am Morgen folgt das Morgenweihrauchopfer und danach die heilige Liturgie (die Eucharistiefeier). Das Abend- und das Morgenweihrauchopfer werden auch Vesper und Matutin genannt.',
+        heading: 'Was das Lektionar enthält',
+        intro: 'An den meisten Tagen gibt das Lektionar die Lesungen von drei Gottesdiensten an. Für die Kirche beginnt der liturgische Tag bei Sonnenuntergang. Die Lesungen fangen deshalb am Vorabend mit dem Abendweihrauchopfer an. Dann folgen das Morgenweihrauchopfer und die heilige Liturgie (die Eucharistiefeier). Die beiden ersten Gottesdienste heißen auch kurz Abendweihrauch und Morgenweihrauch.',
         services: [
             { name: 'Abendweihrauchopfer', when: 'Am Vorabend', parts: ['Psalm und Evangelium'] },
             { name: 'Morgenweihrauchopfer', when: 'Am Morgen', parts: ['Psalm und Evangelium'] },
@@ -32,10 +32,9 @@ const content: AboutContent = {
             { name: 'Paulusbrief', text: 'Ein Abschnitt aus einem der Briefe des heiligen Paulus.' },
             { name: 'Katholikon', text: 'Ein Abschnitt aus den Briefen der heiligen Jakobus, Petrus, Johannes und Judas. „Katholikon“ kommt von „katholisch“, was „allgemein“ bedeutet: Die meisten dieser Briefe richten sich an die ganze Kirche und nicht an eine einzelne Ortskirche.' },
             { name: 'Apostelgeschichte', text: 'Ein Abschnitt aus der Apostelgeschichte. Diese Lesung heißt auch Praxis, griechisch für „Taten“.' },
-            { name: 'Synaxär', text: 'Keine Bibellesung, sondern eine Lesung aus einem eigenen Buch: das Leben der Heiligen, deren an diesem Tag gedacht wird.' },
-            { name: 'Psalm und Evangelium', text: 'Einige Verse eines Psalms, die unmittelbar vor dem Evangelium gesungen werden. Die Psalmen werden als Prophezeiungen über Christus gelesen, deshalb kündigt der Psalm das Evangelium an. Das Evangelium ist die wichtigste Lesung des Tages, und die anderen Lesungen beziehen sich meist darauf.' },
+            { name: 'Synaxär', text: 'Das Leben der Heiligen und Märtyrer, deren an diesem Tag gedacht wird, aus einem eigenen Buch gelesen.' },
+            { name: 'Psalm und Evangelium', text: 'Einige Verse eines Psalms, die unmittelbar vor dem Evangelium gesungen werden. Das Evangelium ist die wichtigste Lesung des Tages, und die anderen Lesungen beziehen sich meist darauf.' },
         ],
-        note: 'Lesungen aus den Propheten des Alten Testaments kommen hinzu, vor allem in der Großen Fastenzeit und in der Karwoche.',
     },
 
     books: {
@@ -55,26 +54,42 @@ const content: AboutContent = {
         paragraphs: [
             'Der Katameros folgt dem koptischen Kalender, dem Kalender der Kirche, der aus dem alten Ägypten überliefert ist. Das koptische Jahr hat 13 Monate: 12 Monate mit je 30 Tagen, dann einen kurzen Monat namens Nasie mit fünf Tagen (sechs, wenn der folgende Februar 29 Tage hat).',
             'Die Monate heißen Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra und Nasie. Das Jahr beginnt am 1. Thout, das ist der 11. September (der 12. September, wenn der folgende Februar 29 Tage hat).',
+            'Die koptischen Jahre werden seit 284 gezählt, dem Jahr, in dem Diokletian Kaiser wurde. Diese Zeitrechnung heißt Ära der Märtyrer, zur Erinnerung an die vielen Christen, die während seiner Verfolgung getötet wurden.',
         ],
     },
 
     choice: {
         heading: 'Wie die Lesungen ausgewählt werden',
-        intro: 'Die Lesungen eines Tages sind nicht zufällig: Sie werden so ausgewählt, dass sie zu dem passen, was die Kirche an diesem Tag feiert. Drei Dinge entscheiden darüber: der Heilige oder das Fest des Tages im koptischen Kalender, der Sonntag und sein Thema sowie die Zeiten, die sich mit Ostern verschieben. Fallen sie auf denselben Tag, haben die Herrenfeste (die Feste Christi, zum Beispiel Weihnachten) und diese Zeiten Vorrang vor dem Sonntag. Der Sonntag hat Vorrang vor dem Heiligen des Tages.',
+        intro: 'Die Lesungen eines Tages werden nicht zufällig ausgewählt. Sie folgen dem, was die Kirche an diesem Tag feiert. Drei Dinge bestimmen sie:',
+        factors: [
+            { name: 'Der Heilige oder das Fest des Tages im koptischen Kalender' },
+            { name: 'Der Sonntag und sein Thema' },
+            { name: 'Die Zeiten, die sich mit Ostern verschieben', detail: 'Fasten von Ninive, Große Fastenzeit, Karwoche, heilige fünfzig Tage' },
+        ],
+        priority: 'Fallen mehrere davon auf denselben Tag, haben die Herrenfeste (zum Beispiel Weihnachten) und die großen Zeiten rund um Ostern Vorrang vor dem Sonntag. Der Sonntag hat Vorrang vor dem Heiligen des Tages.',
 
         weekdays: {
             heading: 'Wochentage: die Heiligen des Tages',
+            intro: 'Von Montag bis Samstag passen die Lesungen zu dem Heiligen oder dem Fest, dessen das Synaxär an diesem koptischen Datum gedenkt. Oft zeigt schon das Evangelium, wessen Tag es ist:',
+            gospels: [
+                { name: 'Für einen Propheten', text: 'Die getöteten Propheten', ref: 'Matthäus 23', passage: 'prophets' },
+                { name: 'Für einen Märtyrer', text: 'Die Verfolgung', ref: 'Lukas 21', passage: 'persecution' },
+                { name: 'Für einen Papst oder Patriarchen', text: 'Der Gute Hirte', ref: 'Johannes 10', passage: 'shepherd' },
+                { name: 'Für eine heilige Frau', text: 'Die klugen Jungfrauen', ref: 'Matthäus 25', passage: 'virgins' },
+            ],
+            openLabel: 'Lesen',
             paragraphs: [
-                'Von Montag bis Samstag passen die Lesungen zu dem Heiligen oder dem Fest, dessen an diesem koptischen Datum im Synaxär gedacht wird. Oft zeigt schon das Evangelium allein, wessen Tag es ist: die getöteten Propheten (Matthäus 23) für einen Propheten, die Verfolgung (Lukas 21) für einen Märtyrer, der Gute Hirte (Johannes 10) für einen Papst oder Patriarchen, die klugen Jungfrauen (Matthäus 25) für eine heilige Frau.',
-                'Doch das Buch der Wochentage hat nicht für jeden Tag des Jahres eigene Lesungen. Nur etwa 70 Tage haben eigens für sie festgelegte Lesungen. Alle anderen Tage übernehmen die Lesungen eines dieser Tage, an dem ein Heiliger derselben Art gefeiert wird: Ein Märtyrer erhält die Lesungen eines anderen Märtyrers, ein Bischof die eines anderen Bischofs, ein Mönch die eines großen Mönchs. Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr.',
-                'Zum Beispiel werden die Lesungen des 22. Toubah für den heiligen Antonius, den Vater der Mönche, an acht weiteren Tagen wiederverwendet, meist an Gedenktagen von Mönchen.',
+                'Im Buch der Wochentage hat nicht jeder Tag des Jahres eigene Lesungen: Das gilt nur für etwa 70 Tage. Alle anderen Tage übernehmen die Lesungen eines Heiligen derselben Art, dessen Fest auf einen dieser Tage fällt: Ein Märtyrer erhält die Lesungen eines anderen Märtyrers, ein Bischof die eines anderen Bischofs, ein Mönch die eines großen Mönchs. Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr.',
+                'Zum Beispiel wird der heilige Antonius, der Vater der Mönche, am 22. Toubah gefeiert. Seine Lesungen werden an acht weiteren Tagen wiederholt, meist an Gedenktagen von Mönchen.',
             ],
         },
 
         sundays: {
             heading: 'Sonntage: das Werk der Heiligen Dreifaltigkeit',
             paragraphs: [
-                'Die Sonntage folgen nicht dem Heiligen des Tages. Nacheinander gelesen, erzählen die Sonntagslesungen des Jahres eine einzige Geschichte: das Werk der Heiligen Dreifaltigkeit für unser Heil. Jeder koptische Monat gibt seinen Sonntagen ein Thema innerhalb dieser Geschichte. Im Monat Kiahk zum Beispiel, der auf Weihnachten hinführt, erzählen die vier Sonntagsevangelien von der Menschwerdung: die Ankündigung an Zacharias, die Verkündigung an Maria, die Heimsuchung und die Geburt Johannes des Täufers.',
+                'Sonntags folgen die Lesungen nicht dem Heiligen des Tages, sondern dem Thema des koptischen Monats.',
+                'Über die Sonntage des Jahres hinweg kreisen die Lesungen um einen einzigen Gegenstand: das Werk der Heiligen Dreifaltigkeit für unser Heil. Jeder koptische Monat zeigt einen Aspekt dieses Werkes.',
+                'Zum Beispiel ist Kiahk der Monat, der auf Weihnachten hinführt. Sein Thema ist die Menschwerdung. Die Evangelien seiner vier Sonntage erzählen von der Ankündigung an Zacharias, der Verkündigung an Maria, der Heimsuchung und der Geburt Johannes des Täufers.',
             ],
             more: {
                 title: 'Die Sonntage, Monat für Monat',
@@ -159,10 +174,6 @@ const content: AboutContent = {
                         ],
                     },
                 ],
-                notes: [
-                    'An einem fünften Sonntag wird die Speisung der Fünftausend gelesen: von Thout bis Amshir die Lesungen des zweiten Sonntags im Amshir (Johannes 6:5–14), von Baramhat bis Misra eigene Lesungen (Lukas 9:12–17). Es gibt Ausnahmen, insbesondere am 29. eines Monats (außer im Toubah und Amshir) oder am 30. Kiahk.',
-                    'Im Babah, im Hatour und von Bashans bis Misra handelt das Evangelium beim Morgenweihrauchopfer am Sonntag von der Auferstehung, wie sie der Reihe nach Matthäus, Markus, Lukas und Johannes erzählen.',
-                ],
             },
         },
 
@@ -172,12 +183,16 @@ const content: AboutContent = {
                 'Der koptische Kalender ist fest, Ostern aber nicht: Das Osterdatum wird jedes Jahr berechnet und liegt zwischen dem 4. April und dem 8. Mai. Mehrere Zeiten werden von Ostern aus gezählt, deshalb verschieben sie sich jedes Jahr mit dem Osterfest:',
             ],
             items: [
-                { name: 'Fasten von Ninive', text: 'Drei Tage, zwei Wochen vor der Großen Fastenzeit.' },
-                { name: 'Große Fastenzeit', text: 'Die Vorbereitungswoche und die vierzig Tage. Sie beginnt zwischen Anfang Februar und Mitte März.' },
+                { name: 'Fasten von Ninive', text: 'Drei Fastentage, zwei Wochen vor Beginn der Großen Fastenzeit.' },
+                { name: 'Große Fastenzeit', text: 'Eine Vorbereitungswoche, dann die vierzig Tage. Sie beginnt zwischen Anfang Februar und Mitte März.' },
                 { name: 'Karwoche', text: 'Die Woche vor Ostern.' },
                 { name: 'Heilige fünfzig Tage', text: 'Von Ostern bis Pfingsten, das zwischen dem 23. Mai und dem 26. Juni liegt.' },
             ],
-            note: 'In diesen Wochen, etwa 15 im Jahr, kommen die Lesungen nicht aus den Büchern der Wochentage und der Sonntage, sondern aus den Büchern dieser Zeiten, nach Woche und Tag geordnet. Die Lesungen folgen der jeweiligen Zeit: In der Großen Fastenzeit werden an den Sonntagen die Versuchung Christi, der verlorene Sohn und die Samariterin gelesen; die Karwoche folgt Tag für Tag den letzten Tagen Christi. Nur wenige Herrenfeste, etwa das Fest des Kreuzes am 10. Baramhat, behalten ihre eigenen Lesungen.',
+            after: [
+                'In diesen Wochen, etwa 15 im Jahr, kommen die Lesungen nicht aus den Büchern der Wochentage und der Sonntage, sondern aus den Büchern dieser Zeiten, nach Woche und Tag geordnet.',
+                'Die Lesungen folgen der jeweiligen Zeit. In der Großen Fastenzeit werden an den Sonntagen die Versuchung Christi, der verlorene Sohn und die Samariterin gelesen. Die Karwoche folgt Tag für Tag den letzten Tagen Christi.',
+                'Nur wenige Herrenfeste, etwa das Fest des Kreuzes am 10. Baramhat, behalten ihre eigenen Lesungen.',
+            ],
             more: {
                 title: 'Was in diesen Zeiten gelesen wird',
                 items: [
@@ -200,6 +215,7 @@ const content: AboutContent = {
                     { name: 'Palmsonntag', text: 'Der Einzug in Jerusalem, gelesen aus allen vier Evangelien.' },
                     { name: 'Karwoche', text: 'Lesungen für jede Gebetsstunde des Tages und der Nacht: die Erste, Dritte, Sechste, Neunte und Elfte Stunde, am Freitag zusätzlich eine Zwölfte Stunde. Jede Stunde beginnt mit dem Alten Testament.' },
                     {
+                        joined: true,
                         name: 'Tag für Tag',
                         list: true,
                         text: [
@@ -233,9 +249,6 @@ const content: AboutContent = {
                             'Pfingsten, am 50. Tag: das Kommen des Beistands (Johannes 15:26–16:15).',
                         ],
                     },
-                ],
-                notes: [
-                    'Das Evangelium von der Samariterin wird an zwei Sonntagen gelesen: in der Großen Fastenzeit mit einem Psalm über die Suche nach dem Herrn (Psalm 105) und nach Ostern mit einem Psalm über den Segen des Herrn (Psalm 115).',
                 ],
             },
         },
