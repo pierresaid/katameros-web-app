@@ -1,9 +1,16 @@
 import { fileURLToPath, URL } from 'node:url'
 import { VitePWA } from 'vite-plugin-pwa'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import type { ViteSSGOptions } from 'vite-ssg'
+
+// Umami analytics only runs in production: the dev server drops its script from index.html
+const noUmamiInDev: Plugin = {
+  name: 'no-umami-in-dev',
+  apply: 'serve',
+  transformIndexHtml: (html) => html.replace(/\s*<script[^>]*umami[^>]*><\/script>/, ''),
+}
 
 const ssgOptions: ViteSSGOptions = {
   script: 'async',
@@ -16,6 +23,7 @@ const ssgOptions: ViteSSGOptions = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    noUmamiInDev,
     vue({ template: { transformAssetUrls } }),
     vuetify({ autoImport: true }),
     VitePWA({
