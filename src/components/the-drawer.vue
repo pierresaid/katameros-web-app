@@ -30,6 +30,7 @@ const items = computed(() => {
         m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
 
     m.push({ title: 'feasts.title', name: 'feasts', icon: 'mdi-calendar-star' })
+    m.push({ title: 'about', name: 'about', icon: 'mdi-information-outline' })
     m.push({ title: 'contact.contact', name: 'contact', icon: 'mdi-chat' })
     return m;
 })

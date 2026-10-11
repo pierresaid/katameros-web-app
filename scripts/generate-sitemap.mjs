@@ -6,6 +6,9 @@ const SITE_URL = 'https://katameros.app'
 const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl', 'th']
 const DEFAULT_LANG = 'fr'
 const SYNAX_LANGS = new Set(['fr', 'en', 'ar', 'it', 'nl'])
+// The about page is not translated into Thai (keep in sync with src/content/about/index.ts)
+const ABOUT_LANGS = new Set(['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl'])
+const ROUTE_LANGS = { '/synaxarium': SYNAX_LANGS, '/about': ABOUT_LANGS }
 const ROUTES = ['', '/feasts', '/about', '/contact', '/synaxarium']
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -42,8 +45,8 @@ ${xDefault}
 
 const urls = [entryFor(ROOT_URL, '', SUPPORTED_LANGS)]
 for (const route of ROUTES) {
-    const langs = route === '/synaxarium'
-        ? SUPPORTED_LANGS.filter(l => SYNAX_LANGS.has(l))
+    const langs = ROUTE_LANGS[route]
+        ? SUPPORTED_LANGS.filter(l => ROUTE_LANGS[route].has(l))
         : SUPPORTED_LANGS
     for (const lang of langs) {
         urls.push(entryFor(urlFor(lang, route), route, langs))

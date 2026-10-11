@@ -1,0 +1,251 @@
+import type { AboutContent } from './types'
+
+const content: AboutContent = {
+    title: 'Czym jest Katameros?',
+    lead: 'Katameros to lekcjonarz Koptyjskiego Kościoła Ortodoksyjnego: księga, która na każdy dzień roku podaje fragmenty Biblii czytane w kościele podczas codziennych nabożeństw.',
+
+    name: {
+        heading: 'Nazwa',
+        paragraphs: [
+            'Nazwa pochodzi od greckiego wyrażenia *kata meros*, czyli „częściami”: księga dzieli się na kilka części i podaje Pismo Święte fragment po fragmencie, dzień po dniu.',
+        ],
+    },
+
+    church: {
+        heading: 'Czytany w kościele',
+        paragraphs: [
+            'W kościele Katameros leży na analogionie (pulpicie do czytania), otwarty na czytaniach danego dnia. Podczas nabożeństw tego dnia lektorzy, diakoni i kapłan czytają wskazane w nim fragmenty. Parafie Koptyjskiego Kościoła Ortodoksyjnego na całym świecie posługują się tym samym lekcjonarzem.',
+        ],
+    },
+
+    contents: {
+        heading: 'Zawartość',
+        intro: 'Na większość dni Katameros podaje czytania na trzy nabożeństwa. W Kościele dzień rozpoczyna się o zachodzie słońca, dlatego czytania zaczynają się od Nieszporów poprzedniego wieczoru, potem rano jest Jutrznia, a po niej Liturgia (Eucharystia). Nieszpory i Jutrznia nazywane są też wieczornym i porannym Ofiarowaniem Kadzidła.',
+        services: [
+            { name: 'Nieszpory', when: 'Poprzedniego wieczoru', parts: ['Psalm i Ewangelia'] },
+            { name: 'Jutrznia', when: 'Rano', parts: ['Psalm i Ewangelia'] },
+            { name: 'Liturgia', when: 'Po Jutrzni', parts: ['List Świętego Pawła', 'List powszechny', 'Dzieje Apostolskie', 'Synaksarion', 'Psalm i Ewangelia'] },
+        ],
+        readingsLabel: 'Czytania Liturgii',
+        readings: [
+            { name: 'List Świętego Pawła', text: 'Fragment jednego z listów św. Pawła.' },
+            { name: 'List powszechny', text: 'Fragment listów św. Jakuba, św. Piotra, św. Jana lub św. Judy. Nazywa się je powszechnymi lub katolickimi („katolicki” znaczy „powszechny”): większość z nich jest skierowana do całego Kościoła, a nie do jednego Kościoła lokalnego.' },
+            { name: 'Dzieje Apostolskie', text: 'Fragment Dziejów Apostolskich. To czytanie nazywa się też Praxis, co po grecku znaczy „Dzieje”.' },
+            { name: 'Synaksarion', text: 'Nie jest to czytanie z Biblii, lecz z osobnej księgi: żywoty świętych wspominanych tego dnia.' },
+            { name: 'Psalm i Ewangelia', text: 'Kilka wersetów psalmu, śpiewanych tuż przed Ewangelią. Psalmy czyta się jako proroctwa o Chrystusie, dlatego psalm zapowiada Ewangelię. Ewangelia jest głównym czytaniem dnia, a pozostałe czytania zwykle do niej nawiązują.' },
+        ],
+        note: 'Dodaje się czytania z proroków Starego Testamentu, głównie w Wielkim Poście i w Wielkim Tygodniu.',
+    },
+
+    books: {
+        heading: 'Pięć ksiąg',
+        intro: 'Katameros jest drukowany w pięciu księgach, a każdej z nich używa się w określonym okresie roku:',
+        items: [
+            { name: 'Dni powszednie', text: 'Od poniedziałku do soboty, według wspomnień świętych i świąt kalendarza koptyjskiego.' },
+            { name: 'Niedziele', text: 'Niedziele całego roku, z osobnym tematem na każdy miesiąc.' },
+            { name: 'Wielki Post', text: 'Tydzień przygotowawczy i czterdzieści dni postu, a także Post Niniwy.' },
+            { name: 'Wielki Tydzień', text: 'Tydzień przed Wielkanocą, z czytaniami na każdą z jego godzin modlitwy. W Kościele koptyjskim ten tydzień nazywa się Paschą.' },
+            { name: 'Święte Pięćdziesiąt Dni', text: 'Od Wielkanocy do Pięćdziesiątnicy.' },
+        ],
+    },
+
+    calendar: {
+        heading: 'Kalendarz koptyjski',
+        paragraphs: [
+            'Katameros opiera się na kalendarzu koptyjskim, czyli kalendarzu Kościoła odziedziczonym po starożytnym Egipcie. Rok koptyjski ma 13 miesięcy: 12 miesięcy po 30 dni, a potem krótki miesiąc zwany Nasie, który ma pięć dni (sześć, gdy następny luty ma 29 dni).',
+            'Miesiące to: Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra i Nasie. Rok zaczyna się 1 Thout, czyli 11 września (12 września, gdy następny luty ma 29 dni).',
+        ],
+    },
+
+    choice: {
+        heading: 'Jak dobiera się czytania',
+        intro: 'Czytania danego dnia nie są przypadkowe: dobiera się je tak, by odpowiadały temu, co Kościół tego dnia obchodzi. Decydują o tym trzy czynniki: wspomnienie świętego lub święto danego dnia w kalendarzu koptyjskim, niedziela i jej temat oraz okresy, które przesuwają się razem z Wielkanocą. Gdy przypadają na ten sam dzień, święta Pańskie (święta Chrystusa, takie jak Boże Narodzenie) i te okresy mają pierwszeństwo przed niedzielą. Niedziela ma pierwszeństwo przed wspomnieniem świętego danego dnia.',
+
+        weekdays: {
+            heading: 'Dni powszednie: święci danego dnia',
+            paragraphs: [
+                'Od poniedziałku do soboty czytania odpowiadają wspomnieniu świętego lub świętu, które Synaksarion podaje pod tą datą koptyjską. Często już sama Ewangelia pokazuje, czyj to dzień: zabici prorocy (Mateusza 23) na dzień proroka, prześladowania (Łukasza 21) na dzień męczennika, Dobry Pasterz (Jana 10) na dzień papieża lub patriarchy, mądre panny (Mateusza 25) na dzień świętej kobiety.',
+                'Księga na dni powszednie nie ma jednak osobnych czytań na każdy dzień roku. Własne czytania ułożono tylko dla około 70 dat. Wszystkie pozostałe daty przejmują czytania jednej z nich, której święty jest tego samego rodzaju: męczennik dostaje czytania innego męczennika, biskup czytania innego biskupa, a mnich czytania wielkiego mnicha. Dlatego te same czytania powtarzają się kilka razy w roku.',
+                'Na przykład czytania z 22 Toubah, na wspomnienie św. Antoniego, ojca mnichów, powtarzają się pod ośmioma innymi datami, przeważnie w dni wspomnień mnichów.',
+            ],
+        },
+
+        sundays: {
+            heading: 'Niedziele: dzieło Trójcy Świętej',
+            paragraphs: [
+                'Niedziele nie są związane ze świętym danego dnia. Kolejne niedzielne czytania całego roku opowiadają jedną historię: dzieło Trójcy Świętej dla naszego zbawienia. Każdy miesiąc koptyjski nadaje swoim niedzielom temat w ramach tej historii. Na przykład w miesiącu Kiahk, który prowadzi do Bożego Narodzenia, cztery niedzielne Ewangelie opowiadają o Wcieleniu: o zwiastowaniu Zachariaszowi, Zwiastowaniu Maryi, Nawiedzeniu i narodzeniu Jana Chrzciciela.',
+            ],
+            more: {
+                title: 'Niedziele miesiąc po miesiącu',
+                intro: 'Temat każdego miesiąca i jego niedzielne Ewangelie.',
+                items: [
+                    {
+                        name: 'Thout',
+                        text: [
+                            'Miłość Boga Ojca do ludzi.',
+                            'Ewangelie: Jan Chrzciciel (Łukasza 7:28–35), największe przykazanie (Łukasza 10:21–28), Zacheusz (Łukasza 19:1–10) i grzesznica, której przebaczono (Łukasza 7:36–50).',
+                        ],
+                    },
+                    {
+                        name: 'Babah',
+                        text: [
+                            'Moc Chrystusa, objawiona w Jego cudach.',
+                            'Ewangelie: paralityk spuszczony przez dach (Marka 2:1–12), cudowny połów ryb (Łukasza 5:1–11), uzdrowienie niewidomego i niemego człowieka (Mateusza 12:22–28) oraz wskrzeszenie syna wdowy w Nain (Łukasza 7:11–17).',
+                        ],
+                    },
+                    {
+                        name: 'Hatour',
+                        text: [
+                            'Jego nauczanie i dzieła.',
+                            'Ewangelie: przypowieść o siewcy, dwukrotnie (Łukasza 8:4–15 i Mateusza 13:1–9), cena pójścia za Nim (Łukasza 14:25–35) i bogaty młodzieniec (Marka 10:17–31).',
+                        ],
+                    },
+                    {
+                        name: 'Kiahk',
+                        text: [
+                            'Wcielenie.',
+                            'Ewangelie z pierwszego rozdziału Ewangelii św. Łukasza: zwiastowanie Zachariaszowi, Zwiastowanie Maryi, Nawiedzenie i narodzenie Jana Chrzciciela.',
+                        ],
+                    },
+                    {
+                        name: 'Toubah',
+                        text: [
+                            'Zbawienie ofiarowane wszystkim narodom.',
+                            'Ewangelie: ucieczka do Egiptu (Mateusza 2:13–23), znak Jonasza (Łukasza 11:27–36), świadectwo Jana Chrzciciela (Jana 3:22–36) i niewidomy od urodzenia (Jana 9:1–38).',
+                        ],
+                    },
+                    {
+                        name: 'Amshir',
+                        text: [
+                            'Chrystus, chleb życia.',
+                            'Ewangelie: Jana 6 (nakarmienie pięciu tysięcy ludzi i chleb życia) w trzy niedziele oraz Zacheusz (Łukasza 19:1–10).',
+                        ],
+                    },
+                    { name: 'Baramhat, Baramoudah', text: 'Wielki Post, Wielki Tydzień lub Święte Pięćdziesiąt Dni (zob. następną część).' },
+                    {
+                        name: 'Bashans',
+                        text: [
+                            'Pierwsze niedziele tego miesiąca przypadają w okresie Świętych Pięćdziesięciu Dni.',
+                            'Ewangelie ostatnich niedziel: miłosierny Samarytanin (Łukasza 10:25–37) i kuszenie Chrystusa (Łukasza 4:1–13).',
+                        ],
+                    },
+                    {
+                        name: 'Baounah',
+                        text: [
+                            'Dar Ducha Świętego.',
+                            'Ewangelie: Ojciec, który daje Ducha Świętego tym, którzy Go proszą (Łukasza 11:1–13), paralityk, któremu odpuszczono grzechy (Łukasza 5:17–26), grzech przeciwko Duchowi Świętemu (Mateusza 12:22–37) i „miłujcie waszych nieprzyjaciół” (Łukasza 6:27–38).',
+                        ],
+                    },
+                    {
+                        name: 'Abib',
+                        text: [
+                            'Pomoc Pana dla Jego apostołów.',
+                            'Ewangelie: rozesłanie siedemdziesięciu uczniów (Łukasza 10:1–20), „kto jest największy?” (Mateusza 18:1–9), nakarmienie pięciu tysięcy ludzi (Łukasza 9:10–17) i wskrzeszenie Łazarza (Jana 11:1–45).',
+                        ],
+                    },
+                    {
+                        name: 'Misra',
+                        text: [
+                            'Jego troska o swój Kościół.',
+                            'Ewangelie: przewrotni rolnicy (Łukasza 20:9–19), powołanie Lewiego (Łukasza 5:27–39), dom wewnętrznie skłócony (Marka 3:22–35) i koniec czasów (Marka 13:3–37).',
+                        ],
+                    },
+                    {
+                        name: 'Nasie',
+                        text: [
+                            'Powtórne przyjście Chrystusa.',
+                            'Ewangelia: znaki końca (Mateusza 24:3–35).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'W piątą niedzielę miesiąca czyta się o nakarmieniu pięciu tysięcy ludzi: od Thout do Amshir są to czytania z drugiej niedzieli miesiąca Amshir (Jana 6:5–14), a od Baramhat do Misra własne czytania (Łukasza 9:12–17). Zdarzają się wyjątki, zwłaszcza 29. dnia miesiąca (poza Toubah i Amshir) albo 30 Kiahk.',
+                    'W miesiącach Babah i Hatour oraz od Bashans do Misra Ewangelia niedzielnej Jutrzni mówi o Zmartwychwstaniu, kolejno według Mateusza, Marka, Łukasza i Jana.',
+                ],
+            },
+        },
+
+        seasons: {
+            heading: 'Okresy, które przesuwają się z Wielkanocą',
+            paragraphs: [
+                'Kalendarz koptyjski jest stały, ale Wielkanoc nie: jej datę oblicza się co roku i przypada ona między 4 kwietnia a 8 maja. Kilka okresów liczy się od Wielkanocy, dlatego co roku przesuwają się razem z nią:',
+            ],
+            items: [
+                { name: 'Post Niniwy', text: 'Trzy dni, dwa tygodnie przed Wielkim Postem.' },
+                { name: 'Wielki Post', text: 'Tydzień przygotowawczy i czterdzieści dni postu. Zaczyna się między początkiem lutego a połową marca.' },
+                { name: 'Wielki Tydzień', text: 'Tydzień przed Wielkanocą.' },
+                { name: 'Święte Pięćdziesiąt Dni', text: 'Od Wielkanocy do Pięćdziesiątnicy, która przypada między 23 maja a 26 czerwca.' },
+            ],
+            note: 'W tych tygodniach (jest ich w roku około 15) czytania pochodzą nie z ksiąg na dni powszednie i na niedziele, lecz z ksiąg tych okresów, które podają je na każdy tydzień i dzień. Czytania odpowiadają okresowi: w Wielkim Poście w niedziele czyta się o kuszeniu Chrystusa, o synu marnotrawnym i o Samarytance; Wielki Tydzień dzień po dniu przedstawia ostatnie dni Chrystusa. Tylko kilka świąt Pańskich, takich jak Święto Krzyża obchodzone 10 Baramhat, zachowuje własne czytania.',
+            more: {
+                title: 'Co się czyta w tych okresach',
+                items: [
+                    { name: 'Post Niniwy', text: 'Księga Jonasza, czytana w ciągu tych trzech dni.' },
+                    { name: 'Dni powszednie Wielkiego Postu', text: 'Od poniedziałku do piątku nie ma wieczornego Ofiarowania Kadzidła, a na Jutrzni Ewangelię poprzedzają czytania z proroków Starego Testamentu.' },
+                    {
+                        name: 'Niedziele Wielkiego Postu',
+                        list: true,
+                        text: [
+                            'Niedziela przed Wielkim Postem: jałmużna, modlitwa i post w ukryciu (Mateusza 6:1–18).',
+                            'I niedziela: skarby w niebie (Mateusza 6:19–33).',
+                            'II niedziela: kuszenie Chrystusa (Mateusza 4:1–11).',
+                            'III niedziela: syn marnotrawny (Łukasza 15:11–32).',
+                            'IV niedziela: Samarytanka (Jana 4:1–42).',
+                            'V niedziela: paralityk przy sadzawce Betesda (Jana 5:1–18).',
+                            'VI niedziela: niewidomy od urodzenia (Jana 9:1–41).',
+                        ],
+                    },
+                    { name: 'Sobota Łazarza', text: 'Dzień przed Niedzielą Palmową: wskrzeszenie Łazarza (Jana 11:1–45).' },
+                    { name: 'Niedziela Palmowa', text: 'Wjazd do Jerozolimy, czytany według wszystkich czterech Ewangelii.' },
+                    { name: 'Wielki Tydzień', text: 'Czytania na każdą godzinę modlitwy dnia i nocy: Pierwszą, Trzecią, Szóstą, Dziewiątą i Jedenastą Godzinę, a w piątek także Dwunastą. Każda godzina zaczyna się od czytań ze Starego Testamentu.' },
+                    {
+                        name: 'Dzień po dniu',
+                        list: true,
+                        text: [
+                            'Poniedziałek: figowiec i oczyszczenie świątyni.',
+                            'Wtorek: przypowieści i przestrogi o końcu czasów.',
+                            'Środa: namaszczenie w Betanii i umowa Judasza z arcykapłanami.',
+                            'Czwartek: Ostatnia Wieczerza i mowa pożegnalna Chrystusa.',
+                            'Piątek: Męka Pańska według wszystkich czterech Ewangelii.',
+                            'Sobota: Zmartwychwstanie (Mateusza 28).',
+                        ],
+                    },
+                    {
+                        name: 'Niedziele Świętych Pięćdziesięciu Dni',
+                        list: true,
+                        lead: 'Na Liturgii w każdą niedzielę czyta się Ewangelię według św. Jana:',
+                        text: [
+                            'Niedziela Wielkanocna: pusty grób (Jana 20:1–18).',
+                            'I niedziela: Tomasz (Jana 20:19–31).',
+                            'II niedziela: chleb życia (Jana 6:35–45).',
+                            'III niedziela: woda żywa (Jana 4:1–42).',
+                            'IV niedziela: światłość świata (Jana 12:35–50).',
+                            'V niedziela: droga, prawda i życie (Jana 14:1–11).',
+                            'VI niedziela: „Ja zwyciężyłem świat” (Jana 16:23–33).',
+                        ],
+                    },
+                    {
+                        name: 'Wniebowstąpienie, Pięćdziesiątnica',
+                        list: true,
+                        text: [
+                            'Wniebowstąpienie, 40. dnia: Łukasza 24:36–53.',
+                            'Pięćdziesiątnica, 50. dnia: przyjście Pocieszyciela (Jana 15:26–16:15).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'Samarytanka to Ewangelia dwóch niedziel: w Wielkim Poście z psalmem o szukaniu Pana (Psalm 105), a po Wielkanocy z psalmem o błogosławieństwie Pana (Psalm 115).',
+                ],
+            },
+        },
+    },
+
+    footer: {
+        readings: 'Dzisiejsze czytania',
+        contact: 'Kontakt',
+        getApp: 'Pobierz aplikację:',
+        sourceCode: 'Kod źródłowy',
+    },
+}
+
+export default content

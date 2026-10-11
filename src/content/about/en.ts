@@ -1,0 +1,250 @@
+import type { AboutContent } from './types'
+
+const content: AboutContent = {
+    title: 'What is the Katameros?',
+    lead: 'The Katameros is the lectionary of the Coptic Orthodox Church: the book that lists the Bible passages read in church at the daily services, on every day of the year.',
+
+    name: {
+        heading: 'The name',
+        paragraphs: [
+            'The name comes from the Greek *kata meros*, “in parts”: the book is divided into several parts, and it presents the Scriptures portion by portion, one day at a time.',
+        ],
+    },
+
+    church: {
+        heading: 'Read in church',
+        paragraphs: [
+            'In church, the Katameros sits on the lectern (the reading stand), open at the day’s readings. At the day’s services, the readers, the deacons and the priest read the passages it lists. Coptic Orthodox churches around the world follow the same lectionary.',
+        ],
+    },
+
+    contents: {
+        heading: 'What it contains',
+        intro: 'For most days, the Katameros gives the readings of three services. The Church’s day begins at sunset, so the readings start with Vespers the evening before, then Matins in the morning, and then the Liturgy (the Eucharist). Vespers and Matins are also called the evening and morning Raising of Incense.',
+        services: [
+            { name: 'Vespers', when: 'The evening before', parts: ['Psalm & Gospel'] },
+            { name: 'Matins', when: 'In the morning', parts: ['Psalm & Gospel'] },
+            { name: 'Liturgy', when: 'After Matins', parts: ['Pauline Epistle', 'Catholic Epistle', 'Acts of the Apostles', 'Synaxarium', 'Psalm & Gospel'] },
+        ],
+        readingsLabel: 'The readings of the Liturgy',
+        readings: [
+            { name: 'Pauline Epistle', text: 'A passage from one of the letters of St. Paul.' },
+            { name: 'Catholic Epistle', text: 'A passage from the letters of St. James, St. Peter, St. John or St. Jude. “Catholic” means universal: most of these letters are addressed to the whole Church rather than to one local church.' },
+            { name: 'Acts of the Apostles', text: 'A passage from the book of Acts. This reading is also called the Praxis, Greek for “Acts”.' },
+            { name: 'Synaxarium', text: 'Not a Bible reading, and read from its own book: the lives of the saints commemorated that day.' },
+            { name: 'Psalm & Gospel', text: 'A few verses of a psalm, chanted just before the Gospel. The psalms are read as prophecies about Christ, so the psalm announces the Gospel. The Gospel is the main reading of the day, and the other readings usually relate to it.' },
+        ],
+        note: 'Readings from the Old Testament prophets are added, mainly in Great Lent and Holy Week.',
+    },
+
+    books: {
+        heading: 'Five books',
+        intro: 'The Katameros is printed as five books, each used at its time of the year:',
+        items: [
+            { name: 'Weekdays', text: 'Monday to Saturday, following the saints and feasts of the Coptic calendar.' },
+            { name: 'Sundays', text: 'The Sundays of the year, with a theme for each month.' },
+            { name: 'Great Lent', text: 'The preparation week and the Forty Days, as well as the Fast of Nineveh.' },
+            { name: 'Holy Week', text: 'The week before Easter, with readings for each of its prayer hours. In the Coptic Church, this week is called Pascha.' },
+            { name: 'Holy Fifty Days', text: 'From Easter to Pentecost.' },
+        ],
+    },
+
+    calendar: {
+        heading: 'The Coptic calendar',
+        paragraphs: [
+            'The Katameros follows the Coptic calendar, the Church’s calendar inherited from ancient Egypt. The Coptic year has 13 months: 12 months of 30 days, then a short month called Nasie, with five days (six when the next February has 29 days).',
+            'The months are Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra and Nasie. The year begins on 1 Thout, which is September 11 (September 12 when the next February has 29 days).',
+        ],
+    },
+
+    choice: {
+        heading: 'How the readings are chosen',
+        intro: 'The readings of a day are not random: they are chosen to match what the Church celebrates that day. Three things decide it: the saint or feast of the day in the Coptic calendar, the Sunday and its theme, and the seasons that move with Easter. When they fall on the same day, the feasts of the Lord (the feasts of Christ, such as the Nativity) and those seasons have priority over Sunday. Sunday has priority over the saint of the day.',
+
+        weekdays: {
+            heading: 'Weekdays: the saints of the day',
+            paragraphs: [
+                'From Monday to Saturday, the readings match the saint or feast commemorated on that Coptic date in the Synaxarium. Often the Gospel alone shows whose day it is: the prophets who were killed (Matthew 23) for a prophet, persecution (Luke 21) for a martyr, the Good Shepherd (John 10) for a pope or a patriarch, the wise virgins (Matthew 25) for a holy woman.',
+                'But the Weekdays book does not have different readings for every day of the year. Only about 70 dates have readings written for them. All the other dates reuse the readings of one of these dates, chosen for a saint of the same kind: a martyr takes the readings of another martyr, a bishop those of another bishop, a monk those of a great monk. This is why the same readings are repeated several times a year.',
+                'For example, the readings for St. Anthony, the father of monks, on 22 Toubah are reused on eight other dates, mostly feasts of monks.',
+            ],
+        },
+
+        sundays: {
+            heading: 'Sundays: the work of the Holy Trinity',
+            paragraphs: [
+                'Sundays do not follow the saint of the day. Read one after the other, the Sunday readings of the year tell a single story: the work of the Holy Trinity for our salvation. Each Coptic month gives its Sundays a theme within that story. In Kiahk, for example, the month that leads to the Nativity, the four Sunday Gospels tell of the Incarnation: the annunciation to Zechariah, the Annunciation to Mary, the Visitation and the birth of John the Baptist.',
+            ],
+            more: {
+                title: 'The Sundays, month by month',
+                intro: 'The theme of each month and its Sunday Gospels.',
+                items: [
+                    {
+                        name: 'Thout',
+                        text: [
+                            'The love of God the Father for mankind.',
+                            'Gospels: John the Baptist (Luke 7:28–35), the great commandment (Luke 10:21–28), Zacchaeus (Luke 19:1–10) and the sinful woman forgiven (Luke 7:36–50).',
+                        ],
+                    },
+                    {
+                        name: 'Babah',
+                        text: [
+                            'The power of Christ, shown in His miracles.',
+                            'Gospels: the paralytic let down through the roof (Mark 2:1–12), the miraculous catch of fish (Luke 5:1–11), a blind and mute man healed (Matthew 12:22–28) and the widow’s son raised at Nain (Luke 7:11–17).',
+                        ],
+                    },
+                    {
+                        name: 'Hatour',
+                        text: [
+                            'His teaching and works.',
+                            'Gospels: the parable of the sower, twice (Luke 8:4–15 and Matthew 13:1–9), the cost of following Him (Luke 14:25–35) and the rich young man (Mark 10:17–31).',
+                        ],
+                    },
+                    {
+                        name: 'Kiahk',
+                        text: [
+                            'The Incarnation.',
+                            'Gospels from the first chapter of St. Luke: the annunciation to Zechariah, the Annunciation to Mary, the Visitation and the birth of John the Baptist.',
+                        ],
+                    },
+                    {
+                        name: 'Toubah',
+                        text: [
+                            'Salvation offered to all nations.',
+                            'Gospels: the flight into Egypt (Matthew 2:13–23), the sign of Jonah (Luke 11:27–36), John the Baptist’s witness (John 3:22–36) and the man born blind (John 9:1–38).',
+                        ],
+                    },
+                    {
+                        name: 'Amshir',
+                        text: [
+                            'Christ, the bread of life.',
+                            'Gospels: John 6 (the feeding of the five thousand and the bread of life) on three Sundays, and Zacchaeus (Luke 19:1–10).',
+                        ],
+                    },
+                    { name: 'Baramhat, Baramoudah', text: 'Great Lent, Holy Week or the Holy Fifty Days (see the next section).' },
+                    {
+                        name: 'Bashans',
+                        text: [
+                            'Its first Sundays fall in the Holy Fifty Days.',
+                            'Gospels of the last Sundays: the Good Samaritan (Luke 10:25–37) and the temptation of Christ (Luke 4:1–13).',
+                        ],
+                    },
+                    {
+                        name: 'Baounah',
+                        text: [
+                            'The gift of the Holy Spirit.',
+                            'Gospels: the Father who gives the Holy Spirit to those who ask (Luke 11:1–13), the paralytic forgiven (Luke 5:17–26), the sin against the Holy Spirit (Matthew 12:22–37) and “love your enemies” (Luke 6:27–38).',
+                        ],
+                    },
+                    {
+                        name: 'Abib',
+                        text: [
+                            'The Lord’s help to His apostles.',
+                            'Gospels: the sending of the Seventy (Luke 10:1–20), “who is the greatest?” (Matthew 18:1–9), the feeding of the five thousand (Luke 9:10–17) and the raising of Lazarus (John 11:1–45).',
+                        ],
+                    },
+                    {
+                        name: 'Misra',
+                        text: [
+                            'His care for His Church.',
+                            'Gospels: the wicked vinedressers (Luke 20:9–19), the call of Levi (Luke 5:27–39), the house divided (Mark 3:22–35) and the end of the age (Mark 13:3–37).',
+                        ],
+                    },
+                    {
+                        name: 'Nasie',
+                        text: [
+                            'The Second Coming.',
+                            'Gospel: the signs of the end (Matthew 24:3–35).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'A fifth Sunday reads the feeding of the five thousand: from Thout to Amshir, the readings of the second Sunday of Amshir (John 6:5–14), and from Baramhat to Misra, readings of its own (Luke 9:12–17). There are exceptions, notably on the 29th of a month outside Toubah and Amshir, or on 30 Kiahk.',
+                    'In Babah, Hatour and from Bashans to Misra, the Gospel of Sunday Matins is the Resurrection, told by Matthew, Mark, Luke and John, one after the other.',
+                ],
+            },
+        },
+
+        seasons: {
+            heading: 'The seasons that move with Easter',
+            paragraphs: [
+                'The Coptic calendar is fixed, but Easter is not: its date is calculated each year, and it falls between April 4 and May 8. Several periods are counted from Easter, so they move with it every year:',
+            ],
+            items: [
+                { name: 'Fast of Nineveh', text: 'Three days, two weeks before Great Lent.' },
+                { name: 'Great Lent', text: 'The preparation week and the Forty Days. It begins between early February and mid-March.' },
+                { name: 'Holy Week', text: 'The week before Easter.' },
+                { name: 'Holy Fifty Days', text: 'From Easter to Pentecost, which falls between May 23 and June 26.' },
+            ],
+            note: 'During these weeks, about 15 in the year, the readings come from the books of these seasons, by week and by day, instead of the Weekdays and Sundays books. The readings follow the season: in Great Lent, the Sundays read the temptation of Christ, the prodigal son and the Samaritan woman; Holy Week follows Christ’s last days, day by day. Only a few feasts of the Lord, such as the Feast of the Cross on 10 Baramhat, keep their own readings.',
+            more: {
+                title: 'What these seasons read',
+                items: [
+                    { name: 'Fast of Nineveh', text: 'The book of Jonah, read over the three days.' },
+                    { name: 'Weekdays of Great Lent', text: 'From Monday to Friday, there is no evening Raising of Incense, and at Matins, readings from the Old Testament prophets come before the Gospel.' },
+                    {
+                        name: 'Sundays of Great Lent',
+                        list: true,
+                        text: [
+                            'Sunday before Great Lent: giving, prayer and fasting in secret (Matthew 6:1–18).',
+                            '1st Sunday: treasures in heaven (Matthew 6:19–33).',
+                            '2nd Sunday: the temptation of Christ (Matthew 4:1–11).',
+                            '3rd Sunday: the prodigal son (Luke 15:11–32).',
+                            '4th Sunday: the Samaritan woman (John 4:1–42).',
+                            '5th Sunday: the paralytic at Bethesda (John 5:1–18).',
+                            '6th Sunday: the man born blind (John 9:1–41).',
+                        ],
+                    },
+                    { name: 'Lazarus Saturday', text: 'The day before Palm Sunday: the raising of Lazarus (John 11:1–45).' },
+                    { name: 'Palm Sunday', text: 'The entry into Jerusalem, read from all four Gospels.' },
+                    { name: 'Holy Week', text: 'Readings for each prayer hour of the day and of the night: the First, Third, Sixth, Ninth and Eleventh Hours, with a Twelfth Hour on Friday. Each hour begins with the Old Testament.' },
+                    {
+                        name: 'Day by day',
+                        list: true,
+                        text: [
+                            'Monday: the fig tree and the cleansing of the Temple.',
+                            'Tuesday: the parables and warnings of the end.',
+                            'Wednesday: the anointing at Bethany and Judas’s bargain.',
+                            'Thursday: the Last Supper and Christ’s farewell words.',
+                            'Friday: the Passion, from all four Gospels.',
+                            'Saturday: the Resurrection (Matthew 28).',
+                        ],
+                    },
+                    {
+                        name: 'Sundays of the Holy Fifty Days',
+                        list: true,
+                        lead: 'In the Liturgy, the Gospel of each Sunday is from St. John:',
+                        text: [
+                            'Easter Day: the empty tomb (John 20:1–18).',
+                            '1st Sunday: Thomas (John 20:19–31).',
+                            '2nd Sunday: the bread of life (John 6:35–45).',
+                            '3rd Sunday: the living water (John 4:1–42).',
+                            '4th Sunday: the light of the world (John 12:35–50).',
+                            '5th Sunday: the way, the truth and the life (John 14:1–11).',
+                            '6th Sunday: “I have overcome the world” (John 16:23–33).',
+                        ],
+                    },
+                    {
+                        name: 'Ascension, Pentecost',
+                        list: true,
+                        text: [
+                            'The Ascension, on the 40th day: Luke 24:36–53.',
+                            'Pentecost, on the 50th day: the coming of the Helper (John 15:26–16:15).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'The Samaritan woman is the Gospel of two Sundays: in Great Lent with a psalm about seeking the Lord (Psalm 105), and after Easter with a psalm of the Lord’s blessing (Psalm 115).',                ],
+            },
+        },
+    },
+
+    footer: {
+        readings: 'Today’s readings',
+        contact: 'Contact',
+        getApp: 'Get the app:',
+        sourceCode: 'Source code',
+    },
+}
+
+export default content

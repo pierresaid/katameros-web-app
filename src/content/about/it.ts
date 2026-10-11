@@ -1,0 +1,251 @@
+import type { AboutContent } from './types'
+
+const content: AboutContent = {
+    title: 'Che cos’è il Katameros?',
+    lead: 'Il Katameros è il lezionario della Chiesa copta ortodossa: il libro che elenca i brani della Bibbia letti in chiesa nelle celebrazioni quotidiane, per ogni giorno dell’anno.',
+
+    name: {
+        heading: 'Il nome',
+        paragraphs: [
+            'Il nome viene dal greco *kata meros*, «in parti»: il libro è diviso in più parti e presenta le Scritture brano per brano, un giorno alla volta.',
+        ],
+    },
+
+    church: {
+        heading: 'Un libro letto in chiesa',
+        paragraphs: [
+            'In chiesa, il Katameros è posto sul leggio (il supporto per la lettura), aperto alla pagina delle letture del giorno. Nelle celebrazioni del giorno, i lettori, i diaconi e il sacerdote leggono i brani che vi sono indicati. Le chiese copte ortodosse di tutto il mondo seguono lo stesso lezionario.',
+        ],
+    },
+
+    contents: {
+        heading: 'Che cosa contiene',
+        intro: 'Per la maggior parte dei giorni, il Katameros riporta le letture di tre celebrazioni. Per la Chiesa il giorno comincia al tramonto: per questo le letture iniziano la sera prima con l’Incenso, proseguono la mattina con la celebrazione del Mattino e poi con la Messa (l’Eucaristia). L’Incenso e il Mattino, detti anche Vespri e Mattutino, sono rispettivamente l’offerta dell’incenso della sera e quella del mattino.',
+        services: [
+            { name: 'Incenso', when: 'La sera prima', parts: ['Salmo e Vangelo'] },
+            { name: 'Mattino', when: 'Al mattino', parts: ['Salmo e Vangelo'] },
+            { name: 'Messa', when: 'Dopo la celebrazione del Mattino', parts: ['San Paolo', 'Katholicon', 'Atti degli Apostoli', 'Sinassario', 'Salmo e Vangelo'] },
+        ],
+        readingsLabel: 'Le letture della Messa',
+        readings: [
+            { name: 'San Paolo', text: 'Un brano di una delle lettere di san Paolo.' },
+            { name: 'Katholicon', text: 'Un brano delle lettere di san Giacomo, san Pietro, san Giovanni o san Giuda, dette lettere cattoliche. «Cattolico» significa universale: la maggior parte di queste lettere è indirizzata a tutta la Chiesa e non a una sola Chiesa locale.' },
+            { name: 'Atti degli Apostoli', text: 'Un brano del libro degli Atti. Questa lettura si chiama anche Praxis, che in greco significa «Atti».' },
+            { name: 'Sinassario', text: 'Non è una lettura biblica e si legge da un libro a parte: le vite dei santi commemorati quel giorno.' },
+            { name: 'Salmo e Vangelo', text: 'Alcuni versetti di un salmo, cantati subito prima del Vangelo. I salmi sono letti come profezie su Cristo: per questo il salmo annuncia il Vangelo. Il Vangelo è la lettura principale del giorno, e di solito le altre letture vi si ricollegano.' },
+        ],
+        note: 'Si aggiungono letture dei profeti dell’Antico Testamento, soprattutto nella Grande Quaresima e nella Settimana Santa.',
+    },
+
+    books: {
+        heading: 'Cinque libri',
+        intro: 'Il Katameros è stampato in cinque libri, ognuno per il proprio periodo dell’anno:',
+        items: [
+            { name: 'Giorni feriali', text: 'Dal lunedì al sabato, secondo i santi e le feste del calendario copto.' },
+            { name: 'Domeniche', text: 'Le domeniche dell’anno, con un tema per ogni mese.' },
+            { name: 'Grande Quaresima', text: 'La settimana di preparazione e i Quaranta giorni, oltre al Digiuno di Giona.' },
+            { name: 'Settimana Santa', text: 'La settimana prima di Pasqua, con letture per ciascuna delle sue ore di preghiera. Nella Chiesa copta questa settimana si chiama Pascha.' },
+            { name: 'Cinquanta giorni santi', text: 'Da Pasqua a Pentecoste.' },
+        ],
+    },
+
+    calendar: {
+        heading: 'Il calendario copto',
+        paragraphs: [
+            'Il Katameros segue il calendario copto, il calendario della Chiesa ereditato dall’antico Egitto. L’anno copto ha 13 mesi: 12 mesi di 30 giorni, poi un mese breve chiamato Nasie, di cinque giorni (sei quando il febbraio successivo ha 29 giorni).',
+            'I mesi sono Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra e Nasie. L’anno comincia il 1º Thout, che corrisponde all’11 settembre (il 12 settembre quando il febbraio successivo ha 29 giorni).',
+        ],
+    },
+
+    choice: {
+        heading: 'Come vengono scelte le letture',
+        intro: 'Le letture di un giorno non sono casuali: sono scelte in base a ciò che la Chiesa celebra quel giorno. A deciderle sono tre elementi: il santo o la festa del giorno nel calendario copto, la domenica e il suo tema, e i periodi che si spostano con la Pasqua. Quando cadono nello stesso giorno, le feste del Signore (le feste di Cristo, come il Natale) e questi periodi hanno la precedenza sulla domenica. La domenica ha la precedenza sul santo del giorno.',
+
+        weekdays: {
+            heading: 'I giorni feriali: i santi del giorno',
+            paragraphs: [
+                'Dal lunedì al sabato, le letture corrispondono al santo o alla festa che il Sinassario ricorda in quella data copta. Spesso basta il Vangelo a far capire chi si commemora quel giorno: i profeti uccisi (Matteo 23) per un profeta, la persecuzione (Luca 21) per un martire, il Buon Pastore (Giovanni 10) per un papa o un patriarca, le vergini sagge (Matteo 25) per una santa.',
+                'Ma il libro dei Giorni feriali non ha letture diverse per ogni giorno dell’anno. Solo circa 70 date hanno letture proprie. Tutte le altre date riprendono le letture di una di queste, scelta perché ricorda un santo dello stesso tipo: un martire prende le letture di un altro martire, un vescovo quelle di un altro vescovo, un monaco quelle di un grande monaco. Per questo le stesse letture si ripetono più volte all’anno.',
+                'Per esempio, le letture del 22 Toubah per sant’Antonio il Grande, padre dei monaci, sono riprese in altre otto date, per lo più feste di monaci.',
+            ],
+        },
+
+        sundays: {
+            heading: 'Le domeniche: l’opera della Santa Trinità',
+            paragraphs: [
+                'Le domeniche non seguono il santo del giorno. Prese una dopo l’altra, le letture domenicali dell’anno raccontano un’unica storia: l’opera della Santa Trinità per la nostra salvezza. Ogni mese copto dà alle sue domeniche un tema all’interno di questa storia. In Kiahk, per esempio, il mese che porta al Natale, i Vangeli delle quattro domeniche raccontano l’Incarnazione: l’annuncio a Zaccaria, l’Annunciazione a Maria, la Visitazione e la nascita di Giovanni Battista.',
+            ],
+            more: {
+                title: 'Le domeniche, mese per mese',
+                intro: 'Il tema di ogni mese e i Vangeli delle sue domeniche.',
+                items: [
+                    {
+                        name: 'Thout',
+                        text: [
+                            'L’amore di Dio Padre per l’umanità.',
+                            'Vangeli: Giovanni Battista (Luca 7:28–35), il grande comandamento (Luca 10:21–28), Zaccheo (Luca 19:1–10) e la peccatrice perdonata (Luca 7:36–50).',
+                        ],
+                    },
+                    {
+                        name: 'Babah',
+                        text: [
+                            'La potenza di Cristo, manifestata nei suoi miracoli.',
+                            'Vangeli: il paralitico calato dal tetto (Marco 2:1–12), la pesca miracolosa (Luca 5:1–11), la guarigione di un uomo cieco e muto (Matteo 12:22–28) e il figlio della vedova risuscitato a Nain (Luca 7:11–17).',
+                        ],
+                    },
+                    {
+                        name: 'Hatour',
+                        text: [
+                            'Il suo insegnamento e le sue opere.',
+                            'Vangeli: la parabola del seminatore, due volte (Luca 8:4–15 e Matteo 13:1–9), il prezzo da pagare per seguirlo (Luca 14:25–35) e il giovane ricco (Marco 10:17–31).',
+                        ],
+                    },
+                    {
+                        name: 'Kiahk',
+                        text: [
+                            'L’Incarnazione.',
+                            'Vangeli tratti dal primo capitolo di san Luca: l’annuncio a Zaccaria, l’Annunciazione a Maria, la Visitazione e la nascita di Giovanni Battista.',
+                        ],
+                    },
+                    {
+                        name: 'Toubah',
+                        text: [
+                            'La salvezza offerta a tutti i popoli.',
+                            'Vangeli: la fuga in Egitto (Matteo 2:13–23), il segno di Giona (Luca 11:27–36), la testimonianza di Giovanni Battista (Giovanni 3:22–36) e il cieco nato (Giovanni 9:1–38).',
+                        ],
+                    },
+                    {
+                        name: 'Amshir',
+                        text: [
+                            'Cristo, pane della vita.',
+                            'Vangeli: Giovanni 6 (la moltiplicazione dei pani per cinquemila persone e il pane della vita) in tre domeniche, e Zaccheo (Luca 19:1–10).',
+                        ],
+                    },
+                    { name: 'Baramhat, Baramoudah', text: 'La Grande Quaresima, la Settimana Santa o i Cinquanta giorni santi (vedi la sezione seguente).' },
+                    {
+                        name: 'Bashans',
+                        text: [
+                            'Le sue prime domeniche cadono nei Cinquanta giorni santi.',
+                            'Vangeli delle ultime domeniche: il buon samaritano (Luca 10:25–37) e le tentazioni di Cristo (Luca 4:1–13).',
+                        ],
+                    },
+                    {
+                        name: 'Baounah',
+                        text: [
+                            'Il dono dello Spirito Santo.',
+                            'Vangeli: il Padre che dà lo Spirito Santo a chi glielo chiede (Luca 11:1–13), il paralitico perdonato (Luca 5:17–26), il peccato contro lo Spirito Santo (Matteo 12:22–37) e «amate i vostri nemici» (Luca 6:27–38).',
+                        ],
+                    },
+                    {
+                        name: 'Abib',
+                        text: [
+                            'L’aiuto del Signore ai suoi apostoli.',
+                            'Vangeli: l’invio dei settanta discepoli (Luca 10:1–20), «chi è il più grande?» (Matteo 18:1–9), la moltiplicazione dei pani per cinquemila persone (Luca 9:10–17) e la risurrezione di Lazzaro (Giovanni 11:1–45).',
+                        ],
+                    },
+                    {
+                        name: 'Misra',
+                        text: [
+                            'La cura che ha per la sua Chiesa.',
+                            'Vangeli: i vignaioli omicidi (Luca 20:9–19), la chiamata di Levi (Luca 5:27–39), la casa divisa (Marco 3:22–35) e la fine dei tempi (Marco 13:3–37).',
+                        ],
+                    },
+                    {
+                        name: 'Nasie',
+                        text: [
+                            'La seconda venuta.',
+                            'Vangelo: i segni della fine (Matteo 24:3–35).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'La quinta domenica del mese si legge la moltiplicazione dei pani per cinquemila persone: da Thout ad Amshir, con le letture della seconda domenica di Amshir (Giovanni 6:5–14), e da Baramhat a Misra, con letture proprie (Luca 9:12–17). Ci sono eccezioni, in particolare quando cade il 29 di un mese diverso da Toubah e Amshir, o il 30 Kiahk.',
+                    'In Babah, in Hatour e da Bashans a Misra, il Vangelo del Mattino della domenica è la Risurrezione, raccontata da Matteo, Marco, Luca e Giovanni, uno dopo l’altro.',
+                ],
+            },
+        },
+
+        seasons: {
+            heading: 'I periodi che si spostano con la Pasqua',
+            paragraphs: [
+                'Il calendario copto è fisso, ma la Pasqua no: la sua data si calcola ogni anno e cade tra il 4 aprile e l’8 maggio. Diversi periodi si contano a partire dalla Pasqua, quindi ogni anno si spostano con essa:',
+            ],
+            items: [
+                { name: 'Digiuno di Giona', text: 'Tre giorni, due settimane prima della Grande Quaresima.' },
+                { name: 'Grande Quaresima', text: 'La settimana di preparazione e i Quaranta giorni. Comincia tra l’inizio di febbraio e la metà di marzo.' },
+                { name: 'Settimana Santa', text: 'La settimana prima di Pasqua.' },
+                { name: 'Cinquanta giorni santi', text: 'Da Pasqua a Pentecoste, che cade tra il 23 maggio e il 26 giugno.' },
+            ],
+            note: 'In queste settimane, circa 15 all’anno, le letture sono tratte dai libri di questi periodi, settimana per settimana e giorno per giorno, invece che dai libri dei Giorni feriali e delle Domeniche. Le letture seguono il periodo: nella Grande Quaresima, la domenica si leggono le tentazioni di Cristo, il figliol prodigo e la samaritana; la Settimana Santa segue gli ultimi giorni di Cristo, giorno per giorno. Solo poche feste del Signore, come la festa della Croce il 10 Baramhat, mantengono le proprie letture.',
+            more: {
+                title: 'Che cosa si legge in questi periodi',
+                items: [
+                    { name: 'Digiuno di Giona', text: 'Il libro di Giona, letto nei tre giorni.' },
+                    { name: 'Giorni feriali della Grande Quaresima', text: 'Dal lunedì al venerdì non si celebra l’Incenso (l’offerta dell’incenso della sera), e nella celebrazione del Mattino le letture dei profeti dell’Antico Testamento vengono prima del Vangelo.' },
+                    {
+                        name: 'Domeniche della Grande Quaresima',
+                        list: true,
+                        text: [
+                            'Domenica prima della Grande Quaresima: l’elemosina, la preghiera e il digiuno nel segreto (Matteo 6:1–18).',
+                            '1ª domenica: i tesori in cielo (Matteo 6:19–33).',
+                            '2ª domenica: le tentazioni di Cristo (Matteo 4:1–11).',
+                            '3ª domenica: il figliol prodigo (Luca 15:11–32).',
+                            '4ª domenica: la samaritana (Giovanni 4:1–42).',
+                            '5ª domenica: il paralitico di Betzatà (Giovanni 5:1–18).',
+                            '6ª domenica: il cieco nato (Giovanni 9:1–41).',
+                        ],
+                    },
+                    { name: 'Sabato di Lazzaro', text: 'Il giorno prima della Domenica delle Palme: la risurrezione di Lazzaro (Giovanni 11:1–45).' },
+                    { name: 'Domenica delle Palme', text: 'L’ingresso in Gerusalemme, letto in tutti e quattro i Vangeli.' },
+                    { name: 'Settimana Santa', text: 'Letture per ogni ora di preghiera del giorno e della notte: la Prima, la Terza, la Sesta, la Nona e l’Undicesima ora, e il venerdì anche una Dodicesima ora. Ogni ora comincia con l’Antico Testamento.' },
+                    {
+                        name: 'Giorno per giorno',
+                        list: true,
+                        text: [
+                            'Lunedì: il fico e la cacciata dei mercanti dal Tempio.',
+                            'Martedì: le parabole e gli avvertimenti sulla fine.',
+                            'Mercoledì: l’unzione a Betania e il patto di Giuda.',
+                            'Giovedì: l’Ultima Cena e i discorsi di addio di Cristo.',
+                            'Venerdì: la Passione, letta in tutti e quattro i Vangeli.',
+                            'Sabato: la Risurrezione (Matteo 28).',
+                        ],
+                    },
+                    {
+                        name: 'Domeniche dei Cinquanta giorni santi',
+                        list: true,
+                        lead: 'Nella Messa, il Vangelo di ogni domenica è tratto da san Giovanni:',
+                        text: [
+                            'Domenica di Pasqua: il sepolcro vuoto (Giovanni 20:1–18).',
+                            '1ª domenica: Tommaso (Giovanni 20:19–31).',
+                            '2ª domenica: il pane della vita (Giovanni 6:35–45).',
+                            '3ª domenica: l’acqua viva (Giovanni 4:1–42).',
+                            '4ª domenica: la luce del mondo (Giovanni 12:35–50).',
+                            '5ª domenica: la via, la verità e la vita (Giovanni 14:1–11).',
+                            '6ª domenica: «Io ho vinto il mondo» (Giovanni 16:23–33).',
+                        ],
+                    },
+                    {
+                        name: 'Ascensione, Pentecoste',
+                        list: true,
+                        text: [
+                            'L’Ascensione, il 40º giorno: Luca 24:36–53.',
+                            'La Pentecoste, il 50º giorno: la venuta del Consolatore (Giovanni 15:26–16:15).',
+                        ],
+                    },
+                ],
+                notes: [
+                    'Il Vangelo della samaritana si legge in due domeniche: nella Grande Quaresima con un salmo che parla di cercare il Signore (Salmo 105), e dopo Pasqua con un salmo sulla benedizione del Signore (Salmo 115).',
+                ],
+            },
+        },
+    },
+
+    footer: {
+        readings: 'Le letture di oggi',
+        contact: 'Contatto',
+        getApp: 'Scarica l’app:',
+        sourceCode: 'Codice sorgente',
+    },
+}
+
+export default content
