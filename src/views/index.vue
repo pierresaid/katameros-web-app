@@ -25,7 +25,7 @@ let copticDate = computed(() => {
             day: "numeric",
         })
         .split("/");
-    return `${day} ${getCopticMonth(Number(month))}`;
+    return `${Number(day)} ${getCopticMonth(Number(month))}`;
 });
 
 function setDate(inc: number) {

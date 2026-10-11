@@ -123,10 +123,27 @@ const { showFeast } = useFeastDetail();
 
 const feastListEl = ref<HTMLElement | null>(null);
 
-// Bring the next upcoming feast into view when the tab opens
-watch(tab, async (value) => {
-    if (value !== 'feasts')
+// The year that holds the next feast: once this year's feasts are all past
+// (October to December), the next one is in next year's list
+const todayStart = new Date();
+todayStart.setHours(0, 0, 0, 0);
+const currentYearFeasts = computed(() => feasts.feastsForYear(currentYear).filter(f => !!f.name));
+const nextFeastYear = computed(() =>
+    !currentYearFeasts.value.length || currentYearFeasts.value.some(f => new Date(f.date) >= todayStart)
+        ? currentYear : currentYear + 1);
+
+// On opening the tab, move to that year once this year's list is known
+let pendingYearCheck = false;
+function applyNextFeastYear() {
+    if (!pendingYearCheck || !currentYearFeasts.value.length)
         return;
+    pendingYearCheck = false;
+    if (feastYear.value === currentYear)
+        feastYear.value = nextFeastYear.value;
+}
+watch(() => currentYearFeasts.value.length, applyNextFeastYear);
+
+async function scrollToNextFeast() {
     await nextTick();
     const list = feastListEl.value;
     const next = list?.querySelector<HTMLElement>('.feast-row--next');
@@ -135,7 +152,28 @@ watch(tab, async (value) => {
     // dialog while the tab transition ran.
     if (list && next)
         list.scrollTop = next.offsetTop - (list.clientHeight - next.offsetHeight) / 2;
-})
+}
+
+function onFeastsTabShown() {
+    pendingYearCheck = true;
+    applyNextFeastYear();
+    scrollToNextFeast();
+}
+
+// Bring the next upcoming feast into view when the tab opens, including
+// when the dialog reopens on it
+watch(tab, (value) => { if (value === 'feasts') onFeastsTabShown(); });
+watch(() => menu.dateDialog, (open) => { if (open && tab.value === 'feasts') onFeastsTabShown(); });
+// The rows arrive after the year's feasts load
+watch(feastList, () => { if (tab.value === 'feasts') scrollToNextFeast(); });
+
+// Arabic gets Arabic month names with Latin digits like the day cells, and
+// one-letter weekday names: the picker cuts names to two characters, which
+// would turn every Arabic weekday into "ال"
+const calendarLocale = computed(() => readings.languageCode === 'ar' ? 'ar-u-nu-latn' : readings.languageCode);
+const calendarDayNames = computed(() => readings.languageCode !== 'ar' ? undefined
+    : Array.from({ length: 7 }, (_, i) =>
+        new Intl.DateTimeFormat('ar', { weekday: 'narrow' }).format(new Date(2024, 0, 1 + i))));
 
 const copticDate = ref<[number, number, number]>([0, 0, 0])
 function onUpdate(date: [number, number, number]) {
@@ -152,7 +190,9 @@ function onSave() {
 
 
 <template>
-    <v-dialog v-model="menu.dateDialog" :persistent="false" width="auto">
+    <!-- Anchored to the top (see .date-dialog): a centered dialog moves its
+         month arrows whenever the height changes between months -->
+    <v-dialog v-model="menu.dateDialog" :persistent="false" width="auto" class="date-dialog">
         <v-card class="date-dialog-card">
             <template v-if="!dateOnly">
                 <v-tabs v-model="tab" grow density="compact" :show-arrows="false" class="date-dialog-tabs">
@@ -165,7 +205,7 @@ function onSave() {
                 <v-window v-model="tab" :touch="false">
                     <v-window-item value="date">
                         <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
-                            inline :locale="readings.languageCode == 'ar' ? 'en' : readings.languageCode" auto-apply
+                            inline six-weeks :locale="calendarLocale" :day-names="calendarDayNames" auto-apply
                             :enable-time-picker="false" :dark="menu.theme === 'dark'"
                             :markers="markers" :day-class="fastDayClass" @update-month-year="onMonthYearUpdate">
                         </Datepicker>
@@ -200,7 +240,7 @@ function onSave() {
                                         class="feast-row"
                                         :class="{
                                             'feast-row--past': feast.isPast && feastYear === currentYear,
-                                            'feast-row--next': feast.isNext && feastYear === currentYear,
+                                            'feast-row--next': feast.isNext && feastYear === nextFeastYear,
                                             'feast-row--today': feast.isToday,
                                         }"
                                         @click="showFeast(feast)">
@@ -237,6 +277,37 @@ function onSave() {
 </template>
 
 <style>
+/* Top-anchored rather than centered: months have 4 to 6 week rows and a
+   feast list of varying length, and a centered dialog would move its
+   arrows (and the tabs) up and down each time the height changes */
+.v-dialog.date-dialog {
+    align-items: flex-start;
+}
+
+.v-dialog.date-dialog > .v-overlay__content {
+    /* below the app bar, and still fitting short screens */
+    margin-top: max(72px, 10dvh);
+    max-height: calc(100% - max(72px, 10dvh) - 24px);
+}
+
+/* The calendar stays left to right in every language, like the day arrows
+   on the readings page; the picker would still turn its arrows around on an
+   Arabic page, making them point the wrong way */
+[dir="rtl"] .date-dialog-card .dp__inner_nav {
+    transform: none;
+}
+
+/* One width for all three tabs (the feasts list was wider), so switching
+   tabs does not resize the dialog; the calendar is centered inside */
+.v-card.date-dialog-card {
+    width: min(368px, calc(100vw - 48px));
+}
+
+.date-dialog-card .dp__main {
+    width: fit-content;
+    margin-inline: auto;
+}
+
 .v-card.date-dialog-card {
     border-radius: 16px;
 }
@@ -253,7 +324,7 @@ function onSave() {
     height: auto;
 }
 
-.date-dialog-tabs .v-tab.v-btn {
+.date-dialog-tabs .v-tab.v-tab.v-btn {
     min-width: 0;
     height: 34px;
     border-radius: 999px;
