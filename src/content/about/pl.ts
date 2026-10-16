@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Środa: namaszczenie w Betanii i umowa Judasza z arcykapłanami.',
                             'Czwartek: Ostatnia Wieczerza i mowa pożegnalna Chrystusa.',
                             'Piątek: Męka Pańska według wszystkich czterech Ewangelii.',
-                            'Sobota: Zmartwychwstanie (Mateusza 28).',
+                            'Sobota: Zmartwychwstanie (Mateusza 28:1–20).',
                         ],
                     },
                     {

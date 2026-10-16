@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Wednesday: the anointing at Bethany and Judas’s bargain.',
                             'Thursday: the Last Supper and Christ’s farewell words.',
                             'Friday: the Passion, from all four Gospels.',
-                            'Saturday: the Resurrection (Matthew 28).',
+                            'Saturday: the Resurrection (Matthew 28:1–20).',
                         ],
                     },
                     {

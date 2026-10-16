@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Mittwoch: die Salbung in Betanien und die Abmachung des Judas mit den Hohepriestern.',
                             'Donnerstag: das Letzte Abendmahl und die Abschiedsreden Christi.',
                             'Freitag: die Passion, aus allen vier Evangelien.',
-                            'Samstag: die Auferstehung (Matthäus 28).',
+                            'Samstag: die Auferstehung (Matthäus 28:1–20).',
                         ],
                     },
                     {

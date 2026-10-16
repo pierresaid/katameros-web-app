@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Mercoledì: l’unzione a Betania e il patto di Giuda.',
                             'Giovedì: l’Ultima Cena e i discorsi di addio di Cristo.',
                             'Venerdì: la Passione, letta in tutti e quattro i Vangeli.',
-                            'Sabato: la Risurrezione (Matteo 28).',
+                            'Sabato: la Risurrezione (Matteo 28:1–20).',
                         ],
                     },
                     {

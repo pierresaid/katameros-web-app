@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Woensdag: de zalving in Bethanië en Judas die Jezus verkoopt.',
                             'Donderdag: het Laatste Avondmaal en de afscheidswoorden van Christus.',
                             'Vrijdag: het lijdensverhaal, uit alle vier de Evangeliën.',
-                            'Zaterdag: de Opstanding (Mattheüs 28).',
+                            'Zaterdag: de Opstanding (Mattheüs 28:1–20).',
                         ],
                     },
                     {

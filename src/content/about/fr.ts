@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Mercredi : l’onction à Béthanie et le marché conclu par Judas.',
                             'Jeudi : la Cène et les paroles d’adieu du Christ.',
                             'Vendredi : la Passion, d’après les quatre Évangiles.',
-                            'Samedi : la Résurrection (Matthieu 28).',
+                            'Samedi : la Résurrection (Matthieu 28:1–20).',
                         ],
                     },
                     {

@@ -222,7 +222,7 @@ const content: AboutContent = {
                             'Miércoles: la unción en Betania y el pacto de Judas.',
                             'Jueves: la Última Cena y las palabras de despedida de Cristo.',
                             'Viernes: la Pasión, según los cuatro Evangelios.',
-                            'Sábado: la Resurrección (Mateo 28).',
+                            'Sábado: la Resurrección (Mateo 28:1–20).',
                         ],
                     },
                     {
