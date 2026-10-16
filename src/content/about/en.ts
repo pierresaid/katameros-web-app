@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'The name',
         paragraphs: [
-            'The name comes from the Greek *kata meros*, “in parts”: the book is divided into several parts, and it presents the Scriptures portion by portion, one day at a time.',
+            'The name comes from the Greek *kata meros*, “in parts”: the Bible is read in passages, chosen for each day.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Five books',
-        intro: 'The Katameros is printed as five books, each used at its time of the year:',
+        intro: 'The Katameros is divided into five books. Which one is read depends on the day. The first two are used all year round, except during the great seasons around Easter, which have their own books:',
         items: [
             { name: 'Weekdays', text: 'Monday to Saturday, following the saints and feasts of the Coptic calendar.' },
             { name: 'Sundays', text: 'The Sundays of the year, with a theme for each month.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'The Coptic calendar',
         paragraphs: [
-            'The Katameros follows the Coptic calendar, the Church’s calendar inherited from ancient Egypt. The Coptic year has 13 months: 12 months of 30 days, then a short month called Nasie, with five days (six when the next February has 29 days).',
-            'The months are Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra and Nasie. The year begins on 1 Thout, which is September 11 (September 12 when the next February has 29 days).',
+            'The Katameros follows the Coptic calendar, the Church’s calendar inherited from ancient Egypt. The Coptic year has 13 months: 12 months of 30 days, then a short month called Nasie, with five days.[^nasie]',
+            'The months are Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra and Nasie. The year begins on 1 Thout, which is September 11.[^thout]',
             'Coptic years are counted from 284, when Diocletian became emperor. This era is called the Era of the Martyrs, in memory of the many Christians killed in his persecution.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'Weekdays: the saints of the day',
-            intro: 'From Monday to Saturday, the readings match the saint or feast that the Synaxarium commemorates on that Coptic date. Often, the Gospel alone shows whose day it is:',
+            intro: [
+                'From Monday to Saturday, the readings are tied to the saint of the day, the one the Synaxarium commemorates on that Coptic date.',
+                'For example, on 3 Abib the Church commemorates St. Cyril of Alexandria, a pope. At the Liturgy, the Gospel of the Good Shepherd is read: “I am the good shepherd. The good shepherd gives His life for the sheep” (John 10:11). The pope is the shepherd of his Church.',
+                'So each kind of saint has its own readings. For the Liturgy Gospel:',
+            ],
             gospels: [
                 { name: 'For a prophet', text: 'The prophets who were killed', ref: 'Matthew 23', passage: 'prophets' },
                 { name: 'For a martyr', text: 'Persecution', ref: 'Luke 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Read',
             paragraphs: [
-                'The Weekdays book does not have different readings for every day of the year: only about 70 dates have readings of their own. Every other date reuses the readings of a saint of the same kind whose feast is on one of those dates: a martyr takes the readings of another martyr, a bishop those of another bishop, a monk those of a great monk. This is why the same readings come back several times a year.',
-                'For example, St. Anthony, the father of monks, is commemorated on 22 Toubah. His readings come back on eight other dates, mostly feasts of monks.',
+                'Saints of the same kind therefore share their readings.[^martyrs] This is why the same readings come back several times a year. The great feasts and a few great saints have readings of their own.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Holy Week', text: 'The week before Easter.' },
                 { name: 'Holy Fifty Days', text: 'From Easter to Pentecost, which falls between May 23 and June 26.' },
             ],
-            after: [
-                'During these weeks, about 15 in the year, the readings come from the books of these seasons, by week and by day, instead of the Weekdays and Sundays books.',
-                'The readings follow the season. In Great Lent, the Sundays read the temptation of Christ, the prodigal son and the Samaritan woman. Holy Week follows Christ’s last days, day by day.',
-                'Only a few feasts of the Lord, such as the Feast of the Cross on 10 Baramhat, keep their own readings.',
-            ],
             more: {
                 title: 'What these seasons read',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Notes',
+        label: 'Note',
+        backLabel: 'Back to the text',
+        items: [
+            { id: 'nasie', text: 'One year in four, Nasie has six days: this is when the next February has 29 days.' },
+            { id: 'thout', text: 'One year in four, 1 Thout falls on September 12, after a Nasie of six days.' },
+            { id: 'martyrs', text: 'One kind of saint can have several sets of readings: this is the case for martyrs, for example.' },
+        ],
     },
 
     footer: {

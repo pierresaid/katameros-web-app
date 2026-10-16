@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'Nazwa',
         paragraphs: [
-            'Nazwa pochodzi od greckiego wyrażenia *kata meros*, czyli „częściami”: księga dzieli się na kilka części i podaje Pismo Święte fragment po fragmencie, dzień po dniu.',
+            'Nazwa pochodzi od greckiego wyrażenia *kata meros*, czyli „częściami”: Pismo Święte czyta się fragmentami, wybranymi na każdy dzień.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Pięć ksiąg',
-        intro: 'Katameros jest drukowany w pięciu księgach, a każdej z nich używa się w określonym okresie roku:',
+        intro: 'Katameros dzieli się na pięć ksiąg. W zależności od dnia czyta się z jednej z nich. Dwóch pierwszych używa się przez cały rok, z wyjątkiem wielkich okresów wokół Wielkanocy, które mają własne księgi:',
         items: [
             { name: 'Dni powszednie', text: 'Od poniedziałku do soboty, według wspomnień świętych i świąt kalendarza koptyjskiego.' },
             { name: 'Niedziele', text: 'Niedziele całego roku, z osobnym tematem na każdy miesiąc.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'Kalendarz koptyjski',
         paragraphs: [
-            'Katameros opiera się na kalendarzu koptyjskim, czyli kalendarzu Kościoła odziedziczonym po starożytnym Egipcie. Rok koptyjski ma 13 miesięcy: 12 miesięcy po 30 dni, a potem krótki miesiąc zwany Nasie, który ma pięć dni (sześć, gdy następny luty ma 29 dni).',
-            'Miesiące to: Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra i Nasie. Rok zaczyna się 1 Thout, czyli 11 września (12 września, gdy następny luty ma 29 dni).',
+            'Katameros opiera się na kalendarzu koptyjskim, czyli kalendarzu Kościoła odziedziczonym po starożytnym Egipcie. Rok koptyjski ma 13 miesięcy: 12 miesięcy po 30 dni, a potem krótki miesiąc zwany Nasie, który ma pięć dni[^nasie].',
+            'Miesiące to: Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra i Nasie. Rok zaczyna się 1 Thout, czyli 11 września[^thout].',
             'Lata koptyjskie liczy się od roku 284, kiedy Dioklecjan został cesarzem. Tę rachubę lat nazywa się erą męczenników, na pamiątkę wielu chrześcijan zabitych w czasie jego prześladowań.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'Dni powszednie: święci danego dnia',
-            intro: 'Od poniedziałku do soboty czytania odpowiadają wspomnieniu świętego lub świętu, które Synaksarion podaje pod daną datą koptyjską. Często już sama Ewangelia pokazuje, czyj to dzień:',
+            intro: [
+                'Od poniedziałku do soboty czytania są związane ze świętym danego dnia, którego Synaksarion wspomina pod daną datą koptyjską.',
+                'Na przykład 3 Abib Kościół wspomina św. Cyryla Aleksandryjskiego, papieża. Podczas Liturgii czyta się Ewangelię o Dobrym Pasterzu: „Ja jestem dobrym pasterzem. Dobry pasterz oddaje swoje życie za owce” (Jana 10:11). Papież jest pasterzem swojego Kościoła.',
+                'Każdy rodzaj świętych ma więc swoje czytania. Jeśli chodzi o Ewangelię Liturgii:',
+            ],
             gospels: [
                 { name: 'Na dzień proroka', text: 'Zabici prorocy', ref: 'Mateusza 23', passage: 'prophets' },
                 { name: 'Na dzień męczennika', text: 'Prześladowania', ref: 'Łukasza 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Czytaj',
             paragraphs: [
-                'Księga na dni powszednie nie ma osobnych czytań na każdy dzień roku: tylko około 70 dat ma własne czytania. Wszystkie pozostałe daty przejmują czytania świętego tego samego rodzaju, którego wspomnienie przypada na jedną z tych dat: męczennik dostaje czytania innego męczennika, biskup czytania innego biskupa, a mnich czytania wielkiego mnicha. Dlatego te same czytania powtarzają się kilka razy w roku.',
-                'Na przykład św. Antoniego, ojca mnichów, wspomina się 22 Toubah. Jego czytania powtarzają się pod ośmioma innymi datami, przeważnie w dni wspomnień mnichów.',
+                'Święci tego samego rodzaju mają zatem wspólne czytania[^martyrs]. Dlatego te same czytania powtarzają się kilka razy w roku. Wielkie święta i niektórzy wielcy święci mają własne czytania.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Wielki Tydzień', text: 'Tydzień przed Wielkanocą.' },
                 { name: 'Święte Pięćdziesiąt Dni', text: 'Od Wielkanocy do Pięćdziesiątnicy, która przypada między 23 maja a 26 czerwca.' },
             ],
-            after: [
-                'W tych tygodniach (jest ich w roku około 15) czytania pochodzą nie z ksiąg na dni powszednie i na niedziele, lecz z ksiąg tych okresów, które podają je na każdy tydzień i dzień.',
-                'Czytania odpowiadają okresowi. W Wielkim Poście w niedziele czyta się o kuszeniu Chrystusa, o synu marnotrawnym i o Samarytance. Wielki Tydzień dzień po dniu przedstawia ostatnie dni Chrystusa.',
-                'Tylko kilka świąt Pańskich, takich jak Święto Krzyża obchodzone 10 Baramhat, zachowuje własne czytania.',
-            ],
             more: {
                 title: 'Co się czyta w tych okresach',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Przypisy',
+        label: 'Przypis',
+        backLabel: 'Powrót do tekstu',
+        items: [
+            { id: 'nasie', text: 'Co cztery lata Nasie ma sześć dni: gdy następny luty ma 29 dni.' },
+            { id: 'thout', text: 'Co cztery lata 1 Thout przypada na 12 września, po Nasie, który ma sześć dni.' },
+            { id: 'martyrs', text: 'Jeden rodzaj świętych może mieć kilka zestawów czytań: tak jest na przykład w przypadku męczenników.' },
+        ],
     },
 
     footer: {

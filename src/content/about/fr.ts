@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'Le nom',
         paragraphs: [
-            'Le nom vient du grec *kata meros*, « par parties » : le livre est divisé en plusieurs parties, et il présente les Écritures portion par portion, jour après jour.',
+            'Le nom vient du grec *kata meros*, « par parties » : on y lit la Bible par passages, choisis pour chaque jour.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Cinq livres',
-        intro: 'Le Katameros est imprimé en cinq livres, chacun utilisé à son moment de l’année :',
+        intro: 'Le Katameros est divisé en cinq livres. Selon le jour, on lit dans l’un ou dans l’autre. Les deux premiers servent toute l’année, sauf pendant les grandes périodes autour de Pâques, qui ont leurs propres livres :',
         items: [
             { name: 'Jours de semaine', text: 'Du lundi au samedi, selon les saints et les fêtes du calendrier copte.' },
             { name: 'Dimanches', text: 'Les dimanches de l’année, avec un thème pour chaque mois.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'Le calendrier copte',
         paragraphs: [
-            'Le Katameros suit le calendrier copte, le calendrier de l’Église hérité de l’Égypte ancienne. L’année copte compte 13 mois : 12 mois de 30 jours, puis un mois court appelé Nasie, de cinq jours (six quand le mois de février suivant compte 29 jours).',
-            'Les mois sont Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra et Nasie. L’année commence le 1er Thout, qui correspond au 11 septembre (au 12 septembre quand le mois de février suivant compte 29 jours).',
+            'Le Katameros suit le calendrier copte, le calendrier de l’Église hérité de l’Égypte ancienne. L’année copte compte 13 mois : 12 mois de 30 jours, puis un mois court appelé Nasie, de cinq jours[^nasie].',
+            'Les mois sont Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra et Nasie. L’année commence le 1er Thout, qui correspond au 11 septembre[^thout].',
             'Les années coptes sont comptées depuis l’an 284, quand Dioclétien est devenu empereur. On l’appelle l’ère des Martyrs, en souvenir des nombreux chrétiens tués pendant sa persécution.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'En semaine : les saints du jour',
-            intro: 'Du lundi au samedi, les lectures correspondent au saint ou à la fête que le Synaxaire commémore à la date copte du jour. Souvent, l’Évangile suffit à montrer qui l’on fête :',
+            intro: [
+                'Du lundi au samedi, les lectures sont liées au saint du jour, celui que le Synaxaire fête à la date copte.',
+                'Par exemple, le 3 Abib, l’Église fête saint Cyrille d’Alexandrie, pape. À la Messe, on lit l’Évangile du Bon Pasteur : « Je suis le bon berger. Le bon berger donne sa vie pour ses brebis » (Jean 10:11). Le pape est le pasteur de son Église.',
+                'Chaque type de saint a ainsi ses lectures. Pour l’Évangile de la Messe :',
+            ],
             gospels: [
                 { name: 'Pour un prophète', text: 'Les prophètes mis à mort', ref: 'Matthieu 23', passage: 'prophets' },
                 { name: 'Pour un martyr', text: 'La persécution', ref: 'Luc 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lire',
             paragraphs: [
-                'Le livre des Jours de semaine ne donne pas de lectures différentes pour chaque jour de l’année : seules 70 dates environ ont leurs propres lectures. Aux autres dates, on reprend les lectures d’un saint de la même catégorie, fêté à l’une de ces dates : un martyr reçoit les lectures d’un autre martyr, un évêque celles d’un autre évêque, un moine celles d’un grand moine. C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année.',
-                'Par exemple, saint Antoine, le père des moines, est fêté le 22 Toubah. Ses lectures reviennent à huit autres dates, surtout pour des fêtes de moines.',
+                'Les saints d’un même type partagent donc leurs lectures[^martyrs]. C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année. Les grandes fêtes et quelques grands saints ont leurs propres lectures.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Semaine sainte', text: 'La semaine qui précède Pâques.' },
                 { name: 'Cinquante Jours saints', text: 'De Pâques à la Pentecôte, qui tombe entre le 23 mai et le 26 juin.' },
             ],
-            after: [
-                'Pendant ces semaines, environ 15 par an, les lectures sont tirées des livres de ces périodes, semaine par semaine et jour par jour, au lieu des livres des Jours de semaine et des Dimanches.',
-                'Les lectures suivent la période. Pendant le Grand Carême, on lit le dimanche la tentation du Christ, le fils prodigue et la Samaritaine. La Semaine sainte suit les derniers jours du Christ, jour après jour.',
-                'Seules quelques fêtes du Seigneur, comme la fête de la Croix le 10 Baramhat, gardent leurs propres lectures.',
-            ],
             more: {
                 title: 'Ce qu’on lit pendant ces périodes',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Notes',
+        label: 'Note',
+        backLabel: 'Retour au texte',
+        items: [
+            { id: 'nasie', text: 'Une année sur quatre, Nasie compte six jours : c’est le cas quand le mois de février suivant compte 29 jours.' },
+            { id: 'thout', text: 'Une année sur quatre, le 1er Thout tombe le 12 septembre, après un mois de Nasie de six jours.' },
+            { id: 'martyrs', text: 'Un même type de saint peut avoir plusieurs séries de lectures : c’est le cas, par exemple, des martyrs.' },
+        ],
     },
 
     footer: {

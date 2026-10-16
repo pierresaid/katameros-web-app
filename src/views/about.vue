@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, shallowRef } from 'vue';
+import { computed, onMounted, provide, ref, shallowRef } from 'vue';
 import { Capacitor } from '@capacitor/core';
 import CopticCrossOutline from '@/components/coptic-cross-outline.vue';
 import AboutMore from '@/components/about-more.vue';
 import AboutPassageSheet from '@/components/about-passage-sheet.vue';
+import AboutRichText from '@/components/about-rich-text.vue';
 import { useSeo } from '@/composables/useSeo';
 import { useCurrentLang } from '@/composables/useCurrentLang';
 import { track } from '@/helpers/track';
 import { ABOUT_CONTENT, ABOUT_LANGS, aboutLang } from '@/content/about';
 import { typeset } from '@/content/about/typeset';
 import { splitRefs } from '@/content/about/refs';
+import { ABOUT_FOOTNOTES } from '@/content/about/footnotes';
 import type { AboutPassages } from '@/content/about/types';
 
 const lang = useCurrentLang();
@@ -20,10 +22,23 @@ const c = computed(() => typeset(ABOUT_CONTENT[copyLang.value], copyLang.value))
 // The page's heading is its title in search results ("What is the Katameros? - Katameros")
 useSeo({ title: () => c.value.title, description: () => c.value.description, langs: ABOUT_LANGS });
 
-// Words between asterisks in the copy are foreign terms in Latin letters, set in italics
-// (e.g. *kata meros*). Isolated left to right, so they stay in one piece in Arabic text.
-const withItalics = (text: string) =>
-    text.split(/\*([^*]+)\*/).map((part, i) => ({ text: part, italic: i % 2 === 1 }));
+// Footnotes, as in a book: a small number in the text and the note at the bottom of the page.
+// Each leads to the other: the page scrolls it to the middle of the screen, clear of the app
+// bar, and moves the focus there (on a note, its row stays lit until the focus leaves).
+const noteNumbers = computed(() => new Map(c.value.footnotes.items.map((n, i) => [n.id, i + 1])));
+function goTo(id: string) {
+    const el = document.getElementById(id);
+    if (!el)
+        return;
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'center' });
+    el.focus({ preventScroll: true });
+}
+provide(ABOUT_FOOTNOTES, {
+    number: id => noteNumbers.value.get(id),
+    label: () => c.value.footnotes.label,
+    open: id => goTo(`note-${id}`),
+});
 
 // The Gospels of the weekdays list and the references of the Sundays and seasons panels
 // open in a sheet. Their texts load on the first opening only (one file per group and language),
@@ -66,22 +81,17 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
 
         <section class="about-section" aria-labelledby="about-name">
             <h2 id="about-name" class="about-heading">{{ c.name.heading }}</h2>
-            <p v-for="(p, i) in c.name.paragraphs" :key="i" class="about-text">
-                <template v-for="(part, j) in withItalics(p)" :key="j">
-                    <em v-if="part.italic" dir="ltr">{{ part.text }}</em>
-                    <template v-else>{{ part.text }}</template>
-                </template>
-            </p>
+            <p v-for="(p, i) in c.name.paragraphs" :key="i" class="about-text"><AboutRichText :text="p" /></p>
         </section>
 
         <section class="about-section" aria-labelledby="about-church">
             <h2 id="about-church" class="about-heading">{{ c.church.heading }}</h2>
-            <p v-for="(p, i) in c.church.paragraphs" :key="i" class="about-text">{{ p }}</p>
+            <p v-for="(p, i) in c.church.paragraphs" :key="i" class="about-text"><AboutRichText :text="p" /></p>
         </section>
 
         <section class="about-section" aria-labelledby="about-contents">
             <h2 id="about-contents" class="about-heading">{{ c.contents.heading }}</h2>
-            <p class="about-text">{{ c.contents.intro }}</p>
+            <p class="about-text"><AboutRichText :text="c.contents.intro" /></p>
             <ol class="about-card about-day" role="list">
                 <li v-for="s in c.contents.services" :key="s.name" class="about-day-row">
                     <div class="about-eyebrow">{{ s.when }}</div>
@@ -102,7 +112,7 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
 
         <section class="about-section" aria-labelledby="about-books">
             <h2 id="about-books" class="about-heading">{{ c.books.heading }}</h2>
-            <p class="about-text">{{ c.books.intro }}</p>
+            <p class="about-text"><AboutRichText :text="c.books.intro" /></p>
             <dl class="about-list">
                 <div v-for="b in c.books.items" :key="b.name" class="about-list-row">
                     <dt class="about-list-term">{{ b.name }}</dt>
@@ -113,13 +123,13 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
 
         <section class="about-section" aria-labelledby="about-calendar">
             <h2 id="about-calendar" class="about-heading">{{ c.calendar.heading }}</h2>
-            <p v-for="(p, i) in c.calendar.paragraphs" :key="i" class="about-text">{{ p }}</p>
+            <p v-for="(p, i) in c.calendar.paragraphs" :key="i" class="about-text"><AboutRichText :text="p" /></p>
         </section>
 
         <!-- The three things that decide a day's readings, one subsection each -->
         <section class="about-section" aria-labelledby="about-choice">
             <h2 id="about-choice" class="about-heading">{{ c.choice.heading }}</h2>
-            <p class="about-text">{{ c.choice.intro }}</p>
+            <p class="about-text"><AboutRichText :text="c.choice.intro" /></p>
             <ul class="about-list about-factors" role="list">
                 <li v-for="f in c.choice.factors" :key="f.name" class="about-list-row about-factor">
                     <span>
@@ -128,10 +138,10 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
                     </span>
                 </li>
             </ul>
-            <p class="about-text about-after-list">{{ c.choice.priority }}</p>
+            <p class="about-text about-after-list"><AboutRichText :text="c.choice.priority" /></p>
 
             <h3 class="about-subheading">{{ c.choice.weekdays.heading }}</h3>
-            <p class="about-text">{{ c.choice.weekdays.intro }}</p>
+            <p v-for="(p, i) in c.choice.weekdays.intro" :key="`intro-${i}`" class="about-text"><AboutRichText :text="p" /></p>
             <!-- Each Gospel opens its text: the reference is the button, and it covers the whole row -->
             <dl class="about-list">
                 <div v-for="g in c.choice.weekdays.gospels" :key="g.passage" class="about-list-row about-gospel-row">
@@ -147,25 +157,37 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
                 </div>
             </dl>
             <p v-for="(p, i) in c.choice.weekdays.paragraphs" :key="i" class="about-text"
-                :class="{ 'about-after-list': i === 0 }">{{ p }}</p>
+                :class="{ 'about-after-list': i === 0 }"><AboutRichText :text="p" /></p>
 
             <h3 class="about-subheading">{{ c.choice.sundays.heading }}</h3>
-            <p v-for="(p, i) in c.choice.sundays.paragraphs" :key="i" class="about-text">{{ p }}</p>
+            <p v-for="(p, i) in c.choice.sundays.paragraphs" :key="i" class="about-text"><AboutRichText :text="p" /></p>
             <AboutMore :more="c.choice.sundays.more" :refs="refsIn" :open-label="c.choice.weekdays.openLabel"
                 @open-ref="(key, eyebrow) => openPassage('sundays', key, eyebrow)" />
 
             <h3 class="about-subheading">{{ c.choice.seasons.heading }}</h3>
-            <p v-for="(p, i) in c.choice.seasons.paragraphs" :key="i" class="about-text">{{ p }}</p>
+            <p v-for="(p, i) in c.choice.seasons.paragraphs" :key="i" class="about-text"><AboutRichText :text="p" /></p>
             <dl class="about-list">
                 <div v-for="item in c.choice.seasons.items" :key="item.name" class="about-list-row">
                     <dt class="about-list-term">{{ item.name }}</dt>
                     <dd class="about-list-text">{{ item.text }}</dd>
                 </div>
             </dl>
-            <p v-for="(p, i) in c.choice.seasons.after" :key="i" class="about-text"
-                :class="{ 'about-after-list': i === 0 }">{{ p }}</p>
             <AboutMore :more="c.choice.seasons.more" :refs="refsIn" :open-label="c.choice.weekdays.openLabel"
                 @open-ref="(key, eyebrow) => openPassage('seasons', key, eyebrow)" />
+        </section>
+
+        <!-- The footnotes: each note links back to its number in the text -->
+        <section v-if="c.footnotes.items.length" class="about-section about-footnotes"
+            aria-labelledby="about-footnotes">
+            <h2 id="about-footnotes" class="about-subheading">{{ c.footnotes.heading }}</h2>
+            <ol class="about-footnotes-list">
+                <li v-for="n in c.footnotes.items" :id="`note-${n.id}`" :key="n.id" class="about-footnote"
+                    tabindex="-1">
+                    <!-- A no-break space keeps the arrow on the line of the note's last word -->
+                    <AboutRichText :text="n.text" />&nbsp;<a :href="`#note-ref-${n.id}`" class="about-footnote-back"
+                        :aria-label="c.footnotes.backLabel" @click.prevent="goTo(`note-ref-${n.id}`)">↑</a>
+                </li>
+            </ol>
         </section>
 
         <!-- The Gospel texts the page can open (weekdays list, Sundays panel) -->
@@ -397,6 +419,51 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
 .about-factor-detail {
     font-weight: 400;
     color: rgba(var(--v-theme-on-surface), 0.78);
+}
+
+/* The footnotes: smaller text under a hairline, numbered as in a book */
+.about-footnotes {
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+}
+
+.about-footnotes .about-subheading {
+    margin-top: 0;
+}
+
+.about-footnotes-list {
+    margin: 0;
+    padding-inline-start: 1.6em;
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: rgba(var(--v-theme-on-surface), 0.78);
+}
+
+.about-footnote {
+    padding: 4px 6px;
+    margin-inline-start: -6px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.about-footnote + .about-footnote {
+    margin-top: 6px;
+}
+
+.about-footnote:focus {
+    outline: none;
+    background-color: rgba(var(--v-theme-on-surface), 0.06);
+}
+
+.about-footnote::marker {
+    font-weight: 600;
+}
+
+/* Back to the number in the text: up, whatever the direction of the script */
+.about-footnote-back {
+    padding: 0 6px;
+    color: rgba(var(--v-theme-on-surface), 0.6);
+    text-decoration: none;
 }
 
 /* A list followed by prose: the same air as before a list's note */

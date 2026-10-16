@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'Il nome',
         paragraphs: [
-            'Il nome viene dal greco *kata meros*, «in parti»: il libro è diviso in più parti e presenta le Scritture brano per brano, un giorno alla volta.',
+            'Il nome viene dal greco *kata meros*, «in parti»: vi si legge la Bibbia a brani, scelti per ogni giorno.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Cinque libri',
-        intro: 'Il Katameros è stampato in cinque libri, ognuno per il proprio periodo dell’anno:',
+        intro: 'Il Katameros è diviso in cinque libri. A seconda del giorno, si legge nell’uno o nell’altro. I primi due si usano tutto l’anno, tranne nei grandi periodi intorno alla Pasqua, che hanno i propri libri:',
         items: [
             { name: 'Giorni feriali', text: 'Dal lunedì al sabato, secondo i santi e le feste del calendario copto.' },
             { name: 'Domeniche', text: 'Le domeniche dell’anno, con un tema per ogni mese.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'Il calendario copto',
         paragraphs: [
-            'Il Katameros segue il calendario copto, il calendario della Chiesa ereditato dall’antico Egitto. L’anno copto ha 13 mesi: 12 mesi di 30 giorni, poi un mese breve chiamato Nasie, di cinque giorni (sei quando il febbraio successivo ha 29 giorni).',
-            'I mesi sono Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra e Nasie. L’anno comincia il 1º Thout, che corrisponde all’11 settembre (il 12 settembre quando il febbraio successivo ha 29 giorni).',
+            'Il Katameros segue il calendario copto, il calendario della Chiesa ereditato dall’antico Egitto. L’anno copto ha 13 mesi: 12 mesi di 30 giorni, poi un mese breve chiamato Nasie, di cinque giorni[^nasie].',
+            'I mesi sono Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra e Nasie. L’anno comincia il 1º Thout, che corrisponde all’11 settembre[^thout].',
             'Gli anni copti si contano dal 284, quando Diocleziano divenne imperatore. Questo computo si chiama era dei martiri, in ricordo dei tanti cristiani uccisi durante la sua persecuzione.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'I giorni feriali: i santi del giorno',
-            intro: 'Dal lunedì al sabato, le letture corrispondono al santo o alla festa che il Sinassario ricorda in quella data copta. Spesso basta il Vangelo a far capire chi si commemora quel giorno:',
+            intro: [
+                'Dal lunedì al sabato, le letture sono legate al santo del giorno, quello che il Sinassario ricorda in quella data copta.',
+                'Per esempio, il 3 Abib la Chiesa festeggia san Cirillo d’Alessandria, papa. Alla Messa si legge il Vangelo del Buon Pastore: «Io sono il buon pastore. Il buon pastore offre la vita per le pecore» (Giovanni 10:11). Il papa è il pastore della sua Chiesa.',
+                'Ogni tipo di santo ha così le sue letture. Per il Vangelo della Messa:',
+            ],
             gospels: [
                 { name: 'Per un profeta', text: 'I profeti uccisi', ref: 'Matteo 23', passage: 'prophets' },
                 { name: 'Per un martire', text: 'La persecuzione', ref: 'Luca 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leggi',
             paragraphs: [
-                'Il libro dei Giorni feriali non ha letture diverse per ogni giorno dell’anno: solo 70 date circa hanno letture proprie. Tutte le altre date riprendono le letture di un santo dello stesso tipo, festeggiato in una di quelle date: un martire prende le letture di un altro martire, un vescovo quelle di un altro vescovo, un monaco quelle di un grande monaco. Per questo le stesse letture tornano più volte all’anno.',
-                'Per esempio, sant’Antonio il Grande, padre dei monaci, si commemora il 22 Toubah. Le sue letture tornano in altre otto date, per lo più feste di monaci.',
+                'I santi dello stesso tipo condividono quindi le loro letture[^martyrs]. Per questo le stesse letture tornano più volte all’anno. Le grandi feste e alcuni grandi santi hanno letture proprie.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Settimana Santa', text: 'La settimana prima di Pasqua.' },
                 { name: 'Cinquanta giorni santi', text: 'Da Pasqua a Pentecoste, che cade tra il 23 maggio e il 26 giugno.' },
             ],
-            after: [
-                'In queste settimane, circa 15 all’anno, le letture sono tratte dai libri di questi periodi, settimana per settimana e giorno per giorno, invece che dai libri dei Giorni feriali e delle Domeniche.',
-                'Le letture seguono il periodo. Nella Grande Quaresima, la domenica si leggono le tentazioni di Cristo, il figliol prodigo e la samaritana. La Settimana Santa segue gli ultimi giorni di Cristo, giorno per giorno.',
-                'Solo poche feste del Signore, come la festa della Croce il 10 Baramhat, mantengono le proprie letture.',
-            ],
             more: {
                 title: 'Che cosa si legge in questi periodi',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Note',
+        label: 'Nota',
+        backLabel: 'Torna al testo',
+        items: [
+            { id: 'nasie', text: 'Un anno su quattro Nasie ha sei giorni: quando il febbraio successivo ha 29 giorni.' },
+            { id: 'thout', text: 'Un anno su quattro il 1º Thout cade il 12 settembre, dopo un Nasie di sei giorni.' },
+            { id: 'martyrs', text: 'Uno stesso tipo di santo può avere più serie di letture: è il caso, per esempio, dei martiri.' },
+        ],
     },
 
     footer: {

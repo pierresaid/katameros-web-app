@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'El nombre',
         paragraphs: [
-            'El nombre viene del griego *kata meros*, «por partes»: el libro está dividido en varias partes y presenta las Escrituras fragmento a fragmento, día a día.',
+            'El nombre viene del griego *kata meros*, «por partes»: en él se lee la Biblia por pasajes, elegidos para cada día.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Cinco libros',
-        intro: 'El Katameros se imprime en cinco libros, y cada uno se usa en su época del año:',
+        intro: 'El Katameros está dividido en cinco libros. Según el día, se lee en uno o en otro. Los dos primeros se usan todo el año, salvo en los grandes tiempos en torno a la Pascua, que tienen sus propios libros:',
         items: [
             { name: 'Días de semana', text: 'De lunes a sábado, según los santos y las fiestas del calendario copto.' },
             { name: 'Domingos', text: 'Los domingos del año, con un tema para cada mes.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'El calendario copto',
         paragraphs: [
-            'El Katameros sigue el calendario copto, el calendario de la Iglesia heredado del antiguo Egipto. El año copto tiene 13 meses: 12 meses de 30 días y luego un mes corto llamado Nasie, de cinco días (seis cuando el febrero siguiente tiene 29 días).',
-            'Los meses son Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra y Nasie. El año empieza el 1 de Thout, que corresponde al 11 de septiembre (al 12 de septiembre cuando el febrero siguiente tiene 29 días).',
+            'El Katameros sigue el calendario copto, el calendario de la Iglesia heredado del antiguo Egipto. El año copto tiene 13 meses: 12 meses de 30 días y luego un mes corto llamado Nasie, de cinco días[^nasie].',
+            'Los meses son Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra y Nasie. El año empieza el 1 de Thout, que corresponde al 11 de septiembre[^thout].',
             'Los años coptos se cuentan desde el año 284, cuando Diocleciano se convirtió en emperador. Esta cuenta se llama era de los mártires, en recuerdo de los numerosos cristianos asesinados durante su persecución.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'Días de semana: los santos del día',
-            intro: 'De lunes a sábado, las lecturas corresponden al santo o a la fiesta que el Sinaxario conmemora en la fecha copta del día. A menudo basta el Evangelio para saber de quién es el día:',
+            intro: [
+                'De lunes a sábado, las lecturas están ligadas al santo del día, el que el Sinaxario conmemora en la fecha copta.',
+                'Por ejemplo, el 3 de Abib la Iglesia celebra a San Cirilo de Alejandría, papa. En la Misa se lee el Evangelio del Buen Pastor: «Yo soy el buen pastor: el buen pastor su alma da por las ovejas» (Juan 10:11). El papa es el pastor de su Iglesia.',
+                'Así, cada tipo de santo tiene sus propias lecturas. Para el Evangelio de la Misa:',
+            ],
             gospels: [
                 { name: 'Para un profeta', text: 'Los profetas asesinados', ref: 'Mateo 23', passage: 'prophets' },
                 { name: 'Para un mártir', text: 'La persecución', ref: 'Lucas 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leer',
             paragraphs: [
-                'El libro de los días de semana no tiene lecturas distintas para cada día del año: solo unas 70 fechas tienen lecturas propias. En todas las demás fechas se reutilizan las lecturas de un santo de la misma categoría, celebrado en una de esas fechas: un mártir toma las lecturas de otro mártir, un obispo las de otro obispo, un monje las de un gran monje. Por eso las mismas lecturas se repiten varias veces al año.',
-                'Por ejemplo, San Antonio, padre de los monjes, se conmemora el 22 de Toubah. Sus lecturas se repiten en otras ocho fechas, en su mayoría fiestas de monjes.',
+                'Los santos de un mismo tipo comparten, por tanto, sus lecturas[^martyrs]. Por eso las mismas lecturas se repiten varias veces al año. Las grandes fiestas y algunos grandes santos tienen lecturas propias.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Semana Santa', text: 'La semana antes de Pascua.' },
                 { name: 'Santos Cincuenta Días', text: 'De Pascua a Pentecostés, que cae entre el 23 de mayo y el 26 de junio.' },
             ],
-            after: [
-                'Durante estas semanas, unas 15 al año, las lecturas proceden de los libros de estos tiempos, por semana y por día, en lugar de los libros de los días de semana y de los domingos.',
-                'Las lecturas siguen el tiempo litúrgico. En la Gran Cuaresma, los domingos se leen la tentación de Cristo, el hijo pródigo y la samaritana. La Semana Santa sigue los últimos días de Cristo, día a día.',
-                'Solo unas pocas fiestas del Señor, como la Fiesta de la Cruz del 10 de Baramhat, conservan sus propias lecturas.',
-            ],
             more: {
                 title: 'Qué se lee en estos tiempos',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Notas',
+        label: 'Nota',
+        backLabel: 'Volver al texto',
+        items: [
+            { id: 'nasie', text: 'Un año de cada cuatro, Nasie tiene seis días: cuando el febrero siguiente tiene 29 días.' },
+            { id: 'thout', text: 'Un año de cada cuatro, el 1 de Thout cae el 12 de septiembre, después de un Nasie de seis días.' },
+            { id: 'martyrs', text: 'Un mismo tipo de santo puede tener varias series de lecturas: es el caso, por ejemplo, de los mártires.' },
+        ],
     },
 
     footer: {

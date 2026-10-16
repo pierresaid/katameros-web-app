@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'De naam',
         paragraphs: [
-            'De naam komt van het Griekse *kata meros*, “in delen”: het boek is in meerdere delen verdeeld en biedt de Schrift gedeelte voor gedeelte aan, dag voor dag.',
+            'De naam komt van het Griekse *kata meros*, “in delen”: daarin wordt de Bijbel gelezen in gedeelten die voor elke dag gekozen zijn.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Vijf boeken',
-        intro: 'De Katameros is gedrukt in vijf boeken, die elk in een eigen periode van het jaar worden gebruikt:',
+        intro: 'De Katameros is verdeeld in vijf boeken. Afhankelijk van de dag leest men uit het ene of het andere. De eerste twee worden het hele jaar door gebruikt, behalve in de grote periodes rond Pasen, die hun eigen boeken hebben:',
         items: [
             { name: 'Weekdagen', text: 'Van maandag tot en met zaterdag, volgens de heiligen en feesten van de Koptische kalender.' },
             { name: 'Zondagen', text: 'De zondagen van het jaar, met een thema voor elke maand.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'De Koptische kalender',
         paragraphs: [
-            'De Katameros volgt de Koptische kalender, de kalender die de Kerk heeft geërfd van het oude Egypte. Het Koptische jaar heeft 13 maanden: 12 maanden van 30 dagen en daarna een korte maand, Nasie, van vijf dagen (zes als de eerstvolgende februari 29 dagen heeft).',
-            'De maanden zijn Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra en Nasie. Het jaar begint op 1 Thout, dat is 11 september (12 september als de eerstvolgende februari 29 dagen heeft).',
+            'De Katameros volgt de Koptische kalender, de kalender die de Kerk heeft geërfd van het oude Egypte. Het Koptische jaar heeft 13 maanden: 12 maanden van 30 dagen en daarna een korte maand, Nasie, van vijf dagen[^nasie].',
+            'De maanden zijn Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra en Nasie. Het jaar begint op 1 Thout, dat is 11 september[^thout].',
             'De Koptische jaren worden geteld vanaf het jaar 284, toen Diocletianus keizer werd. Deze jaartelling heet de era van de martelaren, ter herinnering aan de vele christenen die tijdens zijn vervolging werden gedood.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'Weekdagen: de heiligen van de dag',
-            intro: 'Van maandag tot en met zaterdag passen de lezingen bij de heilige of het feest dat op die Koptische datum in het Synaxarium wordt herdacht. Vaak laat het Evangelie alleen al zien wiens dag het is:',
+            intro: [
+                'Van maandag tot en met zaterdag horen de lezingen bij de heilige van de dag, die op die Koptische datum in het Synaxarium wordt herdacht.',
+                'Op 3 Abib herdenkt de Kerk bijvoorbeeld de heilige Cyrillus van Alexandrië, een paus. In de Eucharistieviering wordt het Evangelie van de Goede Herder gelezen: “Ik ben de goede Herder; de goede herder geeft zijn leven voor de schapen” (Johannes 10:11). De paus is de herder van zijn Kerk.',
+                'Zo heeft elke soort heilige eigen lezingen. Voor het Evangelie van de Eucharistieviering:',
+            ],
             gospels: [
                 { name: 'Voor een profeet', text: 'De profeten die werden gedood', ref: 'Mattheüs 23', passage: 'prophets' },
                 { name: 'Voor een martelaar', text: 'Vervolging', ref: 'Lukas 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lees',
             paragraphs: [
-                'Het boek Weekdagen heeft niet voor elke dag van het jaar andere lezingen: alleen voor ongeveer 70 data zijn er eigen lezingen. Alle andere data nemen de lezingen over van een heilige van dezelfde soort die op een van die data wordt herdacht: een martelaar krijgt de lezingen van een andere martelaar, een bisschop die van een andere bisschop, een monnik die van een grote monnik. Daarom komen dezelfde lezingen meerdere keren per jaar terug.',
-                'Een voorbeeld: de heilige Antonius de Grote, de vader van de monniken, wordt herdacht op 22 Toubah. Zijn lezingen komen op acht andere data terug, meestal op feesten van monniken.',
+                'Heiligen van dezelfde soort delen dus hun lezingen[^martyrs]. Daarom komen dezelfde lezingen meerdere keren per jaar terug. De grote feesten en enkele grote heiligen hebben eigen lezingen.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Goede Week', text: 'De week vóór Pasen.' },
                 { name: 'Heilige Vijftig Dagen', text: 'Van Pasen tot Pinksteren, dat tussen 23 mei en 26 juni valt.' },
             ],
-            after: [
-                'In deze weken, ongeveer 15 per jaar, komen de lezingen uit de boeken van deze periodes, per week en per dag, in plaats van uit de boeken Weekdagen en Zondagen.',
-                'De lezingen volgen de periode. In de Grote Vasten worden op de zondagen de verzoeking van Christus, de verloren zoon en de Samaritaanse vrouw gelezen. De Goede Week volgt de laatste dagen van Christus, dag voor dag.',
-                'Slechts enkele feesten van de Heer, zoals het Feest van het Kruis op 10 Baramhat, behouden hun eigen lezingen.',
-            ],
             more: {
                 title: 'Wat er in deze periodes wordt gelezen',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Noten',
+        label: 'Noot',
+        backLabel: 'Terug naar de tekst',
+        items: [
+            { id: 'nasie', text: 'Eens in de vier jaar heeft Nasie zes dagen: als de eerstvolgende februari 29 dagen heeft.' },
+            { id: 'thout', text: 'Eens in de vier jaar valt 1 Thout op 12 september, na een Nasie van zes dagen.' },
+            { id: 'martyrs', text: 'Eén soort heilige kan meerdere reeksen lezingen hebben: dat geldt bijvoorbeeld voor de martelaren.' },
+        ],
     },
 
     footer: {

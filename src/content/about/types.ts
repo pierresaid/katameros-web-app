@@ -1,6 +1,7 @@
 // Long-form copy of the About page, one module per language (en.ts, ...).
 // The page goes from the essentials down to the details: each section says the
 // basics in the open, and its deeper material sits in a closed "more" panel.
+// A small detail that would interrupt the text goes to the footnotes at the bottom.
 
 export interface AboutLabeledText {
     name: string
@@ -34,11 +35,16 @@ export interface AboutMore {
     stacked?: boolean
 }
 
+/** A note at the bottom of the page. The text calls it with [^id], right after the word
+    it explains, and it is numbered by its place in the list. */
+export interface AboutFootnote {
+    id: string
+    text: string
+}
+
 /** A section whose paragraphs lead into term / description rows. */
 export interface AboutListSection extends AboutSection {
     items: AboutLabeledText[]
-    /** Short paragraphs after the rows */
-    after: string[]
 }
 
 /** A service of the day, with the readings the Katameros gives for it. */
@@ -108,8 +114,8 @@ export interface AboutContent {
         priority: string
         weekdays: {
             heading: string
-            /** Leads into the Gospels list */
-            intro: string
+            /** Paragraphs before the Gospels list: an example, then a line that leads into it */
+            intro: string[]
             gospels: AboutGospel[]
             /** The button that opens a Gospel's text */
             openLabel: string
@@ -118,6 +124,15 @@ export interface AboutContent {
         }
         sundays: AboutSection & { more: AboutMore }
         seasons: AboutListSection & { more: AboutMore }
+    }
+    /** The notes at the bottom of the page, in the order the text calls them */
+    footnotes: {
+        heading: string
+        /** Before a note's number, for screen readers ("Note 1") */
+        label: string
+        /** The link from a note back to where the text calls it */
+        backLabel: string
+        items: AboutFootnote[]
     }
     /** Labels of the buttons and links that close the page */
     footer: {

@@ -8,7 +8,7 @@ const content: AboutContent = {
     name: {
         heading: 'Der Name',
         paragraphs: [
-            'Der Name kommt vom griechischen *kata meros*, „in Teilen“: Das Buch ist in mehrere Teile gegliedert und bietet die Heilige Schrift Abschnitt für Abschnitt dar, Tag für Tag.',
+            'Der Name kommt vom griechischen *kata meros*, „in Teilen“: Man liest darin die Bibel in Abschnitten, die für jeden Tag ausgewählt sind.',
         ],
     },
 
@@ -39,7 +39,7 @@ const content: AboutContent = {
 
     books: {
         heading: 'Fünf Bücher',
-        intro: 'Der Katameros wird in fünf Büchern gedruckt, die jeweils zu ihrer Zeit im Jahr verwendet werden:',
+        intro: 'Der Katameros ist in fünf Bücher aufgeteilt. Je nach Tag liest man aus dem einen oder dem anderen. Die ersten beiden werden das ganze Jahr über verwendet, außer in den großen Zeiten rund um Ostern, die eigene Bücher haben:',
         items: [
             { name: 'Wochentage', text: 'Montag bis Samstag, nach den Heiligen und Festen des koptischen Kalenders.' },
             { name: 'Sonntage', text: 'Die Sonntage des Jahres, mit einem Thema für jeden Monat.' },
@@ -52,8 +52,8 @@ const content: AboutContent = {
     calendar: {
         heading: 'Der koptische Kalender',
         paragraphs: [
-            'Der Katameros folgt dem koptischen Kalender, dem Kalender der Kirche, der aus dem alten Ägypten überliefert ist. Das koptische Jahr hat 13 Monate: 12 Monate mit je 30 Tagen, dann einen kurzen Monat namens Nasie mit fünf Tagen (sechs, wenn der folgende Februar 29 Tage hat).',
-            'Die Monate heißen Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra und Nasie. Das Jahr beginnt am 1. Thout, das ist der 11. September (der 12. September, wenn der folgende Februar 29 Tage hat).',
+            'Der Katameros folgt dem koptischen Kalender, dem Kalender der Kirche, der aus dem alten Ägypten überliefert ist. Das koptische Jahr hat 13 Monate: 12 Monate mit je 30 Tagen, dann einen kurzen Monat namens Nasie mit fünf Tagen[^nasie].',
+            'Die Monate heißen Thout, Babah, Hatour, Kiahk, Toubah, Amshir, Baramhat, Baramoudah, Bashans, Baounah, Abib, Misra und Nasie. Das Jahr beginnt am 1. Thout, das ist der 11. September[^thout].',
             'Die koptischen Jahre werden seit 284 gezählt, dem Jahr, in dem Diokletian Kaiser wurde. Diese Zeitrechnung heißt Ära der Märtyrer, zur Erinnerung an die vielen Christen, die während seiner Verfolgung getötet wurden.',
         ],
     },
@@ -70,7 +70,11 @@ const content: AboutContent = {
 
         weekdays: {
             heading: 'Wochentage: die Heiligen des Tages',
-            intro: 'Von Montag bis Samstag passen die Lesungen zu dem Heiligen oder dem Fest, dessen das Synaxär an diesem koptischen Datum gedenkt. Oft zeigt schon das Evangelium, wessen Tag es ist:',
+            intro: [
+                'Von Montag bis Samstag richten sich die Lesungen nach dem Heiligen des Tages, dessen das Synaxär an diesem koptischen Datum gedenkt.',
+                'Zum Beispiel feiert die Kirche am 3. Abib den heiligen Kyrill von Alexandrien, einen Papst. In der Liturgie wird das Evangelium vom Guten Hirten gelesen: „Ich bin der gute Hirt. Der gute Hirt gibt sein Leben hin für die Schafe“ (Johannes 10:11). Der Papst ist der Hirte seiner Kirche.',
+                'So hat jede Art von Heiligen ihre eigenen Lesungen. Für das Evangelium der Liturgie:',
+            ],
             gospels: [
                 { name: 'Für einen Propheten', text: 'Die getöteten Propheten', ref: 'Matthäus 23', passage: 'prophets' },
                 { name: 'Für einen Märtyrer', text: 'Die Verfolgung', ref: 'Lukas 21', passage: 'persecution' },
@@ -79,8 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lesen',
             paragraphs: [
-                'Im Buch der Wochentage hat nicht jeder Tag des Jahres eigene Lesungen: Das gilt nur für etwa 70 Tage. Alle anderen Tage übernehmen die Lesungen eines Heiligen derselben Art, dessen Fest auf einen dieser Tage fällt: Ein Märtyrer erhält die Lesungen eines anderen Märtyrers, ein Bischof die eines anderen Bischofs, ein Mönch die eines großen Mönchs. Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr.',
-                'Zum Beispiel wird der heilige Antonius, der Vater der Mönche, am 22. Toubah gefeiert. Seine Lesungen werden an acht weiteren Tagen wiederholt, meist an Gedenktagen von Mönchen.',
+                'Heilige derselben Art teilen sich also ihre Lesungen[^martyrs]. Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr. Die großen Feste und einige große Heilige haben eigene Lesungen.',
             ],
         },
 
@@ -188,11 +191,6 @@ const content: AboutContent = {
                 { name: 'Karwoche', text: 'Die Woche vor Ostern.' },
                 { name: 'Heilige fünfzig Tage', text: 'Von Ostern bis Pfingsten, das zwischen dem 23. Mai und dem 26. Juni liegt.' },
             ],
-            after: [
-                'In diesen Wochen, etwa 15 im Jahr, kommen die Lesungen nicht aus den Büchern der Wochentage und der Sonntage, sondern aus den Büchern dieser Zeiten, nach Woche und Tag geordnet.',
-                'Die Lesungen folgen der jeweiligen Zeit. In der Großen Fastenzeit werden an den Sonntagen die Versuchung Christi, der verlorene Sohn und die Samariterin gelesen. Die Karwoche folgt Tag für Tag den letzten Tagen Christi.',
-                'Nur wenige Herrenfeste, etwa das Fest des Kreuzes am 10. Baramhat, behalten ihre eigenen Lesungen.',
-            ],
             more: {
                 title: 'Was in diesen Zeiten gelesen wird',
                 items: [
@@ -252,6 +250,17 @@ const content: AboutContent = {
                 ],
             },
         },
+    },
+
+    footnotes: {
+        heading: 'Anmerkungen',
+        label: 'Anmerkung',
+        backLabel: 'Zurück zum Text',
+        items: [
+            { id: 'nasie', text: 'Jedes vierte Jahr hat Nasie sechs Tage, nämlich wenn der folgende Februar 29 Tage hat.' },
+            { id: 'thout', text: 'Jedes vierte Jahr fällt der 1. Thout auf den 12. September, nach einem Nasie mit sechs Tagen.' },
+            { id: 'martyrs', text: 'Dieselbe Art von Heiligen kann mehrere Reihen von Lesungen haben, zum Beispiel die Märtyrer.' },
+        ],
     },
 
     footer: {
