@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Czytaj',
             paragraphs: [
-                'Święci tego samego rodzaju mają zatem wspólne czytania[^martyrs]. Dlatego te same czytania powtarzają się kilka razy w roku. Wielkie święta i niektórzy wielcy święci mają własne czytania.',
+                'Czytania są więc takie same dla wszystkich świętych tego samego rodzaju[^martyrs]: dla Mojżesza, Izajasza czy Jeremiasza czyta się tę samą Ewangelię, o zabitych prorokach (Mateusza 23). Dlatego te same czytania powtarzają się kilka razy w roku. Wielkie święta i niektórzy wielcy święci mają własne czytania.',
             ],
         },
 

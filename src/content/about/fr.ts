@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lire',
             paragraphs: [
-                'Les saints d’un même type partagent donc leurs lectures[^martyrs]. C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année. Les grandes fêtes et quelques grands saints ont leurs propres lectures.',
+                'Les lectures sont donc les mêmes pour tous les saints d’un même type[^martyrs] : pour Moïse, Isaïe ou Jérémie, on lit le même Évangile, celui des prophètes mis à mort (Matthieu 23). C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année. Les grandes fêtes et quelques grands saints ont leurs propres lectures.',
             ],
         },
 

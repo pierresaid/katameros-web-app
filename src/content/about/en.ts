@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Read',
             paragraphs: [
-                'Saints of the same kind therefore share their readings.[^martyrs] This is why the same readings come back several times a year. The great feasts and a few great saints have readings of their own.',
+                'The readings are therefore the same for all saints of the same kind.[^martyrs] For Moses, Isaiah or Jeremiah, the same Gospel is read: the one about the prophets who were killed (Matthew 23). This is why the same readings come back several times a year. The great feasts and a few great saints have readings of their own.',
             ],
         },
 

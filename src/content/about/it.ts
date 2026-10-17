@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leggi',
             paragraphs: [
-                'I santi dello stesso tipo condividono quindi le loro letture[^martyrs]. Per questo le stesse letture tornano più volte all’anno. Le grandi feste e alcuni grandi santi hanno letture proprie.',
+                'Le letture sono quindi le stesse per tutti i santi dello stesso tipo[^martyrs]: per Mosè, Isaia o Geremia si legge lo stesso Vangelo, quello dei profeti uccisi (Matteo 23). Per questo le stesse letture tornano più volte all’anno. Le grandi feste e alcuni grandi santi hanno letture proprie.',
             ],
         },
 

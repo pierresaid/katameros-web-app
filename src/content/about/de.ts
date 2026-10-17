@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lesen',
             paragraphs: [
-                'Heilige derselben Art teilen sich also ihre Lesungen[^martyrs]. Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr. Die großen Feste und einige große Heilige haben eigene Lesungen.',
+                'Die Lesungen sind also für alle Heiligen derselben Art gleich[^martyrs]: Für Mose, Jesaja oder Jeremia liest man dasselbe Evangelium, das von den getöteten Propheten (Matthäus 23). Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr. Die großen Feste und einige große Heilige haben eigene Lesungen.',
             ],
         },
 

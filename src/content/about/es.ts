@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leer',
             paragraphs: [
-                'Los santos de un mismo tipo comparten, por tanto, sus lecturas[^martyrs]. Por eso las mismas lecturas se repiten varias veces al año. Las grandes fiestas y algunos grandes santos tienen lecturas propias.',
+                'Las lecturas son, por tanto, las mismas para todos los santos de un mismo tipo[^martyrs]: para Moisés, Isaías o Jeremías se lee el mismo Evangelio, el de los profetas asesinados (Mateo 23). Por eso las mismas lecturas se repiten varias veces al año. Las grandes fiestas y algunos grandes santos tienen lecturas propias.',
             ],
         },
 

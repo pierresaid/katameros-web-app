@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lees',
             paragraphs: [
-                'Heiligen van dezelfde soort delen dus hun lezingen[^martyrs]. Daarom komen dezelfde lezingen meerdere keren per jaar terug. De grote feesten en enkele grote heiligen hebben eigen lezingen.',
+                'De lezingen zijn dus dezelfde voor alle heiligen van dezelfde soort[^martyrs]: voor Mozes, Jesaja of Jeremia wordt hetzelfde Evangelie gelezen, dat van de profeten die werden gedood (Mattheüs 23). Daarom komen dezelfde lezingen meerdere keren per jaar terug. De grote feesten en enkele grote heiligen hebben eigen lezingen.',
             ],
         },
 
