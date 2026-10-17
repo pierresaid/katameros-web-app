@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'Weekdays: the saints of the day',
             intro: [
                 'From Monday to Saturday, the readings are tied to the saint of the day, the one the Synaxarium commemorates on that Coptic date.',
-                'For example, on 3 Abib the Church commemorates St. Cyril of Alexandria, a pope. At the Liturgy, the Gospel of the Good Shepherd is read: “I am the good shepherd. The good shepherd gives His life for the sheep” (John 10:11). The pope is the shepherd of his Church.',
+                'For example, 3 Abib is the feast of Pope St. Cyril of Alexandria. At the Liturgy, the Gospel of the Good Shepherd is read: “I am the good shepherd. The good shepherd gives His life for the sheep” (John 10:11). The pope is the shepherd of his Church.',
                 'So each kind of saint has its own readings. For the Liturgy Gospel:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Read',
             paragraphs: [
-                'The readings are therefore the same for all saints of the same kind.[^martyrs] For Moses, Isaiah or Jeremiah, the same Gospel is read: the one about the prophets who were killed (Matthew 23). This is why the same readings come back several times a year. The great feasts and a few great saints have readings of their own.',
+                'The readings are therefore the same for all saints of the same kind.[^martyrs] For example, the same Gospel is read for Moses, Isaiah and Jeremiah: the one about the prophets who were killed (Matthew 23). This is why the same readings come back several times a year. The great feasts and a few great saints have readings of their own.',
             ],
         },
 

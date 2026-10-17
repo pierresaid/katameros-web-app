@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'En semaine : les saints du jour',
             intro: [
                 'Du lundi au samedi, les lectures sont liées au saint du jour, celui que le Synaxaire fête à la date copte.',
-                'Par exemple, le 3 Abib, l’Église fête saint Cyrille d’Alexandrie, pape. À la Messe, on lit l’Évangile du Bon Pasteur : « Je suis le bon berger. Le bon berger donne sa vie pour ses brebis » (Jean 10:11). Le pape est le pasteur de son Église.',
+                'Par exemple, le 3 Abib est la fête du pape saint Cyrille d’Alexandrie. À la Messe, on lit l’Évangile du Bon Pasteur : « Je suis le bon berger. Le bon berger donne sa vie pour ses brebis » (Jean 10:11). Le pape est le pasteur de son Église.',
                 'Chaque type de saint a ainsi ses lectures. Pour l’Évangile de la Messe :',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lire',
             paragraphs: [
-                'Les lectures sont donc les mêmes pour tous les saints d’un même type[^martyrs] : pour Moïse, Isaïe ou Jérémie, on lit le même Évangile, celui des prophètes mis à mort (Matthieu 23). C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année. Les grandes fêtes et quelques grands saints ont leurs propres lectures.',
+                'Les lectures sont donc les mêmes pour tous les saints d’un même type[^martyrs] : par exemple, pour Moïse, Isaïe ou Jérémie, on lit le même Évangile, celui des prophètes mis à mort (Matthieu 23). C’est pourquoi les mêmes lectures reviennent plusieurs fois dans l’année. Les grandes fêtes et quelques grands saints ont leurs propres lectures.',
             ],
         },
 

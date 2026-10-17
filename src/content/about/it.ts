@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'I giorni feriali: i santi del giorno',
             intro: [
                 'Dal lunedì al sabato, le letture sono legate al santo del giorno, quello che il Sinassario ricorda in quella data copta.',
-                'Per esempio, il 3 Abib la Chiesa festeggia san Cirillo d’Alessandria, papa. Alla Messa si legge il Vangelo del Buon Pastore: «Io sono il buon pastore. Il buon pastore offre la vita per le pecore» (Giovanni 10:11). Il papa è il pastore della sua Chiesa.',
+                'Per esempio, il 3 Abib è la festa del papa san Cirillo d’Alessandria. Alla Messa si legge il Vangelo del Buon Pastore: «Io sono il buon pastore. Il buon pastore offre la vita per le pecore» (Giovanni 10:11). Il papa è il pastore della sua Chiesa.',
                 'Ogni tipo di santo ha così le sue letture. Per il Vangelo della Messa:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leggi',
             paragraphs: [
-                'Le letture sono quindi le stesse per tutti i santi dello stesso tipo[^martyrs]: per Mosè, Isaia o Geremia si legge lo stesso Vangelo, quello dei profeti uccisi (Matteo 23). Per questo le stesse letture tornano più volte all’anno. Le grandi feste e alcuni grandi santi hanno letture proprie.',
+                'Le letture sono quindi le stesse per tutti i santi dello stesso tipo[^martyrs]: ad esempio, per Mosè, Isaia o Geremia si legge lo stesso Vangelo, quello dei profeti uccisi (Matteo 23). Per questo le stesse letture tornano più volte all’anno. Le grandi feste e alcuni grandi santi hanno letture proprie.',
             ],
         },
 

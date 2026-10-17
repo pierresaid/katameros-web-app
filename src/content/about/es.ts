@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'Días de semana: los santos del día',
             intro: [
                 'De lunes a sábado, las lecturas están ligadas al santo del día, el que el Sinaxario conmemora en la fecha copta.',
-                'Por ejemplo, el 3 de Abib la Iglesia celebra a San Cirilo de Alejandría, papa. En la Misa se lee el Evangelio del Buen Pastor: «Yo soy el buen pastor: el buen pastor su alma da por las ovejas» (Juan 10:11). El papa es el pastor de su Iglesia.',
+                'Por ejemplo, el 3 de Abib es la fiesta del papa San Cirilo de Alejandría. En la Misa se lee el Evangelio del Buen Pastor: «Yo soy el buen pastor: el buen pastor su alma da por las ovejas» (Juan 10:11). El papa es el pastor de su Iglesia.',
                 'Así, cada tipo de santo tiene sus propias lecturas. Para el Evangelio de la Misa:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Leer',
             paragraphs: [
-                'Las lecturas son, por tanto, las mismas para todos los santos de un mismo tipo[^martyrs]: para Moisés, Isaías o Jeremías se lee el mismo Evangelio, el de los profetas asesinados (Mateo 23). Por eso las mismas lecturas se repiten varias veces al año. Las grandes fiestas y algunos grandes santos tienen lecturas propias.',
+                'Las lecturas son, por tanto, las mismas para todos los santos de un mismo tipo[^martyrs]: por ejemplo, para Moisés, Isaías o Jeremías se lee el mismo Evangelio, el de los profetas asesinados (Mateo 23). Por eso las mismas lecturas se repiten varias veces al año. Las grandes fiestas y algunos grandes santos tienen lecturas propias.',
             ],
         },
 

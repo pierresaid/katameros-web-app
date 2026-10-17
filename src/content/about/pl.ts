@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'Dni powszednie: święci danego dnia',
             intro: [
                 'Od poniedziałku do soboty czytania są związane ze świętym danego dnia, którego Synaksarion wspomina pod daną datą koptyjską.',
-                'Na przykład 3 Abib Kościół wspomina św. Cyryla Aleksandryjskiego, papieża. Podczas Liturgii czyta się Ewangelię o Dobrym Pasterzu: „Ja jestem dobrym pasterzem. Dobry pasterz oddaje swoje życie za owce” (Jana 10:11). Papież jest pasterzem swojego Kościoła.',
+                'Na przykład 3 Abib przypada wspomnienie papieża św. Cyryla Aleksandryjskiego. Podczas Liturgii czyta się Ewangelię o Dobrym Pasterzu: „Ja jestem dobrym pasterzem. Dobry pasterz oddaje swoje życie za owce” (Jana 10:11). Papież jest pasterzem swojego Kościoła.',
                 'Każdy rodzaj świętych ma więc swoje czytania. Jeśli chodzi o Ewangelię Liturgii:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Czytaj',
             paragraphs: [
-                'Czytania są więc takie same dla wszystkich świętych tego samego rodzaju[^martyrs]: dla Mojżesza, Izajasza czy Jeremiasza czyta się tę samą Ewangelię, o zabitych prorokach (Mateusza 23). Dlatego te same czytania powtarzają się kilka razy w roku. Wielkie święta i niektórzy wielcy święci mają własne czytania.',
+                'Czytania są więc takie same dla wszystkich świętych tego samego rodzaju[^martyrs]: na przykład dla Mojżesza, Izajasza czy Jeremiasza czyta się tę samą Ewangelię, o zabitych prorokach (Mateusza 23). Dlatego te same czytania powtarzają się kilka razy w roku. Wielkie święta i niektórzy wielcy święci mają własne czytania.',
             ],
         },
 

@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'Weekdagen: de heiligen van de dag',
             intro: [
                 'Van maandag tot en met zaterdag horen de lezingen bij de heilige van de dag, die op die Koptische datum in het Synaxarium wordt herdacht.',
-                'Op 3 Abib herdenkt de Kerk bijvoorbeeld de heilige Cyrillus van Alexandrië, een paus. In de Eucharistieviering wordt het Evangelie van de Goede Herder gelezen: “Ik ben de goede Herder; de goede herder geeft zijn leven voor de schapen” (Johannes 10:11). De paus is de herder van zijn Kerk.',
+                'Op 3 Abib is bijvoorbeeld het feest van de heilige paus Cyrillus van Alexandrië. In de Eucharistieviering wordt het Evangelie van de Goede Herder gelezen: “Ik ben de goede Herder; de goede herder geeft zijn leven voor de schapen” (Johannes 10:11). De paus is de herder van zijn Kerk.',
                 'Zo heeft elke soort heilige eigen lezingen. Voor het Evangelie van de Eucharistieviering:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lees',
             paragraphs: [
-                'De lezingen zijn dus dezelfde voor alle heiligen van dezelfde soort[^martyrs]: voor Mozes, Jesaja of Jeremia wordt hetzelfde Evangelie gelezen, dat van de profeten die werden gedood (Mattheüs 23). Daarom komen dezelfde lezingen meerdere keren per jaar terug. De grote feesten en enkele grote heiligen hebben eigen lezingen.',
+                'De lezingen zijn dus dezelfde voor alle heiligen van dezelfde soort[^martyrs]: voor Mozes, Jesaja of Jeremia wordt bijvoorbeeld hetzelfde Evangelie gelezen, dat van de profeten die werden gedood (Mattheüs 23). Daarom komen dezelfde lezingen meerdere keren per jaar terug. De grote feesten en enkele grote heiligen hebben eigen lezingen.',
             ],
         },
 

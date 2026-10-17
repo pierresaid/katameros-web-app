@@ -72,7 +72,7 @@ const content: AboutContent = {
             heading: 'Wochentage: die Heiligen des Tages',
             intro: [
                 'Von Montag bis Samstag richten sich die Lesungen nach dem Heiligen des Tages, dessen das Synaxär an diesem koptischen Datum gedenkt.',
-                'Zum Beispiel feiert die Kirche am 3. Abib den heiligen Kyrill von Alexandrien, einen Papst. In der Liturgie wird das Evangelium vom Guten Hirten gelesen: „Ich bin der gute Hirt. Der gute Hirt gibt sein Leben hin für die Schafe“ (Johannes 10:11). Der Papst ist der Hirte seiner Kirche.',
+                'Zum Beispiel ist der 3. Abib das Fest des heiligen Papstes Kyrill von Alexandrien. In der Liturgie wird das Evangelium vom Guten Hirten gelesen: „Ich bin der gute Hirt. Der gute Hirt gibt sein Leben hin für die Schafe“ (Johannes 10:11). Der Papst ist der Hirte seiner Kirche.',
                 'So hat jede Art von Heiligen ihre eigenen Lesungen. Für das Evangelium der Liturgie:',
             ],
             gospels: [
@@ -83,7 +83,7 @@ const content: AboutContent = {
             ],
             openLabel: 'Lesen',
             paragraphs: [
-                'Die Lesungen sind also für alle Heiligen derselben Art gleich[^martyrs]: Für Mose, Jesaja oder Jeremia liest man dasselbe Evangelium, das von den getöteten Propheten (Matthäus 23). Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr. Die großen Feste und einige große Heilige haben eigene Lesungen.',
+                'Die Lesungen sind also für alle Heiligen derselben Art gleich[^martyrs]: Zum Beispiel liest man für Mose, Jesaja oder Jeremia dasselbe Evangelium, das von den getöteten Propheten (Matthäus 23). Deshalb wiederholen sich dieselben Lesungen mehrmals im Jahr. Die großen Feste und einige große Heilige haben eigene Lesungen.',
             ],
         },
 
