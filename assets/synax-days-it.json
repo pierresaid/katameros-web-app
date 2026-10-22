@@ -121,7 +121,7 @@
   {
     "Day": 8,
     "Month": 1,
-    "Title": "Martirio di Santa Dimides",
+    "Title": "Martirio di San Dimides",
     "StoryId": 10803,
     "Slug": "martyrdom-of-saint-dimides"
   },
@@ -184,14 +184,14 @@
   {
     "Day": 14,
     "Month": 1,
-    "Title": "Dipartita di San Agaso lo Stilita",
+    "Title": "Dipartita di Sant'Agaso lo Stilita",
     "StoryId": 11401,
     "Slug": "departure-of-saint-agathon-the-stylite"
   },
   {
     "Day": 15,
     "Month": 1,
-    "Title": "Trasferimento del corpo di S. Stefano Arcidiacono Celebriamo",
+    "Title": "Trasferimento del corpo di S. Stefano Arcidiacono",
     "StoryId": 11501,
     "Slug": "translation-of-the-relics-of-saint-stephen-the-archdeacon"
   },
@@ -212,7 +212,7 @@
   {
     "Day": 17,
     "Month": 1,
-    "Title": "Festa dellapparizione della Croce Onorata",
+    "Title": "Festa dell'apparizione della Croce Onorata",
     "StoryId": 11701,
     "Slug": "feast-of-the-cross"
   },
@@ -254,7 +254,7 @@
   {
     "Day": 20,
     "Month": 1,
-    "Title": "Martirio di Santa Malatini alla Vergine",
+    "Title": "Martirio di Santa Malatini la Vergine",
     "StoryId": 12003,
     "Slug": "martyrdom-of-saint-melitina"
   },
@@ -478,7 +478,7 @@
   {
     "Day": 11,
     "Month": 2,
-    "Title": "Dipartita da S. Giacomo il Patriarca di Antiochia",
+    "Title": "Dipartita di S. Giacomo il Patriarca di Antiochia",
     "StoryId": 21101,
     "Slug": "departure-of-patriarch-james-of-antioch"
   },
@@ -821,7 +821,7 @@
   {
     "Day": 9,
     "Month": 3,
-    "Title": "Dipartita dal Santo Padre Anba Isacco, 41° Papa di Alessandria",
+    "Title": "Dipartita del Santo Padre Anba Isacco, 41° Papa di Alessandria",
     "StoryId": 30902,
     "Slug": "departure-of-pope-isaac"
   },
@@ -975,7 +975,7 @@
   {
     "Day": 21,
     "Month": 3,
-    "Title": "Dipartita di S.Gregorio, il operatore di meraviglie",
+    "Title": "Dipartita di S.Gregorio, l'operatore di meraviglie",
     "StoryId": 32102,
     "Slug": "departure-of-saint-gregory-the-wonder-worker"
   },
@@ -1101,7 +1101,7 @@
   {
     "Day": 1,
     "Month": 4,
-    "Title": "Dipartita da San Pietro Elrahawy Vescovo di Gaza",
+    "Title": "Dipartita di San Pietro Elrahawy Vescovo di Gaza",
     "StoryId": 40103,
     "Slug": "departure-of-saint-peter-bishop-of-gaza"
   },
@@ -1164,7 +1164,7 @@
   {
     "Day": 6,
     "Month": 4,
-    "Title": "Dipartita da Sant'Abramo, il 62 ° Papa di Alessandria",
+    "Title": "Dipartita di Sant'Abramo, il 62 ° Papa di Alessandria",
     "StoryId": 40601,
     "Slug": "departure-of-pope-abraham"
   },
@@ -1178,7 +1178,7 @@
   {
     "Day": 8,
     "Month": 4,
-    "Title": "Dipartita di San Eracle, il tredicesimo Papa di Alessandria",
+    "Title": "Dipartita di Sant'Eracle, il tredicesimo Papa di Alessandria",
     "StoryId": 40804,
     "Slug": "departure-of-pope-heraclas"
   },
@@ -1311,7 +1311,7 @@
   {
     "Day": 14,
     "Month": 4,
-    "Title": "Martirio di San Ammonio, vescovo di Esna",
+    "Title": "Martirio di Sant'Ammonio, vescovo di Esna",
     "StoryId": 41402,
     "Slug": "martyrdom-of-saint-ammonius-bishop-of-esna"
   },
@@ -1360,7 +1360,7 @@
   {
     "Day": 18,
     "Month": 4,
-    "Title": "Commemorazione di San Eraclea il Martire e San Filemone il Sacerdote",
+    "Title": "Commemorazione di Sant'Eraclea il Martire e San Filemone il Sacerdote",
     "StoryId": 41802,
     "Slug": "martyrdom-of-saints-heracleas-and-philemon"
   },
@@ -1423,14 +1423,14 @@
   {
     "Day": 24,
     "Month": 4,
-    "Title": "Martirio di San Ignazio, Patriarca di Antiochia",
+    "Title": "Martirio di Sant'Ignazio, Patriarca di Antiochia",
     "StoryId": 42401,
     "Slug": "martyrdom-of-saint-ignatius-of-antioch-24-kiahk"
   },
   {
     "Day": 24,
     "Month": 4,
-    "Title": "Partenza di San Filosofo, Patriarca di Antiochia",
+    "Title": "Partenza di San Filogono, Patriarca di Antiochia",
     "StoryId": 42403,
     "Slug": "departure-of-patriarch-philogonius-of-antioch"
   },
@@ -1458,7 +1458,7 @@
   {
     "Day": 26,
     "Month": 4,
-    "Title": "Commemorazione di San Giuliana Martire",
+    "Title": "Commemorazione di Santa Giuliana Martire",
     "StoryId": 42603,
     "Slug": "martyrdom-of-saint-juliana"
   },
@@ -1535,7 +1535,7 @@
   {
     "Day": 5,
     "Month": 5,
-    "Title": "Martirio di Sant'Eusegni (Eugenio) il Soldato",
+    "Title": "Martirio di Sant'Eusegnio (Eugenio) il Soldato",
     "StoryId": 50501,
     "Slug": "martyrdom-of-saint-eusegnius"
   },
@@ -1591,7 +1591,7 @@
   {
     "Day": 8,
     "Month": 5,
-    "Title": "Dipartita da San Beniamino, il trentottesimo papa di Alessandria",
+    "Title": "Dipartita di San Beniamino, il trentottesimo papa di Alessandria",
     "StoryId": 50803,
     "Slug": "departure-of-pope-benjamin-i"
   },
@@ -1864,14 +1864,14 @@
   {
     "Day": 28,
     "Month": 5,
-    "Title": "Martirio di Sant'Anna Kaou",
+    "Title": "Martirio di Sant'Anba Kaou",
     "StoryId": 52801,
     "Slug": "martyrdom-of-saint-kaou"
   },
   {
     "Day": 29,
     "Month": 5,
-    "Title": "Dipartita di S.Eskani",
+    "Title": "Dipartita di S.Eksani",
     "StoryId": 52901,
     "Slug": "departure-of-saint-xene"
   },
@@ -1885,7 +1885,7 @@
   {
     "Day": 30,
     "Month": 5,
-    "Title": "Martirio dei Santi Pistis, Helpis, Agape e la loro madre Sophia",
+    "Title": "Martirio delle Sante Pistis, Helpis, Agape e la loro madre Sophia",
     "StoryId": 53001,
     "Slug": "martyrdom-of-saints-pistis-helpis-agape-and-sophia"
   },
@@ -1906,7 +1906,7 @@
   {
     "Day": 2,
     "Month": 6,
-    "Title": "Dipartita del grande santa Anba Paolo, primo eremita",
+    "Title": "Dipartita del grande santo Anba Paolo, primo eremita",
     "StoryId": 60201,
     "Slug": "departure-of-saint-paul-the-first-hermit"
   },
@@ -2025,7 +2025,7 @@
   {
     "Day": 10,
     "Month": 6,
-    "Title": "Dipartita di San Isidoro di Pelusio",
+    "Title": "Dipartita di Sant'Isidoro di Pelusio",
     "StoryId": 61003,
     "Slug": "departure-of-saint-isidore-of-pelusium"
   },
@@ -2193,7 +2193,7 @@
   {
     "Day": 24,
     "Month": 6,
-    "Title": "Dipartita di San Agapo il Vescovo",
+    "Title": "Dipartita di Sant'Agapo il Vescovo",
     "StoryId": 62401,
     "Slug": "departure-of-saint-agapetus-bishop-of-synnada"
   },
@@ -2228,7 +2228,7 @@
   {
     "Day": 26,
     "Month": 6,
-    "Title": "Martirio di San Zadok e il Centotrentasette che erano con lui",
+    "Title": "Martirio di San Zadok e i Centotrentasette che erano con lui",
     "StoryId": 62602,
     "Slug": "martyrdom-of-saint-zadok-and-companions"
   },
@@ -2361,7 +2361,7 @@
   {
     "Day": 6,
     "Month": 7,
-    "Title": "Partenza da San Teodosio, il Vescovo",
+    "Title": "Partenza di San Teodosio, il Vescovo",
     "StoryId": 70602,
     "Slug": "departure-of-saint-theodotus"
   },
@@ -2634,7 +2634,7 @@
   {
     "Day": 25,
     "Month": 7,
-    "Title": "Dipartita di Sant'Onofisico (Friska), uno dei settanta apostoli",
+    "Title": "Dipartita di Sant'Onesiforo (Friska), uno dei settanta apostoli",
     "StoryId": 72501,
     "Slug": "departure-of-saint-prisca"
   },
@@ -2690,7 +2690,7 @@
   {
     "Day": 28,
     "Month": 7,
-    "Title": "Dipartita di Papa Pietro (Petros) VIl, il cento e nono patriarca",
+    "Title": "Dipartita di Papa Pietro (Petros) VII, il cento e nono patriarca",
     "StoryId": 72802,
     "Slug": "departure-of-pope-peter-vii"
   },
@@ -2879,7 +2879,7 @@
   {
     "Day": 10,
     "Month": 8,
-    "Title": "Dipartita di papa Gabriele, il settantesimo papa di Alessandria, noto come Ibrn Turaik",
+    "Title": "Dipartita di papa Gabriele, il settantesimo papa di Alessandria, noto come Ibn Turaik",
     "StoryId": 81002,
     "Slug": "departure-of-pope-gabriel-ii"
   },
@@ -2949,7 +2949,7 @@
   {
     "Day": 15,
     "Month": 8,
-    "Title": "Consacrazione della Chiesa di San Agabo, l'Apostolo",
+    "Title": "Consacrazione della Chiesa di Sant'Agabo, l'Apostolo",
     "StoryId": 81501,
     "Slug": "consecration-of-the-church-of-saint-agabus"
   },
@@ -2984,7 +2984,7 @@
   {
     "Day": 18,
     "Month": 8,
-    "Title": "Martirio di sant'Arsenio, schiavo di sant'Sousnyo",
+    "Title": "Martirio di sant'Arsenio, schiavo di san Sousnyo",
     "StoryId": 81801,
     "Slug": "martyrdom-of-saint-arsenius-disciple-of-saint-sousnyos"
   },
@@ -3040,7 +3040,7 @@
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Dipartita di Sant'Alessandro l, 19 ° Papa della Sede di S.Marco",
+    "Title": "Dipartita di Sant'Alessandro I, 19 ° Papa della Sede di S.Marco",
     "StoryId": 82201,
     "Slug": "departure-of-pope-alexander-i"
   },
@@ -3201,7 +3201,7 @@
   {
     "Day": 4,
     "Month": 9,
-    "Title": "di Dipartita di Papa Yoannis Quinto, il 72° Patriarca",
+    "Title": "Dipartita di Papa Yoannis Quinto, il 72° Patriarca",
     "StoryId": 90402,
     "Slug": "departure-of-pope-john-v"
   },
@@ -3404,7 +3404,7 @@
   {
     "Day": 19,
     "Month": 9,
-    "Title": "Commemorazione del Martirio di San Isidoro di Antiochia",
+    "Title": "Commemorazione del Martirio di Sant'Isidoro di Antiochia",
     "StoryId": 91902,
     "Slug": "martyrdom-of-saint-isidore-of-antioch"
   },
@@ -3474,14 +3474,14 @@
   {
     "Day": 25,
     "Month": 9,
-    "Title": "Martirio di San Calluto di Antinoe (noto come Abu Colta)",
+    "Title": "Martirio di San Colluto di Antinoe (noto come Abu Colta)",
     "StoryId": 92501,
     "Slug": "martyrdom-of-saint-colluthus"
   },
   {
     "Day": 25,
     "Month": 9,
-    "Title": "Dipartita delonorato Layman lbrahim El-Gohari",
+    "Title": "Dipartita dell'onorato Layman Ibrahim El-Gohari",
     "StoryId": 92502,
     "Slug": "departure-of-ibrahim-el-gohari"
   },
@@ -3509,7 +3509,7 @@
   {
     "Day": 28,
     "Month": 9,
-    "Title": "Commemorazione della traslazione del corpo di San Epifanio",
+    "Title": "Commemorazione della traslazione del corpo di Sant'Epifanio",
     "StoryId": 92801,
     "Slug": "translation-of-the-relics-of-saint-epiphanius-of-cyprus"
   },
@@ -3677,7 +3677,7 @@
   {
     "Day": 8,
     "Month": 10,
-    "Title": "Consacrazione della Chiesa della Vergine Vergine conosciuta come El-Mahammah",
+    "Title": "Consacrazione della Chiesa della Vergine conosciuta come El-Mahammah",
     "StoryId": 100801,
     "Slug": "consecration-of-the-church-of-virgin-mary-el-mahamma"
   },
@@ -3705,7 +3705,7 @@
   {
     "Day": 9,
     "Month": 10,
-    "Title": "Martirio di San Luigi Lino e altri quattro con lui",
+    "Title": "Martirio di San Luciliano e altri quattro con lui",
     "StoryId": 100902,
     "Slug": "martyrdom-of-saint-lucilianus-and-companions"
   },
@@ -3810,7 +3810,7 @@
   {
     "Day": 15,
     "Month": 10,
-    "Title": "Trasferimento delle reliquie della Grande San Marco Apostolo per mano di Papa Paolo VI, Papa di Roma",
+    "Title": "Trasferimento delle reliquie del Grande San Marco Apostolo per mano di Papa Paolo VI, Papa di Roma",
     "StoryId": 101502,
     "Slug": "reception-of-the-relics-of-saint-mark-the-evangelist-in-rome"
   },
@@ -3831,7 +3831,7 @@
   {
     "Day": 17,
     "Month": 10,
-    "Title": "Ritorno delle reliquie della Gran San Marco alla nuova cattedrale di San Marco",
+    "Title": "Ritorno delle reliquie del Gran San Marco alla nuova cattedrale di San Marco",
     "StoryId": 101702,
     "Slug": "return-of-the-relics-of-saint-mark-the-evangelist"
   },
@@ -4083,7 +4083,7 @@
   {
     "Day": 7,
     "Month": 11,
-    "Title": "Martirio di San Ignazio, vescovo di Antiochia, a Roma",
+    "Title": "Martirio di Sant'Ignazio, vescovo di Antiochia, a Roma",
     "StoryId": 110702,
     "Slug": "martyrdom-of-saint-ignatius-of-antioch-7-abib"
   },
@@ -4167,7 +4167,7 @@
   {
     "Day": 11,
     "Month": 11,
-    "Title": "Dipartita di Sant'Isia, l'Eremita",
+    "Title": "Dipartita di Sant'Isaia, l'Eremita",
     "StoryId": 111102,
     "Slug": "departure-of-saint-isaiah-of-scetis"
   },
@@ -4230,7 +4230,7 @@
   {
     "Day": 15,
     "Month": 11,
-    "Title": "Martirio di San Ciriaco e San Giulietta, sua madre",
+    "Title": "Martirio di San Ciriaco e Santa Giulietta, sua madre",
     "StoryId": 111502,
     "Slug": "martyrdom-of-saints-cyriacus-and-julitta"
   },
@@ -4300,7 +4300,7 @@
   {
     "Day": 21,
     "Month": 11,
-    "Title": "Dipartita di San Sisinnios (Sosenius), l'Euneco",
+    "Title": "Dipartita di San Sisinnios (Sosenius), l'Eunuco",
     "StoryId": 112102,
     "Slug": "departure-of-saint-sisinnios-the-eunuch"
   },
@@ -4356,7 +4356,7 @@
   {
     "Day": 25,
     "Month": 11,
-    "Title": "Martirio di Santa Abba Isacco",
+    "Title": "Martirio di Sant'Abba Isacco",
     "StoryId": 112502,
     "Slug": "martyrdom-of-saint-isaac-of-shamah"
   },
@@ -4433,7 +4433,7 @@
   {
     "Day": 27,
     "Month": 11,
-    "Title": "Martirio di St.Apamon (Abba Amoun)",
+    "Title": "Martirio di Sant'Apamon (Abba Amoun)",
     "StoryId": 112701,
     "Slug": "martyrdom-of-saint-apamon-of-tarnout"
   },
@@ -4454,7 +4454,7 @@
   {
     "Day": 29,
     "Month": 11,
-    "Title": "Martirio di San Quarshenoufa (Warshenofius)",
+    "Title": "Martirio di Sant'Ouarshenoufa (Warshenofius)",
     "StoryId": 112903,
     "Slug": "martyrdom-of-saint-ouarshenoufa"
   },
@@ -4489,7 +4489,7 @@
   {
     "Day": 3,
     "Month": 12,
-    "Title": "Trasferimento delle reliquie i San Simeone lo Stilita nella città di Antiochia",
+    "Title": "Trasferimento delle reliquie di San Simeone lo Stilita nella città di Antiochia",
     "StoryId": 120301,
     "Slug": "translation-of-the-relics-of-saint-simeon-the-stylite"
   },
@@ -4622,7 +4622,7 @@
   {
     "Day": 16,
     "Month": 12,
-    "Title": "Assunzione del Corpo della Vergine Vergine Santa Maria",
+    "Title": "Assunzione del Corpo della Vergine Santa Maria",
     "StoryId": 121601,
     "Slug": "assumption-of-virgin-mary"
   },
@@ -4797,7 +4797,7 @@
   {
     "Day": 1,
     "Month": 13,
-    "Title": "Dipartita di San Eutico",
+    "Title": "Dipartita di Sant'Eutico",
     "StoryId": 130101,
     "Slug": "departure-of-saint-eutychus"
   },

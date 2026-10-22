@@ -51,7 +51,7 @@
   {
     "Day": 5,
     "Month": 1,
-    "Title": "Het martelaarschap van St. Sophi",
+    "Title": "Het martelaarschap van St. Sophia",
     "StoryId": 10501,
     "Slug": "martyrdom-of-saint-sophia"
   },
@@ -205,7 +205,7 @@
   {
     "Day": 17,
     "Month": 1,
-    "Title": "Herdenking van de verschijning van de zegenrijke kruis.",
+    "Title": "Herdenking van de verschijning van het zegenrijke kruis.",
     "StoryId": 11701,
     "Slug": "feast-of-the-cross"
   },
@@ -457,7 +457,7 @@
   {
     "Day": 9,
     "Month": 2,
-    "Title": "De zon verduistering.",
+    "Title": "De zonsverduistering.",
     "StoryId": 20903,
     "Slug": "solar-eclipse-of-1241"
   },
@@ -471,7 +471,7 @@
   {
     "Day": 10,
     "Month": 2,
-    "Title": "Het martelaarschap van St. Sergius, metgezel v an St. Bacchus.",
+    "Title": "Het martelaarschap van St. Sergius, metgezel van St. Bacchus.",
     "StoryId": 21001,
     "Slug": "martyrdom-of-saint-sergius-companion-of-saint-bacchus"
   },
@@ -562,7 +562,7 @@
   {
     "Day": 19,
     "Month": 2,
-    "Title": "Het bijeenkomen van de concilie te Antiochië betreffende Paulus, van Samosata.",
+    "Title": "Het bijeenkomen van het concilie te Antiochië betreffende Paulus, van Samosata.",
     "StoryId": 21902,
     "Slug": "council-of-antioch-against-paul-of-samosata"
   },
@@ -611,7 +611,7 @@
   {
     "Day": 22,
     "Month": 2,
-    "Title": "Het Marteldood van St. Lucas de Evangelist.",
+    "Title": "De Marteldood van St. Lucas de Evangelist.",
     "StoryId": 22201,
     "Slug": "martyrdom-of-saint-luke-the-evangelist"
   },
@@ -639,7 +639,7 @@
   {
     "Day": 24,
     "Month": 2,
-    "Title": "Het martelaarschap van het St. Paul, St. Longinus en St. Dina.",
+    "Title": "Het martelaarschap van St. Paul, St. Longinus en St. Dina.",
     "StoryId": 22402,
     "Slug": "martyrdom-of-saints-paul-longinus-and-dina"
   },
@@ -1150,7 +1150,7 @@
   {
     "Day": 5,
     "Month": 4,
-    "Title": "Herdenking van het martelaarschap va de heilige Isidorus.",
+    "Title": "Herdenking van het martelaarschap van de heilige Isidorus.",
     "StoryId": 40503,
     "Slug": "martyrdom-of-saint-isidore-of-alexandria"
   },
@@ -1444,14 +1444,14 @@
   {
     "Day": 26,
     "Month": 4,
-    "Title": "Herdenking van de martelaarschap van de heilige Anastasia.",
+    "Title": "Herdenking van het martelaarschap van de heilige Anastasia.",
     "StoryId": 42601,
     "Slug": "martyrdom-of-saint-anastasia-of-sirmium"
   },
   {
     "Day": 26,
     "Month": 4,
-    "Title": "Herdenking van de martelaarschap van de heilige Juliana.",
+    "Title": "Herdenking van het martelaarschap van de heilige Juliana.",
     "StoryId": 42603,
     "Slug": "martyrdom-of-saint-juliana"
   },
@@ -1598,7 +1598,7 @@
   {
     "Day": 10,
     "Month": 5,
-    "Title": "Paramoen van de glorievolle feest van het doopsel van onze Heer Jezus.",
+    "Title": "Paramoen van het glorievolle feest van het doopsel van onze Heer Jezus.",
     "StoryId": 51001,
     "Slug": "paramoun-of-theophany"
   },
@@ -1766,7 +1766,7 @@
   {
     "Day": 23,
     "Month": 5,
-    "Title": "Het heengaan van de eerbiedig vader anba Kirolos IV (Cyril) , 110e paus van Alexandrië.",
+    "Title": "Het heengaan van de eerbiedige vader anba Kirolos IV (Cyril) , 110e paus van Alexandrië.",
     "StoryId": 52302,
     "Slug": "departure-of-pope-cyril-iv"
   },
@@ -1948,7 +1948,7 @@
   {
     "Day": 6,
     "Month": 6,
-    "Title": "De verschijning van het lichaam van St. Apolidus (Pius I), paus van Rome. (Daten en namen kloppen niet.)",
+    "Title": "De verschijning van het lichaam van St. Apolidus (Pius I), paus van Rome. (Data en namen kloppen niet.)",
     "StoryId": 60604,
     "Slug": "discovery-of-the-relics-of-pope-hippolytus-of-rome"
   },
@@ -2452,7 +2452,7 @@
   {
     "Day": 13,
     "Month": 7,
-    "Title": "De marteldood van de 40martelaren van Sebastia.",
+    "Title": "De marteldood van de 40 martelaren van Sebastia.",
     "StoryId": 71301,
     "Slug": "forty-martyrs-of-sebaste"
   },
@@ -2683,7 +2683,7 @@
   {
     "Day": 29,
     "Month": 7,
-    "Title": "De herdenking van de opstanding v an de Heer Christus uit de dood.",
+    "Title": "De herdenking van de opstanding van de Heer Christus uit de dood.",
     "StoryId": 72902,
     "Slug": "commemoration-of-the-resurrection"
   },
@@ -2753,7 +2753,7 @@
   {
     "Day": 3,
     "Month": 8,
-    "Title": "Het heengaan van de heilige vader anba Michael, 7 1e paus op de zetel van St. Marcus..",
+    "Title": "Het heengaan van de heilige vader anba Michael, 71e paus op de zetel van St. Marcus..",
     "StoryId": 80301,
     "Slug": "departure-of-pope-michael-ii"
   },
@@ -2837,7 +2837,7 @@
   {
     "Day": 9,
     "Month": 8,
-    "Title": "De herdenking van het wonder dat plaatsvond door paus Sinuthius (Shenouda I), 55e paus van Alexandrie.",
+    "Title": "De herdenking van het wonder dat plaatsvond door paus Sinuthius (Shenouda I), 55e paus van Alexandrië.",
     "StoryId": 80902,
     "Slug": "miracle-of-pope-shenouda-i-at-scetis"
   },
@@ -2984,7 +2984,7 @@
   {
     "Day": 19,
     "Month": 8,
-    "Title": "Het martelaarschap van David, de monik.",
+    "Title": "Het martelaarschap van David, de monnik.",
     "StoryId": 81903,
     "Slug": "martyrdom-of-saint-david-ibn-ghobrial"
   },
@@ -3026,14 +3026,14 @@
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Het heengaan van St. Marcus XI, 49e paus van de zetel van St. Marcus.",
+    "Title": "Het heengaan van St. Marcus II, 49e paus van de zetel van St. Marcus.",
     "StoryId": 82202,
     "Slug": "departure-of-pope-mark-ii"
   },
   {
     "Day": 22,
     "Month": 8,
-    "Title": "Het heengaan van St. Michael XI, 53e paus van de zetel van St. Marcus.",
+    "Title": "Het heengaan van St. Michael II, 53e paus van de zetel van St. Marcus.",
     "StoryId": 82203,
     "Slug": "departure-of-pope-khail-ii"
   },
@@ -3047,7 +3047,7 @@
   {
     "Day": 24,
     "Month": 8,
-    "Title": "Het heengaan van paus Sinuthius (Shenouda I), 55e paus van Alexandrie.",
+    "Title": "Het heengaan van paus Sinuthius (Shenouda I), 55e paus van Alexandrië.",
     "StoryId": 82402,
     "Slug": "departure-of-pope-shenouda-i"
   },
@@ -3068,7 +3068,7 @@
   {
     "Day": 25,
     "Month": 8,
-    "Title": "Herdenking van de heiligen Pavnotius, de kluizenaar, Theodorus, de vrome en de hondredentwintig martelaren.",
+    "Title": "Herdenking van de heiligen Pavnotius, de kluizenaar, Theodorus, de vrome en de honderdentwintig martelaren.",
     "StoryId": 82502,
     "Slug": "martyrdom-of-saint-theodore-and-120-martyrs-of-persia"
   },
@@ -3145,7 +3145,7 @@
   {
     "Day": 2,
     "Month": 9,
-    "Title": "Het martelaarschaap van de heilige Philotheus.",
+    "Title": "Het martelaarschap van de heilige Philotheus.",
     "StoryId": 90203,
     "Slug": "martyrdom-of-saint-philotheos-of-dronka"
   },
@@ -3257,7 +3257,7 @@
   {
     "Day": 10,
     "Month": 9,
-    "Title": "Het martelaarschap van de heilige drie jongelingen, Chananja, Misaél en Azarja.",
+    "Title": "Het martelaarschap van de heilige drie jongelingen, Chananja, Misaël en Azarja.",
     "StoryId": 91001,
     "Slug": "three-holy-young-men"
   },
@@ -3299,7 +3299,7 @@
   {
     "Day": 12,
     "Month": 9,
-    "Title": "De herdenking van het verschijning van een kruis van licht boven Golgota.",
+    "Title": "De herdenking van de verschijning van een kruis van licht boven Golgota.",
     "StoryId": 91203,
     "Slug": "apparition-of-the-cross-of-light-above-golgotha"
   },
@@ -4020,7 +4020,7 @@
   {
     "Day": 1,
     "Month": 11,
-    "Title": "Het heengaan van de heiligen Pijoekha and Banayen (Tayaban), de priesters.",
+    "Title": "Het heengaan van de heiligen Pijoekha en Banayen (Tayaban), de priesters.",
     "StoryId": 110102,
     "Slug": "departure-of-saints-bioukha-and-tayaban"
   },
@@ -4342,7 +4342,7 @@
   {
     "Day": 24,
     "Month": 11,
-    "Title": "De martelaarschap van de heilige Abanoub.",
+    "Title": "Het martelaarschap van de heilige Abanoub.",
     "StoryId": 112401,
     "Slug": "martyrdom-of-saint-abanoub-of-nahisah"
   },
@@ -4622,7 +4622,7 @@
   {
     "Day": 15,
     "Month": 12,
-    "Title": "Het heengaan van de heilige Maria, bekend als Marina, de ascetischs.",
+    "Title": "Het heengaan van de heilige Maria, bekend als Marina, de ascetische.",
     "StoryId": 121501,
     "Slug": "departure-of-saint-marina-the-ascetic"
   },
