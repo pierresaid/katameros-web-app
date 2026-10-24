@@ -1,0 +1,3481 @@
+[
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Das Neiruz-Fest, der Beginn des koptischen Jahres.",
+    "StoryId": 10101,
+    "Slug": "coptic-new-year"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Der Gedenktag der Heilung des gerechten Hiob.",
+    "StoryId": 10102,
+    "Slug": "healing-of-job-the-righteous"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Apostels Bartholomäus.",
+    "StoryId": 10103,
+    "Slug": "martyrdom-of-saint-bartholomew-the-apostle"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Abba Milius, des dritten Patriarchen von Alexandrien.",
+    "StoryId": 10104,
+    "Slug": "departure-of-pope-milius"
+  },
+  {
+    "Day": 1,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Abba Markus V., des 98. Patriarchen von Alexandrien.",
+    "StoryId": 10105,
+    "Slug": "departure-of-pope-mark-v"
+  },
+  {
+    "Day": 2,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Johannes des Täufers.",
+    "StoryId": 10201,
+    "Slug": "martyrdom-of-saint-john-the-baptist"
+  },
+  {
+    "Day": 2,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Soldaten Dasya.",
+    "StoryId": 10202,
+    "Slug": "martyrdom-of-saint-dasya"
+  },
+  {
+    "Day": 3,
+    "Month": 1,
+    "Title": "Die Synode in Alexandrien unter Papst Abba Dionysius über die Unsterblichkeit der Seele.",
+    "StoryId": 10301,
+    "Slug": "council-of-alexandria"
+  },
+  {
+    "Day": 3,
+    "Month": 1,
+    "Title": "Das Entschlafen der heiligen Büßerin Theodora.",
+    "StoryId": 10302,
+    "Slug": "departure-of-saint-theodora-the-penitent"
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "Der Gedenktag des Propheten Josua, des Sohnes Nuns.",
+    "StoryId": 10401,
+    "Slug": "departure-of-prophet-joshua"
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Abba Makarius II., des 69. Patriarchen von Alexandrien.",
+    "StoryId": 10402,
+    "Slug": "departure-of-pope-macarius-ii"
+  },
+  {
+    "Day": 4,
+    "Month": 1,
+    "Title": "Das Entschlafen der heiligen Verena.",
+    "StoryId": 10403,
+    "Slug": "departure-of-saint-verena"
+  },
+  {
+    "Day": 5,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Sophia.",
+    "StoryId": 10501,
+    "Slug": "martyrdom-of-saint-sophia"
+  },
+  {
+    "Day": 6,
+    "Month": 1,
+    "Title": "Das Martyrium des Propheten Jesaja, des Sohnes des Amoz.",
+    "StoryId": 10601,
+    "Slug": "martyrdom-of-prophet-isaiah"
+  },
+  {
+    "Day": 6,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Basilia.",
+    "StoryId": 10602,
+    "Slug": "martyrdom-of-saint-basilissa"
+  },
+  {
+    "Day": 7,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Dioskorus I., des 25. Patriarchen von Alexandrien.",
+    "StoryId": 10701,
+    "Slug": "departure-of-pope-dioscorus-i"
+  },
+  {
+    "Day": 7,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Johannes XII., des 93. Patriarchen von Alexandrien.",
+    "StoryId": 10702,
+    "Slug": "departure-of-pope-john-xii"
+  },
+  {
+    "Day": 7,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Rebekka und ihrer fünf Kinder: Agathon, Petrus, Johannes, Amon und Amona.",
+    "StoryId": 10703,
+    "Slug": "martyrdom-of-saint-rebecca-and-her-five-children"
+  },
+  {
+    "Day": 7,
+    "Month": 1,
+    "Title": "Das Entschlafen des heiligen Severian, des Bischofs von Gabala in Griechenland.",
+    "StoryId": 10704,
+    "Slug": "departure-of-saint-severian-of-gabala"
+  },
+  {
+    "Day": 8,
+    "Month": 1,
+    "Title": "Das Entschlafen des Propheten Mose.",
+    "StoryId": 10801,
+    "Slug": "departure-of-prophet-moses"
+  },
+  {
+    "Day": 8,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Priesters Zacharias.",
+    "StoryId": 10802,
+    "Slug": "martyrdom-of-zacharias-the-priest"
+  },
+  {
+    "Day": 8,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Priesters Dimides.",
+    "StoryId": 10803,
+    "Slug": "martyrdom-of-saint-dimides"
+  },
+  {
+    "Day": 9,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Abba Pisoura, des Bischofs von Mesil.",
+    "StoryId": 10901,
+    "Slug": "martyrdom-of-saint-pisora-the-bishop"
+  },
+  {
+    "Day": 9,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Bischöfe Pilus und Nilius.",
+    "StoryId": 10902,
+    "Slug": "martyrdom-of-bishops-peleus-and-nilus"
+  },
+  {
+    "Day": 10,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Johannes des Ägypters und seiner 20 Gefährten.",
+    "StoryId": 11001,
+    "Slug": "martyrdom-of-saint-john-the-egyptian-and-companions"
+  },
+  {
+    "Day": 10,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Matrona.",
+    "StoryId": 11002,
+    "Slug": "martyrdom-of-saint-matrona"
+  },
+  {
+    "Day": 10,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Basin und ihrer drei Kinder.",
+    "StoryId": 11003,
+    "Slug": "martyrdom-of-saint-basin-and-her-three-children"
+  },
+  {
+    "Day": 11,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Wasilides, des Ministers.",
+    "StoryId": 11101,
+    "Slug": "martyrdom-of-saint-basilides-the-minister"
+  },
+  {
+    "Day": 11,
+    "Month": 1,
+    "Title": "Das Martyrium der drei Bauern von Esna.",
+    "StoryId": 11102,
+    "Slug": "martyrdom-of-the-three-farmers-of-esna"
+  },
+  {
+    "Day": 12,
+    "Month": 1,
+    "Title": "Gedenktag des reinen Erzengels Michael.",
+    "StoryId": 11201,
+    "Slug": "commemoration-of-archangel-michael-12-thout"
+  },
+  {
+    "Day": 12,
+    "Month": 1,
+    "Title": "Der Gedenktag der Einberufung des ökumenischen Konzils in Ephesus.",
+    "StoryId": 11202,
+    "Slug": "council-of-ephesus"
+  },
+  {
+    "Day": 12,
+    "Month": 1,
+    "Title": "Die Überführung der Reliquien des heiligen Clemus und seiner Gefährten.",
+    "StoryId": 11203,
+    "Slug": "translation-of-the-relics-of-saint-clemus-and-companions"
+  },
+  {
+    "Day": 13,
+    "Month": 1,
+    "Title": "Der Gedenktag des Wunders, das der heilige Basilius der Große, der Bischof von Cäsarea in Kappadokien, vollbrachte.",
+    "StoryId": 11301,
+    "Slug": "miracle-of-saint-basil-the-great"
+  },
+  {
+    "Day": 13,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Abba Matthäus II., des 90. Patriarchen von Alexandrien.",
+    "StoryId": 11302,
+    "Slug": "departure-of-pope-matthew-ii"
+  },
+  {
+    "Day": 14,
+    "Month": 1,
+    "Title": "Das Entschlafen des heiligen Agathon des Styliten.",
+    "StoryId": 11401,
+    "Slug": "departure-of-saint-agathon-the-stylite"
+  },
+  {
+    "Day": 14,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Felix, seiner Schwester Regula und des heiligen Exuperantius.",
+    "StoryId": 11402,
+    "Slug": "martyrdom-of-saints-felix-regula-and-exuperantius"
+  },
+  {
+    "Day": 15,
+    "Month": 1,
+    "Title": "Überführung des Leibes des heiligen Stephanus nach Konstantinopel.",
+    "StoryId": 11501,
+    "Slug": "translation-of-the-relics-of-saint-stephen-the-archdeacon"
+  },
+  {
+    "Day": 15,
+    "Month": 1,
+    "Title": "Das Entschlafen des Abba Athanasius von Qus.",
+    "StoryId": 11502,
+    "Slug": "departure-of-saint-athanasius-bishop-of-qus"
+  },
+  {
+    "Day": 16,
+    "Month": 1,
+    "Title": "Die Weihung der Auferstehungskirche in Jerusalem.",
+    "StoryId": 11601,
+    "Slug": "consecration-of-the-church-of-the-resurrection"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Gedenken des Festes des ehrwürdigen Kreuzes in der Auferstehungskirche.",
+    "StoryId": 11701,
+    "Slug": "feast-of-the-cross"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Priesters Kastor.",
+    "StoryId": 11702,
+    "Slug": "martyrdom-of-saint-castor"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Das Entschlafen der heiligen Theognosta.",
+    "StoryId": 11703,
+    "Slug": "departure-of-saint-theognosta"
+  },
+  {
+    "Day": 17,
+    "Month": 1,
+    "Title": "Das Entschlafen des heiligen Girgis El-Gohary, des Gelehrten.",
+    "StoryId": 11704,
+    "Slug": "departure-of-girgis-el-gohari"
+  },
+  {
+    "Day": 18,
+    "Month": 1,
+    "Title": "Der zweite Tag des Festes des ehrwürdigen Kreuzes.",
+    "StoryId": 11801,
+    "Slug": "second-day-of-the-feast-of-the-cross"
+  },
+  {
+    "Day": 18,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Prophorius.",
+    "StoryId": 11802,
+    "Slug": "martyrdom-of-saint-porphyrius-the-mime"
+  },
+  {
+    "Day": 18,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Priesters Stephanus und der heiligen Niketa.",
+    "StoryId": 11803,
+    "Slug": "martyrdom-of-saints-stephen-the-presbyter-and-niceta"
+  },
+  {
+    "Day": 19,
+    "Month": 1,
+    "Title": "Der dritte Tag des Festes des ehrwürdigen Kreuzes.",
+    "StoryId": 11901,
+    "Slug": "third-day-of-the-feast-of-the-cross"
+  },
+  {
+    "Day": 19,
+    "Month": 1,
+    "Title": "Der Gedenktag der Erhebung des heiligen Gregorius des Erleuchters, des Armeniers, aus der Grube.",
+    "StoryId": 11902,
+    "Slug": "rescue-of-saint-gregory-the-illuminator-from-the-pit"
+  },
+  {
+    "Day": 20,
+    "Month": 1,
+    "Title": "Das Entschlafen der heiligen Theopista.",
+    "StoryId": 12001,
+    "Slug": "departure-of-saint-theopista"
+  },
+  {
+    "Day": 20,
+    "Month": 1,
+    "Title": "Das Entschlafen des Papstes Abba Athanasius II., des 28. Patriarchen von Alexandrien.",
+    "StoryId": 12002,
+    "Slug": "departure-of-pope-athanasius-ii"
+  },
+  {
+    "Day": 20,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Jungfrau Melitina.",
+    "StoryId": 12003,
+    "Slug": "martyrdom-of-saint-melitina"
+  },
+  {
+    "Day": 21,
+    "Month": 1,
+    "Title": "Der Gedenktag der heiligen Jungfrau Maria, der Mutter Gottes.",
+    "StoryId": 12101,
+    "Slug": "commemoration-of-virgin-mary-21-thout"
+  },
+  {
+    "Day": 21,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Bischofs Kyprian und der heiligen Justina.",
+    "StoryId": 12102,
+    "Slug": "martyrdom-of-saints-cyprian-and-justina"
+  },
+  {
+    "Day": 22,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Kobtlas, seiner Schwester Axoua und seines Freundes Tatas.",
+    "StoryId": 12201,
+    "Slug": "martyrdom-of-saint-cotylas-and-companions"
+  },
+  {
+    "Day": 22,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Julius aus Akfahs, des Verfassers der Märtyrerakten, und seiner Gefährten.",
+    "StoryId": 12202,
+    "Slug": "martyrdom-of-saint-julius-of-aqfahs-and-companions"
+  },
+  {
+    "Day": 23,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Brüder Onanius und Andreas.",
+    "StoryId": 12301,
+    "Slug": "martyrdom-of-saints-eunapius-and-andrew"
+  },
+  {
+    "Day": 23,
+    "Month": 1,
+    "Title": "Der Gedenktag der heiligen Märtyrerin Thekla.",
+    "StoryId": 12302,
+    "Slug": "commemoration-of-saint-thecla"
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Quadratus, eines der siebzig Apostel Christi.",
+    "StoryId": 12401,
+    "Slug": "martyrdom-of-saint-quadratus"
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "Das Entschlafen des heiligen Gregorius von Nazianz, des Theologen.",
+    "StoryId": 12402,
+    "Slug": "departure-of-saint-gregory-the-theologian"
+  },
+  {
+    "Day": 24,
+    "Month": 1,
+    "Title": "Das Entschlafen des heiligen Mönchs Gregorius.",
+    "StoryId": 12403,
+    "Slug": "departure-of-saint-gregory-the-monk"
+  },
+  {
+    "Day": 25,
+    "Month": 1,
+    "Title": "Der Gedenktag des Entschlafens des Propheten Jona.",
+    "StoryId": 12501,
+    "Slug": "departure-of-prophet-jonah"
+  },
+  {
+    "Day": 25,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Mauritius, des Legionskommandants der Thebäischen Legion.",
+    "StoryId": 12502,
+    "Slug": "martyrdom-of-saint-maurice"
+  },
+  {
+    "Day": 26,
+    "Month": 1,
+    "Title": "Die Verkündigung der Geburt Johannes des Täufers an den Priester Zacharias.",
+    "StoryId": 12601,
+    "Slug": "annunciation-to-zacharias"
+  },
+  {
+    "Day": 27,
+    "Month": 1,
+    "Title": "Das Martyrium des heiligen Eustathius, seiner beiden Söhne und seiner Frau.",
+    "StoryId": 12701,
+    "Slug": "martyrdom-of-saint-eustathius-and-his-family"
+  },
+  {
+    "Day": 28,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Apadier und Irai (einige Quellen nennen sie Irene), seiner Schwester.",
+    "StoryId": 12801,
+    "Slug": "martyrdom-of-saints-abadir-and-irai"
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "Der Gedenktag der drei großen Herrenfeste Christi.",
+    "StoryId": 12901,
+    "Slug": "commemoration-of-the-three-major-feasts-of-the-lord-29-thout"
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Hripsime und ihrer Gefährtinnen.",
+    "StoryId": 12902,
+    "Slug": "martyrdom-of-saint-arbsima-and-companions"
+  },
+  {
+    "Day": 29,
+    "Month": 1,
+    "Title": "Das Martyrium der heiligen Jungfrau Febronia.",
+    "StoryId": 12903,
+    "Slug": "martyrdom-of-saint-febronia-the-coptic-nun"
+  },
+  {
+    "Day": 30,
+    "Month": 1,
+    "Title": "Der Gedenktag des Wunders, das der Herr durch den heiligen Athanasius den Apostelgleichen wirkte.",
+    "StoryId": 13001,
+    "Slug": "miracle-of-pope-athanasius-i"
+  },
+  {
+    "Day": 1,
+    "Month": 2,
+    "Title": "Das Martyrium der heiligen Anastasia.",
+    "StoryId": 20101,
+    "Slug": "martyrdom-of-saint-anastasia-the-nun"
+  },
+  {
+    "Day": 2,
+    "Month": 2,
+    "Title": "Der Gedenktag der Ankunft des heiligen Severus, des Patriarchen von Antiochien, nach Ägypten.",
+    "StoryId": 20201,
+    "Slug": "coming-of-patriarch-severus-of-antioch-to-egypt"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Das Entschlafen des Papstes Abba Simeon II., des 51. Patriarchen von Alexandrien.",
+    "StoryId": 20301,
+    "Slug": "departure-of-pope-simeon-ii"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Das Martyrium der heiligen Ursus und Victor aus der Thebäischen Legion.",
+    "StoryId": 20302,
+    "Slug": "martyrdom-of-saints-ursus-and-victor"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Soldaten Johannes aus Ashrub.",
+    "StoryId": 20304,
+    "Slug": "martyrdom-of-saint-john-el-ashruby-the-soldier"
+  },
+  {
+    "Day": 3,
+    "Month": 2,
+    "Title": "Das Entschlafen der heiligen Kaiserin Theodora I.",
+    "StoryId": 20303,
+    "Slug": "departure-of-empress-theodora"
+  },
+  {
+    "Day": 4,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Bachus, des Gefährten des heiligen Sergius.",
+    "StoryId": 20401,
+    "Slug": "martyrdom-of-saint-bacchus"
+  },
+  {
+    "Day": 5,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Paulus I., Patriarch von Konstantinopel.",
+    "StoryId": 20501,
+    "Slug": "martyrdom-of-patriarch-paul-of-constantinople"
+  },
+  {
+    "Day": 5,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Abba Petrus, Bischof von Bahnasa.",
+    "StoryId": 20502,
+    "Slug": "departure-of-saint-peter-bishop-of-bahnasa"
+  },
+  {
+    "Day": 6,
+    "Month": 2,
+    "Title": "Das Entschlafen der Gerechten Anna, der Mutter des Propheten Samuel.",
+    "StoryId": 20601,
+    "Slug": "departure-of-hannah-mother-of-samuel"
+  },
+  {
+    "Day": 7,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Abba Paul aus Tammoh.",
+    "StoryId": 20701,
+    "Slug": "departure-of-saint-paul-of-tammoh"
+  },
+  {
+    "Day": 8,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Matra.",
+    "StoryId": 20801,
+    "Slug": "martyrdom-of-saint-matra-the-elder"
+  },
+  {
+    "Day": 8,
+    "Month": 2,
+    "Title": "Das Martyrium der heiligen Abba Hor, Tosia (Susanna) und ihrer Kinder.",
+    "StoryId": 20802,
+    "Slug": "martyrdom-of-saints-abahor-tosia-and-their-children"
+  },
+  {
+    "Day": 8,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Einsiedlers Abba Agathon.",
+    "StoryId": 20803,
+    "Slug": "departure-of-saint-agathon-the-hermit"
+  },
+  {
+    "Day": 9,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Eumenius, des siebten Patriarchen von Alexandrien.",
+    "StoryId": 20901,
+    "Slug": "departure-of-pope-eumenes"
+  },
+  {
+    "Day": 9,
+    "Month": 2,
+    "Title": "Der Gedenktag des Martyriums des heiligen Bischofs Simon und seiner Gefährten.",
+    "StoryId": 20902,
+    "Slug": "martyrdom-of-saint-simeon-bishop-of-persia-9-babah"
+  },
+  {
+    "Day": 10,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Sergius, des Gefährten des heiligen Bachus.",
+    "StoryId": 21001,
+    "Slug": "martyrdom-of-saint-sergius-companion-of-saint-bacchus"
+  },
+  {
+    "Day": 11,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Abba Jakobus, Patriarch von Antiochien.",
+    "StoryId": 21101,
+    "Slug": "departure-of-patriarch-james-of-antioch"
+  },
+  {
+    "Day": 11,
+    "Month": 2,
+    "Title": "Das Entschlafen der heiligen Büßerin Pelagia.",
+    "StoryId": 21102,
+    "Slug": "departure-of-saint-pelagia-the-penitent"
+  },
+  {
+    "Day": 12,
+    "Month": 2,
+    "Title": "Der Gedenktag des reinen Erzengels Michael.",
+    "StoryId": 21201,
+    "Slug": "commemoration-of-archangel-michael-12-babah"
+  },
+  {
+    "Day": 12,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Matthäus, des Evangelisten und Verkündigers.",
+    "StoryId": 21202,
+    "Slug": "martyrdom-of-saint-matthew-the-evangelist"
+  },
+  {
+    "Day": 12,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Dimitrius, des Weingärtners, des zwölften Patriarchen von Alexandrien.",
+    "StoryId": 21203,
+    "Slug": "departure-of-pope-demetrius-i"
+  },
+  {
+    "Day": 13,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Mönchs Zacharias.",
+    "StoryId": 21301,
+    "Slug": "departure-of-saint-zacharias-the-monk"
+  },
+  {
+    "Day": 14,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Philippus, einer der sieben Diakone.",
+    "StoryId": 21401,
+    "Slug": "departure-of-saint-philip-the-deacon"
+  },
+  {
+    "Day": 15,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Arztes Pantaleon.",
+    "StoryId": 21501,
+    "Slug": "martyrdom-of-saint-panteleimon-15-babah"
+  },
+  {
+    "Day": 16,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Agatho, des 39. Patriarchen von Alexandrien.",
+    "StoryId": 21601,
+    "Slug": "departure-of-pope-agathon"
+  },
+  {
+    "Day": 16,
+    "Month": 2,
+    "Title": "Der Gedenktag der heiligen Karpus, Apollus und Petrus.",
+    "StoryId": 21602,
+    "Slug": "commemoration-of-saints-carpus-apollos-and-peter"
+  },
+  {
+    "Day": 17,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Dioskorus II., des 31. Patriarchen von Alexandrien.",
+    "StoryId": 21701,
+    "Slug": "departure-of-pope-dioscorus-ii"
+  },
+  {
+    "Day": 18,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Theophilus I., des 23. Patriarchen von Alexandrien.",
+    "StoryId": 21801,
+    "Slug": "departure-of-pope-theophilus"
+  },
+  {
+    "Day": 19,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Theophilus und seiner Frau zu Faijum.",
+    "StoryId": 21901,
+    "Slug": "martyrdom-of-saint-theophilus-and-his-wife"
+  },
+  {
+    "Day": 19,
+    "Month": 2,
+    "Title": "Das Konzil von Antiochien zur Verurteilung des Paul von Samosata.",
+    "StoryId": 21902,
+    "Slug": "council-of-antioch-against-paul-of-samosata"
+  },
+  {
+    "Day": 20,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Mönchsvaters Abba Johannes des Kleinen.",
+    "StoryId": 22001,
+    "Slug": "departure-of-saint-john-the-short"
+  },
+  {
+    "Day": 21,
+    "Month": 2,
+    "Title": "Der monatliche Gedenktag der Mutter Gottes, der heiligen Jungfrau Maria.",
+    "StoryId": 22101,
+    "Slug": "commemoration-of-virgin-mary-21-babah"
+  },
+  {
+    "Day": 21,
+    "Month": 2,
+    "Title": "Das Entschlafen des Propheten Joel.",
+    "StoryId": 22102,
+    "Slug": "departure-of-prophet-joel"
+  },
+  {
+    "Day": 21,
+    "Month": 2,
+    "Title": "Die Übertragung des Leibes des Lazarus, des Freundes des Herrn.",
+    "StoryId": 22103,
+    "Slug": "translation-of-the-relics-of-saint-lazarus"
+  },
+  {
+    "Day": 21,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Abba Freg, Rowes oder Abba Teġi",
+    "StoryId": 22104,
+    "Slug": "departure-of-anba-roweis"
+  },
+  {
+    "Day": 22,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Evangelisten Lukas.",
+    "StoryId": 22201,
+    "Slug": "martyrdom-of-saint-luke-the-evangelist"
+  },
+  {
+    "Day": 23,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Dionysius, Bischof von Korinth.",
+    "StoryId": 22301,
+    "Slug": "martyrdom-of-saint-dionysius-of-corinth"
+  },
+  {
+    "Day": 23,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Josab I., des 52. Patriarchen von Alexandrien.",
+    "StoryId": 22302,
+    "Slug": "departure-of-pope-joseph-i"
+  },
+  {
+    "Day": 24,
+    "Month": 2,
+    "Title": "Das Entschlafen des großen Vaters Abba Hilarion der Mönch.",
+    "StoryId": 22401,
+    "Slug": "departure-of-saint-hilarion-the-great"
+  },
+  {
+    "Day": 24,
+    "Month": 2,
+    "Title": "Das Martyrium der heiligen Paul, Longinus und Dina.",
+    "StoryId": 22402,
+    "Slug": "martyrdom-of-saints-paul-longinus-and-dina"
+  },
+  {
+    "Day": 25,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Abba Abib, des Freundes des heiligen Abba Apollo.",
+    "StoryId": 22501,
+    "Slug": "departure-of-saint-abib-friend-of-saint-apollo"
+  },
+  {
+    "Day": 25,
+    "Month": 2,
+    "Title": "Das Kirchweihfest des heiligen Märtyrers Julius von Akfahs, des Schreibers der Märtyrerakten.",
+    "StoryId": 22502,
+    "Slug": "consecration-of-the-church-of-saint-julius-of-aqfahs"
+  },
+  {
+    "Day": 26,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Apostels Timon, einer der Siebzig Apostel und einer der sieben Diakone.",
+    "StoryId": 22601,
+    "Slug": "martyrdom-of-saint-timon-the-apostle"
+  },
+  {
+    "Day": 26,
+    "Month": 2,
+    "Title": "Der Gedenktag der sieben Märtyrer auf dem Berg des heiligen Antonius.",
+    "StoryId": 22602,
+    "Slug": "seven-martyrs-of-mount-saint-anthony"
+  },
+  {
+    "Day": 27,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Makarius, Bischof von Qau.",
+    "StoryId": 22701,
+    "Slug": "martyrdom-of-saint-macarius-of-edkow"
+  },
+  {
+    "Day": 28,
+    "Month": 2,
+    "Title": "Das Martyrium der heiligen Märtyrer Markianus und Merkourius.",
+    "StoryId": 22801,
+    "Slug": "martyrdom-of-saints-marcian-and-mercurius"
+  },
+  {
+    "Day": 29,
+    "Month": 2,
+    "Title": "Gedenktag der drei Herrenfeste Christi: Verkündigung, Geburt und Auferstehung des Herrn.",
+    "StoryId": 22901,
+    "Slug": "commemoration-of-the-three-major-feasts-of-the-lord-29-babah"
+  },
+  {
+    "Day": 29,
+    "Month": 2,
+    "Title": "Das Martyrium des heiligen Dimitrius von Thessaloniki.",
+    "StoryId": 22902,
+    "Slug": "martyrdom-of-saint-demetrius-of-thessalonica"
+  },
+  {
+    "Day": 29,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Gabriel VII., des 95. Patriarchen von Alexandrien.",
+    "StoryId": 22903,
+    "Slug": "departure-of-pope-gabriel-vii-29-babah"
+  },
+  {
+    "Day": 30,
+    "Month": 2,
+    "Title": "Die Erscheinung des Hauptes des heiligen Evangelisten Markus, und die Einweihung seiner Kirche.",
+    "StoryId": 23001,
+    "Slug": "discovery-of-the-head-of-saint-mark-the-evangelist"
+  },
+  {
+    "Day": 30,
+    "Month": 2,
+    "Title": "Das Entschlafen des heiligen Einsiedlers Abraham von Monuf",
+    "StoryId": 23002,
+    "Slug": "departure-of-saint-abraham-of-menouf"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Apostels Kleopas, einer der beiden Jünger von Emmaus.",
+    "StoryId": 30101,
+    "Slug": "martyrdom-of-saint-cleopas-the-apostle"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Kyriakus, des Bischofs von Jerusalem, und seiner Mutter.",
+    "StoryId": 30102,
+    "Slug": "martyrdom-of-saint-cyriacus-bishop-of-jerusalem"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Maximus, Numitius, Viktor und Philippus",
+    "StoryId": 30103,
+    "Slug": "martyrdom-of-saints-maximus-numitius-victor-and-philip"
+  },
+  {
+    "Day": 1,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Anastasia, die Ältere, und des heiligen Kyrillus",
+    "StoryId": 30104,
+    "Slug": "martyrdom-of-saints-anastasia-the-elder-and-cyril"
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Petrus III., des 27. Patriarchen von Alexandrien.",
+    "StoryId": 30201,
+    "Slug": "departure-of-pope-peter-iii"
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Makarius von Libyen.",
+    "StoryId": 30202,
+    "Slug": "martyrdom-of-saint-macarius-the-libyan"
+  },
+  {
+    "Day": 2,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Ephrämius von Edessa.",
+    "StoryId": 30203,
+    "Slug": "departure-of-saint-abraham-of-edessa-2-hatour"
+  },
+  {
+    "Day": 3,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Athanasius und seiner Schwester Irene.",
+    "StoryId": 30301,
+    "Slug": "martyrdom-of-saints-athanasius-and-irene"
+  },
+  {
+    "Day": 3,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Agathon.",
+    "StoryId": 30302,
+    "Slug": "martyrdom-of-saint-agathon"
+  },
+  {
+    "Day": 3,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Kyriakus von Korinth.",
+    "StoryId": 30303,
+    "Slug": "departure-of-saint-cyriacus-of-corinth"
+  },
+  {
+    "Day": 4,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Bischöfe Johannes und Jakobus von Persien.",
+    "StoryId": 30401,
+    "Slug": "martyrdom-of-saints-john-and-james-bishops-of-persia"
+  },
+  {
+    "Day": 4,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Bischofs Abba Thomas.",
+    "StoryId": 30402,
+    "Slug": "martyrdom-of-saint-thomas-bishop-of-damascus"
+  },
+  {
+    "Day": 4,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Epimachus und Adarianus (Azarianus).",
+    "StoryId": 30403,
+    "Slug": "martyrdom-of-saints-epimachus-and-adrianus"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Das Erscheinen des Hauptes des heiligen Soldaten Longinus.",
+    "StoryId": 30501,
+    "Slug": "discovery-of-the-head-of-saint-longinus-the-soldier"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Timotheus und seiner Ehefrau Mora.",
+    "StoryId": 30502,
+    "Slug": "martyrdom-of-saint-timothy-the-deacon"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Die Überführung des Leibes des heiligen Fürsten Theodorus von Schotb nach Schotb.",
+    "StoryId": 30503,
+    "Slug": "translation-of-the-relics-of-saint-theodore-of-shotep"
+  },
+  {
+    "Day": 5,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Josab vom Berge Schama.",
+    "StoryId": 30504,
+    "Slug": "departure-of-saint-yousab-of-shamah"
+  },
+  {
+    "Day": 6,
+    "Month": 3,
+    "Title": "Der Gedenktag der Einweihung der altehrwürdigen Kirche der heiligen Jungfrau im Al-Muharraq-Kloster am Berg Qusqam.",
+    "StoryId": 30601,
+    "Slug": "consecration-of-the-church-of-virgin-mary-at-muharraq"
+  },
+  {
+    "Day": 6,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Felix I., des 26. Papstes von Rom.",
+    "StoryId": 30602,
+    "Slug": "departure-of-pope-felix-of-rome"
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche des großen Märtyrers St. Georg, des Römers zu Lydda.",
+    "StoryId": 30701,
+    "Slug": "consecration-of-the-church-of-saint-george-in-lydda"
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Georg, des Alexandriners.",
+    "StoryId": 30702,
+    "Slug": "martyrdom-of-saint-george-the-alexandrian"
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Abba Nehroua (Naharua).",
+    "StoryId": 30703,
+    "Slug": "martyrdom-of-saint-nehroua"
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Akebsyma, Itala und Josef.",
+    "StoryId": 30704,
+    "Slug": "martyrdom-of-saints-akebsyma-itala-and-joseph"
+  },
+  {
+    "Day": 7,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Abba Mina, Bischof von Tami Al-Amdid.",
+    "StoryId": 30705,
+    "Slug": "departure-of-saint-mina-bishop-of-thmuis"
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "Der Gedenktag der vier unleiblichen Lebewesen.",
+    "StoryId": 30801,
+    "Slug": "commemoration-of-the-four-incorporeal-creatures"
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Nikandrus, des Priesters von Myra.",
+    "StoryId": 30802,
+    "Slug": "martyrdom-of-saint-nicander"
+  },
+  {
+    "Day": 8,
+    "Month": 3,
+    "Title": "Das Entschlafen des Abba Pierius, des Leiters der theologischen Schule von Alexandrien.",
+    "StoryId": 30803,
+    "Slug": "departure-of-saint-pierius"
+  },
+  {
+    "Day": 9,
+    "Month": 3,
+    "Title": "Der Gedenktag an die Versammlung des ersten ökumenischen Konzils von Nicäa.",
+    "StoryId": 30901,
+    "Slug": "council-of-nicaea"
+  },
+  {
+    "Day": 9,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Isaak, des 41. Patriarchen von Alexandrien.",
+    "StoryId": 30902,
+    "Slug": "departure-of-pope-isaac"
+  },
+  {
+    "Day": 10,
+    "Month": 3,
+    "Title": "Das Martyrium der fünfzig Jungfrauen und ihrer Mutter.",
+    "StoryId": 31001,
+    "Slug": "martyrdom-of-the-fifty-virgins-and-saint-sophia"
+  },
+  {
+    "Day": 10,
+    "Month": 3,
+    "Title": "Das Konzil in Rom wegen des glorreichen Festes der Taufe Christi und der Großen Fastenzeit.",
+    "StoryId": 31002,
+    "Slug": "council-of-rome-on-theophany-and-great-lent"
+  },
+  {
+    "Day": 11,
+    "Month": 3,
+    "Title": "Die Vollendung der heiligen Anna, der Mutter der heiligen Jungfrau Maria.",
+    "StoryId": 31101,
+    "Slug": "departure-of-saint-anna-mother-of-virgin-mary"
+  },
+  {
+    "Day": 11,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Mönchs Michael.",
+    "StoryId": 31102,
+    "Slug": "martyrdom-of-saint-michael-the-monk"
+  },
+  {
+    "Day": 11,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Archelaus und des Hegumenos Elischa.",
+    "StoryId": 31103,
+    "Slug": "martyrdom-of-saints-archelaus-and-elisha"
+  },
+  {
+    "Day": 12,
+    "Month": 3,
+    "Title": "Der Gedenktag des ehrwürdigen Erzengels Michael, des Obersten der Heerscharen des Himmels.",
+    "StoryId": 31201,
+    "Slug": "commemoration-of-archangel-michael-12-hatour"
+  },
+  {
+    "Day": 12,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Johannes, des Syrers.",
+    "StoryId": 31202,
+    "Slug": "departure-of-saint-john-the-syrian"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Der Gedenktag des ehrwürdigen Erzengels Gabriel.",
+    "StoryId": 31301,
+    "Slug": "commemoration-of-archangel-gabriel-13-hatour"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Zacharias, des 64. Patriarchen von Alexandrien.",
+    "StoryId": 31302,
+    "Slug": "departure-of-pope-zacharias-13-hatour"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Theodor Tiro.",
+    "StoryId": 31303,
+    "Slug": "martyrdom-of-saint-theodore-tiro"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Bischofs Timotheus von Ansina.",
+    "StoryId": 31304,
+    "Slug": "departure-of-saint-timothy-bishop-of-ansena"
+  },
+  {
+    "Day": 13,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Abba Josab vom Berg Al-Asas.",
+    "StoryId": 31305,
+    "Slug": "departure-of-saint-yousab-of-el-assas"
+  },
+  {
+    "Day": 14,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Martinus, des Bischofs von Thrakien.",
+    "StoryId": 31401,
+    "Slug": "departure-of-saint-martin-of-tours"
+  },
+  {
+    "Day": 14,
+    "Month": 3,
+    "Title": "Das Martyrium des Offiziers Pharos und seiner Lehrer.",
+    "StoryId": 31402,
+    "Slug": "martyrdom-of-saint-faros-and-the-six-hermits"
+  },
+  {
+    "Day": 15,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Mina, des Wundertäters.",
+    "StoryId": 31501,
+    "Slug": "martyrdom-of-saint-mina-the-wonder-worker"
+  },
+  {
+    "Day": 15,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Johannes, El-Rabban (Priester-Mönch).",
+    "StoryId": 31502,
+    "Slug": "departure-of-saint-john-el-rabban"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Beginn des heiligen Weihnachtsfastens in unserer koptisch-orthodoxen Kirche",
+    "StoryId": 31601,
+    "Slug": "nativity-fast"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche des heiligen Anachoreten Abba Onuphrius.",
+    "StoryId": 31602,
+    "Slug": "consecration-of-the-church-of-saint-onuphrius"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Bischofs Justus.",
+    "StoryId": 31603,
+    "Slug": "martyrdom-of-saint-justus-the-bishop"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Mina II., des 61. Patriarchen von Alexandrien.",
+    "StoryId": 31604,
+    "Slug": "departure-of-pope-mina-ii"
+  },
+  {
+    "Day": 16,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Nilus von Sinai.",
+    "StoryId": 31605,
+    "Slug": "departure-of-saint-nilus-of-sinai"
+  },
+  {
+    "Day": 17,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Johannes Chrysostomos genannt auch Johannes Goldmund.",
+    "StoryId": 31701,
+    "Slug": "departure-of-saint-john-chrysostom"
+  },
+  {
+    "Day": 17,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Paulus vom Berg Denfiq.",
+    "StoryId": 31702,
+    "Slug": "departure-of-saint-paul-of-danfeek"
+  },
+  {
+    "Day": 18,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Apostels Philippus.",
+    "StoryId": 31801,
+    "Slug": "martyrdom-of-saint-philip-the-apostle"
+  },
+  {
+    "Day": 18,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Jungfrauen Atrasis und Junia.",
+    "StoryId": 31802,
+    "Slug": "martyrdom-of-saints-atrasis-and-joanna"
+  },
+  {
+    "Day": 18,
+    "Month": 3,
+    "Title": "Der Gedenktag an das Wunder der Versetzung des Mokattam-Berges.",
+    "StoryId": 31803,
+    "Slug": "miracle-of-moving-the-mokattam-mountain"
+  },
+  {
+    "Day": 19,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche der heiligen Sergius und Bachus in Resafa.",
+    "StoryId": 31901,
+    "Slug": "consecration-of-the-church-of-saints-sergius-and-bacchus"
+  },
+  {
+    "Day": 19,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Abibus.",
+    "StoryId": 31902,
+    "Slug": "martyrdom-of-saint-abibus"
+  },
+  {
+    "Day": 20,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Anianus, des zweiten Patriarchen von Alexandrien.",
+    "StoryId": 32001,
+    "Slug": "departure-of-pope-anianus"
+  },
+  {
+    "Day": 20,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirchen des heiligen Prinzen Theodorus von Schotb und des heiligen Prinzen Theodorus, des Orientalen.",
+    "StoryId": 32002,
+    "Slug": "consecration-of-the-church-of-saint-theodore-of-shotep"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Der Gedenktag der Entschlafung der heiligen Jungfrau Maria, der Mutter Gottes.",
+    "StoryId": 32101,
+    "Slug": "commemoration-of-virgin-mary-21-hatour"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Gregorius Thaumaturgos.",
+    "StoryId": 32102,
+    "Slug": "departure-of-saint-gregory-the-wonder-worker"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Kosma II., des 54. Patriarchen von Alexandrien.",
+    "StoryId": 32103,
+    "Slug": "departure-of-pope-cosmas-ii"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Johannes von Tabais, Einsiedler auf dem Berg von Asyut.",
+    "StoryId": 32104,
+    "Slug": "departure-of-saint-john-of-lycopolis"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Gedenktag der heiligen Märtyrer: Alphäus, Zachäus, Romanus und Johannes; sowie der Märtyrer Thomas, Viktor und Isaak von Aschmunen.",
+    "StoryId": 32105,
+    "Slug": "commemoration-of-saint-alphaeus-and-companions"
+  },
+  {
+    "Day": 21,
+    "Month": 3,
+    "Title": "Die Übertragung der Reliquien des heiligen Priesters Abba Johannes Kamie von seinem Kloster zum Syrian-Kloster.",
+    "StoryId": 32106,
+    "Slug": "translation-of-the-relics-of-saint-john-kama"
+  },
+  {
+    "Day": 22,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Kosmas, Demian und ihrer Brüder sowie ihrer Mutter.",
+    "StoryId": 32201,
+    "Slug": "martyrdom-of-saints-cosmas-and-damian"
+  },
+  {
+    "Day": 23,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Hauptmanns Kornelius.",
+    "StoryId": 32301,
+    "Slug": "departure-of-saint-cornelius-the-centurion"
+  },
+  {
+    "Day": 23,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche der heiligen Märtyrin Marina.",
+    "StoryId": 32302,
+    "Slug": "consecration-of-the-church-of-saint-marina-of-antioch"
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "Der Gedenktag der vierundzwanzig unleiblichen Ältesten.",
+    "StoryId": 32401,
+    "Slug": "commemoration-of-the-twenty-four-presbyters"
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "Das Martyrium des Bischofs Narsis und der heiligen Thekla.",
+    "StoryId": 32402,
+    "Slug": "martyrdom-of-bishop-narcees-and-saint-thecla"
+  },
+  {
+    "Day": 24,
+    "Month": 3,
+    "Title": "Das Entschlafen des Papstes Proklos, Patriarchen von Konstantinopel.",
+    "StoryId": 32403,
+    "Slug": "departure-of-patriarch-proclus-of-constantinople"
+  },
+  {
+    "Day": 25,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Philopater Merkourius, genannt Abu-Sefen.",
+    "StoryId": 32501,
+    "Slug": "martyrdom-of-saint-mercurius"
+  },
+  {
+    "Day": 26,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Valerianus und seines Bruders Tiburtius.",
+    "StoryId": 32601,
+    "Slug": "martyrdom-of-saints-valerian-and-tiburtius"
+  },
+  {
+    "Day": 26,
+    "Month": 3,
+    "Title": "Das Entschlafen unseres heiligen Vaters Gregorius, Bischof von Nyssa.",
+    "StoryId": 32602,
+    "Slug": "departure-of-saint-gregory-of-nyssa-26-hatour"
+  },
+  {
+    "Day": 27,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Jakob, des Zerschnittenen, des Persers.",
+    "StoryId": 32701,
+    "Slug": "martyrdom-of-saint-james-the-persian"
+  },
+  {
+    "Day": 27,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche des Märtyrers Viktor, des Sohnes des Romanus.",
+    "StoryId": 32702,
+    "Slug": "consecration-of-the-church-of-saint-victor-son-of-romanus"
+  },
+  {
+    "Day": 28,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Sarapamon, des Bischofs von Nikius.",
+    "StoryId": 32801,
+    "Slug": "martyrdom-of-saint-sarapamon-bishop-of-nikiou"
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Der Gedenktag der drei großen Herrenfeste: Verkündigung, Geburt und Auferstehung Christi.",
+    "StoryId": 32901,
+    "Slug": "commemoration-of-the-three-major-feasts-of-the-lord-29-hatour"
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Papstes Abba Petrus I., des Siegels der Märtyrer, des 17. Patriarchen von Alexandrien.",
+    "StoryId": 32902,
+    "Slug": "martyrdom-of-pope-peter-i"
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Clemens I. (Clemens Romanus), des vierten Papstes von Rom.",
+    "StoryId": 32903,
+    "Slug": "martyrdom-of-pope-clement-of-rome"
+  },
+  {
+    "Day": 29,
+    "Month": 3,
+    "Title": "Das Martyrium der heiligen Katharina von Alexandrien.",
+    "StoryId": 32904,
+    "Slug": "martyrdom-of-saint-catherine-of-alexandria"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Makarius.",
+    "StoryId": 33001,
+    "Slug": "martyrdom-of-saint-macarius-30-hatour"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "Das Martyrium des heiligen Mönchs Johannes von Qalyub.",
+    "StoryId": 33002,
+    "Slug": "martyrdom-of-saint-john-el-qalyuby"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "Das Entschlafen des heiligen Akakius, Patriarch von Konstantinopel.",
+    "StoryId": 33003,
+    "Slug": "departure-of-patriarch-acacius-of-constantinople"
+  },
+  {
+    "Day": 30,
+    "Month": 3,
+    "Title": "Die Einweihung der Kirche der heiligen Kosmas und Demian und ihrer drei Brüder und Mutter.",
+    "StoryId": 33004,
+    "Slug": "consecration-of-the-church-of-saints-cosmas-and-damian-30-hatour"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Johannes III., des 40. Patriarchen von Alexandrien.",
+    "StoryId": 40101,
+    "Slug": "departure-of-pope-john-iii"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Athanasius III., des 76. Patriarchen von Alexandrien.",
+    "StoryId": 40102,
+    "Slug": "departure-of-pope-athanasius-iii"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Petrus von Edessa, Bischof von Gaza.",
+    "StoryId": 40103,
+    "Slug": "departure-of-saint-peter-bishop-of-gaza"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche des heiligen Märtyrers Abe-fam (Epipham) at-Tahaui, des Soldaten, in der Stadt Abnob.",
+    "StoryId": 40104,
+    "Slug": "consecration-of-the-church-of-saint-abe-fam-of-taha"
+  },
+  {
+    "Day": 1,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche des großen heiligen Archimandriten Abba Schenouda.",
+    "StoryId": 40105,
+    "Slug": "consecration-of-the-church-of-saint-shenouda-the-archimandrite"
+  },
+  {
+    "Day": 2,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Mönchs Apahoor.",
+    "StoryId": 40201,
+    "Slug": "departure-of-saint-abahor-the-monk"
+  },
+  {
+    "Day": 2,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Anachoreten Abba Hermina.",
+    "StoryId": 40202,
+    "Slug": "departure-of-saint-hermina"
+  },
+  {
+    "Day": 3,
+    "Month": 4,
+    "Title": "Der Gedenktag der Darstellung der heiligen Jungfrau Maria im Tempel von Jerusalem.",
+    "StoryId": 40301,
+    "Slug": "entry-of-virgin-mary-into-the-temple"
+  },
+  {
+    "Day": 3,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Pis-tawros (Salib, des neuen Märtyrers).",
+    "StoryId": 40302,
+    "Slug": "martyrdom-of-saint-bestavros"
+  },
+  {
+    "Day": 4,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Andreas, einer der zwölf Jünger Christi.",
+    "StoryId": 40401,
+    "Slug": "martyrdom-of-saint-andrew-the-apostle"
+  },
+  {
+    "Day": 4,
+    "Month": 4,
+    "Title": "Der Gedenktag der Einweihung der Kirche des heiligen Märtyrers Johannes von Herakleon in Um Al-Qusur bei Manfalut.",
+    "StoryId": 40402,
+    "Slug": "consecration-of-the-church-of-saint-john-of-heraclea"
+  },
+  {
+    "Day": 4,
+    "Month": 4,
+    "Title": "Der Gedenktag der Übertragung der Leiber der heiligen Abba Pischoi und Abba Paul.",
+    "StoryId": 40403,
+    "Slug": "translation-of-the-relics-of-saints-bishoy-and-paul"
+  },
+  {
+    "Day": 5,
+    "Month": 4,
+    "Title": "Das Entschlafen des Propheten Nahum.",
+    "StoryId": 40501,
+    "Slug": "departure-of-prophet-nahum"
+  },
+  {
+    "Day": 5,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Viktor aus Asyut.",
+    "StoryId": 40502,
+    "Slug": "martyrdom-of-saint-victor-of-assiut"
+  },
+  {
+    "Day": 5,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Isidorus.",
+    "StoryId": 40503,
+    "Slug": "martyrdom-of-saint-isidore-of-alexandria"
+  },
+  {
+    "Day": 6,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Abraam Ibn-Zaraa, des 62. Patriarchen von Alexandrien.",
+    "StoryId": 40601,
+    "Slug": "departure-of-pope-abraham"
+  },
+  {
+    "Day": 6,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Priesters Patlas (Anatolius).",
+    "StoryId": 40602,
+    "Slug": "martyrdom-of-saint-patlas"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Matthäus, El-Fakhouri, des Abtes vom Kloster am Berg Asfoun bei Esna.",
+    "StoryId": 40701,
+    "Slug": "departure-of-saint-matthew-the-potter"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Banina (Priester) und Banawa (Diakon).",
+    "StoryId": 40702,
+    "Slug": "martyrdom-of-saints-banina-and-banawa"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche des Märtyrers Apa Is-keron aus Kellin.",
+    "StoryId": 40703,
+    "Slug": "consecration-of-the-church-of-saint-abaskhiroun-of-qalin"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Johannes, Bischof von Armant.",
+    "StoryId": 40704,
+    "Slug": "departure-of-saint-john-bishop-of-armant"
+  },
+  {
+    "Day": 7,
+    "Month": 4,
+    "Title": "Das Martyrium des koptischen Ingenieurs Saʿid Ibn-Kateb Al-Fargani.",
+    "StoryId": 40705,
+    "Slug": "martyrdom-of-saeed-ibn-kateb-al-farghani"
+  },
+  {
+    "Day": 8,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Isi und seiner Schwester Thekla.",
+    "StoryId": 40801,
+    "Slug": "martyrdom-of-saints-esi-and-thecla"
+  },
+  {
+    "Day": 8,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Barbara und Juliana.",
+    "StoryId": 40802,
+    "Slug": "martyrdom-of-saints-barbara-and-juliana"
+  },
+  {
+    "Day": 8,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Bekenners Abba Samuel.",
+    "StoryId": 40803,
+    "Slug": "departure-of-saint-samuel-the-confessor"
+  },
+  {
+    "Day": 8,
+    "Month": 4,
+    "Title": "Das Entschlafen des Papstes Abba Jaroklas (oder Heraklas), des 13. Patriarchen von Alexandrien.",
+    "StoryId": 40804,
+    "Slug": "departure-of-pope-heraclas"
+  },
+  {
+    "Day": 9,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Poimen, des Bekenners.",
+    "StoryId": 40901,
+    "Slug": "departure-of-saint-poemen-the-confessor"
+  },
+  {
+    "Day": 10,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Nikolaus, Bischof von Myra.",
+    "StoryId": 41001,
+    "Slug": "departure-of-saint-nicholas"
+  },
+  {
+    "Day": 10,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Schura aus Achmim.",
+    "StoryId": 41002,
+    "Slug": "martyrdom-of-saint-shura-of-akhmim"
+  },
+  {
+    "Day": 10,
+    "Month": 4,
+    "Title": "Der Gedenktag der Überführung des Leibes des heiligen Severus, Patriarchen von Antiochien.",
+    "StoryId": 41003,
+    "Slug": "translation-of-the-relics-of-patriarch-severus-of-antioch"
+  },
+  {
+    "Day": 11,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Anachoreten Abba Piġimi.",
+    "StoryId": 41101,
+    "Slug": "departure-of-saint-pijimi"
+  },
+  {
+    "Day": 11,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Ptolemäus aus Dendera.",
+    "StoryId": 41102,
+    "Slug": "martyrdom-of-saint-ptolemy-of-dendera"
+  },
+  {
+    "Day": 11,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche des heiligen Kladius in Bakur, Abu-Tig.",
+    "StoryId": 41103,
+    "Slug": "consecration-of-the-church-of-saint-claudius"
+  },
+  {
+    "Day": 12,
+    "Month": 4,
+    "Title": "Der Gedenktag des reinen Erzengels Michael.",
+    "StoryId": 41201,
+    "Slug": "commemoration-of-archangel-michael-12-kiahk"
+  },
+  {
+    "Day": 12,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Abba Hydra von Assuan.",
+    "StoryId": 41202,
+    "Slug": "departure-of-saint-hedra-of-aswan"
+  },
+  {
+    "Day": 12,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Bekenners Johannes.",
+    "StoryId": 41203,
+    "Slug": "departure-of-saint-john-the-confessor"
+  },
+  {
+    "Day": 12,
+    "Month": 4,
+    "Title": "Die Abhaltung der Synode von Rom gegen den Priester Novatian.",
+    "StoryId": 41204,
+    "Slug": "council-of-rome-against-novatian"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Der Gedenktag der Einweihung der Kirche des erhabenen Erzengels Raphael in Konstantinopel.",
+    "StoryId": 41301,
+    "Slug": "commemoration-of-archangel-raphael"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Mönchs Barsanuphius.",
+    "StoryId": 41302,
+    "Slug": "martyrdom-of-saint-barsanuphius"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Das Entschlafen des Papstes Abba Markus VIII., des 108. Patriarchen von Alexandrien.",
+    "StoryId": 41303,
+    "Slug": "departure-of-pope-mark-viii"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Das Entschlafen des Vaters Aprakius.",
+    "StoryId": 41304,
+    "Slug": "departure-of-saint-aprakius"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Anachoreten Elija.",
+    "StoryId": 41305,
+    "Slug": "departure-of-saint-elias-of-samhoud"
+  },
+  {
+    "Day": 13,
+    "Month": 4,
+    "Title": "Der Gedenktag der Einweihung der Kirche des heiligen Anachoreten Misail.",
+    "StoryId": 41306,
+    "Slug": "consecration-of-the-church-of-saint-misael"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Pahnam und seiner Schwester Sara.",
+    "StoryId": 41401,
+    "Slug": "martyrdom-of-saints-behnam-and-sarah"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Abba Amonius, des Bischofs von Esna.",
+    "StoryId": 41402,
+    "Slug": "martyrdom-of-saint-ammonius-bishop-of-esna"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Simon von Monuf, Abba Hor und des alten Abba Mina.",
+    "StoryId": 41403,
+    "Slug": "martyrdom-of-saint-simeon-of-menouf-and-companions"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "Das Entschlafen des Papstes Abba Christodolus, des 66. Patriarchen von Alexandrien.",
+    "StoryId": 41404,
+    "Slug": "departure-of-pope-christodoulos"
+  },
+  {
+    "Day": 14,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Anachoreten Christodolus.",
+    "StoryId": 41405,
+    "Slug": "departure-of-saint-christodoulos-the-anchorite"
+  },
+  {
+    "Day": 15,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Gregorius, Patriarch der Armenier.",
+    "StoryId": 41501,
+    "Slug": "departure-of-saint-gregory-the-illuminator"
+  },
+  {
+    "Day": 15,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Styliten Lukas.",
+    "StoryId": 41502,
+    "Slug": "departure-of-saint-luke-the-stylite"
+  },
+  {
+    "Day": 15,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Abba Ezechiel von Armant.",
+    "StoryId": 41503,
+    "Slug": "departure-of-saint-ezekiel-of-armant"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "Das Entschlafen des Gerechten Gedeon, eines der Richter der Kinder Israels.",
+    "StoryId": 41601,
+    "Slug": "departure-of-gideon-the-judge"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Herwog, Ananias und Chouzi aus Achmim.",
+    "StoryId": 41602,
+    "Slug": "martyrdom-of-saint-harouadj-and-companions"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Eulogius und Arsenius, der Gründer des Eisenklosters in Achmim.",
+    "StoryId": 41603,
+    "Slug": "martyrdom-of-saints-eulogius-and-arsenius"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Amsah aus Keft.",
+    "StoryId": 41604,
+    "Slug": "martyrdom-of-saint-amsah"
+  },
+  {
+    "Day": 16,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche des heiligen Jakob, des Persers, genannt „der Zerschnittene“.",
+    "StoryId": 41605,
+    "Slug": "consecration-of-the-church-of-saint-james-the-persian"
+  },
+  {
+    "Day": 17,
+    "Month": 4,
+    "Title": "Der Gedenktag der Übertragung des Leibes des heiligen Styliten Lukas.",
+    "StoryId": 41701,
+    "Slug": "translation-of-the-relics-of-saint-luke-the-stylite"
+  },
+  {
+    "Day": 17,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Elijas am Berg Baschwaw.",
+    "StoryId": 41702,
+    "Slug": "departure-of-saint-elias-of-bashwaw"
+  },
+  {
+    "Day": 18,
+    "Month": 4,
+    "Title": "Übertragung des Leibes des heiligen Titus, Bischof von Kreta, nach Konstantinopel.",
+    "StoryId": 41801,
+    "Slug": "translation-of-the-relics-of-saint-titus-the-apostle"
+  },
+  {
+    "Day": 18,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Jaroklas und Philemon.",
+    "StoryId": 41802,
+    "Slug": "martyrdom-of-saints-heracleas-and-philemon"
+  },
+  {
+    "Day": 19,
+    "Month": 4,
+    "Title": "Das Entschlafen des Papstes Abba Gabriel VI., des 91. Patriarchen von Alexandrien.",
+    "StoryId": 41901,
+    "Slug": "departure-of-pope-gabriel-vi"
+  },
+  {
+    "Day": 19,
+    "Month": 4,
+    "Title": "Das Entschlafen des Abba Johannes, des Bischofs von Burullus, des Sammlers des Synaxariums.",
+    "StoryId": 41902,
+    "Slug": "departure-of-saint-john-bishop-of-borollos"
+  },
+  {
+    "Day": 20,
+    "Month": 4,
+    "Title": "Das Entschlafen des Propheten Haggai.",
+    "StoryId": 42001,
+    "Slug": "departure-of-prophet-haggai"
+  },
+  {
+    "Day": 20,
+    "Month": 4,
+    "Title": "Das Martyrium des Abba Elijas, Bischof des Al-Muharraq-Klosters und Al-Qusiya.",
+    "StoryId": 42002,
+    "Slug": "martyrdom-of-saint-elias-bishop-of-kosiah"
+  },
+  {
+    "Day": 21,
+    "Month": 4,
+    "Title": "Der Gedenktag der Mutter Gottes, der heiligen, reinen Jungfrau Maria.",
+    "StoryId": 42101,
+    "Slug": "commemoration-of-virgin-mary-21-kiahk"
+  },
+  {
+    "Day": 21,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Barnabas, einer der siebzig Apostel Christi.",
+    "StoryId": 42102,
+    "Slug": "martyrdom-of-saint-barnabas-the-apostle"
+  },
+  {
+    "Day": 22,
+    "Month": 4,
+    "Title": "Der Gedenktag des ehrwürdigen Erzengels Gabriel, des Verkündigers.",
+    "StoryId": 42201,
+    "Slug": "commemoration-of-archangel-gabriel-22-kiahk"
+  },
+  {
+    "Day": 22,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Pachom und seiner Schwester Daluscham.",
+    "StoryId": 42202,
+    "Slug": "martyrdom-of-saints-pachom-and-dalusham"
+  },
+  {
+    "Day": 22,
+    "Month": 4,
+    "Title": "Das Entschlafen des Papstes Anastasius, des 36. Patriarchen von Alexandrien.",
+    "StoryId": 42203,
+    "Slug": "departure-of-pope-anastasius"
+  },
+  {
+    "Day": 23,
+    "Month": 4,
+    "Title": "Das Entschlafen des Propheten und Königs David.",
+    "StoryId": 42301,
+    "Slug": "departure-of-prophet-david"
+  },
+  {
+    "Day": 23,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Anachoreten Timotheus.",
+    "StoryId": 42302,
+    "Slug": "departure-of-saint-timothy-the-anchorite"
+  },
+  {
+    "Day": 24,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Ignatius des Theophorus (ein Wort, das „Gottesträger“ oder „mit Gott Bekleideter“ bedeutet), Bischof von Antiochien.",
+    "StoryId": 42401,
+    "Slug": "martyrdom-of-saint-ignatius-of-antioch-24-kiahk"
+  },
+  {
+    "Day": 25,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Priesters Abba Johannes Kamie.",
+    "StoryId": 42501,
+    "Slug": "departure-of-saint-john-kama"
+  },
+  {
+    "Day": 25,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Abba Pschai am Berg at-Tud.",
+    "StoryId": 42502,
+    "Slug": "departure-of-saint-bishay-of-toud"
+  },
+  {
+    "Day": 26,
+    "Month": 4,
+    "Title": "Das Martyrium der heiligen Anastasia.",
+    "StoryId": 42601,
+    "Slug": "martyrdom-of-saint-anastasia-of-sirmium"
+  },
+  {
+    "Day": 26,
+    "Month": 4,
+    "Title": "Die Einweihung der Kirche der Märtyrer Abba Pschai und Abba Petrus.",
+    "StoryId": 42602,
+    "Slug": "consecration-of-the-church-of-saints-bishay-and-peter"
+  },
+  {
+    "Day": 27,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Abba Psade, Bischof von Psai.",
+    "StoryId": 42701,
+    "Slug": "martyrdom-of-saint-psote-bishop-of-psoi"
+  },
+  {
+    "Day": 28,
+    "Month": 4,
+    "Title": "Paramoun des glorreichen Festes der Geburt Christi (Weihnachtsfestes).",
+    "StoryId": 42801,
+    "Slug": "christmas-eve"
+  },
+  {
+    "Day": 28,
+    "Month": 4,
+    "Title": "Das Martyrium von 150 Männern und 24 Frauen aus der Stadt Ansina.",
+    "StoryId": 42802,
+    "Slug": "martyrdom-of-150-men-and-24-women-of-ansena"
+  },
+  {
+    "Day": 29,
+    "Month": 4,
+    "Title": "Das glorreiche Fest der Geburt unseres Herrn.",
+    "StoryId": 42901,
+    "Slug": "christmas"
+  },
+  {
+    "Day": 29,
+    "Month": 4,
+    "Title": "Der Gedenktag der Märtyrer von Achmim.",
+    "StoryId": 42902,
+    "Slug": "martyrs-of-akhmim"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "Das Entschlafen des heiligen Abba Johannes, des Hegumenos der Wüste Schihiet.",
+    "StoryId": 43001,
+    "Slug": "departure-of-saint-john-the-hegumen-of-scetis"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "Die Anbetung der Weisen aus dem Morgenland vor dem Erlöser.",
+    "StoryId": 43002,
+    "Slug": "adoration-of-the-magi"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "Das Martyrium des heiligen Michael, des Hegumenos von Toukh.",
+    "StoryId": 43003,
+    "Slug": "martyrdom-of-saint-michael-el-tokhy"
+  },
+  {
+    "Day": 30,
+    "Month": 4,
+    "Title": "Das Martyrium des Kindes Zacharias und derer, die mit ihm in Achmim starben.",
+    "StoryId": 43004,
+    "Slug": "martyrdom-of-saint-zacharias-the-child-and-companions"
+  },
+  {
+    "Day": 1,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Archidiakon Stephanus.",
+    "StoryId": 50101,
+    "Slug": "martyrdom-of-saint-stephen-the-archdeacon"
+  },
+  {
+    "Day": 1,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Leondianus.",
+    "StoryId": 50102,
+    "Slug": "martyrdom-of-saint-lawindianus"
+  },
+  {
+    "Day": 1,
+    "Month": 5,
+    "Title": "Das Martyrium der heiligen Dioskorus und seines Bruders Asklepius.",
+    "StoryId": 50103,
+    "Slug": "martyrdom-of-saints-dioscorus-and-esculapius"
+  },
+  {
+    "Day": 2,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Theonas, des 16. Patriarchen von Alexandrien.",
+    "StoryId": 50201,
+    "Slug": "departure-of-pope-theonas"
+  },
+  {
+    "Day": 2,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Gallinikus, Bischof von Ousim.",
+    "StoryId": 50202,
+    "Slug": "martyrdom-of-saint-callinicus-bishop-of-oseem"
+  },
+  {
+    "Day": 2,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Abba Jona.",
+    "StoryId": 50203,
+    "Slug": "departure-of-saint-youna"
+  },
+  {
+    "Day": 3,
+    "Month": 5,
+    "Title": "Das Martyrium der Kinder von Betlehem.",
+    "StoryId": 50301,
+    "Slug": "martyrdom-of-the-children-of-bethlehem"
+  },
+  {
+    "Day": 4,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Evangelisten Johannes.",
+    "StoryId": 50401,
+    "Slug": "departure-of-saint-john-the-evangelist"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Soldaten Eusegnius (Eugenius).",
+    "StoryId": 50501,
+    "Slug": "martyrdom-of-saint-eusegnius"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Panikaros (Panekyris).",
+    "StoryId": 50502,
+    "Slug": "martyrdom-of-saint-banikarous"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Theodosius II., des 79. Patriarchen von Alexandrien.",
+    "StoryId": 50503,
+    "Slug": "departure-of-pope-theodosius-ii"
+  },
+  {
+    "Day": 5,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Matthäus I., des 87. Patriarchen von Alexandrien.",
+    "StoryId": 50504,
+    "Slug": "departure-of-pope-matthew-i"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das hochverehrte Fest der Beschneidung Christi.",
+    "StoryId": 50601,
+    "Slug": "feast-of-the-circumcision"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Der Gedenktag der Himmelfahrt des Propheten Elija lebendig in den Himmel.",
+    "StoryId": 50602,
+    "Slug": "ascension-of-prophet-elijah"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das Martyrium der vier Archonten von Esna (Ousafius, Saman, Herwog und Pakhoasch).",
+    "StoryId": 50603,
+    "Slug": "martyrdom-of-the-four-archons-of-esna-6-toubah"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Markianus, des achten Patriarchen von Alexandrien.",
+    "StoryId": 50604,
+    "Slug": "departure-of-pope-marcianus"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Markus III., des 73. Patriarchen von Alexandrien.",
+    "StoryId": 50605,
+    "Slug": "departure-of-pope-mark-iii"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Gabriel III., des 77. Patriarchen von Alexandrien.",
+    "StoryId": 50606,
+    "Slug": "departure-of-pope-gabriel-iii"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Basilius des Großen, des Erzbischofs von Cäsarea in Kappadokien.",
+    "StoryId": 50607,
+    "Slug": "departure-of-saint-basil-the-great"
+  },
+  {
+    "Day": 6,
+    "Month": 5,
+    "Title": "Die Einweihung der Kirche des Märtyrers Isaak von Dafra.",
+    "StoryId": 50608,
+    "Slug": "consecration-of-the-church-of-saint-isaac-of-tiphre"
+  },
+  {
+    "Day": 7,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Silvester I., des 33. Papstes von Rom.",
+    "StoryId": 50701,
+    "Slug": "departure-of-pope-silvester-of-rome"
+  },
+  {
+    "Day": 8,
+    "Month": 5,
+    "Title": "Die Rückkehr des Hauptes des heiligen Evangelisten Markus.",
+    "StoryId": 50801,
+    "Slug": "return-of-the-head-of-saint-mark-the-evangelist"
+  },
+  {
+    "Day": 8,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Andronikus, des 37. Patriarchen von Alexandrien.",
+    "StoryId": 50802,
+    "Slug": "departure-of-pope-andronicus"
+  },
+  {
+    "Day": 8,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Benjamin I., des 38. Patriarchen von Alexandrien.",
+    "StoryId": 50803,
+    "Slug": "departure-of-pope-benjamin-i"
+  },
+  {
+    "Day": 8,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Gabriel V., des 88. Patriarchen von Alexandrien.",
+    "StoryId": 50804,
+    "Slug": "departure-of-pope-gabriel-v"
+  },
+  {
+    "Day": 8,
+    "Month": 5,
+    "Title": "Der Gedenktag der Einweihung der Kirche des heiligen Makarius, des Großen.",
+    "StoryId": 50805,
+    "Slug": "consecration-of-the-church-of-saint-macarius-the-great"
+  },
+  {
+    "Day": 9,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Asketen Abba Abraam, des Gefährten des Abba Georgi.",
+    "StoryId": 50901,
+    "Slug": "departure-of-saint-abraam-friend-of-saint-george"
+  },
+  {
+    "Day": 9,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Abba Phies.",
+    "StoryId": 50902,
+    "Slug": "departure-of-saint-phees"
+  },
+  {
+    "Day": 10,
+    "Month": 5,
+    "Title": "Paramoun des glorreichen Festes der Theophanie (Erscheinung des Herrn), der Taufe Christi.",
+    "StoryId": 51001,
+    "Slug": "paramoun-of-theophany"
+  },
+  {
+    "Day": 10,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Justus, des Jüngers des heiligen Abba Samuel, des Bekenners.",
+    "StoryId": 51002,
+    "Slug": "departure-of-saint-justus-disciple-of-saint-samuel"
+  },
+  {
+    "Day": 11,
+    "Month": 5,
+    "Title": "Das Fest der göttlichen Erscheinung (die Theophanie / das glorreiche Fest der Taufe Christi).",
+    "StoryId": 51101,
+    "Slug": "theophany"
+  },
+  {
+    "Day": 11,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Johannes VI., des 74. Patriarchen von Alexandrien.",
+    "StoryId": 51102,
+    "Slug": "departure-of-pope-john-vi"
+  },
+  {
+    "Day": 11,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Benjamin II., des 82. Patriarchen von Alexandrien.",
+    "StoryId": 51103,
+    "Slug": "departure-of-pope-benjamin-ii"
+  },
+  {
+    "Day": 12,
+    "Month": 5,
+    "Title": "Der zweite Tag des glorreichen Festes der Theophanie (Taufe Christi).",
+    "StoryId": 51201,
+    "Slug": "second-day-of-theophany"
+  },
+  {
+    "Day": 12,
+    "Month": 5,
+    "Title": "Der Gedenktag des ehrwürdigen Erzengels Michael.",
+    "StoryId": 51202,
+    "Slug": "commemoration-of-archangel-michael-12-toubah"
+  },
+  {
+    "Day": 12,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Theodorus, des Orientalen.",
+    "StoryId": 51203,
+    "Slug": "martyrdom-of-saint-theodore-the-oriental"
+  },
+  {
+    "Day": 12,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Anatolius.",
+    "StoryId": 51204,
+    "Slug": "martyrdom-of-saint-anatolius-the-persian"
+  },
+  {
+    "Day": 13,
+    "Month": 5,
+    "Title": "Fest der Hochzeit zu Kana in Galiläa.",
+    "StoryId": 51301,
+    "Slug": "wedding-at-cana"
+  },
+  {
+    "Day": 13,
+    "Month": 5,
+    "Title": "Das Martyrium der heiligen Demiana.",
+    "StoryId": 51302,
+    "Slug": "martyrdom-of-saint-demiana"
+  },
+  {
+    "Day": 13,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Mönchs Theophilus.",
+    "StoryId": 51303,
+    "Slug": "departure-of-saint-theophilus-the-monk"
+  },
+  {
+    "Day": 14,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Mönchs Archelides.",
+    "StoryId": 51401,
+    "Slug": "departure-of-saint-archelides"
+  },
+  {
+    "Day": 14,
+    "Month": 5,
+    "Title": "Das Martyrium der heiligen Mahrati (Mohrael).",
+    "StoryId": 51402,
+    "Slug": "martyrdom-of-saint-mahrati"
+  },
+  {
+    "Day": 14,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Maximus, des Bruders des Domadius.",
+    "StoryId": 51403,
+    "Slug": "departure-of-saint-maximus-brother-of-saint-dometius"
+  },
+  {
+    "Day": 15,
+    "Month": 5,
+    "Title": "Das Entschlafen des Propheten Obadja.",
+    "StoryId": 51501,
+    "Slug": "departure-of-prophet-obadiah"
+  },
+  {
+    "Day": 16,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Philotheus.",
+    "StoryId": 51601,
+    "Slug": "martyrdom-of-saint-philotheos-of-antioch"
+  },
+  {
+    "Day": 16,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Johannes IV., des 48. Patriarchen von Alexandrien.",
+    "StoryId": 51602,
+    "Slug": "departure-of-pope-john-iv"
+  },
+  {
+    "Day": 17,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Domadius, des Bruders des heiligen Maximus.",
+    "StoryId": 51701,
+    "Slug": "departure-of-saint-dometius-brother-of-saint-maximus"
+  },
+  {
+    "Day": 17,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Abba Josab Al-Abbah, Bischof von Girga.",
+    "StoryId": 51702,
+    "Slug": "departure-of-saint-yousab-el-abbah"
+  },
+  {
+    "Day": 18,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Jakob, Bischof von Nisibis.",
+    "StoryId": 51801,
+    "Slug": "departure-of-saint-james-of-nisibis"
+  },
+  {
+    "Day": 18,
+    "Month": 5,
+    "Title": "Der Gedenktag der heiligen Maria und Martha, der Schwestern des geliebten Lazarus.",
+    "StoryId": 51802,
+    "Slug": "commemoration-of-saints-mary-and-martha"
+  },
+  {
+    "Day": 18,
+    "Month": 5,
+    "Title": "Das Entschlafen des Abba Andreas, genannt Abu Al-Lief.",
+    "StoryId": 51803,
+    "Slug": "departure-of-saint-andrew-abou-el-leef"
+  },
+  {
+    "Day": 19,
+    "Month": 5,
+    "Title": "Entdeckung der Reliquien der heiligen Apahoor, Pisuri und ihrer Mutter Ampera.",
+    "StoryId": 51901,
+    "Slug": "discovery-of-the-relics-of-saints-abahor-and-bisoura"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Prochorus, eines der siebzig Apostel.",
+    "StoryId": 52001,
+    "Slug": "departure-of-saint-prochorus"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Priesters Abba Klog (Bagoug).",
+    "StoryId": 52002,
+    "Slug": "martyrdom-of-saint-kloug"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Behna (Bahnou).",
+    "StoryId": 52003,
+    "Slug": "martyrdom-of-saint-behna"
+  },
+  {
+    "Day": 20,
+    "Month": 5,
+    "Title": "Der Gedenktag der Einweihung der Kirche des heiligen Johannes, des Besitzers des goldenen Evangeliums.",
+    "StoryId": 52004,
+    "Slug": "consecration-of-the-church-of-saint-john-of-the-golden-gospel"
+  },
+  {
+    "Day": 21,
+    "Month": 5,
+    "Title": "Entschlafung der heiligen Mutter Gottes, der allreinen Jungfrau Maria.",
+    "StoryId": 52101,
+    "Slug": "departure-of-virgin-mary"
+  },
+  {
+    "Day": 21,
+    "Month": 5,
+    "Title": "Das Entschlafen der heiligen Hilaria, Tochter des Kaisers Zenon.",
+    "StoryId": 52102,
+    "Slug": "departure-of-saint-hilaria-daughter-of-emperor-zeno"
+  },
+  {
+    "Day": 22,
+    "Month": 5,
+    "Title": "Das Entschlafen des großen heiligen Abba Antonius, des Vaters aller Mönche.",
+    "StoryId": 52201,
+    "Slug": "departure-of-saint-anthony-the-great"
+  },
+  {
+    "Day": 23,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Timotheus, des Jüngers des heiligen Apostels Paulus und Bischofs von Ephesus.",
+    "StoryId": 52301,
+    "Slug": "martyrdom-of-saint-timothy-the-apostle"
+  },
+  {
+    "Day": 23,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Kyrillus IV., des Vaters der Reform, des 110. Patriarchen von Alexandrien.",
+    "StoryId": 52302,
+    "Slug": "departure-of-pope-cyril-iv"
+  },
+  {
+    "Day": 24,
+    "Month": 5,
+    "Title": "Das Entschlafen der heiligen Maria, die eingeschlossene Asketin.",
+    "StoryId": 52401,
+    "Slug": "departure-of-saint-mary-the-recluse"
+  },
+  {
+    "Day": 24,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Priesters Psade.",
+    "StoryId": 52402,
+    "Slug": "martyrdom-of-saint-bisada-the-priest"
+  },
+  {
+    "Day": 25,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Asketen Petrus.",
+    "StoryId": 52501,
+    "Slug": "departure-of-saint-peter-of-scetis"
+  },
+  {
+    "Day": 25,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Askala (Asela).",
+    "StoryId": 52502,
+    "Slug": "martyrdom-of-saint-askala"
+  },
+  {
+    "Day": 26,
+    "Month": 5,
+    "Title": "Das Martyrium der 49 Märtyrer, die Ältesten von Schihiet.",
+    "StoryId": 52601,
+    "Slug": "forty-nine-martyrs-of-scetis"
+  },
+  {
+    "Day": 26,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Bagusch.",
+    "StoryId": 52602,
+    "Slug": "martyrdom-of-saint-bagoush"
+  },
+  {
+    "Day": 26,
+    "Month": 5,
+    "Title": "Das Entschlafen der heiligen Anastasia.",
+    "StoryId": 52603,
+    "Slug": "departure-of-saint-anastasia"
+  },
+  {
+    "Day": 27,
+    "Month": 5,
+    "Title": "Der Gedenktag des ehrwürdigen Erzengels Suriel.",
+    "StoryId": 52701,
+    "Slug": "commemoration-of-archangel-suriel"
+  },
+  {
+    "Day": 27,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Abe-Fam (Phoebammon / Apifam), der Soldat von Ausim.",
+    "StoryId": 52702,
+    "Slug": "martyrdom-of-saint-abe-fam-of-oseem"
+  },
+  {
+    "Day": 27,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Serapion.",
+    "StoryId": 52703,
+    "Slug": "martyrdom-of-saint-serapion"
+  },
+  {
+    "Day": 27,
+    "Month": 5,
+    "Title": "Der Gedenktag der Übertragung des Leibes des heiligen Timotheus, des Jüngers des heiligen Apostels Paulus.",
+    "StoryId": 52704,
+    "Slug": "translation-of-the-relics-of-saint-timothy-the-apostle"
+  },
+  {
+    "Day": 28,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Abba Kaou.",
+    "StoryId": 52801,
+    "Slug": "martyrdom-of-saint-kaou"
+  },
+  {
+    "Day": 28,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Klemens, des Bischofs von Ankara.",
+    "StoryId": 52802,
+    "Slug": "martyrdom-of-saint-clement-of-ancyra"
+  },
+  {
+    "Day": 28,
+    "Month": 5,
+    "Title": "Das Martyrium des heiligen Babylas (Philyas), des Bischofs von Tami Al-Amdid.",
+    "StoryId": 52803,
+    "Slug": "martyrdom-of-saint-phileas-of-thmuis"
+  },
+  {
+    "Day": 29,
+    "Month": 5,
+    "Title": "Das Entschlafen der heiligen Eksanie (St. Xene).",
+    "StoryId": 52901,
+    "Slug": "departure-of-saint-xene"
+  },
+  {
+    "Day": 29,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Seriakus, des Strebsamen.",
+    "StoryId": 52902,
+    "Slug": "departure-of-saint-syriacus-the-struggler"
+  },
+  {
+    "Day": 30,
+    "Month": 5,
+    "Title": "Das Martyrium der heiligen Jungfrauen Pistis, Helpis und Agape und das Entschlafen ihrer Mutter Sophia.",
+    "StoryId": 53001,
+    "Slug": "martyrdom-of-saints-pistis-helpis-agape-and-sophia"
+  },
+  {
+    "Day": 30,
+    "Month": 5,
+    "Title": "Das Entschlafen des Papstes Abba Mina I., des 47. Patriarchen von Alexandrien.",
+    "StoryId": 53002,
+    "Slug": "departure-of-pope-mina-i"
+  },
+  {
+    "Day": 30,
+    "Month": 5,
+    "Title": "Das Entschlafen des heiligen Einsiedlers Abraham von Kiduna bei Edessa.",
+    "StoryId": 53003,
+    "Slug": "departure-of-saint-abraham-of-edessa-30-toubah"
+  },
+  {
+    "Day": 1,
+    "Month": 6,
+    "Title": "Der Gedenktag der Versammlung des zweiten ökumenischen Konzils in der Stadt Konstantinopel.",
+    "StoryId": 60101,
+    "Slug": "council-of-constantinople"
+  },
+  {
+    "Day": 1,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Abadion, Bischof von Ansina.",
+    "StoryId": 60102,
+    "Slug": "martyrdom-of-saint-abadion"
+  },
+  {
+    "Day": 1,
+    "Month": 6,
+    "Title": "Die Einweihung der Kirche des heiligen Papstes Abba Petrus I., des 17. Patriarchen von Alexandrien und des Siegels der Märtyrer in der Stadt Alexandrien.",
+    "StoryId": 60103,
+    "Slug": "consecration-of-the-church-of-pope-peter-i"
+  },
+  {
+    "Day": 2,
+    "Month": 6,
+    "Title": "Das Entschlafen des großen heiligen Abba Paul, des ersten Anachoreten.",
+    "StoryId": 60201,
+    "Slug": "departure-of-saint-paul-the-first-hermit"
+  },
+  {
+    "Day": 2,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Longinus, des Abtes des Enaton-Glas-Klosters.",
+    "StoryId": 60202,
+    "Slug": "departure-of-saint-longinus-of-el-zugag"
+  },
+  {
+    "Day": 3,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Mönchs Abba Jakob.",
+    "StoryId": 60301,
+    "Slug": "departure-of-saint-james-the-monk"
+  },
+  {
+    "Day": 3,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Hedra von Hagar benahdab.",
+    "StoryId": 60302,
+    "Slug": "departure-of-saint-hedra-of-banhadab"
+  },
+  {
+    "Day": 4,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Agabus, einer der Siebzig Apostel Christi.",
+    "StoryId": 60401,
+    "Slug": "martyrdom-of-saint-agabus"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Der Gedenktag der Übertragung der Reliquien der 49 Märtyrer, die Ältesten von Schihiet.",
+    "StoryId": 60501,
+    "Slug": "translation-of-the-relics-of-the-forty-nine-elders-of-scetis"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Das Entschlafen des Papstes Agrippinus, des zehnten Patriarchen von Alexandrien.",
+    "StoryId": 60502,
+    "Slug": "departure-of-pope-agrippinus"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Abba Bischai, des Gründers des Roten-Klosters.",
+    "StoryId": 60503,
+    "Slug": "departure-of-saint-bishay-of-the-red-monastery"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Abba Apollo, Gefährte des heiligen Abba Abib.",
+    "StoryId": 60504,
+    "Slug": "departure-of-saint-apollo-companion-of-saint-abib"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Apollides (Pius I.), des 10. Papstes von Rom.",
+    "StoryId": 60505,
+    "Slug": "martyrdom-of-pope-hippolytus-of-rome"
+  },
+  {
+    "Day": 5,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Apanoub, des Trägers des goldenen Fächers.",
+    "StoryId": 60506,
+    "Slug": "departure-of-saint-abanoub-of-the-golden-fan"
+  },
+  {
+    "Day": 6,
+    "Month": 6,
+    "Title": "Das Martyrium der heiligen Apakir, Johannes sowie der drei Jungfrauen und ihrer Mutter.",
+    "StoryId": 60601,
+    "Slug": "martyrdom-of-saints-cyrus-and-john"
+  },
+  {
+    "Day": 6,
+    "Month": 6,
+    "Title": "Das Entschlafen des Papstes Abba Markus IV., des 84. Patriarchen von Alexandrien.",
+    "StoryId": 60602,
+    "Slug": "departure-of-pope-mark-iv"
+  },
+  {
+    "Day": 6,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Zanufius.",
+    "StoryId": 60603,
+    "Slug": "departure-of-saint-zanofios"
+  },
+  {
+    "Day": 7,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Alexanderus II., des 43. Patriarchen von Alexandrien.",
+    "StoryId": 60701,
+    "Slug": "departure-of-pope-alexander-ii"
+  },
+  {
+    "Day": 7,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Theodorus I., des 45. Patriarchen von Alexandrien.",
+    "StoryId": 60702,
+    "Slug": "departure-of-pope-theodore-i"
+  },
+  {
+    "Day": 8,
+    "Month": 6,
+    "Title": "Das Fest der Darstellung unseres Herrn Jesus Christus im Tempel.",
+    "StoryId": 60801,
+    "Slug": "presentation-of-the-lord"
+  },
+  {
+    "Day": 8,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Greises Simeon.",
+    "StoryId": 60802,
+    "Slug": "departure-of-saint-simeon-the-elder"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Parsooma, des Vaters der syrischen Mönche.",
+    "StoryId": 60901,
+    "Slug": "departure-of-saint-barsauma-the-syrian"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Paulus, des Syrers.",
+    "StoryId": 60902,
+    "Slug": "martyrdom-of-saint-paul-the-syrian"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Simeon.",
+    "StoryId": 60903,
+    "Slug": "martyrdom-of-saint-simeon-9-amshir"
+  },
+  {
+    "Day": 9,
+    "Month": 6,
+    "Title": "Das Entschlafen der heiligen Euphrosyne.",
+    "StoryId": 60904,
+    "Slug": "departure-of-saint-euphrosyne-of-alexandria"
+  },
+  {
+    "Day": 10,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Philo, Bischof von Persien.",
+    "StoryId": 61001,
+    "Slug": "martyrdom-of-saint-philo-bishop-of-persia"
+  },
+  {
+    "Day": 10,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Justus, des Sohnes des Kaisers Numerian.",
+    "StoryId": 61002,
+    "Slug": "martyrdom-of-saint-justus-son-of-numerian"
+  },
+  {
+    "Day": 10,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Isidorus von Pelusium.",
+    "StoryId": 61003,
+    "Slug": "departure-of-saint-isidore-of-pelusium"
+  },
+  {
+    "Day": 11,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Johannes XIII., des 94. Patriarchen von Alexandrien.",
+    "StoryId": 61101,
+    "Slug": "departure-of-pope-john-xiii"
+  },
+  {
+    "Day": 11,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Fabianus, des 20. Papstes von Rom.",
+    "StoryId": 61102,
+    "Slug": "martyrdom-of-pope-fabian-of-rome"
+  },
+  {
+    "Day": 12,
+    "Month": 6,
+    "Title": "Der Gedenktag des erhabenen Erzengels Michael.",
+    "StoryId": 61201,
+    "Slug": "commemoration-of-archangel-michael-12-amshir"
+  },
+  {
+    "Day": 12,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Eremiten Gelasius.",
+    "StoryId": 61202,
+    "Slug": "departure-of-saint-gelasius"
+  },
+  {
+    "Day": 13,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Sergius von Athribis mit seinem Vater, seiner Mutter, seiner Schwester und vielen mit ihnen.",
+    "StoryId": 61301,
+    "Slug": "martyrdom-of-saint-sergius-of-atripe-and-companions"
+  },
+  {
+    "Day": 13,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Timotheus III., des 32. Patriarchen von Alexandrien.",
+    "StoryId": 61302,
+    "Slug": "departure-of-pope-timothy-iii"
+  },
+  {
+    "Day": 14,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Severus, des Patriarchen von Antiochien.",
+    "StoryId": 61401,
+    "Slug": "departure-of-patriarch-severus-of-antioch"
+  },
+  {
+    "Day": 14,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Jakobus, des 50. Patriarchen von Alexandrien.",
+    "StoryId": 61402,
+    "Slug": "departure-of-pope-james"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Mönchs Paphnotius.",
+    "StoryId": 61501,
+    "Slug": "departure-of-saint-paphnute-the-monk"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "Das Martyrium des gerechten Propheten Sacharja, des Sohnes Barachias, des Enkels Iddos.",
+    "StoryId": 61502,
+    "Slug": "martyrdom-of-prophet-zechariah"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Priesters Abba Pigol.",
+    "StoryId": 61503,
+    "Slug": "martyrdom-of-saint-pigol-the-priest"
+  },
+  {
+    "Day": 15,
+    "Month": 6,
+    "Title": "Die Einweihung der ersten Kirche der vierzig Märtyrer von Sebaste",
+    "StoryId": 61504,
+    "Slug": "consecration-of-the-church-of-the-forty-martyrs-of-sebaste"
+  },
+  {
+    "Day": 16,
+    "Month": 6,
+    "Title": "Das Entschlafen der heiligen Elisabet, der Mutter des heiligen Johannes des Täufers.",
+    "StoryId": 61601,
+    "Slug": "departure-of-saint-elizabeth-mother-of-john-the-baptist"
+  },
+  {
+    "Day": 16,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Michael III., des 92. Patriarchen von Alexandrien.",
+    "StoryId": 61602,
+    "Slug": "departure-of-pope-michael-iii"
+  },
+  {
+    "Day": 16,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Hegumenos Erzpriesters Michael Al-Beheri Al-Muharraqi.",
+    "StoryId": 61603,
+    "Slug": "departure-of-saint-michael-el-behairy"
+  },
+  {
+    "Day": 17,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Mönches Mina.",
+    "StoryId": 61701,
+    "Slug": "martyrdom-of-saint-mina-the-monk"
+  },
+  {
+    "Day": 17,
+    "Month": 6,
+    "Title": "Die Einweihung der Kirche des heiligen Kastor von Bardanouha.",
+    "StoryId": 61702,
+    "Slug": "consecration-of-the-church-of-saint-castor"
+  },
+  {
+    "Day": 18,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Meletius, des Bekenners, des Patriarchen von Antiochien.",
+    "StoryId": 61801,
+    "Slug": "departure-of-patriarch-meletius-of-antioch"
+  },
+  {
+    "Day": 18,
+    "Month": 6,
+    "Title": "Die Einweihung der Kirche des heiligen Paulus, des Einfachen.",
+    "StoryId": 61802,
+    "Slug": "consecration-of-the-church-of-saint-paul-the-simple"
+  },
+  {
+    "Day": 19,
+    "Month": 6,
+    "Title": "Der Gedenktag der Übertragung der Reliquien des heiligen Mönchs Martianus.",
+    "StoryId": 61901,
+    "Slug": "translation-of-the-relics-of-saint-martianus"
+  },
+  {
+    "Day": 20,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Petrus II., des 21. Patriarchen von Alexandrien.",
+    "StoryId": 62001,
+    "Slug": "departure-of-pope-peter-ii"
+  },
+  {
+    "Day": 20,
+    "Month": 6,
+    "Title": "Das Martyrium der heiligen Basilius, Theodorus und Timotheus in Alexandrien.",
+    "StoryId": 62002,
+    "Slug": "martyrdom-of-saints-basil-theodore-and-timothy"
+  },
+  {
+    "Day": 21,
+    "Month": 6,
+    "Title": "Der Gedenktag der heiligen Jungfrau Maria, der Mutter Gottes.",
+    "StoryId": 62101,
+    "Slug": "commemoration-of-virgin-mary-21-amshir"
+  },
+  {
+    "Day": 21,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Onesimus, des Jüngers des Apostels Paulus.",
+    "StoryId": 62102,
+    "Slug": "martyrdom-of-saint-onesimus"
+  },
+  {
+    "Day": 21,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Gabriel I., des 57. Patriarchen von Alexandrien.",
+    "StoryId": 62103,
+    "Slug": "departure-of-pope-gabriel-i"
+  },
+  {
+    "Day": 21,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Zacharias, des Bischofs von Sacha.",
+    "StoryId": 62104,
+    "Slug": "departure-of-saint-zacharias-bishop-of-sakha"
+  },
+  {
+    "Day": 22,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Maruthas, Bischof von Silvan (Diyarbakir).",
+    "StoryId": 62201,
+    "Slug": "departure-of-saint-maruta"
+  },
+  {
+    "Day": 23,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Eusebius, Sohn des heiligen Ministers Wasilides.",
+    "StoryId": 62301,
+    "Slug": "martyrdom-of-saint-eusebius-son-of-basilides"
+  },
+  {
+    "Day": 24,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Bischofs Agapetus.",
+    "StoryId": 62401,
+    "Slug": "departure-of-saint-agapetus-bishop-of-synnada"
+  },
+  {
+    "Day": 24,
+    "Month": 6,
+    "Title": "Das Martyrium der heiligen Timotheus in Gaza und Matthäus in Qus.",
+    "StoryId": 62402,
+    "Slug": "martyrdom-of-saints-timothy-and-matthias"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "Das Martyrium der heiligen Philemon, Apphia und Archippus, ihres Sohnes.",
+    "StoryId": 62501,
+    "Slug": "martyrdom-of-saints-philemon-apphia-and-archippus"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Quona (oder des Diakons Kosmas) in Rom.",
+    "StoryId": 62502,
+    "Slug": "martyrdom-of-saint-quona"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Mina in Qus.",
+    "StoryId": 62503,
+    "Slug": "martyrdom-of-saint-mina-of-qus"
+  },
+  {
+    "Day": 25,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Abu-Fana (Abba Bane) auf dem Berg von Delga.",
+    "StoryId": 62504,
+    "Slug": "departure-of-saint-abu-fana"
+  },
+  {
+    "Day": 26,
+    "Month": 6,
+    "Title": "Das Entschlafen des gerechten Propheten Hosea.",
+    "StoryId": 62601,
+    "Slug": "departure-of-prophet-hosea"
+  },
+  {
+    "Day": 26,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Zadok und mit ihm 128 Personen.",
+    "StoryId": 62602,
+    "Slug": "martyrdom-of-saint-zadok-and-companions"
+  },
+  {
+    "Day": 26,
+    "Month": 6,
+    "Title": "Das Martyrium der zwei Bischöfe Tyranius und Silvanus, sowie des Priesters Zinopius und ihrer Gefährten in der Stadt Tyrus.",
+    "StoryId": 62603,
+    "Slug": "martyrdom-of-bishops-tyrannion-silvanus-and-companions"
+  },
+  {
+    "Day": 27,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Eustathius, des Patriarchen von Antiochien.",
+    "StoryId": 62701,
+    "Slug": "departure-of-patriarch-eustathius-of-antioch"
+  },
+  {
+    "Day": 27,
+    "Month": 6,
+    "Title": "Das Martyrium der heiligen Perpetua und ihrer Gefährten.",
+    "StoryId": 62702,
+    "Slug": "martyrdom-of-saint-perpetua-and-companions"
+  },
+  {
+    "Day": 28,
+    "Month": 6,
+    "Title": "Die Übertragung der Reliquien des heiligen Märtyrers Theodorus (Tadros), des Orientalen.",
+    "StoryId": 62801,
+    "Slug": "translation-of-the-relics-of-saint-theodore-the-oriental"
+  },
+  {
+    "Day": 29,
+    "Month": 6,
+    "Title": "Das Martyrium des heiligen Polykarp, des Bischofs von Smyrna.",
+    "StoryId": 62901,
+    "Slug": "martyrdom-of-saint-polycarp"
+  },
+  {
+    "Day": 30,
+    "Month": 6,
+    "Title": "Das Auffinden des Hauptes des heiligen Johannes des Täufers.",
+    "StoryId": 63001,
+    "Slug": "discovery-of-the-head-of-saint-john-the-baptist"
+  },
+  {
+    "Day": 30,
+    "Month": 6,
+    "Title": "Das Entschlafen des heiligen Papstes Abba Kyrillus VI., des 116. Patriarchen von Alexandrien.",
+    "StoryId": 63002,
+    "Slug": "departure-of-pope-kyrillos-vi"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Märtyrer Makronius und Thekla",
+    "StoryId": 70101,
+    "Slug": "martyrdom-of-saints-makronius-and-thecla"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Alexanderus, der Soldat",
+    "StoryId": 70102,
+    "Slug": "martyrdom-of-saint-alexander-the-soldier"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Narkissus, der Bischof von Jerusalem",
+    "StoryId": 70103,
+    "Slug": "departure-of-saint-narcissus-of-jerusalem-1-baramhat"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Markura, der Bischof von Talbana",
+    "StoryId": 70104,
+    "Slug": "departure-of-saint-marcura-the-bishop"
+  },
+  {
+    "Day": 1,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Mönches Girgis (Georg), der Sohn des al-Amid, bekannt als Ibn al-Makin",
+    "StoryId": 70105,
+    "Slug": "departure-of-monk-george-ibn-al-amid"
+  },
+  {
+    "Day": 2,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Abba Makrobius (Makrawi), der Bischof",
+    "StoryId": 70201,
+    "Slug": "martyrdom-of-saint-macrobius-of-nikiou"
+  },
+  {
+    "Day": 3,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Kosma III., der 58. Patriarch des Stuhles des Evangelisten Markus",
+    "StoryId": 70301,
+    "Slug": "departure-of-pope-cosmas-iii"
+  },
+  {
+    "Day": 3,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Prophonius",
+    "StoryId": 70302,
+    "Slug": "martyrdom-of-saint-porphyry-of-banias"
+  },
+  {
+    "Day": 3,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Porphyrius, Bischof von Gaza",
+    "StoryId": 70303,
+    "Slug": "departure-of-saint-porphyry-of-gaza"
+  },
+  {
+    "Day": 3,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Hadid, der Priester",
+    "StoryId": 70304,
+    "Slug": "departure-of-saint-hadid-the-priest"
+  },
+  {
+    "Day": 4,
+    "Month": 7,
+    "Title": "Die Abhaltung einer Synode auf der Insel Beni Omar über die sogenannte Vierzehntler-Lehre bezüglich des heiligen Osterfestes",
+    "StoryId": 70401,
+    "Slug": "council-of-bani-omar-against-the-quartodecimans"
+  },
+  {
+    "Day": 4,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Hanulius, der Feldherr",
+    "StoryId": 70402,
+    "Slug": "martyrdom-of-saint-hanulius"
+  },
+  {
+    "Day": 5,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Sarapamon, der Hegumenos des Klosters des heiligen Abba Johannes (Jehnes), der Kleine, eines der untergegangenen Klöster in der Wüste von Schihiet.",
+    "StoryId": 70501,
+    "Slug": "departure-of-saint-sarapamon-the-hegumen"
+  },
+  {
+    "Day": 5,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Eudoxia (Eutychia)",
+    "StoryId": 70502,
+    "Slug": "martyrdom-of-saint-eudoxia"
+  },
+  {
+    "Day": 6,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Dioskorus in der Zeit der Araber",
+    "StoryId": 70601,
+    "Slug": "martyrdom-of-saint-dioscorus"
+  },
+  {
+    "Day": 6,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Theodotus, der bekennende Bischof",
+    "StoryId": 70602,
+    "Slug": "departure-of-saint-theodotus"
+  },
+  {
+    "Day": 7,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Philemon und Apollonius",
+    "StoryId": 70701,
+    "Slug": "martyrdom-of-saints-philemon-and-apollonius"
+  },
+  {
+    "Day": 7,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Maria, die Israelitin",
+    "StoryId": 70702,
+    "Slug": "martyrdom-of-saint-mary-the-israelite"
+  },
+  {
+    "Day": 8,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Apostels Matthias, einer der 12 Jünger Christi",
+    "StoryId": 70801,
+    "Slug": "martyrdom-of-saint-matthias-the-apostle"
+  },
+  {
+    "Day": 8,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Papstes Julianus, der 11. Patriarch des Stuhles des heiligen Markus",
+    "StoryId": 70802,
+    "Slug": "departure-of-pope-julian"
+  },
+  {
+    "Day": 8,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Arianus, Statthalter von Ansina",
+    "StoryId": 70803,
+    "Slug": "martyrdom-of-saint-arianus"
+  },
+  {
+    "Day": 9,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Bekenners Konon",
+    "StoryId": 70901,
+    "Slug": "departure-of-saint-konan"
+  },
+  {
+    "Day": 9,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Andrianus und Martha, seiner Frau, sowie Eusebius, Armanius und der vierzig Märtyrer",
+    "StoryId": 70902,
+    "Slug": "martyrdom-of-saints-andrianus-martha-and-companions"
+  },
+  {
+    "Day": 10,
+    "Month": 7,
+    "Title": "Das Gedächtnis der Erscheinung des heiligen Kreuzes",
+    "StoryId": 71001,
+    "Slug": "appearance-of-the-holy-cross"
+  },
+  {
+    "Day": 11,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Basilius, Bischof von Jerusalem",
+    "StoryId": 71101,
+    "Slug": "martyrdom-of-saint-basil-the-bishop"
+  },
+  {
+    "Day": 11,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Narkissos, Bischof von Jerusalem",
+    "StoryId": 71102,
+    "Slug": "departure-of-saint-narcissus-of-jerusalem-11-baramhat"
+  },
+  {
+    "Day": 12,
+    "Month": 7,
+    "Title": "Das Gedächtnis des reinen Erzengels Michael",
+    "StoryId": 71201,
+    "Slug": "commemoration-of-archangel-michael-12-baramhat"
+  },
+  {
+    "Day": 12,
+    "Month": 7,
+    "Title": "Die Offenbarung der Jungfräulichkeit des Papstes Dimitrius, der Winzer, der 12. Patriarch des Stuhles des heiligen Markus",
+    "StoryId": 71202,
+    "Slug": "revelation-of-the-virginity-of-pope-demetrius-i"
+  },
+  {
+    "Day": 12,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Maleachi in Palästina",
+    "StoryId": 71203,
+    "Slug": "martyrdom-of-saint-malachi-of-palestine"
+  },
+  {
+    "Day": 12,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Glathinus in Damaskus",
+    "StoryId": 71204,
+    "Slug": "martyrdom-of-saint-glathinos"
+  },
+  {
+    "Day": 12,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Hegumenos Pischoi Kamel",
+    "StoryId": 71205,
+    "Slug": "departure-of-saint-pishoy-kamel"
+  },
+  {
+    "Day": 13,
+    "Month": 7,
+    "Title": "Das Martyrium der vierzig Märtyrer von Sebaste",
+    "StoryId": 71301,
+    "Slug": "forty-martyrs-of-sebaste"
+  },
+  {
+    "Day": 13,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Papstes Dionesius, der 14. Patriarch des Stuhles des heiligen Markus",
+    "StoryId": 71302,
+    "Slug": "departure-of-pope-dionysius"
+  },
+  {
+    "Day": 13,
+    "Month": 7,
+    "Title": "Das Gedächtnis der Rückkehr der heiligen Makarius des Großen und Makarius von Alexandrien aus ihrem Exil",
+    "StoryId": 71303,
+    "Slug": "return-of-the-two-saints-macarius-from-exile"
+  },
+  {
+    "Day": 14,
+    "Month": 7,
+    "Title": "Das Martyrium der Bischöfe Eugenius, Agathodorus und Elpidius",
+    "StoryId": 71401,
+    "Slug": "martyrdom-of-bishops-eugenius-agathodorus-and-elpidius"
+  },
+  {
+    "Day": 14,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Schenouda (Schenute) von Bahnasa",
+    "StoryId": 71402,
+    "Slug": "martyrdom-of-saint-shenouda-el-bahnasawy"
+  },
+  {
+    "Day": 15,
+    "Month": 7,
+    "Title": "Das Entschlafen der heiligen Sarah, die Nonne",
+    "StoryId": 71501,
+    "Slug": "departure-of-saint-sarah-the-nun"
+  },
+  {
+    "Day": 15,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Elijas von Ahnas",
+    "StoryId": 71502,
+    "Slug": "martyrdom-of-saint-elias-of-ahnas"
+  },
+  {
+    "Day": 16,
+    "Month": 7,
+    "Title": "Die Marienerscheinung der heiligen Jungfrau Maria, die Mutter Gottes, in der Kirche der Märtyrerin Damiana in Baba Dublu (Schobra, Kairo)",
+    "StoryId": 71601,
+    "Slug": "apparition-of-virgin-mary-in-shoubra"
+  },
+  {
+    "Day": 16,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Papstes Khail I., der 46. Patriarch des Stuhles des heiligen Markus",
+    "StoryId": 71602,
+    "Slug": "departure-of-pope-khail-i"
+  },
+  {
+    "Day": 17,
+    "Month": 7,
+    "Title": "Das Entschlafen des Lazarus, der Geliebte des Herrn",
+    "StoryId": 71701,
+    "Slug": "departure-of-saint-lazarus-17-baramhat"
+  },
+  {
+    "Day": 17,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Sidhom Pschai in Damiette",
+    "StoryId": 71702,
+    "Slug": "martyrdom-of-saint-sidhom-bishay"
+  },
+  {
+    "Day": 17,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Basilius, der Erzbischof von Jerusalem",
+    "StoryId": 71703,
+    "Slug": "departure-of-saint-basilius-metropolitan-of-jerusalem"
+  },
+  {
+    "Day": 17,
+    "Month": 7,
+    "Title": "Gedenken der heiligen Georg der Asket, Belasius der Märtyrer und Abba Josef, der Bischof",
+    "StoryId": 71704,
+    "Slug": "commemoration-of-saint-george-the-ascetic"
+  },
+  {
+    "Day": 18,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Isidorus, der Gefährte des Soldaten Sina",
+    "StoryId": 71801,
+    "Slug": "martyrdom-of-saint-isidore-friend-of-saint-sina"
+  },
+  {
+    "Day": 19,
+    "Month": 7,
+    "Title": "Das Martyrium des heiligen Aristobul, eines der siebzig Apostel",
+    "StoryId": 71901,
+    "Slug": "martyrdom-of-saint-aristobulus"
+  },
+  {
+    "Day": 19,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Alexanderus, Agabius und ihrer Gefährten",
+    "StoryId": 71902,
+    "Slug": "martyrdom-of-saints-alexander-agabius-and-companions"
+  },
+  {
+    "Day": 20,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Papstes Khail III., der 56. Patriarch des Stuhles des heiligen Markus",
+    "StoryId": 72001,
+    "Slug": "departure-of-pope-khail-iii"
+  },
+  {
+    "Day": 20,
+    "Month": 7,
+    "Title": "Das Gedenken an die Auferweckung des Lazarus, der Geliebte des Herrn",
+    "StoryId": 72002,
+    "Slug": "raising-of-lazarus"
+  },
+  {
+    "Day": 21,
+    "Month": 7,
+    "Title": "Das Gedenken an die Mutter Gottes, die heilige, reine Jungfrau Maria",
+    "StoryId": 72101,
+    "Slug": "commemoration-of-virgin-mary-21-baramhat"
+  },
+  {
+    "Day": 21,
+    "Month": 7,
+    "Title": "Der Einzug des Erlösers in Betanien und der Beschluss der Hohenpriester, Lazarus zu töten",
+    "StoryId": 72102,
+    "Slug": "visit-of-the-lord-to-bethany"
+  },
+  {
+    "Day": 21,
+    "Month": 7,
+    "Title": "Das Martyrium der heiligen Theodorus und Timotheus",
+    "StoryId": 72103,
+    "Slug": "martyrdom-of-saints-theodore-and-timothy"
+  },
+  {
+    "Day": 22,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Kyrillus, Bischof von Jerusalem",
+    "StoryId": 72201,
+    "Slug": "departure-of-saint-cyril-of-jerusalem"
+  },
+  {
+    "Day": 22,
+    "Month": 7,
+    "Title": "Das Entschlafen des gerechten Josef von Arimathäa",
+    "StoryId": 72202,
+    "Slug": "departure-of-joseph-of-arimathea"
+  },
+  {
+    "Day": 22,
+    "Month": 7,
+    "Title": "Das Entschlafen des heiligen Abba Michael, der Bischof von Naqada",
+    "StoryId": 72203,
+    "Slug": "departure-of-saint-michael-of-naqadah"
+  }
+]
