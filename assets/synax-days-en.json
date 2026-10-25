@@ -2683,7 +2683,7 @@
   {
     "Day": 5,
     "Month": 6,
-    "Title": "The Departure of the Saints Anba Bishay the Founder of the Red Monastery",
+    "Title": "The Departure of the Saint Anba Bishay the Founder of the Red Monastery",
     "StoryId": 60503,
     "Slug": "departure-of-saint-bishay-of-the-red-monastery"
   },
@@ -3537,7 +3537,7 @@
   {
     "Day": 25,
     "Month": 7,
-    "Title": "The Martyrdom of St. Onesiphorous, one of the Seventy Apostles",
+    "Title": "The Martyrdom of St. Onesiphorus, one of the Seventy Apostles",
     "StoryId": 72502,
     "Slug": "martyrdom-of-saint-onesiphorus"
   },
@@ -4230,7 +4230,7 @@
   {
     "Day": 9,
     "Month": 9,
-    "Title": "The Departure of Pope Yoannis XI, 89th Patriarch of Alexandra",
+    "Title": "The Departure of Pope Yoannis XI, 89th Patriarch of Alexandria",
     "StoryId": 90902,
     "Slug": "departure-of-pope-john-xi"
   },
@@ -5413,7 +5413,7 @@
   {
     "Day": 17,
     "Month": 11,
-    "Title": "The Martyrdom of the Two Saints Thecla and Martha who were from Esna.3",
+    "Title": "The Martyrdom of the Two Saints Thecla and Martha who were from Esna",
     "StoryId": 111702,
     "Slug": "martyrdom-of-saints-thecla-and-martha"
   },
