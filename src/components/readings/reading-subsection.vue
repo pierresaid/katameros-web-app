@@ -31,7 +31,8 @@ import { useMenu } from '../../store/menu';
 import { useReadings } from '../../store/readings';
 import { type SubSection, type Reading as ReadingType } from '../../types/readings.js';
 import Reading from './reading.vue';
-import LANGUAGES from '../../consts/languages';
+import { pairSecond } from '../../helpers/readingPairs';
+import { languageDir } from '../../helpers/languages';
 
 const props = defineProps<{
     subSection: SubSection,
@@ -44,35 +45,14 @@ const readings = useReadings();
 
 // Get matching second language reading
 const getSecondLanguageReading = (readingIdx: number): ReadingType | undefined => {
-    if (!readings.secondSections || !readings.secondLanguage || !readings.sections) {
+    if (!readings.secondLanguage || !readings.sections) {
         return undefined;
     }
-
-    const currentSection = readings.sections[props.sectionIdx];
-    if (!currentSection) return undefined;
-
-    const secondSection = readings.secondSections.find(s => s.id === currentSection.id);
-    if (!secondSection) return undefined;
-
-    const secondSubSection = secondSection.subSections.find(ss => ss.id === props.subSection.id);
-    if (!secondSubSection) return undefined;
-
-    // Synaxarium stories share a storyId across translations, but the languages
-    // don't have the same stories in the same order, so match on it.
-    const storyId = props.subSection.readings[readingIdx]?.storyId;
-    if (storyId != null) {
-        return secondSubSection.readings.find(r => r.storyId === storyId);
-    }
-
-    return secondSubSection.readings[readingIdx];
+    return pairSecond(readings.sections[props.sectionIdx], props.subSection, readingIdx, readings.secondSections).reading;
 };
 
 // Get text direction for second language
-const secondLanguageDir = computed(() => {
-    if (!readings.secondLanguage) return 'ltr';
-    const lang = Object.values(LANGUAGES).find(l => l.id === readings.secondLanguage);
-    return lang && 'rtl' in lang && lang.rtl ? 'rtl' : 'ltr';
-});
+const secondLanguageDir = computed(() => languageDir(readings.secondLanguage));
 
 const subSectionTitleBaseSize = 1.6;
 const subSectionTitleSize  = computed(() => {

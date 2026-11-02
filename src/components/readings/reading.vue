@@ -62,7 +62,8 @@ import { computed } from '@vue/reactivity';
 import { useMenu } from '../../store/menu';
 import { useReadings } from '../../store/readings';
 import { type Reading, type Verse } from '../../types/readings.js';
-import LANGUAGES from '../../consts/languages';
+import { findSecondVerse, formatRef } from '../../helpers/readingPairs';
+import { languageDir } from '../../helpers/languages';
 
 const props = defineProps<{
     reading: Reading,
@@ -91,21 +92,11 @@ const isLineByLine = computed(() => {
 });
 
 // Get text direction for second language
-const secondLanguageDir = computed(() => {
-    if (!readings.secondLanguage) return 'ltr';
-    const lang = Object.values(LANGUAGES).find(l => l.id === readings.secondLanguage);
-    return lang && 'rtl' in lang && lang.rtl ? 'rtl' : 'ltr';
-});
+const secondLanguageDir = computed(() => languageDir(readings.secondLanguage));
 
 // Get matching verse from second language reading
-const getSecondLanguageVerse = (passageIdx: number, verseNumber: number): Verse | undefined => {
-    if (!props.secondLanguageReading?.passages) return undefined;
-
-    const secondPassage = props.secondLanguageReading.passages[passageIdx];
-    if (!secondPassage) return undefined;
-
-    return secondPassage.verses.find(v => v.number === verseNumber);
-};
+const getSecondLanguageVerse = (passageIdx: number, verseNumber: number): Verse | undefined =>
+    findSecondVerse(props.secondLanguageReading, passageIdx, verseNumber);
 
 const verseBaseSize = 1
 const verseFontSize = computed(() => {
@@ -122,17 +113,7 @@ const refFontSize = computed(() => {
     return Number((zoom.value * refBaseSize).toFixed(2));
 });
 
-const Ref = computed(() => {
-    let ref = "";
-    if (reading.passages)
-        for (let i = 0; i < reading.passages.length; i++) {
-            const passage = reading.passages[i];
-            if (passage) {
-                ref += `${i === 0 || reading.passages[i - 1]?.bookId !== passage.bookId ? passage.bookTranslation : ""} ${passage.ref ?? ""} ${i === reading.passages.length - 1 ? "" : " & "}`;
-            }
-        }
-    return ref;
-})
+const Ref = computed(() => formatRef(reading.passages))
 
 </script>
 
