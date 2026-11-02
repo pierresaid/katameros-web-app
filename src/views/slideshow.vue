@@ -399,19 +399,18 @@ onBeforeUnmount(() => {
         <div ref="frame" class="ss-frame" @pointerdown="onPointerDown" @pointerup="onPointerUp"
             @pointercancel="cancelPress">
             <div ref="measurer" class="ss-measure" aria-hidden="true" />
-            <Transition name="ss-fade" mode="out-in">
-                <SlideView v-if="slide && unit" :key="`${unit.key}:${slide.from}:${slide.secondFrom}`" :unit="unit"
-                    :slide="slide" :first="index === unitStart" :langs="langs" role="group"
-                    aria-roledescription="slide"
-                    :aria-label="t('slideshow.slide', { n: index + 1, total: deck.slides.length })" />
-                <div v-else key="status" class="ss-status">
-                    <template v-if="readings.error && !readings.sections">
-                        <p>{{ t('error.loadingReadings') }}</p>
-                        <v-btn variant="tonal" @click="readings.getReadings()">{{ t('reload') }}</v-btn>
-                    </template>
-                    <CopticCrossOutlineAnimated v-else class="ss-cross" />
-                </div>
-            </Transition>
+            <!-- Slides change at once, without a transition -->
+            <SlideView v-if="slide && unit" :key="`${unit.key}:${slide.from}:${slide.secondFrom}`" :unit="unit"
+                :slide="slide" :first="index === unitStart" :langs="langs" role="group"
+                aria-roledescription="slide"
+                :aria-label="t('slideshow.slide', { n: index + 1, total: deck.slides.length })" />
+            <div v-else class="ss-status">
+                <template v-if="readings.error && !readings.sections">
+                    <p>{{ t('error.loadingReadings') }}</p>
+                    <v-btn variant="tonal" @click="readings.getReadings()">{{ t('reload') }}</v-btn>
+                </template>
+                <CopticCrossOutlineAnimated v-else class="ss-cross" />
+            </div>
         </div>
         <SlideshowControls :visible="controlsVisible" :label="positionLabel" :date-label="dateLabel" :groups="groups"
             :current="slide?.unit ?? -1" :zoom="slideshow.zoom" :fullscreen="fullscreen"
@@ -513,7 +512,6 @@ onBeforeUnmount(() => {
     flex: none;
     align-items: end;
     padding-bottom: 0.6em;
-    transition: opacity 0.2s;
 }
 
 .ss-head-cell {
@@ -630,25 +628,8 @@ onBeforeUnmount(() => {
     pointer-events: none;
 }
 
-.ss-fade-enter-active {
-    transition: opacity 0.14s ease-out;
-}
-
-.ss-fade-leave-active {
-    transition: opacity 0.08s ease-in;
-}
-
-.ss-fade-enter-from,
-.ss-fade-leave-to {
-    opacity: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
-
-    .ss-fade-enter-active,
-    .ss-fade-leave-active,
-    .ss-progress,
-    .ss-head {
+    .ss-progress {
         transition: none;
     }
 }

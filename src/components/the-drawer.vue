@@ -35,9 +35,8 @@ function openSlideshow() {
 }
 
 const items = computed(() => {
-    const m: { title: string, name: string, icon: string, onClick?: () => void }[] = [
+    const m: { title: string, name: string, icon: string }[] = [
         { title: 'home', name: 'home', icon: 'mdi-book-open-page-variant' },
-        { title: 'slideshow.title', name: 'slideshow', icon: 'mdi-presentation-play', onClick: openSlideshow },
     ]
     if (SYNAX_LANGS.includes(lang.value))
         m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
@@ -57,7 +56,7 @@ const items = computed(() => {
                 <v-list-item v-for="item in items" :key="item.name"
                     :to="{ name: item.name, params: { lang } }"
                     :title="$t(item.title)" role="link"
-                    :prepend-icon="item.icon" rounded="lg" @click="item.onClick?.()" />
+                    :prepend-icon="item.icon" rounded="lg" />
             </v-list>
 
             <div role="group" :aria-label="t('aria.settings')">
@@ -80,6 +79,12 @@ const items = computed(() => {
                     </div>
                     <div class="drawer-card-row">
                         <theme-picker />
+                    </div>
+                    <div class="drawer-card-row">
+                        <v-btn :to="{ name: 'slideshow', params: { lang } }" @click="openSlideshow" block
+                            variant="text" prepend-icon="mdi-presentation-play" class="slideshow-btn">
+                            {{ t('slideshow.title') }}
+                        </v-btn>
                     </div>
                     <div class="drawer-card-row">
                         <space-picker />
@@ -113,5 +118,13 @@ const items = computed(() => {
 
 .drawer-card-row+.drawer-card-row {
     border-top: 1px solid rgba(var(--v-theme-on-surface), 0.07);
+}
+
+/* A button among the settings: the same quiet wash as the toggles' track */
+.slideshow-btn {
+    background-color: rgba(var(--v-theme-on-surface), 0.06);
+    border-radius: 10px;
+    text-transform: none;
+    letter-spacing: normal;
 }
 </style>
