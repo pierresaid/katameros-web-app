@@ -1,115 +1,110 @@
 <template>
-  <v-container class="synax-page">
-    <h1 class="synax-heading">{{ $t('synaxarium.title') }}</h1>
-    <p class="synax-description">{{ $t('seo.synaxariumDescription') }}</p>
+  <div class="synax-page">
+    <!-- Stays in place: the list below scrolls on its own -->
+    <div class="synax-top">
+      <h1 class="synax-heading">{{ $t('synaxarium.title') }}</h1>
+      <p class="synax-description">{{ $t('seo.synaxariumDescription') }}</p>
 
-    <!-- Stays at the top while the list scrolls -->
-    <div ref="controlsEl" class="synax-controls">
-      <v-text-field
-        v-model="query"
-        :placeholder="$t('synaxarium.search')"
-        :aria-label="$t('synaxarium.search')"
-        prepend-inner-icon="mdi-magnify"
-        clearable
-        variant="solo-filled"
-        flat
-        rounded="pill"
-        density="comfortable"
-        hide-details
-        :loading="textState === 'loading'"
-        :disabled="isLoadingReadings"
-      />
-      <div v-if="mode === 'browse'" ref="monthsEl" class="synax-months" role="navigation"
-        :aria-label="$t('synaxarium.months')">
-        <button type="button" class="synax-chip" @click="scrollToToday()">
+      <div class="synax-search-row">
+        <v-text-field
+          v-model="query"
+          :placeholder="$t('synaxarium.search')"
+          :aria-label="$t('synaxarium.search')"
+          prepend-inner-icon="mdi-magnify"
+          clearable
+          variant="solo-filled"
+          flat
+          rounded="pill"
+          density="comfortable"
+          hide-details
+          :loading="textState === 'loading'"
+          :disabled="isLoadingReadings"
+        />
+        <v-btn icon="mdi-calendar" variant="tonal" class="synax-calendar" :aria-label="$t('aria.openDatePicker')"
+          :title="$t('aria.openDatePicker')" @click="menu.dateDialog = true" />
+      </div>
+
+      <div class="synax-nav">
+        <!-- Outside the months, so it can always be reached -->
+        <button type="button" class="synax-chip synax-chip--today" @click="goToToday">
           <v-icon icon="mdi-calendar-today" size="15" />
           {{ $t('synaxarium.today') }}
         </button>
-        <button v-for="month in monthGroups" :key="month.month" type="button" class="synax-chip"
-          :class="{ 'synax-chip--active': month.month === activeMonth }" :data-month="month.month"
-          @click="scrollToMonth(month.month)">
-          {{ month.name }}
-        </button>
+        <div ref="monthsEl" class="synax-months" role="navigation" :aria-label="$t('synaxarium.months')">
+          <button v-for="month in monthGroups" :key="month.month" type="button" class="synax-chip"
+            :class="{ 'synax-chip--active': mode === 'browse' && month.month === activeMonth }"
+            :data-month="month.month" @click="goTo({ month: month.month })">
+            {{ month.name }}
+          </button>
+        </div>
       </div>
-      <div v-else-if="mounted && (resultCount || titlesOnly)" class="synax-summary" aria-live="polite">
+
+      <div v-if="mode === 'search' && mounted && (resultCount || titlesOnly)" class="synax-summary"
+        aria-live="polite">
         <span v-if="resultCount">{{ $t('synaxarium.results', resultCount) }}</span>
         <span v-if="titlesOnly">{{ $t('synaxarium.titlesOnly') }}</span>
       </div>
     </div>
 
-    <div v-if="isLoadingReadings" class="synax-loading">
-      <v-progress-circular indeterminate color="primary" size="64" />
-    </div>
+    <div ref="scrollEl" class="synax-scroll" @scroll.passive="onScroll">
+      <div v-if="isLoadingReadings" class="synax-loading">
+        <v-progress-circular indeterminate color="primary" size="64" />
+      </div>
 
-    <div v-else-if="mounted" ref="listEl" class="synax-list">
-      <!-- The calendar, day by day -->
-      <template v-if="mode === 'browse'">
-        <section v-for="month in monthGroups" :key="month.month">
-          <h2 class="synax-month-title" :data-month="month.month">{{ month.name }}</h2>
-          <div v-for="day in month.days" :key="day.key" class="synax-day" :class="{ 'synax-day--today': day.today }"
-            :data-day="day.key">
-            <div class="synax-day-head">
-              <span class="synax-day-date">{{ day.day }} {{ month.name }}</span>
-              <span v-if="day.gregorian">{{ day.gregorian }}</span>
-              <span v-if="day.today" class="synax-day-badge">{{ $t('synaxarium.today') }}</span>
+      <div v-else-if="mounted" ref="listEl" class="synax-list">
+        <!-- The calendar, day by day -->
+        <template v-if="mode === 'browse'">
+          <section v-for="month in monthGroups" :key="month.month">
+            <h2 class="synax-month-title" :data-month="month.month">{{ month.name }}</h2>
+            <div v-for="day in month.days" :key="day.key" class="synax-day"
+              :class="{ 'synax-day--today': day.today, 'synax-day--selected': isSelected(day) }" :data-day="day.key">
+              <div class="synax-day-head">
+                <span class="synax-day-date">{{ day.day }} {{ month.name }}</span>
+                <span v-if="day.gregorian">{{ day.gregorian }}</span>
+                <span v-if="day.today" class="synax-day-badge">{{ $t('synaxarium.today') }}</span>
+              </div>
+              <button v-for="entry in day.entries" :key="entry.Slug" type="button" class="synax-row"
+                @click="openStory(entry)">
+                <span class="synax-row-title">{{ entry.Title }}</span>
+              </button>
             </div>
-            <button v-for="entry in day.entries" :key="entry.Slug" type="button" class="synax-row"
-              @click="openStory(entry)">
-              <span class="synax-row-title">{{ entry.Title }}</span>
+          </section>
+        </template>
+
+        <!-- Words searched for: in the titles first, then in the stories -->
+        <template v-else>
+          <section v-if="shownTitleMatches.length">
+            <h2 class="synax-results-title">{{ $t('synaxarium.inTitles') }}</h2>
+            <button v-for="entry in shownTitleMatches" :key="entry.Slug" type="button"
+              class="synax-row synax-row--dated" @click="openStory(entry)">
+              <span class="synax-row-date">
+                <span class="synax-row-day">{{ entry.Day }}</span>
+                <span class="synax-row-month">{{ getCopticMonth(entry.Month) }}</span>
+              </span>
+              <span class="synax-row-title" v-html="highlightTokens(entry.Title, tokens)"></span>
             </button>
-          </div>
-        </section>
-      </template>
-
-      <!-- A day searched for -->
-      <template v-else-if="mode === 'date'">
-        <div v-if="dateDay" class="synax-day" :class="{ 'synax-day--today': dateDay.today }">
-          <div class="synax-day-head">
-            <span class="synax-day-date">{{ dateDay.day }} {{ dateDay.monthName }}</span>
-            <span v-if="dateDay.gregorian">{{ dateDay.gregorian }}</span>
-            <span v-if="dateDay.today" class="synax-day-badge">{{ $t('synaxarium.today') }}</span>
-          </div>
-          <button v-for="entry in dateDay.entries" :key="entry.Slug" type="button" class="synax-row"
-            @click="openStory(entry)">
-            <span class="synax-row-title">{{ entry.Title }}</span>
-          </button>
-        </div>
-        <p v-else class="synax-empty">{{ $t('synaxarium.noResults') }}</p>
-      </template>
-
-      <!-- Words searched for: in the titles first, then in the stories -->
-      <template v-else>
-        <section v-if="shownTitleMatches.length">
-          <h2 class="synax-results-title">{{ $t('synaxarium.inTitles') }}</h2>
-          <button v-for="entry in shownTitleMatches" :key="entry.Slug" type="button"
-            class="synax-row synax-row--dated" @click="openStory(entry)">
-            <span class="synax-row-date">
-              <span class="synax-row-day">{{ entry.Day }}</span>
-              <span class="synax-row-month">{{ getCopticMonth(entry.Month) }}</span>
-            </span>
-            <span class="synax-row-title" v-html="highlightTokens(entry.Title, tokens)"></span>
-          </button>
-        </section>
-        <section v-if="shownTextMatches.length">
-          <h2 class="synax-results-title">{{ $t('synaxarium.inText') }}</h2>
-          <button v-for="match in shownTextMatches" :key="match.entry.Slug" type="button"
-            class="synax-row synax-row--dated" @click="openStory(match.entry)">
-            <span class="synax-row-date">
-              <span class="synax-row-day">{{ match.entry.Day }}</span>
-              <span class="synax-row-month">{{ getCopticMonth(match.entry.Month) }}</span>
-            </span>
-            <span class="synax-row-body">
-              <span class="synax-row-title" v-html="highlightTokens(match.entry.Title, tokens)"></span>
-              <span class="synax-row-excerpt" v-html="match.excerpt"></span>
-            </span>
-          </button>
-        </section>
-        <!-- The next results come as the end of the list gets near -->
-        <div v-if="moreResults" :key="shownCount"
-          v-intersect="{ handler: showMoreResults, options: { rootMargin: '600px' } }" class="synax-more" />
-        <p v-if="!resultCount && textState !== 'loading'" class="synax-empty">{{ $t('synaxarium.noResults') }}</p>
-      </template>
+          </section>
+          <section v-if="shownTextMatches.length">
+            <h2 class="synax-results-title">{{ $t('synaxarium.inText') }}</h2>
+            <button v-for="match in shownTextMatches" :key="match.entry.Slug" type="button"
+              class="synax-row synax-row--dated" @click="openStory(match.entry)">
+              <span class="synax-row-date">
+                <span class="synax-row-day">{{ match.entry.Day }}</span>
+                <span class="synax-row-month">{{ getCopticMonth(match.entry.Month) }}</span>
+              </span>
+              <span class="synax-row-body">
+                <span class="synax-row-title" v-html="highlightTokens(match.entry.Title, tokens)"></span>
+                <span class="synax-row-excerpt" v-html="match.excerpt"></span>
+              </span>
+            </button>
+          </section>
+          <p v-if="!resultCount && textState !== 'loading'" class="synax-empty">{{ $t('synaxarium.noResults') }}</p>
+        </template>
+      </div>
     </div>
+
+    <date-picker-dialog v-model="menu.dateDialog" pick :initial-date="pickerDate"
+      @pick="showDay($event.month, $event.day)" />
 
     <synax-story-sheet
       :open="!!storySlug"
@@ -135,7 +130,7 @@
       @language="storyLanguageId = $event"
       @share="shareStory"
     />
-  </v-container>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -146,6 +141,7 @@ import { getCopticMonth } from '@/helpers/copticMonth';
 import type { SynaxEntry } from '@/types/synaxarium';
 import type { SubSection } from '@/types/readings';
 import { useReadings } from '@/store/readings';
+import { useMenu } from '@/store/menu';
 import { useNotif } from '@/store/notif';
 import { useRoute, useRouter } from 'vue-router';
 import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
@@ -157,6 +153,7 @@ import { useSynaxStory } from '@/composables/useSynaxStory';
 import { useSynaxSearch } from '@/composables/useSynaxSearch';
 import { useBackClose } from '@/composables/useBackClose';
 import SynaxStorySheet from '@/components/synax-story-sheet.vue';
+import DatePickerDialog from '@/components/date-picker-dialog.vue';
 import LANGUAGES from '@/consts/languages';
 import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
@@ -173,6 +170,7 @@ const synaxStore = useSynaxarium();
 const lang = useCurrentLang();
 watch(lang, (code) => synaxStore.setLanguage(code), { immediate: true });
 const readings = useReadings();
+const menu = useMenu();
 const notif = useNotif();
 const router = useRouter();
 const route = useRoute();
@@ -193,24 +191,16 @@ watchDebounced(query, (value) => { searchQuery.value = value ?? ''; }, { debounc
 // synaxarium and show the French list, so their stories load in French too.
 const languageId = computed(() => Object.values(LANGUAGES).find(l => l.code === synaxStore.currentLanguage)?.id ?? 1);
 
-const { tokens, date, dayEntries, titleMatches, textMatches, textState, titlesOnly } = useSynaxSearch({
+const { tokens, titleMatches, textMatches, textState, titlesOnly } = useSynaxSearch({
   entries: computed(() => synaxStore.sortedEntries),
   query: searchQuery,
   languageId,
-  locale: computed(() => String(locale.value)),
-  todayWord: computed(() => t('synaxarium.today')),
 });
 
-const mode = computed<'browse' | 'date' | 'search'>(() =>
-  !searchQuery.value.trim() ? 'browse' : date.value ? 'date' : 'search');
+const mode = computed<'browse' | 'search'>(() => searchQuery.value.trim() ? 'search' : 'browse');
 
-const resultCount = computed(() => {
-  if (mode.value === 'date')
-    return dayEntries.value.length;
-  if (mode.value === 'search')
-    return titleMatches.value.length + textMatches.value.length;
-  return 0;
-});
+const resultCount = computed(() =>
+  mode.value === 'search' ? titleMatches.value.length + textMatches.value.length : 0);
 
 // A common word matches hundreds of stories: the results show a page at a
 // time, the next one coming as the end of the list gets near
@@ -223,16 +213,10 @@ const shownTextMatches = computed(() => textMatches.value
   .map(match => ({ entry: match.entry, excerpt: excerptAround(match.text, tokens.value) })));
 const moreResults = computed(() => shownCount.value < resultCount.value);
 
-function showMoreResults(isIntersecting: boolean) {
-  if (isIntersecting && moreResults.value)
-    shownCount.value += RESULTS_PAGE;
-}
-
 interface DayGroup {
   key: string;
   month: number;
   day: number;
-  monthName: string;
   /** The day in the Gregorian calendar this year */
   gregorian: string;
   today: boolean;
@@ -247,19 +231,6 @@ interface MonthGroup {
 
 const shortDate = computed(() => new Intl.DateTimeFormat(String(locale.value), { day: 'numeric', month: 'short' }));
 
-function dayGroup(month: number, day: number, entries: SynaxEntry[]): DayGroup {
-  const gregorian = today.value ? copticToGregorian(month, day, today.value.year) : null;
-  return {
-    key: `${month}-${day}`,
-    month,
-    day,
-    monthName: getCopticMonth(month),
-    gregorian: gregorian ? shortDate.value.format(gregorian) : '',
-    today: today.value?.month === month && today.value?.day === day,
-    entries,
-  };
-}
-
 // The calendar: the months, their days, and the stories of each day
 const monthGroups = computed(() => {
   const months: MonthGroup[] = [];
@@ -271,7 +242,15 @@ const monthGroups = computed(() => {
     }
     let day = month.days[month.days.length - 1];
     if (!day || day.day !== entry.Day) {
-      day = dayGroup(entry.Month, entry.Day, []);
+      const gregorian = today.value ? copticToGregorian(entry.Month, entry.Day, today.value.year) : null;
+      day = {
+        key: `${entry.Month}-${entry.Day}`,
+        month: entry.Month,
+        day: entry.Day,
+        gregorian: gregorian ? shortDate.value.format(gregorian) : '',
+        today: today.value?.month === entry.Month && today.value?.day === entry.Day,
+        entries: [],
+      };
       month.days.push(day);
     }
     day.entries.push(entry);
@@ -279,55 +258,90 @@ const monthGroups = computed(() => {
   return months;
 });
 
-const dateDay = computed(() => date.value && dayEntries.value.length
-  ? dayGroup(date.value.month, date.value.day, dayEntries.value)
+// The day chosen in the date picker, outlined in the list
+const selectedDay = ref<{ month: number, day: number } | null>(null);
+const isSelected = (day: DayGroup) => selectedDay.value?.month === day.month && selectedDay.value?.day === day.day;
+// The picker opens on that day this year, or on today
+const pickerDate = computed(() => selectedDay.value && today.value
+  ? copticToGregorian(selectedDay.value.month, selectedDay.value.day, today.value.year)
   : null);
 
-const controlsEl = ref<HTMLElement | null>(null);
+const scrollEl = ref<HTMLElement | null>(null);
 const monthsEl = ref<HTMLElement | null>(null);
 const listEl = ref<HTMLElement | null>(null);
-
-// What stays at the top: the app bar, then the search and the month row
-const APP_BAR_HEIGHT = 64;
-const scrollOffset = () => APP_BAR_HEIGHT + (controlsEl.value?.offsetHeight ?? 0) + 8;
+// A little room above a day or month reached from a button
+const TOP_GAP = 6;
 
 // Days far from the screen are laid out at an estimated height until they come
 // near (content-visibility): once those around the target have their real
 // size, it has moved, so aim again over the next frames
 function scrollToElement(el: Element | null | undefined, attempts = 4) {
-  if (!el)
+  const box = scrollEl.value;
+  if (!el || !box)
     return;
-  const delta = el.getBoundingClientRect().top - scrollOffset();
+  const delta = el.getBoundingClientRect().top - box.getBoundingClientRect().top - TOP_GAP;
   if (Math.abs(delta) > 1)
-    window.scrollTo({ top: Math.max(0, window.scrollY + delta), behavior: 'instant' });
+    box.scrollTop = Math.max(0, box.scrollTop + delta);
   if (attempts > 1)
     requestAnimationFrame(() => requestAnimationFrame(() => scrollToElement(el, attempts - 1)));
 }
 
 // A day without a story (German has fewer) goes to the next one that has some
-function scrollToDay(month: number, day: number) {
+function scrollToDay(month: number, day: number): DayGroup | undefined {
   const days = monthGroups.value.flatMap(m => m.days);
   const target = days.find(d => d.month > month || (d.month === month && d.day >= day)) ?? days[0];
   if (target)
     scrollToElement(listEl.value?.querySelector(`[data-day="${target.key}"]`));
+  return target;
 }
 
-function scrollToToday() {
-  if (today.value)
-    scrollToDay(today.value.month, today.value.day);
+// Where the calendar goes: a month, a day, or (null) the chosen day or today.
+// From the search results the calendar comes back first.
+let pendingSpot: { month: number, day?: number } | null = null;
+
+function goTo(spot: { month: number, day?: number } | null) {
+  pendingSpot = spot;
+  if (query.value || searchQuery.value) {
+    query.value = '';
+    searchQuery.value = '';
+  } else {
+    showSpot();
+  }
 }
 
-function scrollToMonth(month: number) {
-  scrollToElement(listEl.value?.querySelector(`h2[data-month="${month}"]`));
+function showSpot() {
+  const spot = pendingSpot;
+  pendingSpot = null;
+  if (spot && spot.day === undefined) {
+    scrollToElement(listEl.value?.querySelector(`h2[data-month="${spot.month}"]`));
+    return;
+  }
+  const wanted = spot ?? selectedDay.value ?? today.value;
+  if (!wanted?.day)
+    return;
+  const target = scrollToDay(wanted.month, wanted.day);
+  if (selectedDay.value && target)
+    selectedDay.value = { month: target.month, day: target.day };
 }
 
-// The month at the top of the screen, lit in the month row
+function showDay(month: number, day: number) {
+  selectedDay.value = { month, day };
+  goTo({ month, day });
+}
+
+function goToToday() {
+  selectedDay.value = null;
+  goTo(null);
+}
+
+// The month at the top of the list, lit in the month row
 const activeMonth = ref<number | null>(null);
 
 function updateActiveMonth() {
-  if (mode.value !== 'browse' || !listEl.value)
+  const box = scrollEl.value;
+  if (mode.value !== 'browse' || !listEl.value || !box)
     return;
-  const limit = scrollOffset() + 1;
+  const limit = box.getBoundingClientRect().top + TOP_GAP + 1;
   let current = monthGroups.value[0]?.month ?? null;
   for (const title of listEl.value.querySelectorAll<HTMLElement>('h2[data-month]')) {
     if (title.getBoundingClientRect().top > limit)
@@ -337,12 +351,21 @@ function updateActiveMonth() {
   activeMonth.value = current;
 }
 
+// The next page of results, before the end of the list is reached
+function loadMoreResults() {
+  const box = scrollEl.value;
+  if (mode.value === 'search' && box && moreResults.value
+    && box.scrollTop + box.clientHeight > box.scrollHeight - 600)
+    shownCount.value += RESULTS_PAGE;
+}
+
 let scrollFrame = 0;
 function onScroll() {
   if (!scrollFrame) {
     scrollFrame = requestAnimationFrame(() => {
       scrollFrame = 0;
       updateActiveMonth();
+      loadMoreResults();
     });
   }
 }
@@ -362,14 +385,12 @@ watch(searchQuery, async (value) => {
     router.replace({ query: { ...route.query, q } });
   await nextTick();
   if (!q) {
-    // Back to the calendar, on today
-    scrollToToday();
+    // Back to the calendar: the day asked for, the chosen day or today
+    showSpot();
     updateActiveMonth();
-  } else {
+  } else if (scrollEl.value) {
     // The results, from their start
-    const top = (listEl.value?.getBoundingClientRect().top ?? 0) + window.scrollY - scrollOffset();
-    if (window.scrollY > top)
-      window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+    scrollEl.value.scrollTop = 0;
   }
 });
 
@@ -410,11 +431,11 @@ const sameDay = computed(() => {
     .map(e => ({ slug: e.Slug, title: e.Title }));
 });
 
-// Previous and next follow the list on screen: the calendar, the day or the results
+// Previous and next follow the list on screen: the calendar or the results
 const neighbours = computed(() => {
-  const shown: SynaxEntry[] = mode.value === 'date' ? dayEntries.value
-    : mode.value === 'search' ? [...titleMatches.value, ...textMatches.value.map(m => m.entry)]
-      : synaxStore.sortedEntries;
+  const shown: SynaxEntry[] = mode.value === 'search'
+    ? [...titleMatches.value, ...textMatches.value.map(m => m.entry)]
+    : synaxStore.sortedEntries;
   let list = shown;
   let index = list.findIndex(e => e.Slug === shownSlug.value);
   if (index === -1) {
@@ -491,14 +512,17 @@ function onKeydown(e: KeyboardEvent) {
   showNeighbour(which);
 }
 
+let htmlOverflow = '';
 onMounted(async () => {
   today.value = toCoptic(new Date());
   const q = route.query.q;
   if (typeof q === 'string' && q.trim())
     query.value = searchQuery.value = q;
   mounted.value = true;
-  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('keydown', onKeydown);
+  // The list scrolls in its own area: no page scrollbar beside it
+  htmlOverflow = document.documentElement.style.overflow;
+  document.documentElement.style.overflow = 'hidden';
   await nextTick();
   if (!searchQuery.value) {
     // Open on today, or on the day of a story opened from a link
@@ -506,14 +530,14 @@ onMounted(async () => {
     if (entry)
       scrollToDay(entry.Month, entry.Day);
     else
-      scrollToToday();
+      showSpot();
   }
   updateActiveMonth();
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll);
   window.removeEventListener('keydown', onKeydown);
+  document.documentElement.style.overflow = htmlOverflow;
   cancelAnimationFrame(scrollFrame);
 });
 
@@ -630,43 +654,82 @@ const showStoryInReadings = async (entry: StoryTarget) => {
 </script>
 
 <style scoped>
+/* The page fits the screen under the app bar: the top stays in place and
+   only the list scrolls */
 .synax-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+  height: calc(100dvh - 64px);
+}
+
+.synax-top {
+  flex: none;
+  width: 100%;
   max-width: 640px;
+  margin: 0 auto;
+  padding: 6px 12px 4px;
 }
 
 .synax-heading {
   font-family: 'Suez one';
   font-weight: 400;
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 1.2;
   text-align: center;
-  margin: 8px 0 6px;
+  margin: 2px 0 2px;
 }
 
 .synax-description {
   text-align: center;
-  font-size: 0.88em;
-  line-height: 1.55;
+  font-size: 0.8em;
+  line-height: 1.45;
   color: rgba(var(--v-theme-on-surface), 0.65);
-  max-width: 46ch;
-  margin: 0 auto 16px;
+  max-width: 56ch;
+  margin: 0 auto 10px;
 }
 
-/* Under the app bar: the search and the month row stay in view */
-.synax-controls {
-  position: sticky;
-  top: 64px;
-  z-index: 2;
-  padding: 8px 0 6px;
-  background-color: rgb(var(--v-theme-background));
+/* Short screens (a phone held sideways) keep their room for the list */
+@media (max-height: 640px) {
+  .synax-description {
+    display: none;
+  }
+}
+
+@media (max-height: 480px) {
+  .synax-heading {
+    display: none;
+  }
+}
+
+.synax-search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.synax-calendar {
+  flex: none;
+}
+
+.synax-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
 }
 
 .synax-months {
+  flex: 1;
+  min-width: 0;
   display: flex;
   gap: 6px;
   overflow-x: auto;
-  padding-top: 10px;
   scrollbar-width: none;
+  /* The months scroll under faded edges, rather than ending in a cut-off sliver */
+  padding: 0 10px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10px, black calc(100% - 10px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 10px, black calc(100% - 10px), transparent);
 }
 
 .synax-months::-webkit-scrollbar {
@@ -698,6 +761,13 @@ const showStoryInReadings = async (entry: StoryTarget) => {
   background-color: rgba(var(--v-theme-primary), 0.28);
 }
 
+/* Set apart from the months that scroll beside it */
+.synax-chip--today {
+  font-weight: 600;
+  color: rgba(var(--v-theme-on-surface), 0.9);
+  background-color: rgba(var(--v-theme-primary), 0.18);
+}
+
 .synax-summary {
   display: flex;
   flex-wrap: wrap;
@@ -707,11 +777,24 @@ const showStoryInReadings = async (entry: StoryTarget) => {
   color: rgba(var(--v-theme-on-surface), 0.6);
 }
 
+.synax-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.synax-list {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 12px calc(24px + env(safe-area-inset-bottom));
+}
+
 .synax-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 300px);
+  height: 100%;
 }
 
 .synax-month-title {
@@ -736,6 +819,12 @@ section:first-child > .synax-month-title {
 .synax-day--today {
   padding-bottom: 4px;
   background-color: rgba(var(--v-theme-primary), 0.12);
+}
+
+/* The day chosen in the date picker */
+.synax-day--selected {
+  padding-bottom: 4px;
+  box-shadow: inset 0 0 0 2px rgba(var(--v-theme-primary), 0.75);
 }
 
 .synax-day-head {
@@ -862,10 +951,6 @@ section:first-child > .synax-month-title {
   margin-top: 32px;
   text-align: center;
   color: rgba(var(--v-theme-on-surface), 0.55);
-}
-
-.synax-more {
-  height: 1px;
 }
 
 /* Days and results far from the screen skip their layout: the calendar holds

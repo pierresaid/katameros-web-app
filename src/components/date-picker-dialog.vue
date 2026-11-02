@@ -11,6 +11,7 @@ import { useFeastList } from '@/composables/useFeastList';
 import { useFeastDetail } from '@/composables/useFeastDetail';
 import { feastColor } from '@/consts/feastCategories';
 import { useBackClose } from '@/composables/useBackClose';
+import { toCoptic } from '@/helpers/copticDate';
 
 const readings = useReadings();
 
@@ -18,9 +19,27 @@ const menu = useMenu()
 useBackClose(() => menu.dateDialog, () => { menu.dateDialog = false });
 const tab = ref('date')
 
-// The feasts page opens the dialog for the calendar alone: no tab bar,
-// no coptic-date or feasts tab
-defineProps<{ dateOnly?: boolean }>()
+const props = defineProps<{
+    // The feasts page opens the dialog for the calendar alone: no tab bar,
+    // no coptic-date or feasts tab
+    dateOnly?: boolean,
+    // The synaxarium only wants a day to go to: the chosen day is sent back
+    // (as a Coptic day) and the readings' date is left alone; no feasts tab
+    pick?: boolean,
+    // In pick mode, the day the calendar opens on
+    initialDate?: Date | null,
+}>()
+
+const emit = defineEmits<{
+    (e: 'update:model-value', open: boolean): void,
+    (e: 'pick', day: { month: number, day: number }): void,
+}>()
+
+// The day shown in pick mode, set each time the dialog opens
+const pickedDate = ref(new Date());
+// Starts the Coptic tab again from that day at each opening
+const openings = ref(0);
+const shownDate = computed(() => props.pick ? pickedDate.value : readings.date);
 
 const feasts = useFeasts();
 const viewedYear = ref(readings.date.getFullYear());
@@ -28,11 +47,26 @@ const viewedMonth = ref(readings.date.getMonth());
 
 watch([() => menu.dateDialog, () => readings.language], ([open]) => {
     if (open) {
-        viewedYear.value = readings.date.getFullYear();
-        viewedMonth.value = readings.date.getMonth();
+        if (props.pick) {
+            pickedDate.value = props.initialDate ?? new Date();
+            openings.value++;
+        }
+        viewedYear.value = shownDate.value.getFullYear();
+        viewedMonth.value = shownDate.value.getMonth();
         feasts.ensureYearsAround(viewedYear.value);
     }
 })
+
+function onDateChosen(date: Date) {
+    if (props.pick) {
+        const coptic = toCoptic(date);
+        emit('pick', { month: coptic.month, day: coptic.day });
+    } else {
+        readings.date = date;
+        readings.getReadings();
+    }
+    emit('update:model-value', false);
+}
 
 function onMonthYearUpdate({ month, year }: { instance: number, month: number, year: number }) {
     viewedMonth.value = month;
@@ -181,6 +215,10 @@ function onUpdate(date: [number, number, number]) {
 }
 
 function onSave() {
+    if (props.pick) {
+        emit('pick', { month: copticDate.value[1], day: copticDate.value[0] });
+        return;
+    }
     const ds = convertCopticToGregorian(`${copticDate.value[1]}/${copticDate.value[0]}/${copticDate.value[2]}`)
     readings.date = new Date(ds as any)
     readings.getReadings();
@@ -198,13 +236,13 @@ function onSave() {
                 <v-tabs v-model="tab" grow density="compact" :show-arrows="false" class="date-dialog-tabs">
                     <v-tab value="date">{{ $t("date") }}</v-tab>
                     <v-tab value="coptic-date">{{ $t("coptic-date") }}</v-tab>
-                    <v-tab value="feasts">{{ $t("feasts.tab") }}</v-tab>
+                    <v-tab v-if="!pick" value="feasts">{{ $t("feasts.tab") }}</v-tab>
                 </v-tabs>
             </template>
             <v-card-text>
                 <v-window v-model="tab" :touch="false">
                     <v-window-item value="date">
-                        <Datepicker v-model="readings.date" @update:modelValue="readings.getReadings(); $emit('update:model-value', false)"
+                        <Datepicker :model-value="shownDate" @update:model-value="onDateChosen"
                             inline six-weeks :locale="calendarLocale" :day-names="calendarDayNames" auto-apply
                             :enable-time-picker="false" :dark="menu.theme === 'dark'"
                             :markers="markers" :day-class="fastDayClass" @update-month-year="onMonthYearUpdate">
@@ -221,9 +259,10 @@ function onSave() {
                         </div>
                     </v-window-item>
                     <v-window-item value="coptic-date">
-                        <CopticDatePicker @update="onUpdate" />
+                        <CopticDatePicker :key="openings" :initial="pick ? pickedDate : undefined"
+                            @update="onUpdate" />
                     </v-window-item>
-                    <v-window-item value="feasts">
+                    <v-window-item v-if="!pick" value="feasts">
                         <div class="feasts-tab">
                             <v-locale-provider :rtl="false">
                                 <div class="feasts-tab-year">

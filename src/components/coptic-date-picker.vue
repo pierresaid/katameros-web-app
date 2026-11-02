@@ -2,20 +2,25 @@
 import { onMounted, ref, watch } from 'vue';
 import { useReadings } from '../store/readings';
 import { coptic_months } from '../helpers/copticMonth'
+import { toCoptic } from '../helpers/copticDate'
 import { watchEffect } from 'vue';
 
+// The day to start from; the readings' date otherwise
+const props = defineProps<{ initial?: Date }>()
+
 const readings = useReadings();
+const start = props.initial ? toCoptic(props.initial) : null
 
 const days = ref<number[]>([])
-const day = ref(readings.copticDate[0]!)
+const day = ref(start?.day ?? readings.copticDate[0]!)
 for (let i = 1; i < 31; i++)
     days.value.push(i)
 
 const months = coptic_months.map((x, idx) => ({ title: x, value: idx + 1 }))
-const month = ref(readings.copticDate[1]!)
+const month = ref(start?.month ?? readings.copticDate[1]!)
 
 const years: number[] = []
-const year = ref(readings.copticDate[2]!)
+const year = ref(start?.year ?? readings.copticDate[2]!)
 for (let i = year.value - 50; i < year.value + 50; i++) {
     years.push(i)
 }

@@ -51,8 +51,8 @@ Routes defined in `src/router/index.ts`:
 
 ### Synaxarium page
 
-`src/views/synaxarium.vue`: the stories grouped by day under month headings, opening on today, with a month row that follows the scroll. The list renders on the device only (the prerendered page stays small). The search and the open story live in the address (`?q=`, `?story=`; the service worker ignores both).
-- **Search (`src/composables/useSynaxSearch.ts`):** a day (`src/helpers/synaxDateQuery.ts`: "23 babah", "2 novembre", the word for today) or words in any order, in the titles first, then in the stories' text with an excerpt. The text comes from the stories downloaded for offline reading (`src/services/synaxTexts.ts`, saved as one bundle per synaxarium version and language); until they are downloaded only the titles are searched
+`src/views/synaxarium.vue`: the title, description, search, date picker button and a row with "today" and the months stay in place; below, the stories grouped by day under month headings scroll in their own area, opening on today (the month row follows the scroll). The date picker is `date-picker-dialog.vue` in `pick` mode: it sends back the chosen Coptic day instead of changing the readings' date. The list renders on the device only (the prerendered page stays small). The search and the open story live in the address (`?q=`, `?story=`; the service worker ignores both).
+- **Search (`src/composables/useSynaxSearch.ts`):** words in any order, in the titles first, then in the stories' text with an excerpt (dates are not searched: they are in the date picker). The text comes from the stories downloaded for offline reading (`src/services/synaxTexts.ts`, saved as one bundle per synaxarium version and language); until they are downloaded only the titles are searched
 - **Story sheet (`src/components/synax-story-sheet.vue`):** the Gregorian date this year, the other stories of the same day, previous/next following the list on screen (arrow keys too), the story in another language, share, the searched words marked
 
 ### Slideshow
