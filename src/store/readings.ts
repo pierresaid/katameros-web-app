@@ -198,18 +198,31 @@ export const useReadings = defineStore('readings', () => {
     const secondSections = ref<Section[] | null>(null);
     const secondBible = ref<Bible | null>(null);
     const secondBibles = ref<Bible[] | null>(null);
-    const secondLanguage = skipHydrate(useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null));
+    // Read back as a number: with a null default, useStorage would return the
+    // saved string ("3"), which no language id equals after a reload
+    const secondLanguage = skipHydrate(useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null, undefined, {
+        serializer: { read: v => Number(v) || null, write: v => String(v) },
+    }));
     const secondLanguageDisplaySetting = skipHydrate(useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side"));
 
+    // Only the latest request may set the second language's readings: an older
+    // one (previous language or date) can answer last when it hits the API
+    let secondRequest = 0;
+
     async function fetchSecondLanguageReadings() {
-        if (!secondLanguage.value) {
+        const request = ++secondRequest;
+        const languageId = secondLanguage.value;
+        if (!languageId) {
             secondSections.value = null;
             secondBible.value = null;
             secondBibles.value = null;
             return;
         }
-        const key = `${formatDate(date.value)}-${secondLanguage.value}`;
+        const formatedDate = formatDate(date.value);
+        const key = `${formatedDate}-${languageId}`;
         const cached = await localforage.getItem<DayReading>(key);
+        if (request !== secondRequest)
+            return;
         if (cached) {
             secondSections.value = cached.sections;
             secondBible.value = cached.bible;
@@ -217,17 +230,26 @@ export const useReadings = defineStore('readings', () => {
         }
         else {
             try {
-                const params: { languageId: number } = { languageId: secondLanguage.value };
-                const res = await fetchFromApi(formatDate(date.value), params);
+                const params: { languageId: number } = { languageId };
+                const res = await fetchFromApi(formatedDate, params);
+                if (request !== secondRequest)
+                    return;
                 secondSections.value = res.sections;
                 secondBible.value = res.bible;
                 secondBibles.value = res.bibles;
             } catch (e) {
+                if (request !== secondRequest)
+                    return;
                 secondSections.value = null;
                 secondBible.value = null;
                 secondBibles.value = null;
             }
         }
+    }
+
+    async function setSecondLanguage(id: number | null) {
+        secondLanguage.value = id;
+        await fetchSecondLanguageReadings();
     }
 
 
@@ -286,5 +308,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo }
+    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, setSecondLanguage, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo }
 })

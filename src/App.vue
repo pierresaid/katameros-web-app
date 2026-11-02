@@ -44,6 +44,10 @@ onMounted(() => {
     if (!code) return
     const langId = Object.values(LANGUAGES).find(l => l.code === code)?.id
     if (langId && readings.language !== langId) {
+      // Choosing the second language as the main one swaps the two, instead
+      // of showing the same language twice
+      if (readings.secondLanguage === langId)
+        readings.secondLanguage = readings.language
       readings.language = langId
     }
   }

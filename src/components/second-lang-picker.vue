@@ -10,19 +10,13 @@ const availableLanguages = computed(() =>
 );
 
 async function onInput(id: number | null) {
-    readings.secondLanguage = id;
-    if (id) {
-        await readings.fetchSecondLanguageReadings();
-        // Force re-render to fix display issues when switching second language
-        if (readings.secondLanguageDisplaySetting === 'side-by-side') {
-            readings.secondLanguageDisplaySetting = 'line-by-line';
-            nextTick(() => {
-                readings.secondLanguageDisplaySetting = 'side-by-side';
-            });
-        }
-    } else {
-        readings.secondSections = null;
-        readings.secondBible = null;
+    await readings.setSecondLanguage(id);
+    // Force re-render to fix display issues when switching second language
+    if (id && readings.secondLanguageDisplaySetting === 'side-by-side') {
+        readings.secondLanguageDisplaySetting = 'line-by-line';
+        nextTick(() => {
+            readings.secondLanguageDisplaySetting = 'side-by-side';
+        });
     }
 }
 
