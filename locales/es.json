@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Sinaxario",
-        "search": "Buscar por título",
+        "search": "Título, palabra o fecha (23 Babah)",
         "day": "Día",
         "of": "de",
         "noResults": "No se encontraron resultados",
@@ -56,7 +56,19 @@
         "unavailable": "Este relato no está disponible en este idioma.",
         "notFound": "Este relato no existe.",
         "loadError": "No se pudo cargar el relato. Comprueba tu conexión.",
-        "retry": "Reintentar"
+        "retry": "Reintentar",
+        "today": "Hoy",
+        "months": "Meses",
+        "results": "{n} relato | {n} relatos",
+        "inTitles": "En los títulos",
+        "inText": "En el texto de los relatos",
+        "titlesOnly": "Solo en los títulos: el texto de los relatos aún no se ha descargado.",
+        "sameDay": "El mismo día",
+        "previous": "Relato anterior",
+        "next": "Relato siguiente",
+        "share": "Compartir",
+        "linkCopied": "Enlace copiado",
+        "storyLanguage": "Idioma del relato"
     },
     "feasts": {
         "title": "Fiestas y ayunos",

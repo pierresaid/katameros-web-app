@@ -7,8 +7,8 @@ import type { SynaxStory } from '@/types/synaxarium';
 // (localforage.clear() on a version bump) does not wipe the stories.
 export const storyCache = localforage.createInstance({ name: 'katameros-synaxarium' });
 
-// The synaxarium version the saved stories come from
-const currentSynaxVersion = useStorage<number>('CURRENT_SYNAX_CACHE_VERSION', 0);
+// The synaxarium version the saved stories come from (the search waits for it to load the texts)
+export const currentSynaxVersion = useStorage<number>('CURRENT_SYNAX_CACHE_VERSION', 0);
 let downloading = false;
 
 export function synaxCacheIsCurrent(info: CacheVersionInfo | null): boolean {

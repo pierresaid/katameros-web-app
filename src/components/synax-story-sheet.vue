@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useDisplay } from 'vuetify';
 import { useMenu } from '@/store/menu';
 import { getCopticMonth } from '@/helpers/copticMonth';
+import { copticToGregorian } from '@/helpers/copticDate';
+import { findLanguage, languageDir } from '@/helpers/languages';
+import { highlightHtml } from '@/helpers/searchText';
 import type { StoryStatus } from '@/composables/useSynaxStory';
 import type { SynaxStory } from '@/types/synaxarium';
 
@@ -14,22 +19,52 @@ const props = defineProps<{
     story: SynaxStory | null,
     status: StoryStatus,
     goingToDay: boolean,
+    /** The current Coptic year, for the Gregorian date of the day */
+    copticYear: number | null,
+    /** The other stories of the same day */
+    sameDay: { slug: string, title: string }[],
+    hasPrev: boolean,
+    hasNext: boolean,
+    /** The languages the story is written in, and the one it is shown in */
+    languages: { id: number, name: string }[],
+    languageId: number,
+    /** Searched words, marked in the text */
+    highlight: string[],
 }>();
 
 const emit = defineEmits<{
     (e: 'close'): void,
     (e: 'go-to-day'): void,
     (e: 'retry'): void,
+    (e: 'prev'): void,
+    (e: 'next'): void,
+    (e: 'open', slug: string): void,
+    (e: 'language', id: number): void,
+    (e: 'share'): void,
 }>();
 
 const menu = useMenu();
+const { locale } = useI18n();
+const { xs } = useDisplay();
 
+// "23 Babah · 2 novembre": the day this year in the Gregorian calendar too
 const dateLine = computed(() => {
     const day = props.story?.day ?? props.day;
     const month = props.story?.month ?? props.month;
-    return day && month ? `${day} ${getCopticMonth(month)}` : '';
+    if (!day || !month)
+        return '';
+    const gregorian = props.copticYear ? copticToGregorian(month, day, props.copticYear) : null;
+    const gregorianText = gregorian
+        ? new Intl.DateTimeFormat(String(locale.value), { day: 'numeric', month: 'long' }).format(gregorian)
+        : '';
+    return [`${day} ${getCopticMonth(month)}`, gregorianText].filter(Boolean).join(' · ');
 });
 const shownTitle = computed(() => props.story?.title || props.title);
+// The story's own language: an Arabic story reads right to left in any page
+const storyLang = computed(() => findLanguage(props.languageId)?.code);
+const storyDir = computed(() => languageDir(props.languageId));
+const languageName = computed(() => findLanguage(props.languageId)?.name ?? '');
+const storyHtml = computed(() => props.story ? highlightHtml(props.story.html, props.highlight) : '');
 const canGoToDay = computed(() => !!(props.story?.day ?? props.day));
 const textSize = computed(() => `${Number((menu.zoom * 1).toFixed(2))}rem`);
 
@@ -118,6 +153,22 @@ onBeforeUnmount(stopObserving);
 // The text arrives after the sheet opens, so measure again once it is there
 watch(() => props.status, measure);
 
+// Another story (or language) in the open sheet: measured again, and read
+// from its start, or from the first searched word
+watch(() => props.story, async (story) => {
+    await measure();
+    const card = cardRef.value?.$el as HTMLElement | undefined;
+    if (!card || !story)
+        return;
+    const match = card.querySelector('mark.story-match');
+    if (!match) {
+        card.scrollTop = 0;
+        return;
+    }
+    const grip = card.querySelector('.story-grip')?.getBoundingClientRect().height ?? 0;
+    card.scrollTop += match.getBoundingClientRect().top - card.getBoundingClientRect().top - grip - 24;
+});
+
 const cardStyle = computed(() => ({
     transform: dragOffset.value ? `translateY(${dragOffset.value}px)` : undefined,
     transition: dragging.value ? 'none' : 'transform 0.2s ease-out',
@@ -138,13 +189,29 @@ function onModelUpdate(value: boolean) {
             @pointerdown="onSheetDown" @pointermove="onSheetMove" @pointerup="onSheetUp" @pointercancel="onSheetUp">
             <div class="story-grip">
                 <span class="story-handle" role="presentation" />
-                <div v-if="dateLine" class="story-eyebrow">{{ dateLine }}</div>
-                <h2 v-if="shownTitle" class="story-title">{{ shownTitle }}</h2>
+                <div class="story-eyebrow-row">
+                    <div class="story-eyebrow">{{ dateLine }}</div>
+                    <!-- The same story in another language -->
+                    <v-menu v-if="languages.length > 1" location="bottom end">
+                        <template #activator="{ props: activator }">
+                            <v-btn v-bind="activator" variant="text" size="small" class="story-language"
+                                prepend-icon="mdi-translate" append-icon="mdi-chevron-down"
+                                :aria-label="$t('synaxarium.storyLanguage')">
+                                {{ languageName }}
+                            </v-btn>
+                        </template>
+                        <v-list density="compact">
+                            <v-list-item v-for="language in languages" :key="language.id" :title="language.name"
+                                :active="language.id === languageId" @click="emit('language', language.id)" />
+                        </v-list>
+                    </v-menu>
+                </div>
+                <h2 v-if="shownTitle" class="story-title" :lang="storyLang" :dir="storyDir">{{ shownTitle }}</h2>
             </div>
 
             <!-- inline size: CSS v-bind does not reach the teleported overlay -->
-            <div v-if="status === 'ready' && story" class="story-text" :style="{ fontSize: textSize }"
-                v-html="story.html"></div>
+            <div v-if="status === 'ready' && story" class="story-text" :lang="storyLang" :dir="storyDir"
+                :style="{ fontSize: textSize }" v-html="storyHtml"></div>
             <div v-else-if="status === 'loading' || status === 'idle'" class="story-loading" aria-busy="true">
                 <span v-for="n in 7" :key="n" class="story-loading-line" />
             </div>
@@ -155,12 +222,34 @@ function onModelUpdate(value: boolean) {
                 <v-btn variant="tonal" size="small" @click="emit('retry')">{{ $t('synaxarium.retry') }}</v-btn>
             </div>
 
+            <div v-if="sameDay.length" class="story-same-day">
+                <div class="story-same-day-label">{{ $t('synaxarium.sameDay') }}</div>
+                <button v-for="other in sameDay" :key="other.slug" type="button" class="story-same-day-item"
+                    @click="emit('open', other.slug)">
+                    {{ other.title }}
+                </button>
+            </div>
+
             <div class="story-actions">
-                <v-btn v-if="canGoToDay" variant="flat" class="story-action" :loading="goingToDay"
+                <!-- Left to right in every language, like the date arrows of the readings -->
+                <div class="story-nav" dir="ltr">
+                    <v-btn icon="mdi-chevron-left" variant="text" size="small" density="comfortable" :disabled="!hasPrev"
+                        :aria-label="$t('synaxarium.previous')" :title="$t('synaxarium.previous')"
+                        @click="emit('prev')" />
+                    <v-btn icon="mdi-chevron-right" variant="text" size="small" density="comfortable" :disabled="!hasNext"
+                        :aria-label="$t('synaxarium.next')" :title="$t('synaxarium.next')" @click="emit('next')" />
+                </div>
+                <v-btn icon="mdi-share-variant" variant="text" size="small" density="comfortable" :aria-label="$t('synaxarium.share')"
+                    :title="$t('synaxarium.share')" @click="emit('share')" />
+                <v-spacer />
+                <v-btn v-if="canGoToDay" variant="flat" class="story-action" :loading="goingToDay" :size="xs ? 'small' : 'default'"
                     @click="emit('go-to-day')">
                     {{ $t('synaxarium.goToDay') }}
                 </v-btn>
-                <v-btn variant="plain" @click="emit('close')">{{ $t('close') }}</v-btn>
+                <!-- On a phone the bar has no room for the word (a swipe down closes too) -->
+                <v-btn v-if="xs" icon="mdi-close" variant="text" size="small" density="comfortable" :aria-label="$t('close')"
+                    :title="$t('close')" @click="emit('close')" />
+                <v-btn v-else variant="plain" @click="emit('close')">{{ $t('close') }}</v-btn>
             </div>
         </v-card>
     </v-bottom-sheet>
@@ -208,11 +297,27 @@ function onModelUpdate(value: boolean) {
     background-color: rgba(var(--v-theme-on-surface), 0.2);
 }
 
+.story-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 28px;
+}
+
 .story-eyebrow {
+    flex: 1;
+    min-width: 0;
     font-size: 0.76em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(var(--v-theme-on-surface), 0.6);
+}
+
+.story-language.v-btn {
+    margin-inline-end: -8px;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgba(var(--v-theme-on-surface), 0.7);
 }
 
 .story-title {
@@ -231,6 +336,45 @@ function onModelUpdate(value: boolean) {
 
 .story-text :deep(p) {
     margin-bottom: 10px;
+}
+
+/* The searched words */
+.story-text :deep(mark.story-match) {
+    color: inherit;
+    background-color: rgba(255, 193, 7, 0.35);
+    border-radius: 3px;
+    padding: 0 1px;
+}
+
+.story-same-day {
+    margin: 6px 0 4px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(var(--v-theme-on-surface), 0.08);
+}
+
+.story-same-day-label {
+    margin-bottom: 4px;
+    font-size: 0.76em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(var(--v-theme-on-surface), 0.6);
+}
+
+.story-same-day-item {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin: 0 -10px;
+    box-sizing: content-box;
+    border-radius: 10px;
+    text-align: start;
+    line-height: 1.35;
+    transition: background-color 0.15s;
+}
+
+.story-same-day-item:hover,
+.story-same-day-item:focus-visible {
+    background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
 .story-loading {
@@ -271,10 +415,16 @@ function onModelUpdate(value: boolean) {
     position: sticky;
     bottom: 0;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
     gap: 4px;
     padding: 8px 0 calc(12px + env(safe-area-inset-bottom));
     background: rgb(var(--v-theme-surface));
+}
+
+.story-nav {
+    display: flex;
 }
 
 /* amber wash with a neutral label, like the feast sheet's action */

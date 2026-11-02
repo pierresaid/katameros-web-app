@@ -33,7 +33,7 @@ Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacito
 ### State Management (Pinia Stores)
 
 - **`src/store/readings.ts`:** Main store - manages date, language, Bible version, sections, caching via LocalForage. Fetches from `/readings/gregorian/{date}` API endpoint. Supports dual-language display (side-by-side or line-by-line).
-- **`src/store/synaxarium.ts`:** Loads synaxarium entries from static JSON files in `assets/`
+- **`src/store/synaxarium.ts`:** Loads synaxarium entries from static JSON files in `assets/`, in calendar order, and knows which languages each story exists in
 - **`src/store/feasts.ts`:** Fetches feast dates from `/feasts/{year}/{languageId}`, cached per year+language in a dedicated LocalForage instance. Consumed by the date-picker markers/Feasts tab and the feasts view via `src/composables/useFeastList.ts`
 - **`src/store/menu.ts`:** UI state (drawer, zoom, spacing settings)
 - **`src/store/notif.ts`:** Notification state
@@ -48,6 +48,12 @@ Routes defined in `src/router/index.ts`:
 - `/about` → `src/views/about.vue`
 - `/contact` → `src/views/contact.vue`
 - `/slideshow` → `src/views/slideshow.vue` (full screen: `meta.immersive` makes App.vue drop the header and drawer; prerendered, noindex, not in the sitemap)
+
+### Synaxarium page
+
+`src/views/synaxarium.vue`: the stories grouped by day under month headings, opening on today, with a month row that follows the scroll. The list renders on the device only (the prerendered page stays small). The search and the open story live in the address (`?q=`, `?story=`; the service worker ignores both).
+- **Search (`src/composables/useSynaxSearch.ts`):** a day (`src/helpers/synaxDateQuery.ts`: "23 babah", "2 novembre", the word for today) or words in any order, in the titles first, then in the stories' text with an excerpt. The text comes from the stories downloaded for offline reading (`src/services/synaxTexts.ts`, saved as one bundle per synaxarium version and language); until they are downloaded only the titles are searched
+- **Story sheet (`src/components/synax-story-sheet.vue`):** the Gregorian date this year, the other stories of the same day, previous/next following the list on screen (arrow keys too), the story in another language, share, the searched words marked
 
 ### Slideshow
 
@@ -87,6 +93,7 @@ DayReading → Sections[] → SubSections[] → Readings[] → Passages[] → Ve
 
 - **`src/helpers/copticMonth.ts`:** Coptic month name translations
 - **`src/helpers/convertCopticToGregorian.ts`:** Date conversion
+- **`src/helpers/copticDate.ts`:** Coptic date of a day and Gregorian day of a Coptic date, from the browser's Coptic calendar
 - **`src/helpers/formatDate.ts`:** Date formatting for API calls (dd-MM-yyyy format)
 
 ### Caching Strategy

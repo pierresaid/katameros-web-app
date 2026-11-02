@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Sinassario",
-        "search": "Cerca per titolo",
+        "search": "Titolo, parola o data (23 Babah)",
         "day": "Giorno",
         "of": "di",
         "noResults": "Nessun risultato trovato",
@@ -56,7 +56,19 @@
         "unavailable": "Questo racconto non è disponibile in questa lingua.",
         "notFound": "Questo racconto non esiste.",
         "loadError": "Impossibile caricare il racconto. Controlla la connessione.",
-        "retry": "Riprova"
+        "retry": "Riprova",
+        "today": "Oggi",
+        "months": "Mesi",
+        "results": "{n} racconto | {n} racconti",
+        "inTitles": "Nei titoli",
+        "inText": "Nel testo dei racconti",
+        "titlesOnly": "Solo nei titoli: il testo dei racconti non è ancora scaricato.",
+        "sameDay": "Lo stesso giorno",
+        "previous": "Racconto precedente",
+        "next": "Racconto successivo",
+        "share": "Condividi",
+        "linkCopied": "Link copiato",
+        "storyLanguage": "Lingua del racconto"
     },
     "feasts": {
         "title": "Feste e digiuni",

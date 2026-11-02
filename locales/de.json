@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Synaxarium",
-        "search": "Suche nach Titel",
+        "search": "Titel, Wort oder Datum (23 Babah)",
         "day": "Tag",
         "of": "von",
         "noResults": "Keine Ergebnisse gefunden",
@@ -56,7 +56,19 @@
         "unavailable": "Diese Erzählung ist in dieser Sprache nicht verfügbar.",
         "notFound": "Diese Erzählung gibt es nicht.",
         "loadError": "Die Erzählung konnte nicht geladen werden. Prüfe deine Verbindung.",
-        "retry": "Erneut versuchen"
+        "retry": "Erneut versuchen",
+        "today": "Heute",
+        "months": "Monate",
+        "results": "{n} Geschichte | {n} Geschichten",
+        "inTitles": "In den Titeln",
+        "inText": "Im Text der Geschichten",
+        "titlesOnly": "Nur in den Titeln: Der Text der Geschichten ist noch nicht heruntergeladen.",
+        "sameDay": "Am selben Tag",
+        "previous": "Vorherige Geschichte",
+        "next": "Nächste Geschichte",
+        "share": "Teilen",
+        "linkCopied": "Link kopiert",
+        "storyLanguage": "Sprache der Geschichte"
     },
     "feasts": {
         "title": "Feste und Fastenzeiten",

@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Synaksarion",
-        "search": "Szukaj według tytułu",
+        "search": "Tytuł, słowo lub data (23 Babah)",
         "day": "Dzień",
         "of": "z",
         "noResults": "Nie znaleziono wyników",
@@ -56,7 +56,19 @@
         "unavailable": "Ta opowieść nie jest dostępna w tym języku.",
         "notFound": "Ta opowieść nie istnieje.",
         "loadError": "Nie udało się wczytać opowieści. Sprawdź połączenie.",
-        "retry": "Spróbuj ponownie"
+        "retry": "Spróbuj ponownie",
+        "today": "Dzisiaj",
+        "months": "Miesiące",
+        "results": "Wyniki: {n}",
+        "inTitles": "W tytułach",
+        "inText": "W treści opowieści",
+        "titlesOnly": "Tylko w tytułach: treść opowieści nie została jeszcze pobrana.",
+        "sameDay": "Tego samego dnia",
+        "previous": "Poprzednia opowieść",
+        "next": "Następna opowieść",
+        "share": "Udostępnij",
+        "linkCopied": "Skopiowano link",
+        "storyLanguage": "Język opowieści"
     },
     "feasts": {
         "title": "Święta i posty",

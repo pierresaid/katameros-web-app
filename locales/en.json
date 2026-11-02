@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Synaxarium",
-        "search": "Search by title",
+        "search": "Title, word or date (23 Babah)",
         "day": "Day",
         "of": "of",
         "noResults": "No results found",
@@ -56,7 +56,19 @@
         "unavailable": "This story is not available in this language.",
         "notFound": "This story does not exist.",
         "loadError": "The story could not be loaded. Check your connection.",
-        "retry": "Try again"
+        "retry": "Try again",
+        "today": "Today",
+        "months": "Months",
+        "results": "{n} story | {n} stories",
+        "inTitles": "In the titles",
+        "inText": "In the text of the stories",
+        "titlesOnly": "Titles only: the text of the stories isn't downloaded yet.",
+        "sameDay": "On the same day",
+        "previous": "Previous story",
+        "next": "Next story",
+        "share": "Share",
+        "linkCopied": "Link copied",
+        "storyLanguage": "Language of the story"
     },
     "feasts": {
         "title": "Feasts & fasts",

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { SynaxEntry } from '@/types/synaxarium';
-import { normalizeSearchText } from '@/helpers/searchText';
 
 // Import all language files
 import synaxDataFr from '../../assets/synax-days-fr.json';
@@ -21,9 +20,20 @@ const synaxDataMap: Record<string, SynaxEntry[]> = {
   'nl': synaxDataNl as SynaxEntry[],
 };
 
+// The languages each story is written in, by slug
+const slugLanguages = new Map<string, string[]>();
+for (const [code, list] of Object.entries(synaxDataMap)) {
+  for (const entry of list) {
+    const codes = slugLanguages.get(entry.Slug);
+    if (codes) {
+      codes.push(code);
+    } else {
+      slugLanguages.set(entry.Slug, [code]);
+    }
+  }
+}
+
 export const useSynaxarium = defineStore('synaxarium', () => {
-  // State
-  const searchQuery = ref('');
   // Set by the synaxarium page from the route language: the persisted reading
   // language is only synced to the route once the app is mounted, so while a
   // page is prerendered it would still hold the default one.
@@ -34,38 +44,22 @@ export const useSynaxarium = defineStore('synaxarium', () => {
     currentLanguage.value = synaxDataMap[languageCode] ? languageCode : 'fr';
   };
 
-  // Computed
   // Derived rather than stored so the list isn't serialized into the prerendered page
   const entries = computed(() => synaxDataMap[currentLanguage.value] ?? []);
 
-  const sortedEntries = computed(() => {
-    return [...entries.value].sort((a, b) => {
-      if (a.Month !== b.Month) {
-        return a.Month - b.Month;
-      }
-      return a.Day - b.Day;
-    });
-  });
-
-  const searchableTitles = computed(() =>
-    sortedEntries.value.map(entry => normalizeSearchText(entry.Title))
+  // Calendar order: by month, then day; the stories of a day keep their order
+  const sortedEntries = computed(() =>
+    [...entries.value].sort((a, b) => a.Month - b.Month || a.Day - b.Day)
   );
 
-  const filteredEntries = computed(() => {
-    const query = normalizeSearchText(searchQuery.value.trim());
-    if (!query) {
-      return sortedEntries.value;
-    }
-
-    const titles = searchableTitles.value;
-    return sortedEntries.value.filter((_, idx) => titles[idx]?.includes(query) ?? false);
-  });
+  /** The codes of the languages a story is written in */
+  const languagesOf = (slug: string): string[] => slugLanguages.get(slug) ?? [];
 
   return {
     entries,
-    searchQuery,
-    filteredEntries,
+    sortedEntries,
     currentLanguage,
     setLanguage,
+    languagesOf,
   };
 });

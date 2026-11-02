@@ -48,7 +48,7 @@
     },
     "synaxarium": {
         "title": "Synaxarium",
-        "search": "Zoeken op titel",
+        "search": "Titel, woord of datum (23 Babah)",
         "day": "Dag",
         "of": "van",
         "noResults": "Geen resultaten gevonden",
@@ -56,7 +56,19 @@
         "unavailable": "Dit verhaal is niet beschikbaar in deze taal.",
         "notFound": "Dit verhaal bestaat niet.",
         "loadError": "Het verhaal kon niet worden geladen. Controleer je verbinding.",
-        "retry": "Opnieuw proberen"
+        "retry": "Opnieuw proberen",
+        "today": "Vandaag",
+        "months": "Maanden",
+        "results": "{n} verhaal | {n} verhalen",
+        "inTitles": "In de titels",
+        "inText": "In de tekst van de verhalen",
+        "titlesOnly": "Alleen in de titels: de tekst van de verhalen is nog niet gedownload.",
+        "sameDay": "Op dezelfde dag",
+        "previous": "Vorig verhaal",
+        "next": "Volgend verhaal",
+        "share": "Delen",
+        "linkCopied": "Link gekopieerd",
+        "storyLanguage": "Taal van het verhaal"
     },
     "feasts": {
         "title": "Feesten en vasten",
