@@ -67,6 +67,17 @@
         "empty": "The feasts could not be loaded.",
         "readings": "View the readings"
     },
+    "slideshow": {
+        "title": "Slideshow",
+        "sections": "Readings",
+        "settings": "Languages and text size",
+        "textSize": "Text size",
+        "swap": "Swap the languages",
+        "fullscreen": "Full screen",
+        "exitFullscreen": "Exit full screen",
+        "exit": "Close the slideshow",
+        "slide": "Slide {n} of {total}"
+    },
     "secondLanguage": "Second Language",
     "displayMode": "Display Mode",
     "lineByLine": "Line by Line",

@@ -67,6 +67,17 @@
         "empty": "Nie udało się wczytać świąt.",
         "readings": "Zobacz czytania"
     },
+    "slideshow": {
+        "title": "Pokaz slajdów",
+        "sections": "Czytania",
+        "settings": "Języki i rozmiar tekstu",
+        "textSize": "Rozmiar tekstu",
+        "swap": "Zamień języki",
+        "fullscreen": "Pełny ekran",
+        "exitFullscreen": "Zamknij pełny ekran",
+        "exit": "Zamknij pokaz slajdów",
+        "slide": "Slajd {n} z {total}"
+    },
     "secondLanguage": "Drugi język",
     "displayMode": "Tryb wyświetlania",
     "lineByLine": "Linia po linii",

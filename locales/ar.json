@@ -67,6 +67,17 @@
         "empty": "تعذّر تحميل الأعياد.",
         "readings": "عرض القراءات"
     },
+    "slideshow": {
+        "title": "عرض الشرائح",
+        "sections": "القراءات",
+        "settings": "اللغات وحجم النص",
+        "textSize": "حجم النص",
+        "swap": "تبديل اللغتين",
+        "fullscreen": "ملء الشاشة",
+        "exitFullscreen": "الخروج من ملء الشاشة",
+        "exit": "إغلاق عرض الشرائح",
+        "slide": "الشريحة {n} من {total}"
+    },
     "secondLanguage": "اللغة الثانية",
     "displayMode": "وضع العرض",
     "lineByLine": "سطرًا بسطر",

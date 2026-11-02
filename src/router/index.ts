@@ -18,6 +18,11 @@ export const routes: Array<RouteRecordRaw> = [
   { path: `/:lang${LANG_PATTERN}/feasts/`, component: Feasts, name: 'feasts' },
   { path: `/:lang${LANG_PATTERN}/about/`, component: About, name: 'about' },
   { path: `/:lang${LANG_PATTERN}/contact/`, component: Contact, name: 'contact' },
+  // Full screen, without the header and the menu (see App.vue); loaded on demand
+  {
+    path: `/:lang${LANG_PATTERN}/slideshow/`, component: () => import('@/views/slideshow.vue'), name: 'slideshow',
+    meta: { immersive: true },
+  },
   { path: `/:lang${LANG_PATTERN}/:pathMatch(.*)*`, component: NotFound, name: 'not-found' },
   // Paths without a language, including the legacy pre-lang-prefix ones
   // (/synaxarium, /feasts, ...) — bounce through RedirectHome which preserves the suffix

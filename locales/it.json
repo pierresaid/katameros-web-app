@@ -67,6 +67,17 @@
         "empty": "Impossibile caricare le feste.",
         "readings": "Vedi le letture"
     },
+    "slideshow": {
+        "title": "Presentazione",
+        "sections": "Letture",
+        "settings": "Lingue e dimensione del testo",
+        "textSize": "Dimensione del testo",
+        "swap": "Inverti le lingue",
+        "fullscreen": "Schermo intero",
+        "exitFullscreen": "Esci dallo schermo intero",
+        "exit": "Chiudi la presentazione",
+        "slide": "Diapositiva {n} di {total}"
+    },
     "secondLanguage": "Seconda lingua",
     "displayMode": "Modalità di visualizzazione",
     "lineByLine": "Riga per riga",

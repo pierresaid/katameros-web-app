@@ -67,6 +67,17 @@
         "empty": "No se pudieron cargar las fiestas.",
         "readings": "Ver las lecturas"
     },
+    "slideshow": {
+        "title": "Presentación",
+        "sections": "Lecturas",
+        "settings": "Idiomas y tamaño del texto",
+        "textSize": "Tamaño del texto",
+        "swap": "Intercambiar los idiomas",
+        "fullscreen": "Pantalla completa",
+        "exitFullscreen": "Salir de pantalla completa",
+        "exit": "Cerrar la presentación",
+        "slide": "Diapositiva {n} de {total}"
+    },
     "secondLanguage": "Segundo idioma",
     "displayMode": "Modo de visualización",
     "lineByLine": "Línea por línea",

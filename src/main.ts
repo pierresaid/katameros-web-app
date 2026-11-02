@@ -81,6 +81,8 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
       `/${lang}/feasts/`,
       `/${lang}/about/`,
       `/${lang}/contact/`,
+      // Prerendered so it reloads offline too; kept out of the index and the sitemap
+      `/${lang}/slideshow/`,
       ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium/`] : []),
     ]),
   ]

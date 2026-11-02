@@ -67,6 +67,17 @@
         "empty": "ไม่สามารถโหลดเทศกาลได้",
         "readings": "ดูบทอ่าน"
     },
+    "slideshow": {
+        "title": "สไลด์โชว์",
+        "sections": "บทอ่าน",
+        "settings": "ภาษาและขนาดตัวอักษร",
+        "textSize": "ขนาดตัวอักษร",
+        "swap": "สลับภาษา",
+        "fullscreen": "เต็มหน้าจอ",
+        "exitFullscreen": "ออกจากโหมดเต็มหน้าจอ",
+        "exit": "ปิดสไลด์โชว์",
+        "slide": "สไลด์ที่ {n} จาก {total}"
+    },
     "secondLanguage": "ภาษาที่สอง",
     "displayMode": "โหมดการแสดงผล",
     "lineByLine": "บรรทัดต่อบรรทัด",

@@ -67,6 +67,17 @@
         "empty": "Die Feste konnten nicht geladen werden.",
         "readings": "Lesungen anzeigen"
     },
+    "slideshow": {
+        "title": "Präsentation",
+        "sections": "Lesungen",
+        "settings": "Sprachen und Textgröße",
+        "textSize": "Textgröße",
+        "swap": "Sprachen tauschen",
+        "fullscreen": "Vollbild",
+        "exitFullscreen": "Vollbild beenden",
+        "exit": "Präsentation schließen",
+        "slide": "Folie {n} von {total}"
+    },
     "secondLanguage": "Zweite Sprache",
     "displayMode": "Anzeigemodus",
     "lineByLine": "Zeile für Zeile",

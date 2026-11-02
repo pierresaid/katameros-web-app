@@ -37,6 +37,7 @@ Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacito
 - **`src/store/feasts.ts`:** Fetches feast dates from `/feasts/{year}/{languageId}`, cached per year+language in a dedicated LocalForage instance. Consumed by the date-picker markers/Feasts tab and the feasts view via `src/composables/useFeastList.ts`
 - **`src/store/menu.ts`:** UI state (drawer, zoom, spacing settings)
 - **`src/store/notif.ts`:** Notification state
+- **`src/store/slideshow.ts`:** Slideshow text size (`SLIDESHOW_ZOOM`, separate from the reading page zoom) and where it was left (memory only, same day)
 
 ### Views and Routing
 
@@ -46,6 +47,15 @@ Routes defined in `src/router/index.ts`:
 - `/feasts` → `src/views/feasts.vue`
 - `/about` → `src/views/about.vue`
 - `/contact` → `src/views/contact.vue`
+- `/slideshow` → `src/views/slideshow.vue` (full screen: `meta.immersive` makes App.vue drop the header and drawer; prerendered, noindex, not in the sitemap)
+
+### Slideshow
+
+Opened from the drawer, which requests fullscreen during the click (browsers refuse it later; the native app hides the status bar instead). Shows only the readings' text, without introductions and conclusions, in two columns when a second language is set (shared with the reading page settings; the main language follows the route).
+- **`src/helpers/slideshow.ts`:** `buildSlideUnits()` turns the day's sections into units, one per reading: verse rows matched on passage + verse number with the second language, or synaxarium stories split into sentences (`splitStory`)
+- **`src/composables/useSlidePagination.ts`:** cuts the units into slides by measuring hidden copies built with the same elements and classes as `components/slideshow/slide-view.vue` (keep the two in step). Whole verses per slide, evened out; a two-column story stops each column at the same share of its text. Cuts again on resize, text size, languages and font loading, keeping the same verse on screen
+- **`src/components/slideshow/slideshow-controls.vue`:** the strip that fades in on mouse move or a tap in the middle: readings menu, languages / text size / theme, fullscreen, close
+- Keys: arrows, Page Up/Down (presentation remotes), Space; Shift+arrows jump a reading; F fullscreen; Escape leaves
 
 ### Reading Component Hierarchy
 

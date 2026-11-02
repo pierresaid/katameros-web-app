@@ -15,6 +15,8 @@ import { useCurrentLang } from '@/composables/useCurrentLang';
 import { SYNAX_LANGS } from '@/consts/supportedLangs';
 import { useDisplay } from 'vuetify';
 import { useBackClose } from '@/composables/useBackClose';
+import { enterFullscreen } from '@/helpers/fullscreen';
+import { track } from '@/helpers/track';
 const menu = useMenu()
 const { mobile } = useDisplay()
 useBackClose(() => menu.navOpen && mobile.value, () => { menu.navOpen = false })
@@ -22,9 +24,20 @@ const { t } = useI18n()
 const readings = useReadings();
 const lang = useCurrentLang();
 
+function openSlideshow() {
+    // The browser only allows fullscreen during the click itself, so ask now,
+    // before the route changes
+    enterFullscreen()
+    // The drawer is not shown in the slideshow: close it for the way back
+    if (mobile.value)
+        menu.navOpen = false
+    track('slideshow-open')
+}
+
 const items = computed(() => {
-    const m: { title: string, name: string, icon: string }[] = [
+    const m: { title: string, name: string, icon: string, onClick?: () => void }[] = [
         { title: 'home', name: 'home', icon: 'mdi-book-open-page-variant' },
+        { title: 'slideshow.title', name: 'slideshow', icon: 'mdi-presentation-play', onClick: openSlideshow },
     ]
     if (SYNAX_LANGS.includes(lang.value))
         m.push({ title: 'synaxarium.title', name: 'synaxarium', icon: 'mdi-book-cross' })
@@ -44,7 +57,7 @@ const items = computed(() => {
                 <v-list-item v-for="item in items" :key="item.name"
                     :to="{ name: item.name, params: { lang } }"
                     :title="$t(item.title)" role="link"
-                    :prepend-icon="item.icon" rounded="lg" />
+                    :prepend-icon="item.icon" rounded="lg" @click="item.onClick?.()" />
             </v-list>
 
             <div role="group" :aria-label="t('aria.settings')">

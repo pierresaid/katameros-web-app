@@ -67,6 +67,17 @@
         "empty": "Impossible de charger les fêtes.",
         "readings": "Voir les lectures"
     },
+    "slideshow": {
+        "title": "Diaporama",
+        "sections": "Lectures",
+        "settings": "Langues et taille du texte",
+        "textSize": "Taille du texte",
+        "swap": "Inverser les langues",
+        "fullscreen": "Plein écran",
+        "exitFullscreen": "Quitter le plein écran",
+        "exit": "Fermer le diaporama",
+        "slide": "Diapositive {n} sur {total}"
+    },
     "secondLanguage": "Deuxième langue",
     "displayMode": "Mode d'affichage",
     "lineByLine": "Ligne par ligne",

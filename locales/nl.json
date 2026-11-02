@@ -67,6 +67,17 @@
         "empty": "De feesten konden niet worden geladen.",
         "readings": "Lezingen bekijken"
     },
+    "slideshow": {
+        "title": "Presentatie",
+        "sections": "Lezingen",
+        "settings": "Talen en tekstgrootte",
+        "textSize": "Tekstgrootte",
+        "swap": "Talen omwisselen",
+        "fullscreen": "Volledig scherm",
+        "exitFullscreen": "Volledig scherm verlaten",
+        "exit": "Presentatie sluiten",
+        "slide": "Dia {n} van {total}"
+    },
     "secondLanguage": "Tweede taal",
     "displayMode": "Weergavemodus",
     "lineByLine": "Regel voor regel",

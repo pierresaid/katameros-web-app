@@ -20,6 +20,8 @@ const route = useRoute()
 const router = useRouter()
 const currentLang = useCurrentLang()
 const currentDir = computed(() => RTL_LANGS.has(currentLang.value) ? 'rtl' : 'ltr')
+// The slideshow takes the whole screen: no header, no menu
+const immersive = computed(() => !!route.meta.immersive)
 
 useHead({
   htmlAttrs: {
@@ -96,8 +98,8 @@ onMounted(() => {
 
 <template>
   <v-app>
-    <the-header />
-    <the-drawer />
+    <the-header v-if="!immersive" />
+    <the-drawer v-if="!immersive" />
     <v-main>
       <router-view></router-view>
     </v-main>
