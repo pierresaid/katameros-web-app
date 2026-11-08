@@ -79,7 +79,7 @@ function setDate(inc: number) {
     <v-snackbar v-model="readings.error" color="red" :timeout="-1">
         {{ $t('error.loadingReadings') }}
         <template v-slot:actions>
-            <v-btn variant="elevated" size="small" @click="readings.getReadings">
+            <v-btn variant="elevated" size="small" class="reload-btn" @click="readings.getReadings">
                 {{ $t('reload') }}
             </v-btn>
         </template>
@@ -141,6 +141,12 @@ function setDate(inc: number) {
     .date-control {
         margin: 0;
     }
+}
+
+/* Inside the red bar the light theme gives this button a white label on
+   its white background */
+.reload-btn.v-theme--light {
+    color: #c62828;
 }
 
 .date {
