@@ -16,7 +16,7 @@ async function onInputSub(sectionId: number, subSectionId: number) {
     readings.openSection(sectionId);
 }
 
-function close() {
+function collapseAll() {
     readings.panel = []
 }
 
@@ -37,8 +37,11 @@ function close() {
             </v-btn>
         </template>
         <v-list class="current-reading-list" role="menu">
-            <v-list-item value="close" @click="close" variant="plain" role="menuitem">
-                <v-list-item-title>{{$t('close')}}</v-list-item-title>
+            <v-list-item value="collapse-all" @click="collapseAll" role="menuitem">
+                <v-list-item-title class="d-flex align-center">
+                    <v-icon icon="mdi-unfold-less-horizontal" size="18" class="collapse-all-icon" />
+                    {{ $t('collapseAll') }}
+                </v-list-item-title>
             </v-list-item>
             <v-list-item v-for="(section, idx) in readings.sections" :key="section.id" :value="section.id"
                 :active="readings.currentSection?.id === section.id" @click="onInput(idx)" role="menuitem">
@@ -95,5 +98,10 @@ function close() {
 
 .v-list.current-reading-list {
     padding: 0;
+}
+
+.collapse-all-icon {
+    margin-inline-end: 8px;
+    opacity: 0.7;
 }
 </style>
