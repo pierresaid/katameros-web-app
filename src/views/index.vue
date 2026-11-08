@@ -38,12 +38,14 @@ function setDate(inc: number) {
     <div class="text-center date">
         <h1 class="d-sr-only">{{ $t('seo.homeHeading') }}</h1>
         <CopticCrossOutline style="width : 120px; height: 120px;" :animate="readings.preloading" />
-        <div class="g-date" style="width: 100%;">
-            <ClientOnly>
-                <template #placeholder><span class="date-placeholder" aria-hidden="true">&nbsp;</span></template>
-                {{ date }}
-            </ClientOnly>
-            <v-locale-provider :rtl="false">
+        <div class="g-date">
+            <span class="g-date-text">
+                <ClientOnly>
+                    <template #placeholder><span class="date-placeholder" aria-hidden="true">&nbsp;</span></template>
+                    {{ date }}
+                </ClientOnly>
+            </span>
+            <v-locale-provider :rtl="false" class="date-control-wrap">
                 <div class="date-control">
                     <v-btn icon="mdi-chevron-left" @click="setDate(-1)" size="small" variant="text"
                          :aria-label="$t('aria.prevDay')" />
@@ -85,37 +87,21 @@ function setDate(inc: number) {
 </template>
 
 <style>
-@media (min-width: 950px) and (max-width: 1130px) {
-    .g-date {
-        width: 70vw !important;
-    }
-}
-
-@media (min-width: 1670px) {
-    .g-date {
-        width: 40vw !important;
-    }
-}
-
+/* Phones and tablets: the buttons sit under the date. Pure CSS, so SSR and
+   the client agree. */
 .g-date {
-    display: flex;
-    align-items: center;
-    position: relative;
-    justify-content: center;
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 /* One quiet pill grouping prev / calendar / next, matching the app's
    segmented controls; the calendar gets a slightly deeper neutral wash
    to read as the main action without shouting */
 .date-control {
-    position: absolute;
-    align-items: center;
     display: flex;
-    right: 15%;
+    align-items: center;
     width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     gap: 2px;
     padding: 3px;
     border-radius: 999px;
@@ -131,15 +117,29 @@ function setDate(inc: number) {
     background-color: rgba(var(--v-theme-on-surface), 0.06);
 }
 
-/* Mobile: stack date and controls vertically — pure CSS so SSR and client agree */
-@media (max-width: 599px) {
+/* Wider screens: the buttons sit beside the date, in the flow, so a long
+   date ("Wednesday, September 30") can never cover them. The two side
+   columns stay equal while there is room, which keeps the date centered
+   over the Coptic date. */
+@media (min-width: 960px) {
     .g-date {
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        column-gap: 20px;
+        align-items: center;
     }
+
+    .g-date-text {
+        grid-column: 2;
+    }
+
+    .date-control-wrap {
+        grid-column: 3;
+        justify-self: start;
+    }
+
     .date-control {
-        position: unset;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0;
     }
 }
 
