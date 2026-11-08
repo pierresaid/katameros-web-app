@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, ref, watch } from 'vue';
 import { useDisplay } from 'vuetify';
 import { scrollProgressive, scrollToId, scrollToSection } from '../../helpers/scrollTo.js';
 import { useReadings } from '../../store/readings.js';
@@ -39,11 +40,43 @@ function onIntersect(visible: Boolean) {
 
 const { xs } = useDisplay();
 
+// A word wider than a phone's line (German "Morgenweihrauchopfer", Dutch
+// "Eucharistieviering") would break mid-word. The widest word is measured
+// here, in em of the title's font; the CSS turns it into the size that fits
+// the screen, so the title only shrinks as much as that word needs.
+const titleEl = ref<HTMLElement | null>(null);
+const widestWordEm = ref(0);
+
+function titleFont(el: HTMLElement) {
+    const style = getComputedStyle(el);
+    return `${style.fontWeight} 100px ${style.fontFamily}`;
+}
+
+function measureTitle() {
+    const el = titleEl.value;
+    const ctx = el && document.createElement('canvas').getContext('2d');
+    if (!el || !ctx) return;
+    ctx.font = titleFont(el);
+    const words = (props.section.title ?? '').toLocaleUpperCase().split(/\s+/);
+    widestWordEm.value = Math.max(0, ...words.map(word => ctx.measureText(word).width / 100));
+}
+
+onMounted(() => {
+    measureTitle();
+    // Again once the title's font is loaded: on a first visit the measure
+    // above used a fallback font
+    if (titleEl.value)
+        document.fonts?.load(titleFont(titleEl.value)).then(measureTitle).catch(() => { });
+});
+watch(() => props.section.title, measureTitle, { flush: 'post' });
+
 </script>
 
 <template>
     <v-expansion-panel-title color="primary" :id="`section-${idx}`" @click="sectionTitleClick(idx)"Subsection menu>
-        <h2 class="section-title" style="word-wrap: break-word;" :class="{ 'condensed': section.title?.length > 20 && xs }">
+        <h2 ref="titleEl" class="section-title" style="word-wrap: break-word;"
+            :class="{ 'condensed': section.title?.length > 20 && xs }"
+            :style="widestWordEm ? { '--widest-word': widestWordEm } : undefined">
                 {{ section.title }}
         </h2>
     </v-expansion-panel-title>
@@ -80,6 +113,19 @@ const { xs } = useDisplay();
     font-size: 2em;
     color: black;
     text-align: center
+}
+
+/* Phones: the title shrinks only when its widest word (--widest-word, set
+   in the script) can't fit the line. 100px: the page's and the panel's
+   padding, the arrow, and a little room to spare. */
+@media (max-width: 599px) {
+    .v-expansion-panel-title .section-title {
+        font-size: min(2em, calc((100vw - 100px) / var(--widest-word, 0.01)));
+    }
+
+    .section-title.condensed {
+        font-size: min(1.3em, calc((100vw - 100px) / var(--widest-word, 0.01))) !important;
+    }
 }
 
 .sub-section-link {
