@@ -103,7 +103,7 @@ const verseFontSize = computed(() => {
     return Number((zoom.value * verseBaseSize).toFixed(2));
 });
 
-const verseNbrBaseSize = 0.8;
+const verseNbrBaseSize = 0.72;
 const verseNbrFontSize = computed(() => {
     return Number((zoom.value * verseNbrBaseSize).toFixed(2));
 });
@@ -139,8 +139,10 @@ const Ref = computed(() => formatRef(reading.passages))
     color: #ff5353;
 }
 
+/* 1.5: the same room between lines as the red introductions around the
+   verses, so the eye finds the start of the next line easily */
 .verse-text {
-    line-height: 1.3;
+    line-height: 1.5;
     margin-bottom: 10px;
 }
 
@@ -166,8 +168,16 @@ const Ref = computed(() => formatRef(reading.passages))
     font-size: v-bind('verseFontSize + "rem"');
 }
 
+/* Small, grey and raised, like in the slideshow: the text reads on without
+   the numbers in the way, and they are still there to find a verse.
+   Moved with top rather than vertical-align, so lines keep an even spacing */
 .verse-number {
     font-size: v-bind('verseNbrFontSize + "rem"');
+    font-weight: 700;
+    opacity: 0.5;
+    position: relative;
+    top: -0.4em;
+    margin-inline-end: 1px;
 }
 
 .reading-title {
