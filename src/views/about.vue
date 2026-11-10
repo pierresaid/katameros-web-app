@@ -8,19 +8,17 @@ import AboutRichText from '@/components/about-rich-text.vue';
 import { useSeo } from '@/composables/useSeo';
 import { useCurrentLang } from '@/composables/useCurrentLang';
 import { track } from '@/helpers/track';
-import { ABOUT_CONTENT, ABOUT_LANGS, aboutLang } from '@/content/about';
+import { ABOUT_CONTENT } from '@/content/about';
 import { typeset } from '@/content/about/typeset';
 import { splitRefs } from '@/content/about/refs';
 import { ABOUT_FOOTNOTES } from '@/content/about/footnotes';
 import type { AboutPassages } from '@/content/about/types';
 
 const lang = useCurrentLang();
-// The copy's own language: English on the Thai page, which has no translation
-const copyLang = computed(() => aboutLang(lang.value));
-const c = computed(() => typeset(ABOUT_CONTENT[copyLang.value], copyLang.value));
+const c = computed(() => typeset(ABOUT_CONTENT[lang.value], lang.value));
 
 // The page's heading is its title in search results ("What is the Katameros? - Katameros")
-useSeo({ title: () => c.value.title, description: () => c.value.description, langs: ABOUT_LANGS });
+useSeo({ title: () => c.value.title, description: () => c.value.description });
 
 // Footnotes, as in a book: a small number in the text and the note at the bottom of the page.
 // Each leads to the other: the page scrolls it to the middle of the screen, clear of the app
@@ -51,7 +49,7 @@ const opened = ref<{ group: PassageGroup, key: string, eyebrow: string } | null>
 async function openPassage(group: PassageGroup, key: string, eyebrow: string) {
     opened.value = { group, key, eyebrow };
     track('about-passage', { passage: key });
-    const file = `${group}-${copyLang.value}`;
+    const file = `${group}-${lang.value}`;
     if (loadedPassages.value[file])
         return;
     const load = Object.entries(passageFiles).find(([path]) => path.endsWith(`/${file}.json`))?.[1];
@@ -59,9 +57,9 @@ async function openPassage(group: PassageGroup, key: string, eyebrow: string) {
     if (data)
         loadedPassages.value = { ...loadedPassages.value, [file]: data };
 }
-const openedFile = computed(() => (opened.value ? loadedPassages.value[`${opened.value.group}-${copyLang.value}`] : undefined));
+const openedFile = computed(() => (opened.value ? loadedPassages.value[`${opened.value.group}-${lang.value}`] : undefined));
 const openedPassage = computed(() => (opened.value && openedFile.value?.passages[opened.value.key]) || null);
-const refsIn = (text: string) => splitRefs(text, copyLang.value);
+const refsIn = (text: string) => splitRefs(text, lang.value);
 
 // Store links only make sense on the web: hidden in the native apps, and in
 // the prerendered HTML until the page knows where it runs.
@@ -70,7 +68,7 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
 </script>
 
 <template>
-    <v-container class="about-page" :lang="copyLang">
+    <v-container class="about-page" :lang="lang">
         <!-- The readings page's cross, still, above the one-sentence intro. No visible title:
              the heading is for screen readers and search engines -->
         <header class="about-intro">
@@ -260,7 +258,7 @@ onMounted(() => { isNative.value = Capacitor.isNativePlatform(); });
     margin-top: 44px;
 }
 
-/* Suez One has no Arabic or Thai letters: Arabic falls back to the app's Arabic face,
+/* Suez One has no Arabic letters: Arabic falls back to the app's Arabic face,
    as in the body text, rather than to the browser's default */
 .about-heading {
     font-family: 'Suez one', 'ScheherazadeNew', sans-serif;

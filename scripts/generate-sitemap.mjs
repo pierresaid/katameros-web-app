@@ -3,12 +3,10 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const SITE_URL = 'https://katameros.app'
-const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl', 'th']
+const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl']
 const DEFAULT_LANG = 'fr'
 const SYNAX_LANGS = new Set(['fr', 'en', 'ar', 'it', 'de', 'nl'])
-// The about page is not translated into Thai (keep in sync with src/content/about/index.ts)
-const ABOUT_LANGS = new Set(['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl'])
-const ROUTE_LANGS = { '/synaxarium': SYNAX_LANGS, '/about': ABOUT_LANGS }
+const ROUTE_LANGS = { '/synaxarium': SYNAX_LANGS }
 const ROUTES = ['', '/feasts', '/about', '/contact', '/synaxarium']
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

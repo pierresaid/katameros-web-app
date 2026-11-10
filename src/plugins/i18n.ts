@@ -7,7 +7,6 @@ import ar from '../../locales/ar.json'
 import pl from '../../locales/pl.json'
 import es from '../../locales/es.json'
 import nl from '../../locales/nl.json'
-import th from '../../locales/th.json'
 
 export function createI18nInstance() {
     return createI18n({
@@ -23,7 +22,6 @@ export function createI18nInstance() {
             pl,
             es,
             nl,
-            th,
         }
     })
 }

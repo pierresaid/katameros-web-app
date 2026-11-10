@@ -244,7 +244,8 @@ export const useReadings = defineStore('readings', () => {
     // Read back as a number: with a null default, useStorage would return the
     // saved string ("3"), which no language id equals after a reload
     const secondLanguage = skipHydrate(useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null, undefined, {
-        serializer: { read: v => Number(v) || null, write: v => String(v) },
+        // A language that is no longer offered (Thai) reads as none
+        serializer: { read: v => Object.values(LANGUAGES).find(l => l.id === Number(v))?.id ?? null, write: v => String(v) },
     }));
     const secondLanguageDisplaySetting = skipHydrate(useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side"));
 

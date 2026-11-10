@@ -37,8 +37,7 @@ onMounted(() => {
             <a href="/de/">Deutsch</a> ·
             <a href="/pl/">Polski</a> ·
             <a href="/es/">Español</a> ·
-            <a href="/nl/">Nederlands</a> ·
-            <a href="/th/">ไทย</a>
+            <a href="/nl/">Nederlands</a>
         </p>
     </noscript>
     <div style="display: flex; justify-content: center; padding: 4rem;">

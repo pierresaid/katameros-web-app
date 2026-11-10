@@ -37,6 +37,14 @@ export const routes: Array<RouteRecordRaw> = [
     meta: { immersive: true },
   },
   { path: `/:lang${LANG_PATTERN}/:pathMatch(.*)*`, component: NotFound, name: 'not-found' },
+  // Thai was offered until November 2026: its addresses go to the English pages
+  {
+    path: '/th/:rest(.*)*',
+    redirect: (to) => {
+      const rest = ([] as string[]).concat(to.params.rest ?? []).filter(Boolean).join('/')
+      return { path: rest ? `/en/${rest}/` : '/en/', query: to.query, hash: to.hash }
+    },
+  },
   // Paths without a language, including the legacy pre-lang-prefix ones
   // (/synaxarium, /feasts, ...) — bounce through RedirectHome which preserves the suffix
   { path: '/:pathMatch(.*)*', component: RedirectHome },

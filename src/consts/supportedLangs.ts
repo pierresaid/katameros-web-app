@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl', 'th'] as const
+export const SUPPORTED_LANGS = ['fr', 'en', 'ar', 'it', 'de', 'pl', 'es', 'nl'] as const
 export type SupportedLang = typeof SUPPORTED_LANGS[number]
 
 export const DEFAULT_LANG: SupportedLang = 'fr'
@@ -13,7 +13,9 @@ export const LANG_PATTERN = `(${SUPPORTED_LANGS.join('|')})`
 export const SYNAX_LANG_PATTERN = `(${SYNAX_LANGS.join('|')})`
 
 const LANG_ID_TO_CODE: Record<number, SupportedLang> = {
-    1: 'fr', 2: 'en', 3: 'ar', 4: 'it', 6: 'de', 7: 'pl', 8: 'es', 9: 'nl', 10: 'th',
+    1: 'fr', 2: 'en', 3: 'ar', 4: 'it', 6: 'de', 7: 'pl', 8: 'es', 9: 'nl',
+    // Thai (10) is no longer offered: a reader who had chosen it gets English
+    10: 'en',
 }
 
 export function isSupportedLang(value: string | undefined): value is SupportedLang {
