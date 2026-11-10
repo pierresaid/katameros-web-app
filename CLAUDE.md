@@ -123,3 +123,14 @@ The API uses date format `dd-MM-yyyy` (e.g., `24-12-2025`).
 - **App ID:** `com.dcoanbamarc.katamerosmobile`
 - **Web directory:** `dist/`
 - **Platforms:** iOS (`ios/`), Android (`android/`)
+
+## Hosting (Cloudflare Workers static assets)
+
+The website is prepared to be served by Cloudflare Workers as static files only (`wrangler.jsonc`, no Worker code): `npm run build`, then `npx wrangler deploy` uploads `dist/`. The Worker belongs to the account that holds the katameros.app zone.
+
+- **Build chain:** `build-only` = `vite-ssg build`, then `scripts/hosting-files.mjs`, then `scripts/generate-sitemap.mjs`. `.env.production` gives the build the production API address; `.nvmrc` pins Node 22.
+- **Addresses without the final slash:** the pages are `<path>/index.html`. `html_handling: auto-trailing-slash` redirects `/fr/about` to `/fr/about/`, and `dist/_redirects` (written by `hosting-files.mjs`) makes it a permanent 301 for the home, feasts, about, contact, slideshow and synaxarium pages of each language. No placeholder rule for the stories: `/fr/synaxarium/:slug` would also catch `/fr/synaxarium/index.html`, which the service worker fetches, and break its install; the stories get the host's own (307) redirect.
+- **Not found:** `not_found_handling: 404-page` answers an unknown address with the nearest `404.html` and a real 404. The build prerenders `/<lang>/404/` (the not-found view) and `hosting-files.mjs` moves it to `/<lang>/404.html`; the root `404.html` is a copy of the root page, which sends addresses without a language (`/about`) on to their language. A story address in a language without its text (`/pl/synaxarium/<slug>/`) therefore answers 404, and the page says the story is not available in this language (noindex): no other language is shown in its place, the reader can pick one. The synaxarium list has no route in the languages without a synaxarium (`SYNAX_LANG_PATTERN`): from the list, the language pickers send those languages to the readings (`helpers/langRoute.ts`).
+- **Cache headers:** `public/_headers`: a year for the hashed `/assets/*`, a month for `/fonts/*`, the host's default (checked on each visit) for the rest, and `noindex` on the workers.dev address.
+- **Local run:** `npx wrangler dev` serves `dist/` with the same rules (the `cloudflare-local` launch entry). The local runtime only accepts a `compatibility_date` it knows: raise the date with the wrangler version.
+- **Offline:** the service worker precaches the app's pages, scripts, images and fonts (woff2 and the three ttf), not the story pages nor the 404 pages; it finds precached files without `?v=` (icon font), `?date=`, `?q=`, `?story=`.

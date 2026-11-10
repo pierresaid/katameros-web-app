@@ -10,7 +10,7 @@
     "build-app": "run-p type-check \"build-app-only {@}\" --",
     "appflow:build": "npm run build-app",
     "preview": "vite preview",
-    "build-only": "vite-ssg build && node scripts/generate-sitemap.mjs",
+    "build-only": "vite-ssg build && node scripts/hosting-files.mjs && node scripts/generate-sitemap.mjs",
     "build-spa-only": "vite build",
     "build-app-only": "vite-ssg build --mode app",
     "type-check": "vue-tsc --build --force"

@@ -95,7 +95,12 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
     ]),
     // Not in the app's build (--mode app): the app starts on its home page and
     // never loads these pages, which would only make it bigger
-    ...(import.meta.env.MODE === 'app' ? [] : await storyRoutes()),
+    ...(import.meta.env.MODE === 'app' ? [] : [
+      // The "not found" page of each language: the host answers unknown
+      // addresses with it and a 404 (moved to /<lang>/404.html after the build)
+      ...SUPPORTED_LANGS.map(lang => `/${lang}/404/`),
+      ...await storyRoutes(),
+    ]),
   ]
 }
 

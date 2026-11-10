@@ -1,0 +1,25 @@
+// The website on Cloudflare Workers, as static files only (no Worker code):
+// the pages built in dist/ by `npm run build`, deployed by `npx wrangler deploy`
+// (.github/workflows/deploy.yml does both on every push to master).
+{
+  "name": "katameros",
+  // DCO Cloudflare account, which holds the katameros.app zone
+  "account_id": "b95b2c9dd00193a3a8a4dfaebb9f21d6",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./dist",
+    // /fr/about redirects to /fr/about/ (the pages are <path>/index.html);
+    // dist/_redirects makes the main pages permanent (scripts/hosting-files.mjs)
+    "html_handling": "auto-trailing-slash",
+    // Unknown addresses get the nearest 404.html with a 404 status
+    "not_found_handling": "404-page"
+  }
+  // Until the domain moves here, the site is only on katameros.copte.workers.dev
+  // (kept out of search engines by public/_headers). Going live: remove the
+  // katameros.app and www records that point to Render from the zone, then add
+  //   "workers_dev": false,
+  //   "routes": [
+  //     { "pattern": "katameros.app", "custom_domain": true },
+  //     { "pattern": "www.katameros.app", "custom_domain": true }
+  //   ]
+}

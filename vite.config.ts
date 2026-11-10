@@ -42,6 +42,8 @@ export default defineConfig({
           '**/synaxarium/*/index.html',
           // The icon font is used as woff2: not its 1.3 MB ttf fallback
           '**/materialdesignicons-webfont-*.ttf',
+          // The "not found" pages are moved after the build (scripts/hosting-files.mjs)
+          '**/404/index.html',
         ],
       },
       devOptions: {

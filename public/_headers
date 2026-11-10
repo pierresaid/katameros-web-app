@@ -1,0 +1,14 @@
+# Read by the host (Cloudflare Workers static assets), not served.
+# Everything else keeps the host's default: checked again on each visit.
+
+# Built files carry a hash in their name: a new version has a new name
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts keep their name, so a month rather than a year
+/fonts/*
+  Cache-Control: public, max-age=2592000
+
+# The workers.dev address is for tests: search engines only get katameros.app
+https://:worker.:account.workers.dev/*
+  X-Robots-Tag: noindex
