@@ -13,10 +13,13 @@ Website: https://katameros.app/
 ```bash
 npm install           # Install dependencies
 npm run dev          # Start Vite dev server with hot reload
-npm run build        # Type-check + production build
+npm run build        # Type-check + production build (the website, with every story page)
+npm run build-app    # Type-check + build for the phone app, without the story pages
 npm run preview      # Preview production build
 npm run type-check   # Run vue-tsc type checking only
 ```
+
+The website build prerenders every page with vite-ssg, including one page per synaxarium story and language (about 4,500, some 4 minutes). Their text comes from the published synaxarium file (`src/services/synaxPrerender.ts`, fetched once through the cache worker): without it the build stops. Appflow runs `appflow:build` (`build-app`, `--mode app`), which leaves the story pages out: the app opens on its home page and never loads them. Every page renders a new app against one fake window (`mock: true`), so `main.ts` turns its `addEventListener` into a no-op during the build: listeners kept every rendered app in memory.
 
 ## Tech Stack
 
@@ -44,6 +47,7 @@ Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacito
 Routes defined in `src/router/index.ts`:
 - `/` → `src/views/index.vue` (main readings page)
 - `/synaxarium` → `src/views/synaxarium.vue`
+- `/synaxarium/:slug` → `src/views/synaxarium-story.vue` (one story, by its permanent slug)
 - `/feasts` → `src/views/feasts.vue`
 - `/about` → `src/views/about.vue`
 - `/contact` → `src/views/contact.vue`
@@ -51,9 +55,9 @@ Routes defined in `src/router/index.ts`:
 
 ### Synaxarium page
 
-`src/views/synaxarium.vue`: the title, description, search, date picker button and a row with "today" and the months stay in place; below, the stories grouped by day under month headings scroll in their own area, opening on today (the month row follows the scroll). The date picker is `date-picker-dialog.vue` in `pick` mode: it sends back the chosen Coptic day instead of changing the readings' date. The list renders on the device only (the prerendered page stays small). The search and the open story live in the address (`?q=`, `?story=`; the service worker ignores both).
+`src/views/synaxarium.vue`: the title, description, search, date picker button and a row with "today" and the months stay in place; below, the stories grouped by day under month headings scroll in their own area, opening on today (the month row follows the scroll). The date picker is `date-picker-dialog.vue` in `pick` mode: it sends back the chosen Coptic day instead of changing the readings' date. The list renders on the device only (the prerendered page stays small). The search lives in the address (`?q=`); each row links to its story's page. Old story links (`?story=<slug>`) are sent on to the page by the route's `beforeEnter`. Coming back from a story (back, its link to the list or the menu), the list returns to that story's row, where the opened row was (`opened` / `returnTo` in the synaxarium store).
 - **Search (`src/composables/useSynaxSearch.ts`):** words in any order, in the titles first, then in the stories' text with an excerpt (dates are not searched: they are in the date picker). The text comes from the stories downloaded for offline reading (`src/services/synaxTexts.ts`, saved as one bundle per synaxarium version and language); until they are downloaded only the titles are searched
-- **Story sheet (`src/components/synax-story-sheet.vue`):** the Gregorian date this year, the other stories of the same day, previous/next following the list on screen (arrow keys too), the story in another language, share, the searched words marked
+- **Story page (`src/views/synaxarium-story.vue`):** prerendered for every story and language, so search engines index each saint: its own title, description (the story's start), canonical, hreflang to the story's other languages, Article and breadcrumb data, and the text, which reaches the browser through the pinia state (`synaxStore.prerendered`) before the usual cache/API check. The Gregorian date this year, the other stories of the same day, previous/next (arrow keys too; replacing the page, so back returns to the list), the story in another language, share, "Go to this day" (`src/composables/useGoToStoryDay.ts`). Opened from search results, previous/next follow them and the searched words are marked. Pages in a language without the story (Polish, or German without it) are noindex. They are not precached (`globIgnores` in `vite.config.ts`): offline, `src/sw.ts` answers a story link with the synaxarium page. `scripts/generate-sitemap.mjs` lists the built story pages, one sitemap per language under the `sitemap.xml` index
 
 ### Slideshow
 
@@ -102,6 +106,8 @@ The app uses a two-tier cache for the readings, and the same pattern for the syn
 1. **LocalForage (IndexedDB):** Stores readings keyed by `{date}-{languageId}`
 2. **Cache versioning:** Fetches cache version from Cloudflare Worker (once per visit, `fetchCacheVersionInfo` in `src/store/readings.ts`), bulk-loads cache data when version changes
 3. **Synaxarium stories:** own LocalForage instance (`katameros-synaxarium`), keyed `{slug}-{languageId}`. The worker's answer also carries `SynaxVersion`/`SynaxDataUrl` (a version only, no dates). When the version changes, `src/services/synaxCache.ts` downloads every story, after the readings are loaded. While the saved stories are the current version they are read first; otherwise the API comes first. The file is generated by `update-synax-cache.js` in katameros-cache-sqlite.
+
+4. **When the downloads start:** `readings.startOfflineDownloads()` (store) allows the two bulk downloads (readings, about 38 MB, then stories, about 9 MB). `App.vue` calls it where the readings are read: on every screen of the phone app (`Capacitor.isNativePlatform()`), and on the website's readings page and slideshow. On the website's other pages (a story, About, feasts) `getReadings()` only asks the API for the day shown, and nothing is downloaded; the synaxarium list starts the stories download alone (`readings.downloadStories()`). The user's choices of 2026-11-10: all 8 languages stay in one file, and data saver is ignored.
 
 ## Environment Configuration
 

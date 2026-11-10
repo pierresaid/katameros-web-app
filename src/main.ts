@@ -8,6 +8,8 @@ import { createI18nInstance } from './plugins/i18n'
 import './plugins/vee-validate'
 import { setLocale as setVeeValidateLocale } from '@vee-validate/i18n'
 import { isSupportedLang, DEFAULT_LANG, SUPPORTED_LANGS, SYNAX_LANGS, type SupportedLang } from './consts/supportedLangs'
+import LANGUAGES from './consts/languages'
+import { storySlugs } from './store/synaxarium'
 
 if (import.meta.env.SSR) {
   class NoopObserver {
@@ -28,6 +30,12 @@ if (import.meta.env.SSR) {
   }
   if (g.window) {
     g.window.visualViewport ??= g.visualViewport
+    // Every page renders a new app against this one window: the listeners added
+    // to it (Vuetify's resize, VueUse's storage events) would keep every app in
+    // memory, some 4 MB a page, and thousands of story pages run out of it.
+    // Nothing listens while a page is prerendered.
+    g.window.addEventListener = () => {}
+    g.document.addEventListener = () => {}
   }
 }
 
@@ -85,5 +93,22 @@ export async function includedRoutes(_paths: string[], _routes: any[]) {
       `/${lang}/slideshow/`,
       ...(SYNAX_LANGS.includes(lang) ? [`/${lang}/synaxarium/`] : []),
     ]),
+    // Not in the app's build (--mode app): the app starts on its home page and
+    // never loads these pages, which would only make it bigger
+    ...(import.meta.env.MODE === 'app' ? [] : await storyRoutes()),
   ]
+}
+
+// One page per story and language, for the stories the published synaxarium file has the text of
+async function storyRoutes(): Promise<string[]> {
+  if (!import.meta.env.SSR)
+    return []
+  const { loadPublishedStories } = await import('./services/synaxPrerender')
+  const { stories } = await loadPublishedStories()
+  return SYNAX_LANGS.flatMap((lang) => {
+    const languageId = Object.values(LANGUAGES).find(l => l.code === lang)?.id
+    return storySlugs(lang)
+      .filter(slug => stories.has(`${slug}-${languageId}`))
+      .map(slug => `/${lang}/synaxarium/${slug}/`)
+  })
 }

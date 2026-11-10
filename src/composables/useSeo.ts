@@ -25,7 +25,7 @@ interface SeoOptions {
     isRoot?: boolean
     brandOnly?: boolean
     /** Languages this route actually exists in (defaults to all). */
-    langs?: readonly SupportedLang[]
+    langs?: MaybeRefOrGetter<readonly SupportedLang[]>
 }
 
 export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
@@ -36,9 +36,9 @@ export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
     const { t } = useI18n()
     const route = useRoute()
     const lang = useCurrentLang()
-    const langs = opts.langs ?? SUPPORTED_LANGS
 
     useHead(() => {
+        const langs = toValue(opts.langs) ?? SUPPORTED_LANGS
         const brand = t('seo.brand')
         const pageTitle = opts.title !== undefined ? toValue(opts.title) : opts.titleKey && t(opts.titleKey)
         const brandOnly = opts.isRoot || opts.brandOnly || !pageTitle
@@ -48,9 +48,11 @@ export function useSeo(titleKey: string | SeoOptions, descriptionKey?: string) {
         const urlFor = (l: SupportedLang) => `${SITE_URL}/${l}${suffix}`
         // The bare root sends visitors to their own language, which is what
         // x-default is for: it is the home page's x-default and its own canonical.
-        // The other pages fall back to DEFAULT_LANG (mirrors generate-sitemap.mjs).
+        // The other pages fall back to DEFAULT_LANG, or to their first language
+        // when they do not exist in it (mirrors generate-sitemap.mjs).
         const rootUrl = `${SITE_URL}/`
-        const xDefault = suffix === '/' ? rootUrl : urlFor(DEFAULT_LANG)
+        const fallbackLang = langs.includes(DEFAULT_LANG) ? DEFAULT_LANG : (langs[0] ?? DEFAULT_LANG)
+        const xDefault = suffix === '/' ? rootUrl : urlFor(fallbackLang)
         const canonical = opts.isRoot ? rootUrl : urlFor(lang.value)
         // The language picker keeps the current page, so a page can be shown in a
         // language it has no content for (e.g. /de/synaxarium/): keep those out of the index.

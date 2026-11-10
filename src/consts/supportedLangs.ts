@@ -10,6 +10,7 @@ export const RTL_LANGS: Set<SupportedLang> = new Set(['ar'])
 export const SYNAX_LANGS: readonly SupportedLang[] = ['fr', 'en', 'ar', 'it', 'de', 'nl']
 
 export const LANG_PATTERN = `(${SUPPORTED_LANGS.join('|')})`
+export const SYNAX_LANG_PATTERN = `(${SYNAX_LANGS.join('|')})`
 
 const LANG_ID_TO_CODE: Record<number, SupportedLang> = {
     1: 'fr', 2: 'en', 3: 'ar', 4: 'it', 6: 'de', 7: 'pl', 8: 'es', 9: 'nl', 10: 'th',

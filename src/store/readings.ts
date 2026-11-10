@@ -20,6 +20,9 @@ export interface CacheVersionInfo {
     SynaxDataUrl?: string;
 }
 
+// The Cloudflare worker that publishes the cache versions ("katemeros" is its real name)
+export const CACHE_VERSION_URL = 'https://katemeros-cache-version.psaid.workers.dev/';
+
 const today = new Date()
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
@@ -82,12 +85,17 @@ export const useReadings = defineStore('readings', () => {
     const currentCacheVersion = skipHydrate(useStorage<number>("CURRENT_CACHE_VERSION", 0));
     const cacheVersionInfo = skipHydrate(useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" }));
     let cacheVersionRequest: Promise<CacheVersionInfo | null> | null = null;
+    // The offline downloads (every reading of the coming months, then every
+    // synaxarium story) start where the readings are read: App.vue allows
+    // them there. Elsewhere only the day shown is asked for.
+    const offlineDownloads = ref(false);
+    let requested = false;
 
     // One call per visit, shared by the readings and the synaxarium stories
     function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
         cacheVersionRequest ??= (async () => {
             try {
-                const response = await fetch('https://katemeros-cache-version.psaid.workers.dev/');
+                const response = await fetch(CACHE_VERSION_URL);
                 cacheVersionInfo.value = await response.json();
             } catch {
                 // offline: keep the last values received
@@ -98,6 +106,7 @@ export const useReadings = defineStore('readings', () => {
     }
 
     async function getReadings() {
+        requested = true;
         fetchSecondLanguageReadings()
         
         const version = pickedBibles.value.find(b => b.langId === language.value)?.bibleId;
@@ -141,6 +150,7 @@ export const useReadings = defineStore('readings', () => {
         // Cache version is outdated - reload entire cache
         else if (
             !disableCache &&
+            offlineDownloads.value &&
             cacheInfo &&
             !cacheVersionIsCurrent &&
             !preloading.value &&
@@ -190,9 +200,42 @@ export const useReadings = defineStore('readings', () => {
 
         // The synaxarium stories download last, once the readings and their
         // cache are loaded, so they never slow them down
-        if (!disableCache && cacheInfo && !preloading.value) {
+        if (!disableCache && offlineDownloads.value && cacheInfo && !preloading.value) {
             loadSynaxCache(cacheInfo);
         }
+    }
+
+    // Called where the readings are read (see App.vue). When the day's
+    // readings were already asked for without the downloads (the visitor came
+    // by another page), they start now; otherwise getReadings starts them.
+    async function startOfflineDownloads() {
+        if (offlineDownloads.value)
+            return;
+        offlineDownloads.value = true;
+        if (disableCache || !requested)
+            return;
+        const cacheInfo = await fetchCacheVersionInfo();
+        // A load in progress is already bringing the readings: it starts the stories after them
+        if (!cacheInfo || preloading.value)
+            return;
+        if (currentCacheVersion.value !== cacheInfo.CacheVersion) {
+            preloading.value = true;
+            await localforage.clear();
+            await loadCacheData(cacheInfo.CacheDataUrl);
+            currentCacheVersion.value = cacheInfo.CacheVersion;
+            preloading.value = false;
+        }
+        loadSynaxCache(cacheInfo);
+    }
+
+    // The synaxarium list downloads the stories when it opens, for the search
+    // in their text and offline reading, without the readings
+    async function downloadStories() {
+        if (disableCache)
+            return;
+        const cacheInfo = await fetchCacheVersionInfo();
+        if (cacheInfo && !preloading.value)
+            loadSynaxCache(cacheInfo);
     }
 
     const secondSections = ref<Section[] | null>(null);
@@ -308,5 +351,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, setSecondLanguage, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo }
+    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, setSecondLanguage, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo, startOfflineDownloads, downloadStories }
 })

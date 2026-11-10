@@ -18,7 +18,6 @@
           density="comfortable"
           hide-details
           :loading="textState === 'loading'"
-          :disabled="isLoadingReadings"
         />
         <v-btn icon="mdi-calendar" variant="tonal" class="synax-calendar" :aria-label="$t('aria.openDatePicker')"
           :title="$t('aria.openDatePicker')" @click="menu.dateDialog = true" />
@@ -47,11 +46,7 @@
     </div>
 
     <div ref="scrollEl" class="synax-scroll" @scroll.passive="onScroll">
-      <div v-if="isLoadingReadings" class="synax-loading">
-        <v-progress-circular indeterminate color="primary" size="64" />
-      </div>
-
-      <div v-else-if="mounted" ref="listEl" class="synax-list">
+      <div v-if="mounted" ref="listEl" class="synax-list">
         <!-- The calendar, day by day -->
         <template v-if="mode === 'browse'">
           <section v-for="month in monthGroups" :key="month.month">
@@ -63,10 +58,10 @@
                 <span v-if="day.gregorian">{{ day.gregorian }}</span>
                 <span v-if="day.today" class="synax-day-badge">{{ $t('synaxarium.today') }}</span>
               </div>
-              <button v-for="entry in day.entries" :key="entry.Slug" type="button" class="synax-row"
-                @click="openStory(entry)">
+              <router-link v-for="entry in day.entries" :key="entry.Slug" :to="storyRoute(entry.Slug)"
+                class="synax-row" :data-slug="entry.Slug" @click="rememberOpened(entry.Slug, $event)">
                 <span class="synax-row-title">{{ entry.Title }}</span>
-              </button>
+              </router-link>
             </div>
           </section>
         </template>
@@ -75,19 +70,20 @@
         <template v-else>
           <section v-if="shownTitleMatches.length">
             <h2 class="synax-results-title">{{ $t('synaxarium.inTitles') }}</h2>
-            <button v-for="entry in shownTitleMatches" :key="entry.Slug" type="button"
-              class="synax-row synax-row--dated" @click="openStory(entry)">
+            <router-link v-for="entry in shownTitleMatches" :key="entry.Slug" :to="storyRoute(entry.Slug)"
+              class="synax-row synax-row--dated" :data-slug="entry.Slug" @click="rememberOpened(entry.Slug, $event)">
               <span class="synax-row-date">
                 <span class="synax-row-day">{{ entry.Day }}</span>
                 <span class="synax-row-month">{{ getCopticMonth(entry.Month) }}</span>
               </span>
               <span class="synax-row-title" v-html="highlightTokens(entry.Title, tokens)"></span>
-            </button>
+            </router-link>
           </section>
           <section v-if="shownTextMatches.length">
             <h2 class="synax-results-title">{{ $t('synaxarium.inText') }}</h2>
-            <button v-for="match in shownTextMatches" :key="match.entry.Slug" type="button"
-              class="synax-row synax-row--dated" @click="openStory(match.entry)">
+            <router-link v-for="match in shownTextMatches" :key="match.entry.Slug" :to="storyRoute(match.entry.Slug)"
+              class="synax-row synax-row--dated" :data-slug="match.entry.Slug"
+              @click="rememberOpened(match.entry.Slug, $event)">
               <span class="synax-row-date">
                 <span class="synax-row-day">{{ match.entry.Day }}</span>
                 <span class="synax-row-month">{{ getCopticMonth(match.entry.Month) }}</span>
@@ -96,7 +92,7 @@
                 <span class="synax-row-title" v-html="highlightTokens(match.entry.Title, tokens)"></span>
                 <span class="synax-row-excerpt" v-html="match.excerpt"></span>
               </span>
-            </button>
+            </router-link>
           </section>
           <p v-if="!resultCount && textState !== 'loading'" class="synax-empty">{{ $t('synaxarium.noResults') }}</p>
         </template>
@@ -105,57 +101,24 @@
 
     <date-picker-dialog v-model="menu.dateDialog" pick :initial-date="pickerDate"
       @pick="showDay($event.month, $event.day)" />
-
-    <synax-story-sheet
-      :open="!!storySlug"
-      :day="sheetEntry?.Day ?? null"
-      :month="sheetEntry?.Month ?? null"
-      :title="sheetEntry?.Title ?? ''"
-      :story="story"
-      :status="status"
-      :going-to-day="isLoadingReadings"
-      :coptic-year="today?.year ?? null"
-      :same-day="sameDay"
-      :has-prev="!!neighbours.prev"
-      :has-next="!!neighbours.next"
-      :languages="storyLanguages"
-      :language-id="storyLanguageId"
-      :highlight="mode === 'search' ? tokens : []"
-      @close="closeStory"
-      @go-to-day="goToDay"
-      @retry="reload"
-      @prev="showNeighbour('prev')"
-      @next="showNeighbour('next')"
-      @open="showStory"
-      @language="storyLanguageId = $event"
-      @share="shareStory"
-    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useSynaxarium } from '@/store/synaxarium';
-import { SITE_URL, useSeo } from '@/composables/useSeo';
+import { useSeo } from '@/composables/useSeo';
 import { SYNAX_LANGS } from '@/consts/supportedLangs';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import type { SynaxEntry } from '@/types/synaxarium';
-import type { SubSection } from '@/types/readings';
-import { useReadings } from '@/store/readings';
 import { useMenu } from '@/store/menu';
-import { useNotif } from '@/store/notif';
+import { useReadings } from '@/store/readings';
 import { useRoute, useRouter } from 'vue-router';
-import { convertCopticToGregorian } from '@/helpers/convertCopticToGregorian';
 import { copticToGregorian, toCoptic, type CopticDate } from '@/helpers/copticDate';
-import { scrollToReading, scrollToSubSection } from '@/helpers/scrollTo';
 import { excerptAround, highlightTokens } from '@/helpers/searchText';
 import { useCurrentLang } from '@/composables/useCurrentLang';
-import { useSynaxStory } from '@/composables/useSynaxStory';
 import { useSynaxSearch } from '@/composables/useSynaxSearch';
-import { useBackClose } from '@/composables/useBackClose';
-import SynaxStorySheet from '@/components/synax-story-sheet.vue';
 import DatePickerDialog from '@/components/date-picker-dialog.vue';
 import LANGUAGES from '@/consts/languages';
-import { useHead } from '@unhead/vue';
 import { useI18n } from 'vue-i18n';
 import { watchDebounced } from '@vueuse/core';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
@@ -169,13 +132,11 @@ useSeo({
 const synaxStore = useSynaxarium();
 const lang = useCurrentLang();
 watch(lang, (code) => synaxStore.setLanguage(code), { immediate: true });
-const readings = useReadings();
 const menu = useMenu();
-const notif = useNotif();
+const readings = useReadings();
 const router = useRouter();
 const route = useRoute();
-const isLoadingReadings = ref(false);
-const { t, locale } = useI18n();
+const { locale } = useI18n();
 
 // The page is prerendered: the list, today and the search from the address
 // only come once it runs in the browser
@@ -187,8 +148,7 @@ const query = ref<string | null>('');
 const searchQuery = ref('');
 watchDebounced(query, (value) => { searchQuery.value = value ?? ''; }, { debounce: 150 });
 
-// The language the list is in: German, Polish, Spanish and Thai have no
-// synaxarium and show the French list, so their stories load in French too.
+// The language the list is in (the page only exists in the languages that have a synaxarium)
 const languageId = computed(() => Object.values(LANGUAGES).find(l => l.code === synaxStore.currentLanguage)?.id ?? 1);
 
 const { tokens, titleMatches, textMatches, textState, titlesOnly } = useSynaxSearch({
@@ -275,15 +235,15 @@ const TOP_GAP = 6;
 // Days far from the screen are laid out at an estimated height until they come
 // near (content-visibility): once those around the target have their real
 // size, it has moved, so aim again over the next frames
-function scrollToElement(el: Element | null | undefined, attempts = 4) {
+function scrollToElement(el: Element | null | undefined, gap = TOP_GAP, attempts = 4) {
   const box = scrollEl.value;
   if (!el || !box)
     return;
-  const delta = el.getBoundingClientRect().top - box.getBoundingClientRect().top - TOP_GAP;
+  const delta = el.getBoundingClientRect().top - box.getBoundingClientRect().top - gap;
   if (Math.abs(delta) > 1)
     box.scrollTop = Math.max(0, box.scrollTop + delta);
   if (attempts > 1)
-    requestAnimationFrame(() => requestAnimationFrame(() => scrollToElement(el, attempts - 1)));
+    requestAnimationFrame(() => requestAnimationFrame(() => scrollToElement(el, gap, attempts - 1)));
 }
 
 // A day without a story (German has fewer) goes to the next one that has some
@@ -394,263 +354,84 @@ watch(searchQuery, async (value) => {
   }
 });
 
-// The open story lives in the URL (?story=<slug>), so a story can be shared
-// and the back button closes the sheet.
-const storySlug = computed(() => {
-  const value = route.query.story;
-  return typeof value === 'string' && value ? value : null;
-});
-// Keeps the last story while the sheet animates closed, so it does not empty mid-way
-const shownSlug = ref<string | null>(storySlug.value);
-// A story can be read in another language than the list's, while the sheet is open
-const storyLanguageId = ref(languageId.value);
-watch(languageId, (id) => { storyLanguageId.value = id; });
-const sheetEntry = computed(() => synaxStore.entries.find(e => e.Slug === shownSlug.value) ?? null);
-const { story, status, reload } = useSynaxStory(shownSlug, storyLanguageId);
-watch(storySlug, (slug) => {
-  if (!slug) {
-    storyLanguageId.value = languageId.value;
-    return;
-  }
-  // Reopening the same story: refresh it (an earlier failure, or newer text)
-  if (slug === shownSlug.value) reload();
-  else shownSlug.value = slug;
-});
+// Each story has its own page
+const storyRoute = (slug: string) => ({ name: 'synaxarium-story', params: { lang: lang.value, slug } });
 
-const storyLanguages = computed(() => {
-  const codes = shownSlug.value ? synaxStore.languagesOf(shownSlug.value) : [];
-  return Object.values(LANGUAGES).filter(l => codes.includes(l.code)).map(l => ({ id: l.id, name: l.name }));
-});
+// The results in their order: the matches in the titles, then in the texts
+const resultEntries = computed(() => [...titleMatches.value, ...textMatches.value.map(m => m.entry)]);
 
-// The other stories of the same day
-const sameDay = computed(() => {
-  const month = story.value?.month ?? sheetEntry.value?.Month;
-  const day = story.value?.day ?? sheetEntry.value?.Day;
-  return synaxStore.sortedEntries
-    .filter(e => e.Month === month && e.Day === day && e.Slug !== shownSlug.value)
-    .map(e => ({ slug: e.Slug, title: e.Title }));
-});
-
-// Previous and next follow the list on screen: the calendar or the results
-const neighbours = computed(() => {
-  const shown: SynaxEntry[] = mode.value === 'search'
-    ? [...titleMatches.value, ...textMatches.value.map(m => m.entry)]
-    : synaxStore.sortedEntries;
-  let list = shown;
-  let index = list.findIndex(e => e.Slug === shownSlug.value);
-  if (index === -1) {
-    list = synaxStore.sortedEntries;
-    index = list.findIndex(e => e.Slug === shownSlug.value);
-  }
-  return {
-    prev: index > 0 ? list[index - 1] : undefined,
-    next: index !== -1 ? list[index + 1] : undefined,
+// Kept on the way to a story: where its row was, so the list comes back to it,
+// and the results it was in, which the story's previous and next follow
+function rememberOpened(slug: string, event: MouseEvent) {
+  const row = event.currentTarget as HTMLElement | null;
+  const box = scrollEl.value;
+  const search = mode.value === 'search';
+  synaxStore.opened = {
+    slug,
+    offset: row && box ? row.getBoundingClientRect().top - box.getBoundingClientRect().top : TOP_GAP,
+    shown: shownCount.value,
+    slugs: search ? resultEntries.value.map(e => e.Slug) : [],
+    tokens: search ? [...tokens.value] : [],
   };
-});
-
-const openStory = (entry: SynaxEntry) => {
-  router.push({ query: { ...route.query, story: entry.Slug } });
-};
-
-// From one story to another inside the sheet: replaced, so back still closes it
-const showStory = (slug: string) => {
-  router.replace({ query: { ...route.query, story: slug } });
-};
-
-const showNeighbour = (which: 'prev' | 'next') => {
-  const entry = neighbours.value[which];
-  if (entry)
-    showStory(entry.Slug);
-};
-
-// When the entry before is the plain list, closing steps back to it, so the
-// history keeps no duplicate. This holds after a remount or a reload too.
-// A story opened from a shared link replaces its entry instead.
-const closeStory = () => {
-  if (!storySlug.value) return;
-  const { story: _story, ...query } = route.query;
-  const listPath = router.resolve({ query }).fullPath;
-  if (router.options.history.state.back === listPath) router.back();
-  else router.replace({ query });
-};
-
-useBackClose(() => !!storySlug.value, closeStory);
-
-async function shareStory() {
-  const slug = shownSlug.value;
-  if (!slug)
-    return;
-  const url = `${SITE_URL}/${lang.value}/synaxarium/?story=${encodeURIComponent(slug)}`;
-  const title = story.value?.title || sheetEntry.value?.Title || t('synaxarium.title');
-  if (typeof navigator.share === 'function') {
-    try {
-      await navigator.share({ title, url });
-    } catch {
-      // closed without sharing
-    }
-    return;
-  }
-  try {
-    await navigator.clipboard.writeText(url);
-    notif.success(t('synaxarium.linkCopied'));
-  } catch {
-    // no clipboard either
-  }
 }
 
-// The arrow keys go from story to story while the sheet is open
-function onKeydown(e: KeyboardEvent) {
-  if (!storySlug.value || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)
-    return;
-  const target = e.target as HTMLElement | null;
-  if (target?.closest('input, textarea, select, [contenteditable="true"]'))
-    return;
-  const which = e.key === 'ArrowLeft' ? 'prev' : e.key === 'ArrowRight' ? 'next' : null;
-  if (!which || !neighbours.value[which])
-    return;
-  e.preventDefault();
-  showNeighbour(which);
+// Back from a story's page: the row of that story, where the opened row was
+// on the screen. In the results, once the matches in the texts are in.
+async function showReturned(slug: string) {
+  if (mode.value === 'search') {
+    if (textState.value === 'loading') {
+      await new Promise<void>((resolve) => {
+        const stop = watch(textState, (state) => {
+          if (state !== 'loading') {
+            stop();
+            resolve();
+          }
+        });
+      });
+    }
+    const index = resultEntries.value.findIndex(e => e.Slug === slug);
+    shownCount.value = Math.max(shownCount.value, synaxStore.opened?.shown ?? 0,
+      Math.ceil((index + 1) / RESULTS_PAGE) * RESULTS_PAGE);
+    await nextTick();
+  }
+  const row = listEl.value?.querySelector(`[data-slug="${slug}"]`);
+  if (row)
+    scrollToElement(row, synaxStore.opened?.offset ?? TOP_GAP);
+  else if (mode.value === 'browse')
+    showSpot();
 }
 
 let htmlOverflow = '';
 onMounted(async () => {
+  // The stories download when the list opens: the search looks in their
+  // text, and they can be read offline
+  readings.downloadStories();
   today.value = toCoptic(new Date());
   const q = route.query.q;
   if (typeof q === 'string' && q.trim())
     query.value = searchQuery.value = q;
-  mounted.value = true;
-  window.addEventListener('keydown', onKeydown);
   // The list scrolls in its own area: no page scrollbar beside it
   htmlOverflow = document.documentElement.style.overflow;
   document.documentElement.style.overflow = 'hidden';
+  // The search from the address is in before the list shows, so the search
+  // watcher leaves the results' scroll alone
   await nextTick();
-  if (!searchQuery.value) {
-    // Open on today, or on the day of a story opened from a link
-    const entry = storySlug.value ? synaxStore.entries.find(e => e.Slug === storySlug.value) : undefined;
-    if (entry)
-      scrollToDay(entry.Month, entry.Day);
-    else
-      showSpot();
-  }
+  mounted.value = true;
+  await nextTick();
+  // Back from a story: its row. Otherwise today, or the results from their start.
+  const returned = synaxStore.returnTo;
+  synaxStore.returnTo = null;
+  if (returned)
+    await showReturned(returned);
+  else if (!searchQuery.value)
+    showSpot();
   updateActiveMonth();
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('keydown', onKeydown);
   document.documentElement.style.overflow = htmlOverflow;
   cancelAnimationFrame(scrollFrame);
 });
-
-useHead(() => {
-  const title = story.value?.title || sheetEntry.value?.Title;
-  return storySlug.value && title ? { title: `${title} - ${t('seo.brand')}` } : {};
-});
-
-// The static synaxarium JSON and the API titles can differ by invisible
-// characters (non-breaking spaces, curly apostrophes) or casing — normalize
-// both sides before comparing.
-const normalizeTitle = (title: unknown): string => String(title ?? '')
-  .normalize('NFC')
-  .replace(/[‘’ʼ]/g, "'")
-  .replace(/[“”]/g, '"')
-  .replace(/[​-‍﻿]/g, '')
-  .replace(/\s+/g, ' ')
-  .trim()
-  .replace(/\.+$/, '')
-  .toLowerCase();
-
-const findReadingIdx = (subSection: SubSection, entry: { Day: number; Month: number; Title: string }): number => {
-  // 1. Exact title match
-  let idx = subSection.readings.findIndex(r => r.title === entry.Title);
-  if (idx !== -1) return idx;
-
-  // 2. Normalized title match
-  const target = normalizeTitle(entry.Title);
-  idx = subSection.readings.findIndex(r => normalizeTitle(r.title) === target);
-  if (idx !== -1) return idx;
-
-  // 3. Positional match: the static list and the API stories of a day are in
-  // the same order, so when both have the same count, entry k is reading k.
-  const dayEntries = synaxStore.entries.filter(e => e.Day === entry.Day && e.Month === entry.Month);
-  if (dayEntries.length === subSection.readings.length) {
-    const pos = dayEntries.findIndex(e => e.Title === entry.Title);
-    if (pos !== -1) return pos;
-  }
-
-  return -1;
-};
-
-// The day of the open story: from the API answer, or from the list while it loads
-interface StoryTarget { Day: number; Month: number; StoryId: number; Title: string }
-
-const goToDay = () => {
-  const target: StoryTarget | null = story.value
-    ? { Day: story.value.day, Month: story.value.month, StoryId: story.value.storyId, Title: story.value.title }
-    : sheetEntry.value;
-  if (target) showStoryInReadings(target);
-};
-
-const showStoryInReadings = async (entry: StoryTarget) => {
-  // Convert the Coptic date of the current Coptic year to Gregorian (MM/DD/YYYY).
-  // 6 Nasie only exists in Coptic leap years: then use the next year that has it.
-  const currentCopticYear = readings.copticDate[2] ?? 0;
-  let gregorianDateStr: unknown = false;
-  for (let year = currentCopticYear; year < currentCopticYear + 4 && !gregorianDateStr; year++)
-    gregorianDateStr = convertCopticToGregorian(`${entry.Month}/${entry.Day}/${year}`);
-
-  if (gregorianDateStr && typeof gregorianDateStr === 'string') {
-    // Parse the gregorian date string (MM/DD/YYYY)
-    const parts = gregorianDateStr.split('/').map(Number);
-    const month = parts[0];
-    const day = parts[1];
-    const year = parts[2];
-
-    if (month && day && year) {
-      // Set loading state
-      isLoadingReadings.value = true;
-
-      // Set the date in the readings store (JavaScript Date uses 0-indexed months)
-      readings.date = new Date(year, month - 1, day);
-      await readings.getReadings();
-
-      // Navigate to home page
-      await router.push({ name: 'home', params: { lang: route.params.lang } });
-
-      // Wait for the DOM to update and sections to load
-      await nextTick();
-
-      if (readings.sections) {
-        // Find the Liturgy section (section id 3)
-        const sectionIdx = readings.sections.findIndex(section => section.id === 3);
-        const section = sectionIdx !== -1 ? readings.sections[sectionIdx] : undefined;
-
-        if (section) {
-          // Find the Synaxarium subsection
-          const subSectionIdx = section.subSections.findIndex(ss => ss.id == 10);
-          const subSection = subSectionIdx !== -1 ? section.subSections[subSectionIdx] : undefined;
-
-          if (subSection) {
-            // The readings carry the same story id; the title match is a fallback
-            // for readings cached before the ids existed.
-            let readingIdx = subSection.readings.findIndex(r => r.storyId === entry.StoryId);
-            if (readingIdx === -1) readingIdx = findReadingIdx(subSection, entry);
-
-            if (readingIdx !== -1) {
-              // Found the story - scroll to it
-              await scrollToReading(sectionIdx, subSectionIdx, readingIdx);
-            } else {
-              // Fallback: scroll to the beginning of synaxarium subsection
-              await scrollToSubSection(sectionIdx, subSectionIdx);
-            }
-          }
-        }
-      }
-
-      // Reset loading state
-      isLoadingReadings.value = false;
-    }
-  }
-};
 </script>
 
 <style scoped>
@@ -790,13 +571,6 @@ const showStoryInReadings = async (entry: StoryTarget) => {
   padding: 0 12px calc(24px + env(safe-area-inset-bottom));
 }
 
-.synax-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
 .synax-month-title {
   font-family: 'Suez one';
   font-weight: 400;
@@ -859,6 +633,8 @@ section:first-child > .synax-month-title {
   border-radius: 12px;
   text-align: start;
   line-height: 1.35;
+  color: inherit;
+  text-decoration: none;
   transition: background-color 0.15s;
 }
 

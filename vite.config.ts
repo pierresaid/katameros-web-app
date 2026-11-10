@@ -15,7 +15,9 @@ const noUmamiInDev: Plugin = {
 const ssgOptions: ViteSSGOptions = {
   script: 'async',
   dirStyle: 'nested',
-  formatting: 'minify',
+  // Not minified: on the thousands of story pages it took a quarter of the
+  // build, for some 350 bytes a page once compressed
+  formatting: 'none',
   mock: true,
   beastiesOptions: false,
 }
@@ -32,7 +34,15 @@ export default defineConfig({
       srcDir: 'src',
       filename: 'sw.ts',
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        // ttf: the titles, logo and Arabic fonts, so they are there offline too
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,ttf}'],
+        globIgnores: [
+          // Not the thousands of story pages: every visitor would download them all
+          // after each deploy. Offline, a story link opens on the synaxarium page (sw.ts).
+          '**/synaxarium/*/index.html',
+          // The icon font is used as woff2: not its 1.3 MB ttf fallback
+          '**/materialdesignicons-webfont-*.ttf',
+        ],
       },
       devOptions: {
         enabled: false,

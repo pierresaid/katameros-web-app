@@ -2,6 +2,7 @@
 import LANGUAGES from '../consts/languages.js';
 import { useReadings } from '../store/readings.js';
 import { useRoute, useRouter } from 'vue-router';
+import { routeInLang } from '@/helpers/langRoute';
 
 const readings = useReadings()
 const route = useRoute()
@@ -10,10 +11,7 @@ const router = useRouter()
 function onInput(id: number) {
     const lang = Object.values(LANGUAGES).find(l => l.id === id)
     if (!lang) return
-    router.push({
-        name: (route.name as string) || 'home',
-        params: { ...route.params, lang: lang.code },
-    })
+    router.push(routeInLang(route, lang.code))
 }
 </script>
 

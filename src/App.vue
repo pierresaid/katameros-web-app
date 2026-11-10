@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify';
+import { Capacitor } from '@capacitor/core';
 import Notif from './components/notif.vue';
 import FeastDetailSheet from './components/feast-detail-sheet.vue';
 import TheDrawer from './components/the-drawer.vue';
@@ -67,6 +68,18 @@ onMounted(() => {
       }
     }
   }
+
+  // The offline downloads (every reading of the coming months, every
+  // synaxarium story) start where the readings are read: on every screen of
+  // the phone app, and on the website's readings page and slideshow. A
+  // visitor who came for one story or the About page downloads none of them.
+  const readsReadings = () => Capacitor.isNativePlatform() || route.name === 'home' || route.name === 'slideshow'
+  if (readsReadings())
+    readings.startOfflineDownloads()
+  watch(() => route.name, () => {
+    if (readsReadings())
+      readings.startOfflineDownloads()
+  })
 
   syncLanguage()
   if (route.params.lang) {
