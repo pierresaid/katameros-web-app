@@ -1,0 +1,47 @@
+# Builds the website and deploys it to Cloudflare (DCO account) on every push to master.
+# Needs the repository secret CLOUDFLARE_API_TOKEN (a token with "Edit Cloudflare Workers"
+# rights on the DCO account). Until it is set, the workflow only builds.
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # Type check, then every page (one per synaxarium story), the host's files and the sitemaps
+      - run: npm run build
+
+      - name: Check for the Cloudflare token
+        id: token
+        run: echo "present=${{ secrets.CLOUDFLARE_API_TOKEN != '' }}" >> "$GITHUB_OUTPUT"
+
+      # The token is only given to this step, not to the install and build steps.
+      - name: Deploy to Cloudflare
+        if: steps.token.outputs.present == 'true'
+        run: npx wrangler@4 deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WRANGLER_SEND_METRICS: 'false'
+
+      - name: Deploy skipped
+        if: steps.token.outputs.present != 'true'
+        run: echo "::warning::CLOUDFLARE_API_TOKEN is not set, so the site was built but not deployed."
