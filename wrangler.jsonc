@@ -6,10 +6,13 @@
   // DCO Cloudflare account, which holds the katameros.app zone
   "account_id": "b95b2c9dd00193a3a8a4dfaebb9f21d6",
   "compatibility_date": "2026-10-30",
-  // The site's address. Cloudflare keeps the DNS record of a custom domain itself.
-  // www.katameros.app is not listed: it must only redirect to katameros.app.
+  // The site's address: every request for katameros.app goes to this Worker. The zone
+  // keeps its proxied DNS record for the name: a route needs one, whatever its target,
+  // so that record must not be deleted. (A custom domain was refused: Cloudflare does
+  // not replace an existing DNS record, error 100117.)
+  // www.katameros.app is not routed: it must only redirect to katameros.app.
   "routes": [
-    { "pattern": "katameros.app", "custom_domain": true }
+    { "pattern": "katameros.app/*", "zone_name": "katameros.app" }
   ],
   // No second copy of the site on katameros.copte.workers.dev
   "workers_dev": false,
