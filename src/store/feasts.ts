@@ -55,29 +55,21 @@ export const useFeasts = defineStore('feasts', () => {
                 if (cachedFasts?.length && !loadedFasts.value[key])
                     loadedFasts.value[key] = cachedFasts;
             } catch { }
+            // The two answers are shown together: the fasts band sits above
+            // the feast list, so the first to arrive pushed the other down.
+            const [freshFeasts, freshFasts] = await Promise.all([
+                // Offline or API error - keep whatever the cache had
+                http.get<FeastDate[]>(`/feasts/${year}/${languageId}`).catch(() => null),
+                // Older API without /fasts, offline - keep cache if any
+                http.get<FastPeriod[]>(`/fasts/${year}/${languageId}`).catch(() => null),
+            ]);
+            if (freshFeasts?.length)
+                loaded.value[key] = freshFeasts;
+            if (freshFasts?.length)
+                loadedFasts.value[key] = freshFasts;
             await Promise.all([
-                (async () => {
-                    try {
-                        const fresh = await http.get<FeastDate[]>(`/feasts/${year}/${languageId}`);
-                        if (fresh?.length) {
-                            loaded.value[key] = fresh;
-                            await feastsCache.setItem(key, fresh);
-                        }
-                    } catch {
-                        // Offline or API error - keep whatever the cache had
-                    }
-                })(),
-                (async () => {
-                    try {
-                        const fresh = await http.get<FastPeriod[]>(`/fasts/${year}/${languageId}`);
-                        if (fresh?.length) {
-                            loadedFasts.value[key] = fresh;
-                            await feastsCache.setItem(`fasts-${key}`, fresh);
-                        }
-                    } catch {
-                        // Older API without /fasts, offline - keep cache if any
-                    }
-                })(),
+                freshFeasts?.length ? feastsCache.setItem(key, freshFeasts).catch(() => { }) : null,
+                freshFasts?.length ? feastsCache.setItem(`fasts-${key}`, freshFasts).catch(() => { }) : null,
             ]);
             inflight.delete(key);
             delete loadingKeys.value[key];
