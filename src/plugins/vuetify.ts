@@ -46,9 +46,11 @@ const defDark = {
   }
 }
 
-export function createVuetifyInstance(isClient: boolean) {
+export function createVuetifyInstance(isClient: boolean, hydrating = false) {
   return createVuetify({
-    ssr: !isClient,
+    // While the browser adopts a prerendered page, Vuetify starts from the screen
+    // size the build assumed and measures the real one once the page is in place
+    ssr: !isClient || hydrating,
     theme: {
       defaultTheme: 'dark',
       themes: {

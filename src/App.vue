@@ -19,6 +19,11 @@ import { setupAndroidBackButton } from './helpers/androidBack';
 
 const route = useRoute()
 const router = useRouter()
+// While the browser adopts a prerendered page, the saved settings are read once
+// that page is in place (helpers/hydrating.ts). Their stores are created here so
+// that this moment is this component's, before its own onMounted below.
+useMenu()
+useReadings()
 const currentLang = useCurrentLang()
 const currentDir = computed(() => RTL_LANGS.has(currentLang.value) ? 'rtl' : 'ltr')
 // The slideshow takes the whole screen: no header, no menu

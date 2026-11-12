@@ -9,8 +9,9 @@ import ZoomPicker from './zoom-picker.vue';
 import SecondLangPicker from './second-lang-picker.vue';
 import SecondLangDisplayMode from './second-lang-display-mode.vue';
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useReadings } from '@/store/readings.js';
+import { hydrating } from '@/helpers/hydrating';
 import { useCurrentLang } from '@/composables/useCurrentLang';
 import { SYNAX_LANGS } from '@/consts/supportedLangs';
 import { useDisplay } from 'vuetify';
@@ -18,8 +19,20 @@ import { useBackClose } from '@/composables/useBackClose';
 import { enterFullscreen } from '@/helpers/fullscreen';
 import { track } from '@/helpers/track';
 const menu = useMenu()
-const { mobile } = useDisplay()
+const { mobile, width } = useDisplay()
 useBackClose(() => menu.navOpen && mobile.value, () => { menu.navOpen = false })
+
+// While a prerendered page is adopted (helpers/hydrating.ts), Vuetify starts as a
+// small screen and measures the real one once the page is in place. Its drawer
+// would take that for a window being widened and open by itself on a desktop:
+// it follows the screen's size only after that first measure.
+const measured = ref(!hydrating)
+if (hydrating) {
+    const stop = watch(width, () => {
+        measured.value = true
+        stop()
+    })
+}
 const { t } = useI18n()
 const readings = useReadings();
 const lang = useCurrentLang();
@@ -50,7 +63,7 @@ const items = computed(() => {
 
 
 <template>
-    <v-navigation-drawer v-model="menu.navOpen" order="2" width="290">
+    <v-navigation-drawer v-model="menu.navOpen" order="2" width="290" :disable-resize-watcher="!measured">
         <div class="drawer-body">
             <v-list nav role="navigation" class="drawer-nav pa-0">
                 <v-list-item v-for="item in items" :key="item.name"

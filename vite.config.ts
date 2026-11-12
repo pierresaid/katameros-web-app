@@ -20,6 +20,12 @@ const ssgOptions: ViteSSGOptions = {
   formatting: 'none',
   mock: true,
   beastiesOptions: false,
+  // Each page carries the address it was built for: the browser adopts the page as
+  // it is only when it starts on that address (src/helpers/hydrating.ts)
+  onPageRendered: (route, html) => html.replace(
+    '<div id="app" data-server-rendered="true">',
+    `<div id="app" data-server-rendered="true" data-page="${route}">`,
+  ),
 }
 
 // https://vitejs.dev/config/
@@ -30,6 +36,8 @@ export default defineConfig({
     vuetify({ autoImport: true }),
     VitePWA({
       registerType: 'autoUpdate',
+      // The small script that registers the service worker does not hold up the page
+      injectRegister: 'script-defer',
       strategies: 'injectManifest',
       srcDir: 'src',
       filename: 'sw.ts',

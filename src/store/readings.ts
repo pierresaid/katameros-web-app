@@ -8,6 +8,7 @@ import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
 import { loadSynaxCache } from '../services/synaxCache';
+import { hydrating } from '../helpers/hydrating';
 
 export interface CacheVersionInfo {
     CacheVersion: number;
@@ -37,13 +38,15 @@ export const useReadings = defineStore('readings', () => {
     const error = ref(false);
     const bibleOriginalName = ref("")
     const bibles = ref<Bible[]>()
-    const pickedBibles = skipHydrate(useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", []))
+    // The saved choices shown on a page are read once a prerendered page is in
+    // place (initOnMounted, see helpers/hydrating.ts): until then they are the build's
+    const pickedBibles = skipHydrate(useStorage<{ langId: number, bibleId: number }[]>("BIBLES_LOCAL_STORAGE", [], undefined, { initOnMounted: hydrating }))
     const periodInfo = ref<string | null>(null);
     const loading = ref(true);
     // True only while the primary reading is being fetched from the API.
     // Drives the skeleton so it never shows for instant cache reads.
     const apiLoading = ref(false);
-    const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1, undefined, { writeDefaults: false }));
+    const language = skipHydrate(useStorage<number>(LANGUAGE_LOCAL_STORAGE, 1, undefined, { writeDefaults: false, initOnMounted: hydrating }));
     const languageCode = computed(() => Object.values(LANGUAGES).find(l => l.id === language.value)?.code as string);
     const panel = ref<number[]>([])
     const visibleSections = ref<number[]>([])
@@ -246,8 +249,9 @@ export const useReadings = defineStore('readings', () => {
     const secondLanguage = skipHydrate(useStorage<number | null>(SECOND_LANGUAGE_LOCAL_STORAGE, null, undefined, {
         // A language that is no longer offered (Thai) reads as none
         serializer: { read: v => Object.values(LANGUAGES).find(l => l.id === Number(v))?.id ?? null, write: v => String(v) },
+        initOnMounted: hydrating,
     }));
-    const secondLanguageDisplaySetting = skipHydrate(useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side"));
+    const secondLanguageDisplaySetting = skipHydrate(useStorage<"side-by-side" | "line-by-line">("SETTING_READINGS_SECOND_LANGUAGE", "side-by-side", undefined, { initOnMounted: hydrating }));
 
     // Only the latest request may set the second language's readings: an older
     // one (previous language or date) can answer last when it hits the API

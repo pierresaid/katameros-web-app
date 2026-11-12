@@ -1,6 +1,7 @@
 import { useStorage } from "@vueuse/core";
 import { defineStore, skipHydrate } from "pinia";
 import { ref } from "vue";
+import { hydrating } from "@/helpers/hydrating";
 
 /**
  * Where the slideshow stands: the reading, then the verse (or story piece) at
@@ -16,7 +17,8 @@ export interface SlideshowSpot {
 
 export const useSlideshow = defineStore('slideshow', () => {
     // The slides' text size, apart from the reading page's zoom: a projector needs its own
-    const zoom = skipHydrate(useStorage<number>("SLIDESHOW_ZOOM", 1));
+    // Read once a prerendered page is in place (helpers/hydrating.ts)
+    const zoom = skipHydrate(useStorage<number>("SLIDESHOW_ZOOM", 1, undefined, { initOnMounted: hydrating }));
     // Where it was left, to come back to it the same day (for this visit only)
     const lastSpot = ref<(SlideshowSpot & { date: string }) | null>(null);
 

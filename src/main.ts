@@ -10,6 +10,7 @@ import { setLocale as setVeeValidateLocale } from '@vee-validate/i18n'
 import { isSupportedLang, DEFAULT_LANG, SUPPORTED_LANGS, SYNAX_LANGS, type SupportedLang } from './consts/supportedLangs'
 import LANGUAGES from './consts/languages'
 import { storySlugs } from './store/synaxarium'
+import { hydrating } from './helpers/hydrating'
 
 if (import.meta.env.SSR) {
   class NoopObserver {
@@ -57,7 +58,7 @@ export const createApp = ViteSSG(
     const i18n = createI18nInstance()
     app.use(i18n)
 
-    const vuetify = createVuetifyInstance(isClient)
+    const vuetify = createVuetifyInstance(isClient, hydrating)
     app.use(vuetify)
 
     // Keep in-app URLs on the trailing-slash form the pages are served at
@@ -79,6 +80,8 @@ export const createApp = ViteSSG(
       setVeeValidateLocale(lang)
     })
   },
+  // The browser adopts the prerendered page it starts on, instead of drawing it again
+  { hydration: hydrating },
 )
 
 export async function includedRoutes(_paths: string[], _routes: any[]) {

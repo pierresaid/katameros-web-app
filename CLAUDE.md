@@ -21,6 +21,16 @@ npm run type-check   # Run vue-tsc type checking only
 
 The website build prerenders every page with vite-ssg, including one page per synaxarium story and language (about 4,500, some 4 minutes). Their text comes from the published synaxarium file (`src/services/synaxPrerender.ts`, fetched once through the cache worker): without it the build stops. Appflow runs `appflow:build` (`build-app`, `--mode app`), which leaves the story pages out: the app opens on its home page and never loads them. Every page renders a new app against one fake window (`mock: true`), so `main.ts` turns its `addEventListener` into a no-op during the build: listeners kept every rendered app in memory.
 
+### Prerendered pages are adopted, not drawn again (hydration)
+
+When the browser starts on the page that was built, the app adopts that page as it is instead of emptying it and drawing it again: what the visitor sees stays in place, and the main paint is the first one (Lighthouse's LCP went from about 7 s to 1.4 s on a story page). `src/helpers/hydrating.ts` decides: the build stamps each page with its address (`data-page` on `#app`, `onPageRendered` in `vite.config.ts`), and the app hydrates (`hydration` option of ViteSSG in `main.ts`) only when the browser is on that address. Every other start draws from nothing, as before: the phone app, a "not found" page, an old `?story=` link, a story link the service worker answers offline with the synaxarium page.
+
+While a page is adopted, the app's first draw must equal what the build drew: Vue then fixes a different text or structure, but keeps the build's classes, styles and attributes.
+- **Saved settings** are read once the page is in place: every `useStorage` shown on a page passes `initOnMounted: hydrating`, and `App.vue` creates the menu and readings stores in its setup so that this happens when it mounts. Until then the theme's value is "light" (the build knows no system theme).
+- **Vuetify** gets `ssr: true` in the browser too while hydrating: it starts from the build's screen size (none, so `xs`) and measures the real one after mounting.
+- Anything that depends on the visitor (today's date, the device) is set in `onMounted`.
+- **To check a change:** build with Vue's flag `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` set to `true` (a `define` in `vite.config.ts`, for the test only), serve `dist/` (`npx wrangler dev`) and open the pages: Vue then reports every mismatch in the console, classes and styles included.
+
 ## Tech Stack
 
 Vue 3, TypeScript, Vite, Vuetify 3, Pinia, Vue Router, Vue i18n, Axios, Capacitor (mobile), LocalForage (offline caching), VitePWA
