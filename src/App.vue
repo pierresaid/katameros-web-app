@@ -34,6 +34,12 @@ useHead({
     lang: currentLang,
     dir: currentDir,
   },
+  // Arabic text has its own face, which the browser only asks for once the
+  // stylesheet has arrived and the text is laid out. Asked for from the page
+  // itself, it is there for the first paint.
+  link: () => currentLang.value === 'ar'
+    ? [{ rel: 'preload', as: 'font', type: 'font/ttf', href: '/fonts/ScheherazadeNew-Regular.ttf', crossorigin: 'anonymous' }]
+    : [],
 })
 
 onMounted(() => {

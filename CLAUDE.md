@@ -102,6 +102,7 @@ DayReading → Sections[] → SubSections[] → Readings[] → Passages[] → Ve
 - **UI translations:** `locales/*.json` (en, fr, de, it, ar, pl, es, nl)
 - **Language IDs:** Defined in `src/consts/languages.ts` (French=1, English=2, Arabic=3, etc.)
 - **RTL support:** Arabic has `rtl: true` flag
+- **Arabic font:** Arabic pages ask for `/fonts/ScheherazadeNew-Regular.ttf` from their head (a preload link, `useHead` in `App.vue`), so the text is there at the first paint instead of waiting for the stylesheet. Keep that address in step with the `@font-face` rule in `App.vue`.
 
 ### Helpers
 
