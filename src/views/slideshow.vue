@@ -406,7 +406,7 @@ onBeforeUnmount(() => {
                 :aria-label="t('slideshow.slide', { n: index + 1, total: deck.slides.length })" />
             <div v-else class="ss-status">
                 <template v-if="readings.error && !readings.sections">
-                    <p>{{ t('error.loadingReadings') }}</p>
+                    <p>{{ t(readings.noConnection ? 'error.noConnection' : 'error.loadingReadings') }}</p>
                     <v-btn variant="tonal" @click="readings.getReadings()">{{ t('reload') }}</v-btn>
                 </template>
                 <CopticCrossOutlineAnimated v-else class="ss-cross" />

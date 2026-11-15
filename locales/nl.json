@@ -34,7 +34,8 @@
         "nextYear": "Volgend jaar"
     },
     "error": {
-        "loadingReadings": "Fout bij het laden van de lezingen"
+        "loadingReadings": "Fout bij het laden van de lezingen",
+        "noConnection": "Geen internetverbinding"
     },
     "reload": "Herladen",
     "zoom": "Zoom",

@@ -34,7 +34,8 @@
         "nextYear": "Año siguiente"
     },
     "error": {
-        "loadingReadings": "Error al cargar las lecturas"
+        "loadingReadings": "Error al cargar las lecturas",
+        "noConnection": "Sin conexión a internet"
     },
     "reload": "Recargar",
     "zoom": "Zoom",

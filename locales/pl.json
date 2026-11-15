@@ -24,7 +24,8 @@
     "date": "Data",
     "day": "Dzień",
     "error": {
-        "loadingReadings": "Błąd podczas ładowania odczytów"
+        "loadingReadings": "Błąd podczas ładowania odczytów",
+        "noConnection": "Brak połączenia z internetem"
     },
     "home": "Strona główna",
     "language": "Język",

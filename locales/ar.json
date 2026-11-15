@@ -34,7 +34,8 @@
         "nextYear": "السنة التالية"
     },
     "error": {
-        "loadingReadings": "خطأ في تحميل القراءات"
+        "loadingReadings": "خطأ في تحميل القراءات",
+        "noConnection": "لا يوجد اتصال بالإنترنت"
     },
     "reload": "إعادة تحميل",
     "zoom": "تكبير",

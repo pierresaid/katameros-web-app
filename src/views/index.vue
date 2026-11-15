@@ -77,7 +77,7 @@ function setDate(inc: number) {
     <ReadingSections />
 
     <v-snackbar v-model="readings.error" color="red" :timeout="-1">
-        {{ $t('error.loadingReadings') }}
+        {{ $t(readings.noConnection ? 'error.noConnection' : 'error.loadingReadings') }}
         <template v-slot:actions>
             <v-btn variant="elevated" size="small" class="reload-btn" @click="readings.getReadings">
                 {{ $t('reload') }}
