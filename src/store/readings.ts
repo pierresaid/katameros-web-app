@@ -3,7 +3,7 @@ import { defineStore, skipHydrate } from 'pinia'
 import { ref, watch, watchEffect } from 'vue';
 import LANGUAGES from '../consts/languages';
 import formatDate from '../helpers/formatDate';
-import { http } from '../services/http';
+import { http, HttpStatusError } from '../services/http';
 import { type Bible, type DayReading, type Section } from '../types/readings';
 import { useStorage } from '@vueuse/core';
 import localforage from 'localforage';
@@ -24,6 +24,31 @@ export interface CacheVersionInfo {
 // The Cloudflare worker that publishes the cache versions ("katemeros" is its real name)
 export const CACHE_VERSION_URL = 'https://katemeros-cache-version.psaid.workers.dev/';
 
+// A saved reading's key: its day and its language ("15-11-2026-1")
+const READING_KEY = /^\d{2}-\d{2}-\d{4}-\d+$/;
+const HOUR = 60 * 60 * 1000;
+// After a failed download of the readings file, how long before it is tried
+// again by itself in the same visit (a new start, or the connection coming
+// back, tries at once)
+const RETRY_DOWNLOAD_AFTER = 10 * 60 * 1000;
+// From the second failure in a row, the wait holds across starts and grows:
+// a device that cannot take the file must not download it again and again
+const RETRY_WAITS = [0, HOUR, 6 * HOUR, 24 * HOUR, 72 * HOUR];
+// When the device had no room for the file, trying again soon would only download it again
+const RETRY_STORAGE_AFTER = 24 * HOUR;
+// A phone app stays open for days: when it comes back to the front after this
+// long, it asks again whether a new file was published
+const ASK_VERSION_AGAIN_AFTER = HOUR;
+
+function isCacheVersionInfo(info: unknown): info is CacheVersionInfo {
+    const value = info as CacheVersionInfo | null;
+    return !!value && Number.isFinite(value.CacheVersion) && value.CacheVersion > 0
+        && typeof value.CacheDataUrl === 'string' && value.CacheDataUrl !== '';
+}
+
+// What bringing the saved readings up to date ended with
+type SavedReadings = 'current' | 'updated' | 'failed';
+
 const today = new Date()
 
 const LANGUAGE_LOCAL_STORAGE = "LANGUAGE_LOCAL_STORAGE";
@@ -36,6 +61,9 @@ export const useReadings = defineStore('readings', () => {
     const preloading = ref(false);
     const bible = ref<Bible>()
     const error = ref(false);
+    // The day could not be shown because the device has no connection (said
+    // apart from a failure of the service: the reader can do something about it)
+    const noConnection = ref(false);
     const bibleOriginalName = ref("")
     const bibles = ref<Bible[]>()
     // The saved choices shown on a page are read once a prerendered page is in
@@ -85,21 +113,35 @@ export const useReadings = defineStore('readings', () => {
     }
 
     const disableCache = import.meta.env.DEV;
+    // The version of the published readings file that is saved whole on this device
     const currentCacheVersion = skipHydrate(useStorage<number>("CURRENT_CACHE_VERSION", 0));
     const cacheVersionInfo = skipHydrate(useStorage<CacheVersionInfo | null>("CACHE_VERSION_INFO", { CacheVersion: 0, CacheDataUrl: "", CacheBegin: "", CacheEnd: "" }));
+    // Earlier versions of the app (before 5.0) recorded a version even when its
+    // download had failed, which left nothing saved: what this device holds is
+    // checked once. This check can go when those versions are no longer in use.
+    const savedReadingsChecked = useStorage<boolean>("SAVED_READINGS_CHECKED", false);
+    // The failed downloads of a file in a row, and when the next try may start
+    const savedReadingsRetry = useStorage<{ version: number, failures: number, notBefore: number }>("SAVED_READINGS_RETRY", { version: 0, failures: 0, notBefore: 0 });
     let cacheVersionRequest: Promise<CacheVersionInfo | null> | null = null;
+    let cacheVersionReceivedAt = 0;
     // The offline downloads (every reading of the coming months, then every
     // synaxarium story) start where the readings are read: App.vue allows
     // them there. Elsewhere only the day shown is asked for.
     const offlineDownloads = ref(false);
     let requested = false;
 
-    // One call per visit, shared by the readings and the synaxarium stories
+    // Asked once per start (and again when the app comes back to the front
+    // after a while), then shared by the readings and the synaxarium stories.
+    // An answer that is not a version (an error page) never replaces the last one.
     function fetchCacheVersionInfo(): Promise<CacheVersionInfo | null> {
         cacheVersionRequest ??= (async () => {
             try {
                 const response = await fetch(CACHE_VERSION_URL);
-                cacheVersionInfo.value = await response.json();
+                const info = response.ok ? await response.json() : null;
+                if (isCacheVersionInfo(info)) {
+                    cacheVersionInfo.value = info;
+                    cacheVersionReceivedAt = Date.now();
+                }
             } catch {
                 // offline: keep the last values received
             }
@@ -108,16 +150,22 @@ export const useReadings = defineStore('readings', () => {
         return cacheVersionRequest;
     }
 
+    // Only the latest request may show its readings: an older one (the
+    // previous day, language or Bible) can be answered last
+    let latestRequest = 0;
+
     async function getReadings() {
+        const request = ++latestRequest;
         requested = true;
         fetchSecondLanguageReadings()
-        
+
         const version = pickedBibles.value.find(b => b.langId === language.value)?.bibleId;
 
         sections.value = null;
         title.value = null;
         periodInfo.value = null;
         error.value = false;
+        noConnection.value = false;
 
         const formatedDate = formatDate(date.value);
 
@@ -128,84 +176,87 @@ export const useReadings = defineStore('readings', () => {
         }
         const key = `${formatedDate}-${language.value}`;
 
-        // Read the local cache first (fast IndexedDB read). Knowing whether we
+        // Read what is saved first (fast IndexedDB read). Knowing whether we
         // already have something displayable lets us reserve the skeleton for the
         // cases where we genuinely have to hit the API.
-        const cached = await localforage.getItem<DayReading>(key);
+        const cached = await readSavedReading(key);
+        if (request !== latestRequest)
+            return;
         const cacheHasMatchingBible = !version || cached?.bible?.id === version;
 
-        // Nothing displayable cached -> an API round-trip is unavoidable, so show
+        // Nothing displayable saved -> an API round-trip is unavoidable, so show
         // the skeleton now instead of waiting on the cache-version network call.
         if (!cached || !cacheHasMatchingBible) {
             apiLoading.value = true;
         }
 
-        // Fetch cache version info dynamically
         const cacheInfo = await fetchCacheVersionInfo();
-        const cacheVersionIsCurrent = cacheInfo && currentCacheVersion.value === cacheInfo.CacheVersion;
+        if (request !== latestRequest)
+            return;
+        const savedIsCurrent = isCacheVersionInfo(cacheInfo) && currentCacheVersion.value === cacheInfo.CacheVersion;
 
-        // Use cache if it exists, version is current, and Bible matches (or no specific Bible requested)
-        if (!disableCache && cached && cacheVersionIsCurrent && cacheHasMatchingBible) {
+        // Where the readings are read, the saved ones are brought up to date in
+        // the background: the day shown never waits for the file
+        const refresh = !disableCache && offlineDownloads.value ? refreshSavedReadings(cacheInfo) : null;
+
+        // The API could not be reached and the day shown is the saved copy
+        let savedCopyShown = false;
+
+        // The saved copy is the published one, in the Bible asked for
+        if (cached && savedIsCurrent && cacheHasMatchingBible) {
             setReading(cached);
             apiLoading.value = false;
             loading.value = false;
         }
-        // Cache version is outdated - reload entire cache
-        else if (
-            !disableCache &&
-            offlineDownloads.value &&
-            cacheInfo &&
-            !cacheVersionIsCurrent &&
-            !preloading.value &&
-            date.value >= new Date(cacheInfo.CacheBegin) &&
-            date.value <= new Date(cacheInfo.CacheEnd)
-        ) {
-            loading.value = true;
-            preloading.value = true;
-            if (cached && cacheHasMatchingBible) {
-                setReading(cached); // show stale cache immediately; no skeleton needed
-            }
-            fetchFromApi(formatedDate, params)
-                .then(res => { // We don't await here to parallelize fetching and caching
-                    setReading(res);
-                    apiLoading.value = false;
-                    loading.value = false;
-                })
-                .catch(e => {
-                    error.value = true;
-                    apiLoading.value = false;
-                });
-            // bust cache
-            await localforage.clear();
-            await loadCacheData(cacheInfo.CacheDataUrl)
-            const cachedAfterReload = await localforage.getItem<DayReading>(key);
-            currentCacheVersion.value = cacheInfo.CacheVersion;
-            if (cachedAfterReload) {
-                setReading(cachedAfterReload);
-                apiLoading.value = false;
-            }
-            preloading.value = false;
-            loading.value = false;
-        }
-        // Cache is current but Bible doesn't match, or no cache - just fetch from API
+        // Nothing saved for this day, a newer file was published, or another
+        // Bible was chosen: the API answers. What is saved shows meanwhile.
         else {
             loading.value = true;
-            apiLoading.value = true;
+            if (cached && cacheHasMatchingBible) {
+                setReading(cached);
+                apiLoading.value = false;
+            }
             try {
                 const res = await fetchFromApi(formatedDate, params);
+                if (request !== latestRequest)
+                    return;
                 setReading(res);
+                // Kept in the language's usual Bible only, like the published
+                // file: no Bible was asked for, or the language has only one
+                if (!version || res.bibles?.length === 1)
+                    saveReading(key, res);
             } catch (e) {
-                error.value = true;
+                if (request !== latestRequest)
+                    return;
+                // No connection or no answer: a saved copy, even an older one or
+                // one in the language's usual Bible, is better than an error
+                if (cached) {
+                    setReading(cached);
+                    savedCopyShown = true;
+                }
+                else {
+                    // An error answered by the API is not a missing connection
+                    const disconnected = !(e instanceof HttpStatusError) && await isDisconnected();
+                    if (request !== latestRequest)
+                        return;
+                    noConnection.value = disconnected;
+                    error.value = true;
+                }
             }
             apiLoading.value = false;
             loading.value = false;
         }
 
-        // The synaxarium stories download last, once the readings and their
-        // cache are loaded, so they never slow them down
-        if (!disableCache && offlineDownloads.value && cacheInfo && !preloading.value) {
-            loadSynaxCache(cacheInfo);
-        }
+        refresh?.then((saved) => {
+            // The file arrived while this day could not be shown, or was shown
+            // from the older saved copy: read it in the file
+            if (saved === 'updated' && request === latestRequest && (error.value || savedCopyShown))
+                getReadings();
+            // The synaxarium stories download last, once the readings are
+            // saved, so they never slow them down
+            if (cacheInfo)
+                loadSynaxCache(cacheInfo);
+        });
     }
 
     // Called where the readings are read (see App.vue). When the day's
@@ -218,17 +269,174 @@ export const useReadings = defineStore('readings', () => {
         if (disableCache || !requested)
             return;
         const cacheInfo = await fetchCacheVersionInfo();
-        // A load in progress is already bringing the readings: it starts the stories after them
-        if (!cacheInfo || preloading.value)
-            return;
-        if (currentCacheVersion.value !== cacheInfo.CacheVersion) {
-            preloading.value = true;
-            await localforage.clear();
-            await loadCacheData(cacheInfo.CacheDataUrl);
-            currentCacheVersion.value = cacheInfo.CacheVersion;
-            preloading.value = false;
+        await refreshSavedReadings(cacheInfo);
+        if (cacheInfo)
+            loadSynaxCache(cacheInfo);
+    }
+
+    let refreshRequest: Promise<SavedReadings> | null = null;
+    let downloadFailedAt = 0;
+
+    /**
+     * Brings the saved readings to the published file, when it is not the one
+     * saved. The file is downloaded and checked first, what is saved is only
+     * touched once it has arrived whole, and the version is only recorded once
+     * everything is written: a failure at any point leaves the device with the
+     * readings it had, and the file is tried again later.
+     */
+    function refreshSavedReadings(info: CacheVersionInfo | null, reconnected = false): Promise<SavedReadings> {
+        if (disableCache || !isCacheVersionInfo(info))
+            return Promise.resolve('failed');
+        refreshRequest ??= (async (): Promise<SavedReadings> => {
+            let tried = false;
+            try {
+                await checkSavedReadingsOnce(info);
+                if (currentCacheVersion.value === info.CacheVersion)
+                    return 'current';
+                const now = Date.now();
+                const retry = savedReadingsRetry.value;
+                const waiting = retry.version === info.CacheVersion && now < retry.notBefore;
+                if (waiting || (!reconnected && now - downloadFailedAt < RETRY_DOWNLOAD_AFTER))
+                    return 'failed';
+                tried = true;
+                preloading.value = true;
+                const readings = await downloadReadings(info.CacheDataUrl);
+                await replaceSavedReadings(readings);
+                currentCacheVersion.value = info.CacheVersion;
+                savedReadingsChecked.value = true;
+                savedReadingsRetry.value = { version: info.CacheVersion, failures: 0, notBefore: 0 };
+                return 'updated';
+            } catch (e) {
+                if (tried)
+                    noteFailedDownload(info.CacheVersion, (e as DOMException | null)?.name === 'QuotaExceededError');
+                return 'failed';
+            } finally {
+                preloading.value = false;
+                refreshRequest = null;
+            }
+        })();
+        return refreshRequest;
+    }
+
+    // A new start tries again at once after a first failure. From the second
+    // failure of the same file in a row the wait grows (one hour, up to three
+    // days), and a device with no room waits a day at least.
+    function noteFailedDownload(version: number, noRoom: boolean) {
+        downloadFailedAt = Date.now();
+        const before = savedReadingsRetry.value;
+        const failures = (before.version === version ? before.failures : 0) + 1;
+        const wait = Math.max(RETRY_WAITS[Math.min(failures, RETRY_WAITS.length) - 1] ?? 0, noRoom ? RETRY_STORAGE_AFTER : 0);
+        savedReadingsRetry.value = { version, failures, notBefore: downloadFailedAt + wait };
+    }
+
+    // Anything else than a file of readings (an error page, a cut download)
+    // throws here, before the saved readings are touched
+    async function downloadReadings(url: string): Promise<Record<string, DayReading>> {
+        const response = await fetch(url);
+        if (!response.ok)
+            throw new Error(`Readings file: HTTP ${response.status}`);
+        const readings = await response.json();
+        const keys = readings && typeof readings === 'object' ? Object.keys(readings) : [];
+        if (!keys.length || !keys.every(key => READING_KEY.test(key) && Array.isArray(readings[key]?.sections)))
+            throw new Error('Readings file: unexpected content');
+        return readings;
+    }
+
+    // The new days are written over the saved ones, then the days saved
+    // before that the file no longer has are removed: stopped halfway, the
+    // device still has a reading for every day it had
+    async function replaceSavedReadings(readings: Record<string, DayReading>) {
+        const savedBefore = await localforage.keys();
+        for (const [key, reading] of Object.entries(readings))
+            await localforage.setItem(key, reading);
+        for (const key of savedBefore) {
+            if (!(key in readings))
+                await localforage.removeItem(key);
         }
-        loadSynaxCache(cacheInfo);
+    }
+
+    async function checkSavedReadingsOnce(info: CacheVersionInfo) {
+        if (savedReadingsChecked.value)
+            return;
+        if (currentCacheVersion.value === info.CacheVersion && !await savedReadingsLookWhole())
+            currentCacheVersion.value = 0;
+        savedReadingsChecked.value = true;
+    }
+
+    // A whole file gives every language the same days. A failed download left
+    // nothing, a write stopped halfway left the first languages only.
+    async function savedReadingsLookWhole() {
+        const days = new Map<string, number>();
+        for (const key of await localforage.keys()) {
+            if (!READING_KEY.test(key))
+                continue;
+            const languageId = key.slice(key.lastIndexOf('-') + 1);
+            days.set(languageId, (days.get(languageId) ?? 0) + 1);
+        }
+        const perLanguage = Object.values(LANGUAGES).map(l => days.get(String(l.id)) ?? 0);
+        const most = Math.max(...perLanguage);
+        return most > 0 && Math.min(...perLanguage) >= most * 0.9;
+    }
+
+    // The browser knows when no network is connected. When one is (a Wi-Fi
+    // without internet, or the API alone failing), the version beacon, which
+    // is on another host than the API, tells which of the two it is.
+    async function isDisconnected() {
+        if (navigator.onLine === false)
+            return true;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 4000);
+        try {
+            await fetch(CACHE_VERSION_URL, { cache: 'no-store', signal: controller.signal });
+            return false;
+        } catch {
+            return true;
+        } finally {
+            clearTimeout(timer);
+        }
+    }
+
+    async function readSavedReading(key: string) {
+        if (disableCache)
+            return null;
+        try {
+            return await localforage.getItem<DayReading>(key);
+        } catch {
+            // No storage on this device (some private modes): the API answers
+            return null;
+        }
+    }
+
+    // A day answered by the API is kept too: it can be read again without a
+    // connection, even on a device the whole file never reached
+    function saveReading(key: string, reading: DayReading) {
+        if (!disableCache)
+            localforage.setItem(key, reading).catch(() => { });
+    }
+
+    // A download can fail, and a phone app stays open for days: when the
+    // connection or the app comes back, the published file is looked at again
+    function lookAtPublishedFileAgain(reconnected: boolean) {
+        if (disableCache || !offlineDownloads.value || !requested)
+            return;
+        if (Date.now() - cacheVersionReceivedAt > ASK_VERSION_AGAIN_AFTER)
+            cacheVersionRequest = null;
+        fetchCacheVersionInfo().then(async (cacheInfo) => {
+            const refresh = refreshSavedReadings(cacheInfo, reconnected);
+            // The day could not be shown: ask for it again now
+            if (error.value && navigator.onLine !== false)
+                getReadings();
+            await refresh;
+            if (cacheInfo)
+                loadSynaxCache(cacheInfo);
+        });
+    }
+    if (!import.meta.env.SSR) {
+        window.addEventListener('online', () => lookAtPublishedFileAgain(true));
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible')
+                lookAtPublishedFileAgain(false);
+        });
     }
 
     // The synaxarium list downloads the stories when it opens, for the search
@@ -268,7 +476,7 @@ export const useReadings = defineStore('readings', () => {
         }
         const formatedDate = formatDate(date.value);
         const key = `${formatedDate}-${languageId}`;
-        const cached = await localforage.getItem<DayReading>(key);
+        const cached = await readSavedReading(key);
         if (request !== secondRequest)
             return;
         if (cached) {
@@ -280,6 +488,7 @@ export const useReadings = defineStore('readings', () => {
             try {
                 const params: { languageId: number } = { languageId };
                 const res = await fetchFromApi(formatedDate, params);
+                saveReading(key, res);
                 if (request !== secondRequest)
                     return;
                 secondSections.value = res.sections;
@@ -304,21 +513,6 @@ export const useReadings = defineStore('readings', () => {
     async function fetchFromApi(formatedDate: string, params: { languageId: number, bibleId?: number }) {
         const res = await http.get<DayReading>(`/readings/gregorian/${formatedDate}`, params)
         return res;
-    }
-
-    async function loadCacheData(cacheDataUrl: string) {
-        try {
-            const response = await fetch(cacheDataUrl);
-            const data = await response.json();
-
-            const entries = Object.entries(data);
-            for (const [enkey, value] of entries) {
-                const [day, month, year, lang] = enkey.split("-");
-                const key = `${day}-${month}-${year}-${lang}`;
-                await localforage.setItem(key, value);
-            }
-        } catch (error) {
-        }
     }
 
     function setReading(reading: DayReading) {
@@ -356,5 +550,5 @@ export const useReadings = defineStore('readings', () => {
         getReadings();
     }
 
-    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, setSecondLanguage, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo, startOfflineDownloads, downloadStories }
+    return { date, copticDate, sections, title, periodInfo, loading, apiLoading, language, error, noConnection, bibleOriginalName, changeBible, getReadings, currentSection, panel, visibleSections, currentSectionAnimation, openSection, changeLanguage, languageCode, preloading, bible, bibles, secondLanguage, secondSections, fetchSecondLanguageReadings, setSecondLanguage, secondLanguageDisplaySetting, secondBible, secondBibles, fetchCacheVersionInfo, startOfflineDownloads, downloadStories }
 })

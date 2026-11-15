@@ -1,5 +1,12 @@
 const baseURL = String(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
 
+// The API answered, with an error: the device is connected
+export class HttpStatusError extends Error {
+    constructor(public status: number, statusText: string) {
+        super(`HTTP ${status} ${statusText}`);
+    }
+}
+
 function buildUrl(route: string, params?: Record<string, unknown>) {
     const path = route.startsWith("/") ? route : `/${route}`;
     let url = `${baseURL}${path}`;
@@ -41,7 +48,7 @@ async function request<T>(
 
     if (!response.ok) {
         console.error(`[HTTP] ${method} ${url} ${response.status} ${response.statusText}`);
-        throw new Error(`HTTP ${response.status} ${response.statusText}`);
+        throw new HttpStatusError(response.status, response.statusText);
     }
 
     if (response.status === 204) {

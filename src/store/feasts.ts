@@ -5,8 +5,8 @@ import { http } from '../services/http';
 import { useReadings } from './readings';
 import type { FastPeriod, FeastDate } from '@/types/feasts';
 
-// Separate localforage instance so the readings cache reload
-// (localforage.clear() on version bump) does not wipe the feasts.
+// Separate localforage instance: a new readings file replaces every saved
+// reading, and must not touch the feasts.
 const feastsCache = localforage.createInstance({ name: 'katameros-feasts' });
 
 export const useFeasts = defineStore('feasts', () => {

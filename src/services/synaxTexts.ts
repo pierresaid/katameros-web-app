@@ -11,7 +11,7 @@ export interface StoryText {
 
 // Saved next to the stories, per synaxarium version and language: after the
 // first search the texts are read in one go instead of story by story. A new
-// version clears the stories, and these with them.
+// version replaces the stories, and removes these with the older ones.
 const bundleKey = (version: number, languageId: number) => `__texts-${version}-${languageId}`;
 
 const loading = new Map<string, Promise<Map<string, StoryText>>>();
