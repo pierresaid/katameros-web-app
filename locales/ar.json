@@ -35,7 +35,7 @@
     },
     "error": {
         "loadingReadings": "خطأ في تحميل القراءات",
-        "noConnection": "لا يوجد اتصال بالإنترنت"
+        "noConnection": "غير متصل"
     },
     "reload": "إعادة تحميل",
     "zoom": "تكبير",

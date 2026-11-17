@@ -35,7 +35,7 @@
     },
     "error": {
         "loadingReadings": "Error loading readings",
-        "noConnection": "No internet connection"
+        "noConnection": "Offline"
     },
     "reload": "Reload",
     "zoom": "Zoom",

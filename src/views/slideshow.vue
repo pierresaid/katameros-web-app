@@ -407,7 +407,8 @@ onBeforeUnmount(() => {
             <div v-else class="ss-status">
                 <template v-if="readings.error && !readings.sections">
                     <p>{{ t(readings.noConnection ? 'error.noConnection' : 'error.loadingReadings') }}</p>
-                    <v-btn variant="tonal" @click="readings.getReadings()">{{ t('reload') }}</v-btn>
+                    <!-- Offline, the readings come by themselves when the connection is back -->
+                    <v-btn v-if="!readings.noConnection" variant="tonal" @click="readings.getReadings()">{{ t('reload') }}</v-btn>
                 </template>
                 <CopticCrossOutlineAnimated v-else class="ss-cross" />
             </div>

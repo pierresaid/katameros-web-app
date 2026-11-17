@@ -39,6 +39,13 @@ const RETRY_STORAGE_AFTER = 24 * HOUR;
 // A phone app stays open for days: when it comes back to the front after this
 // long, it asks again whether a new file was published
 const ASK_VERSION_AGAIN_AFTER = HOUR;
+// A connection lost for a moment is not said: when the day cannot be asked for,
+// the skeleton stays this long before "Offline" shows, and the day is asked for
+// again at once if the connection comes back meanwhile
+const OFFLINE_DELAY = 3000;
+// The browser does not say when a network without internet gets it back: while
+// the device is said to be offline, the day is asked for again this often
+const OFFLINE_RETRY_EVERY = 10 * 1000;
 
 function isCacheVersionInfo(info: unknown): info is CacheVersionInfo {
     const value = info as CacheVersionInfo | null;
@@ -161,11 +168,16 @@ export const useReadings = defineStore('readings', () => {
 
         const version = pickedBibles.value.find(b => b.langId === language.value)?.bibleId;
 
+        // While the device is said to be offline, a new request keeps saying so,
+        // without the skeleton, until something can be shown
+        const offline = error.value && noConnection.value;
         sections.value = null;
         title.value = null;
         periodInfo.value = null;
-        error.value = false;
-        noConnection.value = false;
+        if (!offline) {
+            error.value = false;
+            noConnection.value = false;
+        }
 
         const formatedDate = formatDate(date.value);
 
@@ -186,7 +198,7 @@ export const useReadings = defineStore('readings', () => {
 
         // Nothing displayable saved -> an API round-trip is unavoidable, so show
         // the skeleton now instead of waiting on the cache-version network call.
-        if (!cached || !cacheHasMatchingBible) {
+        if ((!cached || !cacheHasMatchingBible) && !offline) {
             apiLoading.value = true;
         }
 
@@ -196,8 +208,10 @@ export const useReadings = defineStore('readings', () => {
         const savedIsCurrent = isCacheVersionInfo(cacheInfo) && currentCacheVersion.value === cacheInfo.CacheVersion;
 
         // Where the readings are read, the saved ones are brought up to date in
-        // the background: the day shown never waits for the file
-        const refresh = !disableCache && offlineDownloads.value ? refreshSavedReadings(cacheInfo) : null;
+        // the background: the day shown never waits for the file. Not while the
+        // device is said to be offline: the download would fail too and count
+        // against the file (the connection coming back tries it at once)
+        const refresh = !disableCache && offlineDownloads.value && !offline ? refreshSavedReadings(cacheInfo) : null;
 
         // The API could not be reached and the day shown is the saved copy
         let savedCopyShown = false;
@@ -237,6 +251,15 @@ export const useReadings = defineStore('readings', () => {
                 else {
                     // An error answered by the API is not a missing connection
                     const disconnected = !(e instanceof HttpStatusError) && await isDisconnected();
+                    if (request !== latestRequest)
+                        return;
+                    // A connection lost for a moment is not said: the skeleton stays
+                    // a little, and the day is asked for again if the connection comes back
+                    if (disconnected && !error.value && await connectionBackWithin(OFFLINE_DELAY)) {
+                        if (request === latestRequest)
+                            getReadings();
+                        return;
+                    }
                     if (request !== latestRequest)
                         return;
                     noConnection.value = disconnected;
@@ -422,20 +445,51 @@ export const useReadings = defineStore('readings', () => {
         if (Date.now() - cacheVersionReceivedAt > ASK_VERSION_AGAIN_AFTER)
             cacheVersionRequest = null;
         fetchCacheVersionInfo().then(async (cacheInfo) => {
-            const refresh = refreshSavedReadings(cacheInfo, reconnected);
-            // The day could not be shown: ask for it again now
-            if (error.value && navigator.onLine !== false)
-                getReadings();
-            await refresh;
+            await refreshSavedReadings(cacheInfo, reconnected);
             if (cacheInfo)
                 loadSynaxCache(cacheInfo);
         });
     }
+
+    // The day could not be shown: it is asked for again when the connection may
+    // be back, on every page. While the device is said to be offline, that
+    // request keeps saying so until the readings arrive (see getReadings).
+    function askForTheDayAgain() {
+        if (error.value && !loading.value && navigator.onLine !== false && document.visibilityState === 'visible')
+            getReadings();
+    }
+
+    // Whether the browser says, within ms, that the connection is back
+    function connectionBackWithin(ms: number): Promise<boolean> {
+        return new Promise((resolve) => {
+            const back = () => {
+                clearTimeout(timer);
+                resolve(true);
+            };
+            const timer = setTimeout(() => {
+                window.removeEventListener('online', back);
+                resolve(false);
+            }, ms);
+            window.addEventListener('online', back, { once: true });
+        });
+    }
+
     if (!import.meta.env.SSR) {
-        window.addEventListener('online', () => lookAtPublishedFileAgain(true));
+        window.addEventListener('online', () => {
+            lookAtPublishedFileAgain(true);
+            askForTheDayAgain();
+        });
         document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible')
+            if (document.visibilityState === 'visible') {
                 lookAtPublishedFileAgain(false);
+                askForTheDayAgain();
+            }
+        });
+        // A network without internet: the browser will not say when it gets it back
+        let offlineRetry: ReturnType<typeof setInterval> | undefined;
+        watch(() => error.value && noConnection.value, (offline) => {
+            clearInterval(offlineRetry);
+            offlineRetry = offline ? setInterval(askForTheDayAgain, OFFLINE_RETRY_EVERY) : undefined;
         });
     }
 
@@ -522,6 +576,9 @@ export const useReadings = defineStore('readings', () => {
         periodInfo.value = reading.periodInfo;
         sections.value = reading.sections;
         title.value = reading.title;
+        // Something is shown: no error, nor "Offline", to say
+        error.value = false;
+        noConnection.value = false;
     }
 
     function changeBible(id: number) {

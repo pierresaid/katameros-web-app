@@ -35,7 +35,7 @@
     },
     "error": {
         "loadingReadings": "Fehler beim Laden der Lesungen",
-        "noConnection": "Keine Internetverbindung"
+        "noConnection": "Offline"
     },
     "reload": "Neu laden",
     "zoom": "Zoom",

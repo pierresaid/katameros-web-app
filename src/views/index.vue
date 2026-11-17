@@ -4,6 +4,7 @@ import ReadingSections from '../components/readings/reading-sections.vue';
 import DatePickerDialog from '../components/date-picker-dialog.vue';
 import { computed } from '@vue/reactivity';
 import CopticCrossOutline from '../components/coptic-cross-outline.vue';
+import OfflineBar from '../components/offline-bar.vue';
 import { useReadings } from '@/store/readings';
 import { getCopticMonth } from '@/helpers/copticMonth';
 import { useMenu } from '@/store/menu';
@@ -76,14 +77,17 @@ function setDate(inc: number) {
     </div>
     <ReadingSections />
 
-    <v-snackbar v-model="readings.error" color="red" :timeout="-1">
-        {{ $t(readings.noConnection ? 'error.noConnection' : 'error.loadingReadings') }}
+    <!-- The service failed: the red bar. The device is offline: a quiet pill,
+         after a moment (see OFFLINE_DELAY in the store) -->
+    <v-snackbar :model-value="readings.error && !readings.noConnection" color="red" :timeout="-1">
+        {{ $t('error.loadingReadings') }}
         <template v-slot:actions>
             <v-btn variant="elevated" size="small" class="reload-btn" @click="readings.getReadings">
                 {{ $t('reload') }}
             </v-btn>
         </template>
     </v-snackbar>
+    <OfflineBar :show="readings.error && readings.noConnection" />
 </template>
 
 <style>

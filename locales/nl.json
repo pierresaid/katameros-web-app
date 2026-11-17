@@ -35,7 +35,7 @@
     },
     "error": {
         "loadingReadings": "Fout bij het laden van de lezingen",
-        "noConnection": "Geen internetverbinding"
+        "noConnection": "Offline"
     },
     "reload": "Herladen",
     "zoom": "Zoom",
