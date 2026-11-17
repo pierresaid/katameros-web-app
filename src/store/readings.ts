@@ -261,18 +261,18 @@ export const useReadings = defineStore('readings', () => {
                         return;
                     // A connection lost for a moment is not said: the skeleton stays
                     // up to OFFLINE_DELAY. If the browser says the connection is back
-                    // meanwhile, the day is asked for again at once, as new. Otherwise
-                    // a last try at the end, as the connection may be back without the
-                    // browser noticing (Wi-Fi or mobile data changing hands); not when
-                    // the browser knows it is offline: that try could only fail.
+                    // meanwhile, or the readings file has just been saved (the day may
+                    // be in it), the day is asked for again at once, as new. Otherwise
+                    // a last try at the end: the connection may be back without the
+                    // browser noticing (Wi-Fi or mobile data changing hands), and the
+                    // file, still being saved, may hold the day by then. Offline, that
+                    // try costs nothing: the API call fails at once.
                     if (disconnected && !error.value && !lastTry) {
-                        const back = await connectionBackWithin(OFFLINE_DELAY);
+                        const changed = await backOrSavedWithin(OFFLINE_DELAY, refresh);
                         if (request !== latestRequest)
                             return;
-                        if (back || navigator.onLine !== false) {
-                            readDay(!back);
-                            return;
-                        }
+                        readDay(!changed);
+                        return;
                     }
                     noConnection.value = disconnected;
                     error.value = true;
@@ -471,18 +471,22 @@ export const useReadings = defineStore('readings', () => {
             getReadings();
     }
 
-    // Whether the browser says, within ms, that the connection is back
-    function connectionBackWithin(ms: number): Promise<boolean> {
+    // Whether, within ms, the browser says the connection is back or the
+    // readings file has just been saved
+    function backOrSavedWithin(ms: number, refresh: Promise<SavedReadings> | null): Promise<boolean> {
         return new Promise((resolve) => {
-            const back = () => {
+            const end = (changed: boolean) => {
                 clearTimeout(timer);
-                resolve(true);
-            };
-            const timer = setTimeout(() => {
                 window.removeEventListener('online', back);
-                resolve(false);
-            }, ms);
-            window.addEventListener('online', back, { once: true });
+                resolve(changed);
+            };
+            const back = () => end(true);
+            const timer = setTimeout(() => end(false), ms);
+            window.addEventListener('online', back);
+            refresh?.then((saved) => {
+                if (saved === 'updated')
+                    end(true);
+            });
         });
     }
 
