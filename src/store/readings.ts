@@ -40,9 +40,9 @@ const RETRY_STORAGE_AFTER = 24 * HOUR;
 // long, it asks again whether a new file was published
 const ASK_VERSION_AGAIN_AFTER = HOUR;
 // A connection lost for a moment is not said: when the day cannot be asked for,
-// the skeleton stays this long before "Offline" shows, and the day is asked for
-// again at once if the connection comes back meanwhile
-const OFFLINE_DELAY = 3000;
+// the skeleton stays this long, the day is asked for once more, and only then
+// does "Offline" show (see readDay)
+const OFFLINE_DELAY = 5000;
 // The browser does not say when a network without internet gets it back: while
 // the device is said to be offline, the day is asked for again this often
 const OFFLINE_RETRY_EVERY = 10 * 1000;
@@ -161,7 +161,13 @@ export const useReadings = defineStore('readings', () => {
     // previous day, language or Bible) can be answered last
     let latestRequest = 0;
 
-    async function getReadings() {
+    function getReadings() {
+        return readDay(false);
+    }
+
+    // lastTry: the day asked for once more at the end of OFFLINE_DELAY, after a
+    // request that failed for lack of a connection: if it fails too, "Offline" shows at once
+    async function readDay(lastTry: boolean) {
         const request = ++latestRequest;
         requested = true;
         fetchSecondLanguageReadings()
@@ -254,14 +260,20 @@ export const useReadings = defineStore('readings', () => {
                     if (request !== latestRequest)
                         return;
                     // A connection lost for a moment is not said: the skeleton stays
-                    // a little, and the day is asked for again if the connection comes back
-                    if (disconnected && !error.value && await connectionBackWithin(OFFLINE_DELAY)) {
-                        if (request === latestRequest)
-                            getReadings();
-                        return;
+                    // up to OFFLINE_DELAY. If the browser says the connection is back
+                    // meanwhile, the day is asked for again at once, as new. Otherwise
+                    // a last try at the end, as the connection may be back without the
+                    // browser noticing (Wi-Fi or mobile data changing hands); not when
+                    // the browser knows it is offline: that try could only fail.
+                    if (disconnected && !error.value && !lastTry) {
+                        const back = await connectionBackWithin(OFFLINE_DELAY);
+                        if (request !== latestRequest)
+                            return;
+                        if (back || navigator.onLine !== false) {
+                            readDay(!back);
+                            return;
+                        }
                     }
-                    if (request !== latestRequest)
-                        return;
                     noConnection.value = disconnected;
                     error.value = true;
                 }
