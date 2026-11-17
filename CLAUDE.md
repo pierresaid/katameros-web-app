@@ -137,6 +137,7 @@ The API uses date format `dd-MM-yyyy` (e.g., `24-12-2025`).
 - **App ID:** `com.dcoanbamarc.katamerosmobile`
 - **Web directory:** `dist/`
 - **Platforms:** iOS (`ios/`), Android (`android/`)
+- **Languages on iOS:** `ios/App/App/Info.plist` declares the app's eight languages (`CFBundleLocalizations`, keep it in step with `SUPPORTED_LANGS`). The App Store lists the app's languages from it (English only until 5.2), and iOS draws its own menus in the app (text selection, share sheet) in the phone's language when it is one of them.
 
 ## Hosting (Cloudflare Workers static assets)
 
